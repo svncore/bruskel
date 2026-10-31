@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Avalonia;
 using Pinta.Core;
 using Pintora.Avalonia.Document;
@@ -8,11 +9,26 @@ namespace Pintora.Avalonia.Canvas;
 
 internal sealed class SelectionTool : ICanvasTool
 {
-	public CanvasHost.CanvasTool Kind => CanvasHost.CanvasTool.Selection;
+	public CanvasHost.CanvasTool Kind { get; private set; }
+
+	public SelectionTool (CanvasHost.CanvasTool kind = CanvasHost.CanvasTool.Selection) => Kind = kind;
+
+	internal void SetSelectionKind (CanvasHost.CanvasTool kind)
+	{
+		if (kind is CanvasHost.CanvasTool.Selection or CanvasHost.CanvasTool.EllipseSelect or CanvasHost.CanvasTool.LassoSelect)
+			Kind = kind;
+	}
+
+	private bool IsEllipse => Kind == CanvasHost.CanvasTool.EllipseSelect;
+	private bool IsLasso => Kind == CanvasHost.CanvasTool.LassoSelect;
+
 	private ColorBgra[]? clipboard;
 	private Pinta.Core.Size clipboardSize;
 	private PointD? dragStart;
 	private PointD? dragEnd;
+	private bool square_drag;
+	private SelectionCombineMode combine_mode = SelectionCombineMode.Replace;
+	private readonly List<PointD> lasso_points = new ();
 	private RectangleI? rectangleSelection;
 	/// <summary>Bounding box of the active selection (rectangle or mask).</summary>
 	public RectangleI? Selection => SelectionMask is not null ? maskBounds : rectangleSelection;
@@ -26,8 +42,20 @@ internal sealed class SelectionTool : ICanvasTool
 
 	public bool PointerPressed (CanvasToolPointerContext context)
 	{
-		BeginSelection (context.Point);
+		combine_mode = DetermineCombineMode (context);
+		BeginSelection (context.Point, context.ShiftPressed);
 		return true;
+	}
+
+	private static SelectionCombineMode DetermineCombineMode (CanvasToolPointerContext context)
+	{
+		if (context.IsRightButton)
+			return context.ControlPressed ? SelectionCombineMode.Xor : SelectionCombineMode.Subtract;
+		if (context.ControlPressed)
+			return SelectionCombineMode.Add;
+		if (context.AltPressed)
+			return SelectionCombineMode.Intersect;
+		return SelectionCombineMode.Replace;
 	}
 
 	public bool PointerMoved (CanvasToolPointerContext context)
@@ -50,15 +78,21 @@ internal sealed class SelectionTool : ICanvasTool
 
 	public void CancelPointerAction () => CancelSelection ();
 
-	public void BeginSelection (PointD point)
+	public void BeginSelection (PointD point, bool square = false)
 	{
 		dragStart = dragEnd = point;
+		square_drag = square && !IsLasso;
+		lasso_points.Clear ();
+		lasso_points.Add (point);
 	}
 
 	public void UpdateSelection (PointD point)
 	{
-		if (IsSelecting)
-			dragEnd = point;
+		if (!IsSelecting)
+			return;
+		dragEnd = point;
+		if (IsLasso)
+			lasso_points.Add (point);
 	}
 
 	public bool CompleteSelection (Pinta.Core.Size imageSize)
@@ -66,6 +100,16 @@ internal sealed class SelectionTool : ICanvasTool
 		if (dragStart is not PointD start || dragEnd is not PointD end)
 			return false;
 		dragStart = dragEnd = null;
+		if (IsLasso)
+			return CompleteLasso (imageSize);
+		if (square_drag) {
+			// Shift forces a square: anchor at the drag origin and expand both
+			// axes to the larger extent, preserving the drag direction.
+			double side = Math.Max (Math.Abs (end.X - start.X), Math.Abs (end.Y - start.Y));
+			end = new PointD (
+				start.X + side * Math.Sign (end.X - start.X),
+				start.Y + side * Math.Sign (end.Y - start.Y));
+		}
 		// Pointer coordinates describe the edges of the dragged rectangle in
 		// image space. Convert those edges to pixel bounds instead of rounding
 		// each endpoint independently; rounding makes the selection jump at
@@ -74,12 +118,68 @@ internal sealed class SelectionTool : ICanvasTool
 		double top = Math.Min (start.Y, end.Y);
 		double right = Math.Max (start.X, end.X);
 		double bottom = Math.Max (start.Y, end.Y);
-		return SelectRectangle (
-			new PointI ((int) Math.Floor (left), (int) Math.Floor (top)),
-			new PointI ((int) Math.Ceiling (right), (int) Math.Ceiling (bottom)), imageSize);
+		if (IsEllipse) {
+			var pixelBounds = new RectangleI ((int) Math.Floor (left), (int) Math.Floor (top),
+				(int) Math.Ceiling (right) - (int) Math.Floor (left), (int) Math.Ceiling (bottom) - (int) Math.Floor (top));
+			bool[] mask = FloodStencil.FromEllipse (pixelBounds, imageSize.Width, imageSize.Height);
+			if (FloodStencil.GetBounds (mask, imageSize.Width, imageSize.Height) is not RectangleI bounds)
+				return false;
+			if (combine_mode == SelectionCombineMode.Replace) {
+				SelectionMask = mask;
+				maskBounds = bounds;
+				rectangleSelection = null;
+			} else if (!ApplyMask (mask, imageSize.Width, imageSize.Height, combine_mode)) {
+				return false;
+			}
+			Annotation = new SelectionAnnotation {
+				Bounds = new Rect (pixelBounds.X, pixelBounds.Y, pixelBounds.Width, pixelBounds.Height),
+				Kind = SelectionAnnotationKind.Ellipse,
+				CombineMode = Pinta.Core.SelectionCombineMode.Replace
+			};
+			return true;
+		}
+		PointI selectionStart = new ((int) Math.Floor (left), (int) Math.Floor (top));
+		PointI selectionEnd = new ((int) Math.Ceiling (right), (int) Math.Ceiling (bottom));
+		if (combine_mode == SelectionCombineMode.Replace)
+			return SelectRectangle (selectionStart, selectionEnd, imageSize);
+		RectangleI requested = RectangleI.FromPoints (selectionStart, selectionEnd);
+		int x = Math.Clamp (requested.X, 0, imageSize.Width);
+		int y = Math.Clamp (requested.Y, 0, imageSize.Height);
+		int rightEdge = Math.Clamp (requested.X + requested.Width, 0, imageSize.Width);
+		int bottomEdge = Math.Clamp (requested.Y + requested.Height, 0, imageSize.Height);
+		if (rightEdge <= x || bottomEdge <= y)
+			return false;
+		return ApplyMask (FloodStencil.FromRectangle (new RectangleI (x, y, rightEdge - x, bottomEdge - y), imageSize.Width, imageSize.Height),
+			imageSize.Width, imageSize.Height, combine_mode);
 	}
 
-	public void CancelSelection () => dragStart = dragEnd = null;
+	private bool CompleteLasso (Pinta.Core.Size imageSize)
+	{
+		var points = new List<PointD> (lasso_points);
+		lasso_points.Clear ();
+		bool[] mask = FloodStencil.FromPolygon (points, imageSize.Width, imageSize.Height);
+		if (FloodStencil.GetBounds (mask, imageSize.Width, imageSize.Height) is not RectangleI bounds)
+			return false;
+		if (combine_mode == SelectionCombineMode.Replace) {
+			SelectionMask = mask;
+			maskBounds = bounds;
+			rectangleSelection = null;
+		} else if (!ApplyMask (mask, imageSize.Width, imageSize.Height, combine_mode)) {
+			return false;
+		}
+		Annotation = new SelectionAnnotation {
+			Bounds = new Rect (bounds.X, bounds.Y, bounds.Width, bounds.Height),
+			Kind = SelectionAnnotationKind.Freeform,
+			CombineMode = Pinta.Core.SelectionCombineMode.Replace
+		};
+		return true;
+	}
+
+	public void CancelSelection ()
+	{
+		dragStart = dragEnd = null;
+		lasso_points.Clear ();
+	}
 
 	public bool SelectRectangle (PointI start, PointI end, Pinta.Core.Size imageSize)
 	{
@@ -105,6 +205,48 @@ internal sealed class SelectionTool : ICanvasTool
 	}
 
 	public void Clear () { rectangleSelection = null; SelectionMask = null; Annotation = null; }
+
+	/// <summary>
+	/// Moves the selection outline (rectangle or mask) without touching pixels —
+	/// the Move Selection tool behavior. Pixels are moved separately via
+	/// <see cref="Move"/>.
+	/// </summary>
+	public bool Translate (PointI delta, Pinta.Core.Size imageSize)
+	{
+		if ((delta.X == 0 && delta.Y == 0) || Selection is null)
+			return false;
+		if (SelectionMask is { } mask) {
+			bool[] shifted = new bool[mask.Length];
+			for (int y = 0; y < imageSize.Height; y++) {
+				int sourceY = y - delta.Y;
+				if ((uint) sourceY >= (uint) imageSize.Height)
+					continue;
+				for (int x = 0; x < imageSize.Width; x++) {
+					int sourceX = x - delta.X;
+					if ((uint) sourceX < (uint) imageSize.Width && mask[sourceY * imageSize.Width + sourceX])
+						shifted[y * imageSize.Width + x] = true;
+				}
+			}
+			SelectionMask = shifted;
+			if (FloodStencil.GetBounds (shifted, imageSize.Width, imageSize.Height) is not RectangleI bounds) {
+				Clear ();
+				return false;
+			}
+			maskBounds = bounds;
+		} else if (rectangleSelection is RectangleI rect) {
+			int maxX = Math.Max (0, imageSize.Width - rect.Width);
+			int maxY = Math.Max (0, imageSize.Height - rect.Height);
+			rectangleSelection = new RectangleI (
+				Math.Clamp (rect.X + delta.X, 0, maxX),
+				Math.Clamp (rect.Y + delta.Y, 0, maxY),
+				rect.Width, rect.Height);
+		} else {
+			return false;
+		}
+		if (Annotation is not null && Selection is RectangleI area)
+			Annotation = Annotation with { Bounds = new Rect (area.X, area.Y, area.Width, area.Height) };
+		return true;
+	}
 
 	/// <summary>
 	/// Applies a pixel mask as the selection, combining with the current selection

@@ -109,7 +109,7 @@ internal sealed class ShapeTool : ICanvasTool
 		if (IsEditing)
 			UpdateEdit (context.Point, context.ShiftPressed);
 		else if (IsCreating)
-			UpdateCreation (context.Point);
+			UpdateCreation (context.Point, context.ShiftPressed, context.AltPressed);
 		else
 			return false;
 		context.Host.InvalidateToolVisual ();
@@ -215,10 +215,30 @@ internal sealed class ShapeTool : ICanvasTool
 		return BeginCreate (point, surface, kind, outline, fill, fillStyle, width, dash, cornerRadius, antialias);
 	}
 
-	public void UpdateCreation (PointD point)
+	public void UpdateCreation (PointD point, bool constrainAspect = false, bool fromCenter = false)
 	{
-		if (IsCreating)
-			creationEnd = point;
+		if (!IsCreating)
+			return;
+		PointD anchor = creationStart;
+		PointD start = anchor;
+		PointD end = point;
+		if (fromCenter) {
+			PointD delta = new (point.X - anchor.X, point.Y - anchor.Y);
+			start = new PointD (anchor.X - delta.X, anchor.Y - delta.Y);
+		}
+		if (constrainAspect && creationKind != CanvasHost.ShapeKind.Line) {
+			double side = Math.Max (Math.Abs (end.X - anchor.X), Math.Abs (end.Y - anchor.Y));
+			double directionX = Math.Sign (end.X - anchor.X);
+			double directionY = Math.Sign (end.Y - anchor.Y);
+			start = fromCenter
+				? new PointD (anchor.X - side * directionX, anchor.Y - side * directionY)
+				: anchor;
+			end = new PointD (
+				anchor.X + side * directionX,
+				anchor.Y + side * directionY);
+		}
+		creationStart = start;
+		creationEnd = end;
 	}
 
 	public void DrawCreationPreview (MemoryImageSurface preview)

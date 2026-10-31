@@ -21,4 +21,5 @@ internal readonly record struct CanvasToolPointerContext (
 	bool IsRightButton,
 	bool ShiftPressed,
 	bool ControlPressed = false,
-	bool AltPressed = false);
+	bool AltPressed = false,
+	double Pressure = 1.0);

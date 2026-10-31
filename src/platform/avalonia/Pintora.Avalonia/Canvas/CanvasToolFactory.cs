@@ -14,8 +14,14 @@ public static class CanvasToolFactory
 		new (CanvasHost.CanvasTool.Fill, "tool.fill", "Fill", "Fill"),
 		new (CanvasHost.CanvasTool.Recolor, "tool.recolor", "Recolor", "Paint"),
 		new (CanvasHost.CanvasTool.MagicWand, "tool.magic-wand", "Magic Wand", "Select"),
+		new (CanvasHost.CanvasTool.MoveSelectedPixels, "tool.move-pixels", "Move Selected Pixels", "Select"),
+		new (CanvasHost.CanvasTool.MoveSelection, "tool.move-selection", "Move Selection", "Select"),
+		new (CanvasHost.CanvasTool.EllipseSelect, "tool.ellipse-select", "Ellipse Select", "Select"),
+		new (CanvasHost.CanvasTool.LassoSelect, "tool.lasso-select", "Lasso Select", "Select"),
+		new (CanvasHost.CanvasTool.CloneStamp, "tool.clone-stamp", "Clone Stamp", "Paint"),
 		new (CanvasHost.CanvasTool.ColorPicker, "tool.color-picker", "Color Picker", "Colors"),
 		new (CanvasHost.CanvasTool.Zoom, "tool.zoom", "Zoom", "View", false),
+		new (CanvasHost.CanvasTool.Pan, "tool.pan", "Pan", "View", false),
 		new (CanvasHost.CanvasTool.Eraser, "tool.eraser", "Eraser", "Paint"),
 		new (CanvasHost.CanvasTool.Blur, "tool.blur", "Blur", "Effects"),
 		new (CanvasHost.CanvasTool.Pixelate, "tool.pixelate", "Pixelate", "Effects"),
@@ -26,8 +32,9 @@ public static class CanvasToolFactory
 
 	internal static CanvasToolSet CreateTools ()
 	{
+		var selection = new SelectionTool ();
 		ICanvasTool[] tools = [
-			new SelectionTool (),
+			selection,
 			new TextTool (),
 			new BrushTool (CanvasHost.CanvasTool.Brush),
 			new BrushTool (CanvasHost.CanvasTool.Pencil),
@@ -36,8 +43,12 @@ public static class CanvasToolFactory
 			new FillTool (),
 			new RecolorTool (),
 			new MagicWandTool (),
+		new MoveTool (CanvasHost.CanvasTool.MoveSelectedPixels),
+		new MoveTool (CanvasHost.CanvasTool.MoveSelection),
+			new CloneStampTool (),
 			new ColorPickerTool (),
 			new ZoomTool (),
+			new PanTool (),
 			new BrushTool (CanvasHost.CanvasTool.Eraser),
 			new EffectTool (CanvasHost.CanvasTool.Blur),
 			new EffectTool (CanvasHost.CanvasTool.Pixelate),
@@ -53,10 +64,21 @@ internal sealed class CanvasToolSet
 {
 	private readonly System.Collections.Generic.Dictionary<CanvasHost.CanvasTool, ICanvasTool> tools;
 	public CanvasToolSet (ICanvasTool[] toolInstances)
-		=> tools = toolInstances.ToDictionary (tool => tool.Kind);
+	{
+		tools = toolInstances.ToDictionary (tool => tool.Kind);
+		if (tools.TryGetValue (CanvasHost.CanvasTool.Selection, out ICanvasTool? selection)) {
+			tools[CanvasHost.CanvasTool.EllipseSelect] = selection;
+			tools[CanvasHost.CanvasTool.LassoSelect] = selection;
+		}
+	}
 
 	public T Get<T> (CanvasHost.CanvasTool kind) where T : class, ICanvasTool
-		=> tools[kind] as T ?? throw new System.InvalidOperationException ($"Tool {kind} has an unexpected controller type.");
+	{
+		if (tools[CanvasHost.CanvasTool.Selection] is SelectionTool selection
+			&& kind is CanvasHost.CanvasTool.Selection or CanvasHost.CanvasTool.EllipseSelect or CanvasHost.CanvasTool.LassoSelect)
+			selection.SetSelectionKind (kind);
+		return tools[kind] as T ?? throw new System.InvalidOperationException ($"Tool {kind} has an unexpected controller type.");
+	}
 
 	public BrushTool Brush (CanvasHost.CanvasTool kind) => Get<BrushTool> (kind);
 	public bool TryGetBrush (CanvasHost.CanvasTool kind, out BrushTool? brush)

@@ -279,18 +279,30 @@ public sealed class DocumentTabStrip : UserControl
 		void OnCanvasChanged (object? sender, EventArgs e) => RefreshThumbnail ();
 		void OnCanvasLayersChanged (object? sender, EventArgs e) => RefreshThumbnail ();
 		var close = new Button {
-			Content = "×",
-			Padding = new Thickness (4, 0),
-			Margin = new Thickness (6, 0, 0, 0),
+			Content = new PathIcon {
+				Data = StreamGeometry.Parse ("M5 6.4L6.4 5L12 10.6L17.6 5L19 6.4L13.4 12L19 17.6L17.6 19L12 13.4L6.4 19L5 17.6L10.6 12L5 6.4Z"),
+				Width = 11,
+				Height = 11
+			},
+			Width = 16,
+			Height = 16,
+			Padding = new Thickness (0),
+			Margin = new Thickness (4, 0, 0, 0),
 			Background = Brushes.Transparent,
 			BorderThickness = new Thickness (0),
 			VerticalAlignment = VerticalAlignment.Center,
+			HorizontalContentAlignment = HorizontalAlignment.Center,
+			VerticalContentAlignment = VerticalAlignment.Center,
 			Focusable = false,
 		};
 		close.Click += OnCloseClicked;
 		// Detach the handler when the header is recycled so a stale button
 		// cannot keep the strip (and its adapter) alive.
 		close.DetachedFromVisualTree += (_, _) => close.Click -= OnCloseClicked;
+
+		// Tabs are thumbnail-only: the document title lives in the tooltip,
+		// never as visible text in the strip.
+		thumbnail.Bind (ToolTip.TipProperty, new global::Avalonia.Data.Binding ("DataContext.DisplayTitle"));
 
 		var panel = new StackPanel { Orientation = Orientation.Horizontal };
 		panel.DataContextChanged += (_, _) => {

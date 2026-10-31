@@ -6,10 +6,20 @@ public interface IToolOptions { }
 
 public sealed class BrushToolOptions : IToolOptions
 {
-	public int Size { get; set; } = 1;
+	public double Size { get; set; } = 1;
+	public bool PressureEnabled { get; set; }
+	public BrushTipShape TipShape { get; set; } = BrushTipShape.Square;
+	public BrushPreset Preset { get; set; } = BrushPreset.Normal;
 	public double Opacity { get; set; } = 1;
 	public double Hardness { get; set; } = 1;
+	/// <summary>Tip spacing as a fraction of the brush width (Paint.NET: percent of width).</summary>
+	public double Spacing { get; set; } = 0.25;
+	/// <summary>Input smoothing 0 (off, follow pointer) .. 1 (heavily smoothed).</summary>
+	public double Smoothing { get; set; } = 0.5;
 }
+
+public enum BrushTipShape { Round, Square }
+public enum BrushPreset { Normal, Circles, Grid, Splatter, Slash, Squares }
 
 public sealed record EffectToolOptions : IToolOptions
 {

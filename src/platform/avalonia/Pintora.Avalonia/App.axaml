@@ -128,5 +128,31 @@
     <Style Selector="Slider">
       <Setter Property="Foreground" Value="{DynamicResource Pintora.Accent}" />
     </Style>
+    <Style Selector="StackPanel.toolbar-options Button">
+      <Setter Property="Height" Value="30" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+    </Style>
+    <Style Selector="StackPanel.toolbar-options ComboBox">
+      <Setter Property="Height" Value="30" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style Selector="StackPanel.toolbar-options NumericUpDown">
+      <Setter Property="Height" Value="30" />
+      <Setter Property="MinWidth" Value="64" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style Selector="StackPanel.toolbar-options NumericUpDown /template/ ButtonSpinner /template/ RepeatButton">
+      <Setter Property="Width" Value="18" />
+      <Setter Property="MinWidth" Value="18" />
+      <Setter Property="Padding" Value="2" />
+    </Style>
+    <Style Selector="StackPanel.toolbar-options TextBox">
+      <Setter Property="Height" Value="30" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style Selector="StackPanel.toolbar-options Slider">
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
   </Application.Styles>
 </Application>
