@@ -1643,6 +1643,21 @@ public sealed class MainWindow : Window
 				var preset = new ComboBox { ItemsSource = new[] { "Normal", "Circles", "Grid", "Splatter", "Slash", "Squares" }, SelectedIndex = (int) canvas.BrushPreset, MinWidth = 105 };
 				preset.SelectionChanged += (_, _) => { if (preset.SelectedIndex >= 0) canvas.BrushPreset = (BrushPreset) preset.SelectedIndex; };
 				tool_options.Children.Add (preset);
+				var splatter_min = new NumericUpDown { Minimum = 1, Maximum = 10000, Value = canvas.BrushSplatterMinSize, Width = 64, IsVisible = canvas.BrushPreset == BrushPreset.Splatter };
+				var splatter_max = new NumericUpDown { Minimum = 1, Maximum = 10000, Value = canvas.BrushSplatterMaxSize, Width = 64, IsVisible = canvas.BrushPreset == BrushPreset.Splatter };
+				var slash_angle = new NumericUpDown { Minimum = 0, Maximum = 180, Value = canvas.BrushSlashAngle, Width = 64, IsVisible = canvas.BrushPreset == BrushPreset.Slash };
+				splatter_min.ValueChanged += (_, args) => canvas.BrushSplatterMinSize = (int) (args.NewValue ?? 5);
+				splatter_max.ValueChanged += (_, args) => canvas.BrushSplatterMaxSize = (int) (args.NewValue ?? 10);
+				slash_angle.ValueChanged += (_, args) => canvas.BrushSlashAngle = (int) (args.NewValue ?? 45);
+				tool_options.Children.Add (splatter_min);
+				tool_options.Children.Add (splatter_max);
+				tool_options.Children.Add (slash_angle);
+				preset.SelectionChanged += (_, _) => {
+					BrushPreset selected = canvas.BrushPreset;
+					splatter_min.IsVisible = selected == BrushPreset.Splatter;
+					splatter_max.IsVisible = selected == BrushPreset.Splatter;
+					slash_angle.IsVisible = selected == BrushPreset.Slash;
+				};
 				var pressure = new CheckBox { Content = "Pressure", IsChecked = canvas.BrushPressureEnabled, VerticalAlignment = VerticalAlignment.Center };
 				pressure.IsCheckedChanged += (_, _) => canvas.BrushPressureEnabled = pressure.IsChecked == true;
 				tool_options.Children.Add (pressure);

@@ -500,6 +500,22 @@ internal sealed class CanvasPaintingTests
 	}
 
 	[Test]
+	public void ZoomAtKeepsPointAfterExistingPan ()
+	{
+		CanvasHost canvas = new (new Pinta.Core.Size (100, 100)) { Width = 300, Height = 300 };
+		canvas.PanBy (new global::Avalonia.Vector (35, -20));
+		global::Avalonia.Point viewPoint = new (170, 120);
+		global::Avalonia.Point origin = canvas.CanvasOrigin;
+		PointD imagePoint = new ((viewPoint.X - origin.X) / canvas.Scale, (viewPoint.Y - origin.Y) / canvas.Scale);
+
+		canvas.ZoomAt (viewPoint, 2);
+
+		global::Avalonia.Point after = canvas.CanvasOrigin;
+		Assert.That (after.X + imagePoint.X * canvas.Scale, Is.EqualTo (viewPoint.X).Within (0.001));
+		Assert.That (after.Y + imagePoint.Y * canvas.Scale, Is.EqualTo (viewPoint.Y).Within (0.001));
+	}
+
+	[Test]
 	public void PaintCanvasPointIgnoresOutsidePixels ()
 	{
 		using MemoryImageSurface surface = new (4, 4);

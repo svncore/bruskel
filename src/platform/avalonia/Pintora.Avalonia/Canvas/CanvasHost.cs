@@ -733,6 +733,9 @@ public sealed class CanvasHost : Control, IDisposable
 		get => brush_options.Preset;
 		set => brush_options.Preset = value;
 	}
+	public int BrushSplatterMinSize { get => brush_options.SplatterMinSize; set => brush_options.SplatterMinSize = Math.Clamp (value, 1, 10000); }
+	public int BrushSplatterMaxSize { get => brush_options.SplatterMaxSize; set => brush_options.SplatterMaxSize = Math.Clamp (value, 1, 10000); }
+	public int BrushSlashAngle { get => brush_options.SlashAngle; set => brush_options.SlashAngle = Math.Clamp (value, 0, 180); }
 	public BrushToolOptions GetBrushToolOptions () => brush_options;
 	public event EventHandler? BrushSizeChanged;
 	public event EventHandler? ToolOptionsChanged;
@@ -1344,9 +1347,29 @@ public sealed class CanvasHost : Control, IDisposable
 	public void ZoomAt (Point viewPoint, double factor)
 	{
 		Point oldOrigin = GetCanvasOrigin ();
-		ZoomTool.ZoomResult result = zoom_tool.Calculate (viewPoint, factor, Scale, oldOrigin, GetCenteredCanvasOrigin (), session.Viewport);
-		SetScale (result.Scale);
-		viewport_offset = result.Offset;
+		PointD canvasPoint = new ((viewPoint.X - oldOrigin.X) / Math.Max (Scale, 0.0001),
+			(viewPoint.Y - oldOrigin.Y) / Math.Max (Scale, 0.0001));
+		double nextScale = Math.Clamp (Scale * factor, 0.1, 32);
+		SetScale (nextScale);
+		Point centered = GetCenteredCanvasOrigin ();
+		viewport_offset = new Vector (viewPoint.X - centered.X - canvasPoint.X * nextScale,
+			viewPoint.Y - centered.Y - canvasPoint.Y * nextScale);
+		InvalidateVisual ();
+	}
+
+	public void ZoomToCanvasRectangle (PointD from, PointD to)
+	{
+		double width = Math.Abs (to.X - from.X), height = Math.Abs (to.Y - from.Y);
+		if (width < 1 || height < 1)
+			return;
+		double hostWidth = Bounds.Width > 0 ? Bounds.Width : Width;
+		double hostHeight = Bounds.Height > 0 ? Bounds.Height : Height;
+		double nextScale = Math.Clamp (Math.Min (hostWidth / width, hostHeight / height), 0.1, 32);
+		SetScale (nextScale);
+		Point centered = GetCenteredCanvasOrigin ();
+		PointD center = new ((from.X + to.X) / 2, (from.Y + to.Y) / 2);
+		viewport_offset = new Vector (hostWidth / 2 - centered.X - center.X * nextScale,
+			hostHeight / 2 - centered.Y - center.Y * nextScale);
 		InvalidateVisual ();
 	}
 
@@ -2336,6 +2359,12 @@ public sealed class CanvasHost : Control, IDisposable
 		}
 		if (ActiveTool == CanvasTool.Shapes && shape_tool.SelectedShape is ShapeTool.ShapeState selectedShape && !shape_tool.IsEditing)
 			shape_tool.DrawHandles (context, origin, Scale, selectedShape.Kind, selectedShape.From, selectedShape.To, selectedShape.Rotation);
+		if (ActiveTool == CanvasTool.Zoom && zoom_tool.IsDragging && zoom_tool.DragStart is Point zoomStart && pointer_position is PointD zoomCurrent) {
+			Point zoomEnd = GetCoordinateMapper ().CanvasToView (zoomCurrent);
+			var zoomRect = new Rect (zoomStart, zoomEnd).Normalize ();
+			context.FillRectangle (new SolidColorBrush (Color.FromArgb (45, 80, 140, 255)), zoomRect);
+			context.DrawRectangle (new Pen (Brushes.DodgerBlue, 1), zoomRect);
+		}
 
 	}
 
@@ -2544,16 +2573,11 @@ public sealed class CanvasHost : Control, IDisposable
 			(e.KeyModifiers & KeyModifiers.Control) != 0, (e.KeyModifiers & KeyModifiers.Alt) != 0,
 			properties.Pressure);
 		bool handled = tool_set.Get<ICanvasTool> (ActiveTool).PointerPressed (context);
-		if (ActiveTool is CanvasTool.Zoom or CanvasTool.Pan) {
-			e.Pointer.Capture (null);
-			e.Handled = handled;
-			return;
-		}
 		if (ActiveTool is CanvasTool.Selection or CanvasTool.Shapes or CanvasTool.Gradient
 				or CanvasTool.Brush or CanvasTool.Pencil or CanvasTool.Eraser or CanvasTool.Text or CanvasTool.Blur
 			or CanvasTool.Pixelate or CanvasTool.Highlight or CanvasTool.Magnify or CanvasTool.Spotlight or CanvasTool.Recolor
 			or CanvasTool.MoveSelectedPixels or CanvasTool.MoveSelection or CanvasTool.EllipseSelect or CanvasTool.LassoSelect
-			or CanvasTool.CloneStamp) {
+			or CanvasTool.CloneStamp or CanvasTool.Zoom) {
 			is_painting = handled;
 			pointer_action_tool = handled ? ActiveTool : null;
 		}

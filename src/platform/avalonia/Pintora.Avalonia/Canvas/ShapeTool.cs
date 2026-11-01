@@ -99,7 +99,7 @@ internal sealed class ShapeTool : ICanvasTool
 			? host.Layers[host.ActiveLayerIndex] : null;
 		return BeginPointerAction (context.Point, layer, host.Surface as MemoryImageSurface,
 			host.SelectedShape, context.Color,
-			context.IsRightButton ? host.BrushColor : host.SecondaryBrushColor,
+			context.IsRightButton ? host.SecondaryBrushColor : host.BrushColor,
 			host.FillStyle, host.ShapeOutlineWidth, host.DashStyle,
 			host.ShapeCornerRadius, host.ShapeAntialias, host.BeginStroke);
 	}
@@ -400,7 +400,7 @@ internal sealed class ShapeTool : ICanvasTool
 		beginStroke ();
 		shape.BasePixels.AsSpan ().CopyTo (surface.GetPixelData ());
 		Annotation? previousAnnotation = shape.Annotation;
-		shape.Rotation += deltaRadians;
+		shape.Rotation += deltaRadians * 180 / Math.PI;
 		SyncAnnotation (shape);
 		if (shape.Annotation is not null)
 			AnnotationRenderer.Render (surface, shape.Annotation);

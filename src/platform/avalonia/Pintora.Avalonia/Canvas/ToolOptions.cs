@@ -10,6 +10,9 @@ public sealed class BrushToolOptions : IToolOptions
 	public bool PressureEnabled { get; set; }
 	public BrushTipShape TipShape { get; set; } = BrushTipShape.Square;
 	public BrushPreset Preset { get; set; } = BrushPreset.Normal;
+	public int SplatterMinSize { get; set; } = 5;
+	public int SplatterMaxSize { get; set; } = 10;
+	public int SlashAngle { get; set; } = 45;
 	public double Opacity { get; set; } = 1;
 	public double Hardness { get; set; } = 1;
 	/// <summary>Tip spacing as a fraction of the brush width (Paint.NET: percent of width).</summary>

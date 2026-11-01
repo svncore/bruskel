@@ -14,6 +14,7 @@ internal sealed class BrushTool : ICanvasTool
 	private double spacing_accum;
 	private PointD? smooth_point;
 	private readonly Random random = new (17);
+	private int splatter_min = 5, splatter_max = 10, slash_angle = 45;
 
 	/// <summary>
 	/// Input-smoothing step: pulls the raw pointer position towards the
@@ -33,6 +34,9 @@ internal sealed class BrushTool : ICanvasTool
 	public bool PointerPressed (CanvasToolPointerContext context)
 	{
 		CanvasHost host = context.Host;
+		splatter_min = host.BrushSplatterMinSize;
+		splatter_max = host.BrushSplatterMaxSize;
+		slash_angle = host.BrushSlashAngle;
 		double size = EffectiveSize (host, context.Pressure);
 		if (!BeginStroke (host.Surface, context.Point, context.Color, size,
 			host.BrushOpacity, host.BrushHardness, host.IsActiveLayerLocked, host.BeginStroke, host.BrushTipShape, host.BrushPreset))
@@ -133,7 +137,7 @@ internal sealed class BrushTool : ICanvasTool
 		=> DrawPoint (surface, point, color, (double) size, opacity, hardness, erase, BrushTipShape.Square);
 
 	public bool DrawPoint (IImageSurface? surface, PointD point, ColorBgra color, double size,
-		double opacity, double hardness, bool erase, BrushTipShape tipShape = BrushTipShape.Round, BrushPreset preset = BrushPreset.Normal)
+		double opacity, double hardness, bool erase, BrushTipShape tipShape = BrushTipShape.Round, BrushPreset preset = BrushPreset.Normal, double tipAngle = 0)
 	{
 		if (surface is null)
 			return false;
@@ -150,8 +154,13 @@ internal sealed class BrushTool : ICanvasTool
 			for (int x = minX; x <= maxX; x++)
 				if ((uint) x < surface.Width && (uint) y < surface.Height) {
 					ColorBgra painted = erase ? ColorBgra.Zero : color;
+					double radians = -tipAngle * Math.PI / 180;
+					double rotatedX = (x - centerX) * Math.Cos (radians) - (y - centerY) * Math.Sin (radians);
+					double rotatedY = (x - centerX) * Math.Sin (radians) + (y - centerY) * Math.Cos (radians);
 					if (tipShape == BrushTipShape.Round && radius > 0 &&
 						Math.Sqrt ((x - centerX) * (x - centerX) + (y - centerY) * (y - centerY)) > radius)
+						continue;
+					if (tipShape == BrushTipShape.Square && (Math.Abs (rotatedX) > radius || Math.Abs (rotatedY) > radius))
 						continue;
 					if (color.A > 0 && hardness < 1 && radius > 0) {
 						double edge = Math.Sqrt ((x - centerX) * (x - centerX) + (y - centerY) * (y - centerY)) / radius;
@@ -174,11 +183,14 @@ internal sealed class BrushTool : ICanvasTool
 				BrushPreset.Grid => new ((i % 3 - 1) * size, (i / 3 - 1) * size),
 				_ => PointD.Zero
 			};
-			double stampSize = preset == BrushPreset.Splatter ? Math.Max (1, size * (0.2 + random.NextDouble () * 0.5)) : size;
+			double stampSize = preset == BrushPreset.Splatter
+				? Math.Clamp (splatter_min + random.Next (Math.Max (1, splatter_max - splatter_min + 1)), 1, 10000)
+				: size;
 			if (preset == BrushPreset.Circles)
 				stampSize = Math.Max (1, size * (0.35 + i * 0.2));
 			DrawPoint (surface, point + offset, color, stampSize, opacity * (preset == BrushPreset.Splatter ? 0.65 : 1), hardness, false,
-				preset == BrushPreset.Squares || preset == BrushPreset.Slash ? BrushTipShape.Square : tipShape, BrushPreset.Normal);
+				preset == BrushPreset.Squares || preset == BrushPreset.Slash ? BrushTipShape.Square : tipShape, BrushPreset.Normal,
+				preset == BrushPreset.Slash ? slash_angle : 0);
 		}
 		return true;
 	}
