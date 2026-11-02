@@ -219,7 +219,7 @@ jobs:
       - name: Publish GitHub release with packages
         uses: softprops/action-gh-release@v2
         with:
-          name: Pintora v${{ steps.version.outputs.app-version }}
+          name: Bruskel v${{ steps.version.outputs.app-version }}
           tag_name: v${{ steps.version.outputs.app-version }}
           target_commitish: ${{ github.sha }}
           body_path: release-notes.md

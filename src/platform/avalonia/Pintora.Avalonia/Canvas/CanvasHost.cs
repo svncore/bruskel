@@ -50,9 +50,15 @@ public sealed class CanvasHost : Control, IDisposable
 		Recolor,
 		ColorPicker,
 		Zoom,
+		Pan,
 		Eraser,
 		Blur, Pixelate, Highlight, Magnify, Spotlight,
-		MagicWand
+		MagicWand,
+		MoveSelectedPixels,
+		MoveSelection,
+		EllipseSelect,
+		LassoSelect,
+		CloneStamp
 	}
 
 	public enum ShapeKind { Line, Rectangle, Ellipse, RoundedRectangle }
@@ -104,6 +110,8 @@ public sealed class CanvasHost : Control, IDisposable
 	private PointD? last_canvas_point;
 	private Point? pan_start_view_point;
 	private Vector pan_start_offset;
+	private bool space_pressed;
+	private bool h_pressed;
 	private ColorBgra stroke_color;
 	private CanvasTool active_tool = CanvasTool.Brush;
 	private readonly ShapeToolOptions shape_options = new ();
@@ -116,14 +124,15 @@ public sealed class CanvasHost : Control, IDisposable
 	private enum HistoryKind { Raster, Layer }
 	private readonly EditorHistory<HistoryKind> history_kinds = new ();
 	private readonly EditorHistory<HistoryKind> redo_history_kinds = new ();
-	private sealed record RasterSnapshot (AvaloniaLayer Layer, ColorBgra[] Pixels, ShapeTool.ShapeSnapshot? Shape, List<Annotation> Annotations);
+	private sealed record RasterSnapshot (AvaloniaLayer Layer, ColorBgra[] Pixels, ShapeTool.ShapeSnapshot? Shape, List<Annotation> Annotations, SelectionTool.State Selection);
 	private sealed record LayerSnapshot (AvaloniaLayer Layer, string Name, bool IsVisible, bool IsLocked, double Opacity, ColorBgra[] Pixels, List<Annotation> Annotations);
 	private sealed record LayerStackSnapshot (List<LayerSnapshot> Layers, int ActiveIndex, Pinta.Core.Size ImageSize);
-	private static RasterSnapshot CaptureRasterSnapshot (AvaloniaLayer layer, ShapeTool.ShapeSnapshot? shape)
-		=> new (layer, layer.Surface.GetReadOnlyPixelData ().ToArray (), shape, layer.Annotations.Items.ToList ());
+	private RasterSnapshot CaptureRasterSnapshot (AvaloniaLayer layer, ShapeTool.ShapeSnapshot? shape)
+		=> new (layer, layer.Surface.GetReadOnlyPixelData ().ToArray (), shape, layer.Annotations.Items.ToList (), selection_tool.CaptureState ());
 
-	private static void RestoreRasterSnapshot (RasterSnapshot snapshot)
+	private void RestoreRasterSnapshot (RasterSnapshot snapshot)
 	{
+		selection_tool.RestoreState (snapshot.Selection);
 		snapshot.Pixels.AsSpan ().CopyTo (snapshot.Layer.Surface.GetPixelData ());
 		snapshot.Layer.Annotations.Clear ();
 		snapshot.Layer.Annotations.AddRange (snapshot.Annotations);
@@ -167,6 +176,7 @@ public sealed class CanvasHost : Control, IDisposable
 		PointerReleased += OnPointerReleased;
 		PointerMoved += OnPointerMoved;
 		KeyDown += OnKeyDown;
+		KeyUp += OnKeyUp;
 	}
 
 	private void SubscribeToLayer (AvaloniaLayer layer)
@@ -619,6 +629,7 @@ public sealed class CanvasHost : Control, IDisposable
 		RecordLayerUndo ();
 		global::Avalonia.Size textSize = AnnotationRenderer.MeasureText (text, fontSize, fontFamily, fontWeight);
 		var annotation = new TextAnnotation {
+			Clip = CaptureSelectionClip (),
 			Bounds = new Rect (position.X, position.Y, textSize.Width, textSize.Height),
 			Text = text,
 			FontFamily = string.IsNullOrWhiteSpace (fontFamily) ? "Inter" : fontFamily,
@@ -694,15 +705,39 @@ public sealed class CanvasHost : Control, IDisposable
 	public event EventHandler? ScaleChanged;
 	private readonly BrushToolOptions brush_options = new ();
 	public int BrushSize {
-		get => brush_options.Size;
+		get => (int) Math.Round (brush_options.Size);
 		set {
-			int next = Math.Clamp (value, 1, 256);
+			double next = Math.Clamp (value, 1, 256);
 			if (brush_options.Size == next)
 				return;
 			brush_options.Size = next;
 			BrushSizeChanged?.Invoke (this, EventArgs.Empty);
 		}
 	}
+	public double BrushSizePrecise {
+		get => brush_options.Size;
+		set {
+			double next = Math.Clamp (value, 0.25, 256);
+			if (Math.Abs (brush_options.Size - next) < 0.0001) return;
+			brush_options.Size = next;
+			BrushSizeChanged?.Invoke (this, EventArgs.Empty);
+		}
+	}
+	public bool BrushPressureEnabled {
+		get => brush_options.PressureEnabled;
+		set => brush_options.PressureEnabled = value;
+	}
+	public BrushTipShape BrushTipShape {
+		get => brush_options.TipShape;
+		set => brush_options.TipShape = value;
+	}
+	public BrushPreset BrushPreset {
+		get => brush_options.Preset;
+		set => brush_options.Preset = value;
+	}
+	public int BrushSplatterMinSize { get => brush_options.SplatterMinSize; set => brush_options.SplatterMinSize = Math.Clamp (value, 1, 10000); }
+	public int BrushSplatterMaxSize { get => brush_options.SplatterMaxSize; set => brush_options.SplatterMaxSize = Math.Clamp (value, 1, 10000); }
+	public int BrushSlashAngle { get => brush_options.SlashAngle; set => brush_options.SlashAngle = Math.Clamp (value, 0, 180); }
 	public BrushToolOptions GetBrushToolOptions () => brush_options;
 	public event EventHandler? BrushSizeChanged;
 	public event EventHandler? ToolOptionsChanged;
@@ -725,8 +760,42 @@ public sealed class CanvasHost : Control, IDisposable
 			ToolOptionsChanged?.Invoke (this, EventArgs.Empty);
 		}
 	}
-	public ColorBgra BrushColor { get; set; } = ColorBgra.Black;
-	public ColorBgra SecondaryBrushColor { get; set; } = ColorBgra.White;
+	public double BrushSpacing {
+		get => brush_options.Spacing;
+		set {
+			double next = Math.Clamp (value, 0.02, 4);
+			if (brush_options.Spacing == next) return;
+			brush_options.Spacing = next;
+			ToolOptionsChanged?.Invoke (this, EventArgs.Empty);
+		}
+	}
+	public double BrushSmoothing {
+		get => brush_options.Smoothing;
+		set {
+			double next = Math.Clamp (value, 0, 1);
+			if (brush_options.Smoothing == next) return;
+			brush_options.Smoothing = next;
+			ToolOptionsChanged?.Invoke (this, EventArgs.Empty);
+		}
+	}
+	private ColorBgra brush_color = ColorBgra.Black;
+	private ColorBgra secondary_brush_color = ColorBgra.White;
+	public ColorBgra BrushColor {
+		get => brush_color;
+		set { if (brush_color == value) return; brush_color = value; OnBrushColorsChanged (); }
+	}
+	public ColorBgra SecondaryBrushColor {
+		get => secondary_brush_color;
+		set { if (secondary_brush_color == value) return; secondary_brush_color = value; OnBrushColorsChanged (); }
+	}
+	private void OnBrushColorsChanged ()
+	{
+		if (ActiveTool == CanvasTool.Shapes && shape_tool.UpdateColors (ActiveLayer, Surface as MemoryImageSurface,
+			brush_color, secondary_brush_color, BeginStroke, CommitStroke))
+			MarkCanvasChanged (true);
+		InvalidateVisual ();
+		ColorsChanged?.Invoke (this, EventArgs.Empty);
+	}
 	private readonly FillToolOptions fill_options = new ();
 	public int FillTolerance {
 		get => fill_options.Tolerance;
@@ -741,6 +810,9 @@ public sealed class CanvasHost : Control, IDisposable
 
 	public bool RecolorAt (PointD point, bool reverse)
 	{
+		int selectedX = (int) Math.Round (point.X), selectedY = (int) Math.Round (point.Y);
+		if ((uint) selectedX >= (uint) ImageSize.Width || (uint) selectedY >= (uint) ImageSize.Height ||
+			!IsPixelSelected (selectedX, selectedY)) return false;
 		IImageSurface? surface = Surface;
 		if (IsActiveLayerLocked || !RasterAlgorithms.TrySampleNearest (surface, point, out ColorBgra basis))
 			return false;
@@ -915,6 +987,12 @@ public sealed class CanvasHost : Control, IDisposable
 	public int ActiveLayerIndex => session.ActiveLayerIndex;
 	public event EventHandler? ActiveLayerChanged;
 	public RectangleI? Selection => selection_tool.Selection;
+	internal bool[]? CaptureSelectionMask () => selection_tool.CaptureMask (ImageSize);
+	internal SelectionTool.State CaptureSelectionState () => selection_tool.CaptureState ();
+	internal void RestoreSelectionState (SelectionTool.State state) { selection_tool.RestoreState (state); InvalidateVisual (); }
+	internal SelectionClip? CaptureSelectionClip () => CaptureSelectionMask () is { } mask
+		? new SelectionClip (mask, ImageSize.Width, ImageSize.Height) : null;
+	internal bool IsPixelSelected (int x, int y) => selection_tool.Contains (x, y, ImageSize.Width);
 
 	public bool SelectRectangle (PointI start, PointI end)
 	{
@@ -980,6 +1058,10 @@ public sealed class CanvasHost : Control, IDisposable
 			return false;
 		using var selection = new MemoryImageSurface (area.Width, area.Height);
 		RasterBlitter.CopyRegion (Surface, area, selection);
+		Span<ColorBgra> copied = selection.GetPixelData ();
+		for (int y = 0; y < area.Height; y++)
+			for (int x = 0; x < area.Width; x++)
+				if (!IsPixelSelected (area.X + x, area.Y + y)) copied[y * area.Width + x] = ColorBgra.Zero;
 		using WriteableBitmap image = CreateBitmap (selection);
 		await clipboard.SetImageAsync (image, cancellationToken);
 		return true;
@@ -1005,6 +1087,16 @@ public sealed class CanvasHost : Control, IDisposable
 			return false;
 		MarkCanvasChanged (true);
 		return true;
+	}
+
+	/// <summary>Moves the selection outline only (Move Selection tool); pixels stay.</summary>
+	public bool TranslateSelection (PointI delta)
+	{
+		if (selection_tool.Translate (delta, ImageSize)) {
+			InvalidateVisual ();
+			return true;
+		}
+		return false;
 	}
 
 	public bool FlipSelectionHorizontal ()
@@ -1044,15 +1136,15 @@ public sealed class CanvasHost : Control, IDisposable
 
 	public void SwapColors ()
 	{
-		(BrushColor, SecondaryBrushColor) = (SecondaryBrushColor, BrushColor);
-		ColorsChanged?.Invoke (this, EventArgs.Empty);
+		(brush_color, secondary_brush_color) = (secondary_brush_color, brush_color);
+		OnBrushColorsChanged ();
 	}
 
 	public void ResetColors ()
 	{
-		BrushColor = ColorBgra.Black;
-		SecondaryBrushColor = ColorBgra.White;
-		ColorsChanged?.Invoke (this, EventArgs.Empty);
+		brush_color = ColorBgra.Black;
+		secondary_brush_color = ColorBgra.White;
+		OnBrushColorsChanged ();
 	}
 
 	public void SetActiveLayerVisibility (bool isVisible)
@@ -1286,9 +1378,29 @@ public sealed class CanvasHost : Control, IDisposable
 	public void ZoomAt (Point viewPoint, double factor)
 	{
 		Point oldOrigin = GetCanvasOrigin ();
-		ZoomTool.ZoomResult result = zoom_tool.Calculate (viewPoint, factor, Scale, oldOrigin, GetCenteredCanvasOrigin (), session.Viewport);
-		SetScale (result.Scale);
-		viewport_offset = result.Offset;
+		PointD canvasPoint = new ((viewPoint.X - oldOrigin.X) / Math.Max (Scale, 0.0001),
+			(viewPoint.Y - oldOrigin.Y) / Math.Max (Scale, 0.0001));
+		double nextScale = Math.Clamp (Scale * factor, 0.1, 32);
+		SetScale (nextScale);
+		Point centered = GetCenteredCanvasOrigin ();
+		viewport_offset = new Vector (viewPoint.X - centered.X - canvasPoint.X * nextScale,
+			viewPoint.Y - centered.Y - canvasPoint.Y * nextScale);
+		InvalidateVisual ();
+	}
+
+	public void ZoomToCanvasRectangle (PointD from, PointD to)
+	{
+		double width = Math.Abs (to.X - from.X), height = Math.Abs (to.Y - from.Y);
+		if (width < 1 || height < 1)
+			return;
+		double hostWidth = Bounds.Width > 0 ? Bounds.Width : Width;
+		double hostHeight = Bounds.Height > 0 ? Bounds.Height : Height;
+		double nextScale = Math.Clamp (Math.Min (hostWidth / width, hostHeight / height), 0.1, 32);
+		SetScale (nextScale);
+		Point centered = GetCenteredCanvasOrigin ();
+		PointD center = new ((from.X + to.X) / 2, (from.Y + to.Y) / 2);
+		viewport_offset = new Vector (hostWidth / 2 - centered.X - center.X * nextScale,
+			hostHeight / 2 - centered.Y - center.Y * nextScale);
 		InvalidateVisual ();
 	}
 
@@ -1659,6 +1771,7 @@ public sealed class CanvasHost : Control, IDisposable
 				int.TryParse (node.Attribute ("pixel-size")?.Value, out int pixelSize);
 				double.TryParse (node.Attribute ("rotation")?.Value, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out double rotation);
 				Layers[layerIndex].Annotations.Add (new RegionEffectAnnotation {
+					Clip = ReadSelectionClip (node),
 					Bounds = effectBounds,
 					Rotation = rotation,
 					Effect = effectKind,
@@ -1671,6 +1784,7 @@ public sealed class CanvasHost : Control, IDisposable
 				double.TryParse (node.Attribute ("font-size")?.Value, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out double fontSize);
 				double.TryParse (node.Attribute ("rotation")?.Value, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out double rotation);
 				Layers[layerIndex].Annotations.Add (new TextAnnotation {
+					Clip = ReadSelectionClip (node),
 					Bounds = textBounds,
 					Rotation = rotation,
 					Text = node.Attribute ("text")?.Value ?? string.Empty,
@@ -1924,13 +2038,13 @@ public sealed class CanvasHost : Control, IDisposable
 				if (annotation is RegionEffectAnnotation effectAnnotation) {
 					hasMetadata = true;
 					string effectAttributes = $"type=\"effect\" layer=\"{layerIndex}\" effect=\"{effectAnnotation.Effect}\" x=\"{effectAnnotation.Bounds.X.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" y=\"{effectAnnotation.Bounds.Y.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" width=\"{effectAnnotation.Bounds.Width.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" height=\"{effectAnnotation.Bounds.Height.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" rotation=\"{effectAnnotation.Rotation.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" strength=\"{effectAnnotation.Strength.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" pixel-size=\"{effectAnnotation.PixelSize}\"";
-					xml.Append ($"<annotation {effectAttributes} />");
+					xml.Append ($"<annotation {effectAttributes}{WriteSelectionClip (annotation)} />");
 					continue;
 				}
 				if (annotation is TextAnnotation textAnnotation) {
 					hasMetadata = true;
 					string textAttributes = $"type=\"text\" layer=\"{layerIndex}\" text=\"{System.Security.SecurityElement.Escape (textAnnotation.Text)}\" font=\"{System.Security.SecurityElement.Escape (textAnnotation.FontFamily)}\" font-size=\"{textAnnotation.FontSize.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" color=\"{textAnnotation.Color.R:X2}{textAnnotation.Color.G:X2}{textAnnotation.Color.B:X2}{textAnnotation.Color.A:X2}\" bold=\"{(textAnnotation.FontWeight == FontWeight.Bold || textAnnotation.FontWeight == FontWeight.SemiBold ? "true" : "false")}\" underline=\"{textAnnotation.Underline.ToString ().ToLowerInvariant ()}\" x=\"{textAnnotation.Bounds.X.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" y=\"{textAnnotation.Bounds.Y.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" width=\"{textAnnotation.Bounds.Width.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" height=\"{textAnnotation.Bounds.Height.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" rotation=\"{textAnnotation.Rotation.ToString (System.Globalization.CultureInfo.InvariantCulture)}\"";
-					xml.Append ($"<annotation {textAttributes} />");
+					xml.Append ($"<annotation {textAttributes}{WriteSelectionClip (annotation)} />");
 					continue;
 				}
 				string sourceId = annotation is ImageAnnotation image ? image.SourceId : ((CursorAnnotation) annotation).CursorId;
@@ -1957,6 +2071,19 @@ public sealed class CanvasHost : Control, IDisposable
 		using Stream stream = archive.CreateEntry (name).Open ();
 		using var writer = new StreamWriter (stream, Encoding.UTF8);
 		writer.Write (text);
+	}
+
+	private static string WriteSelectionClip (Annotation annotation)
+		=> annotation.Clip is { } clip ? $" clip-width=\"{clip.Width}\" clip-height=\"{clip.Height}\" clip=\"{clip.Encode ()}\"" : string.Empty;
+
+	private SelectionClip? ReadSelectionClip (XElement node)
+	{
+		if (node.Attribute ("clip") is not { } encoded) return null;
+		if (!int.TryParse (node.Attribute ("clip-width")?.Value, out int width) ||
+			!int.TryParse (node.Attribute ("clip-height")?.Value, out int height) ||
+			width <= 0 || height <= 0 || (long) width * height > Math.Max (100_000_000L, (long) ImageSize.Width * ImageSize.Height))
+			throw new InvalidDataException ("Invalid annotation selection clip dimensions.");
+		return SelectionClip.Decode (encoded.Value, width, height);
 	}
 
 	private static void WritePngEntry (ZipArchive archive, string name, IImageSurface surface)
@@ -2006,6 +2133,16 @@ public sealed class CanvasHost : Control, IDisposable
 		redo_history_kinds.Clear ();
 		has_current_stroke = false;
 		HistoryChanged?.Invoke (this, EventArgs.Empty);
+	}
+
+	public ColorBgra[] CaptureActiveLayerPixels ()
+		=> Surface?.GetReadOnlyPixelData ().ToArray () ?? Array.Empty<ColorBgra> ();
+
+	public void RestoreActiveLayerPixels (ColorBgra[] pixels)
+	{
+		if (Surface is null || pixels.Length == 0)
+			return;
+		pixels.AsSpan ().CopyTo (Surface.GetPixelData ());
 	}
 
 	public void BeginStroke ()
@@ -2213,7 +2350,7 @@ public sealed class CanvasHost : Control, IDisposable
 			DrawGridOverlay (context, origin);
 		if (show_rulers)
 			DrawRulers (context, origin);
-		if (ActiveTool == CanvasTool.Gradient && is_painting)
+		if (ActiveTool == CanvasTool.Gradient && (is_painting || gradient_tool.HasCommitted))
 			gradient_tool.DrawGuide (context, origin, Scale, Math.Max (1, BrushSize * Scale));
 		if (Selection is RectangleI selected) {
 			var selection_pen = new Pen (Brushes.DodgerBlue, 1, new DashStyle (new[] { 4d, 4d }, 0));
@@ -2268,6 +2405,12 @@ public sealed class CanvasHost : Control, IDisposable
 		}
 		if (ActiveTool == CanvasTool.Shapes && shape_tool.SelectedShape is ShapeTool.ShapeState selectedShape && !shape_tool.IsEditing)
 			shape_tool.DrawHandles (context, origin, Scale, selectedShape.Kind, selectedShape.From, selectedShape.To, selectedShape.Rotation);
+		if (ActiveTool == CanvasTool.Zoom && zoom_tool.IsDragging && zoom_tool.DragStart is Point zoomStart && pointer_position is PointD zoomCurrent) {
+			Point zoomEnd = GetCoordinateMapper ().CanvasToView (zoomCurrent);
+			var zoomRect = new Rect (zoomStart, zoomEnd).Normalize ();
+			context.FillRectangle (new SolidColorBrush (Color.FromArgb (45, 80, 140, 255)), zoomRect);
+			context.DrawRectangle (new Pen (Brushes.DodgerBlue, 1), zoomRect);
+		}
 
 	}
 
@@ -2438,7 +2581,7 @@ public sealed class CanvasHost : Control, IDisposable
 	private void OnPointerPressed (object? sender, PointerPressedEventArgs e)
 	{
 		var properties = e.GetCurrentPoint (this).Properties;
-		if (properties.IsMiddleButtonPressed) {
+		if (ActiveTool == CanvasTool.Pan || properties.IsMiddleButtonPressed || space_pressed || h_pressed) {
 			pan_start_view_point = e.GetPosition (this);
 			pan_start_offset = viewport_offset;
 			e.Pointer.Capture (this);
@@ -2460,7 +2603,8 @@ public sealed class CanvasHost : Control, IDisposable
 			e.Handled = true;
 			return;
 		}
-		if (ActiveTool == CanvasTool.Selection && properties.IsLeftButtonPressed && SelectAnnotationAt (last_canvas_point.Value)) {
+		if (ActiveTool is CanvasTool.Selection or CanvasTool.EllipseSelect or CanvasTool.LassoSelect
+			&& properties.IsLeftButtonPressed && SelectAnnotationAt (last_canvas_point.Value)) {
 			dragged_annotation = selected_annotation;
 			drag_start_point = last_canvas_point.Value;
 			drag_start_bounds = dragged_annotation!.Bounds;
@@ -2471,17 +2615,15 @@ public sealed class CanvasHost : Control, IDisposable
 			return;
 		}
 		CanvasToolPointerContext context = new (this, position, last_canvas_point.Value, last_canvas_point.Value,
-			stroke_color, properties.IsRightButtonPressed, false,
-			(e.KeyModifiers & KeyModifiers.Control) != 0, (e.KeyModifiers & KeyModifiers.Alt) != 0);
+			stroke_color, properties.IsRightButtonPressed, (e.KeyModifiers & KeyModifiers.Shift) != 0,
+			(e.KeyModifiers & KeyModifiers.Control) != 0, (e.KeyModifiers & KeyModifiers.Alt) != 0,
+			properties.Pressure);
 		bool handled = tool_set.Get<ICanvasTool> (ActiveTool).PointerPressed (context);
-		if (ActiveTool == CanvasTool.Zoom) {
-			e.Pointer.Capture (null);
-			e.Handled = handled;
-			return;
-		}
 		if (ActiveTool is CanvasTool.Selection or CanvasTool.Shapes or CanvasTool.Gradient
 				or CanvasTool.Brush or CanvasTool.Pencil or CanvasTool.Eraser or CanvasTool.Text or CanvasTool.Blur
-			or CanvasTool.Pixelate or CanvasTool.Highlight or CanvasTool.Magnify or CanvasTool.Spotlight) {
+			or CanvasTool.Pixelate or CanvasTool.Highlight or CanvasTool.Magnify or CanvasTool.Spotlight or CanvasTool.Recolor
+			or CanvasTool.MoveSelectedPixels or CanvasTool.MoveSelection or CanvasTool.EllipseSelect or CanvasTool.LassoSelect
+			or CanvasTool.CloneStamp or CanvasTool.Zoom) {
 			is_painting = handled;
 			pointer_action_tool = handled ? ActiveTool : null;
 		}
@@ -2490,15 +2632,37 @@ public sealed class CanvasHost : Control, IDisposable
 		e.Handled = handled;
 	}
 
-	public void PickColorAt (PointD point)
+	private void AutoScrollSelection (Point position)
 	{
-		if (color_picker_tool.TryPick (Surface, point, out ColorBgra picked))
-			BrushColor = picked;
+		const double edge = 12;
+		int step = (int) Math.Max (10, Math.Min (Bounds.Width, Bounds.Height) * 0.01);
+		Vector direction = Vector.Zero;
+		if (position.X < edge) direction = new Vector (-step, 0);
+		else if (position.X > Bounds.Width - edge) direction = new Vector (step, 0);
+		else if (position.Y < edge) direction = new Vector (0, -step);
+		else if (position.Y > Bounds.Height - edge) direction = new Vector (0, step);
+		if (direction != Vector.Zero)
+			PanBy (direction);
 	}
 
-	public bool FillAt (PointD point, ColorBgra color)
+	public void PickColorAt (PointD point, bool secondary = false, bool composite = false)
 	{
-		if (IsActiveLayerLocked || !fill_tool.Fill (Surface, point, color, FillTolerance, BeginStroke, CommitStroke))
+		MemoryImageSurface? compositeSurface = composite ? CreateCompositeSurface () : null;
+		try {
+			if (!color_picker_tool.TryPick (compositeSurface ?? Surface, point, out ColorBgra picked))
+				return;
+			if (secondary)
+				SecondaryBrushColor = picked;
+			else
+				BrushColor = picked;
+		} finally {
+			compositeSurface?.Dispose ();
+		}
+	}
+
+	public bool FillAt (PointD point, ColorBgra color, bool global = false)
+	{
+		if (IsActiveLayerLocked || !fill_tool.Fill (Surface, point, color, FillTolerance, global, BeginStroke, CommitStroke, CaptureSelectionMask ()))
 			return false;
 		MarkCanvasChanged (true);
 		return true;
@@ -2519,8 +2683,9 @@ public sealed class CanvasHost : Control, IDisposable
 			PointD previous = last_canvas_point ?? point;
 			tool_set.Get<ICanvasTool> (pointer_action_tool ?? ActiveTool).PointerReleased (
 				new CanvasToolPointerContext (this, position, point, previous, stroke_color, false, false,
-				(e.KeyModifiers & KeyModifiers.Control) != 0, (e.KeyModifiers & KeyModifiers.Alt) != 0));
-			if (pointer_action_tool == CanvasTool.Selection)
+				(e.KeyModifiers & KeyModifiers.Control) != 0, (e.KeyModifiers & KeyModifiers.Alt) != 0,
+				e.GetCurrentPoint (this).Properties.Pressure));
+			if (pointer_action_tool is CanvasTool.Selection or CanvasTool.EllipseSelect or CanvasTool.LassoSelect)
 				SyncSelectionAnnotation ();
 		}
 		if (dragged_annotation is not null) {
@@ -2547,6 +2712,8 @@ public sealed class CanvasHost : Control, IDisposable
 			return;
 		}
 		Point position = e.GetPosition (this);
+		if (is_painting && pointer_action_tool is CanvasTool.Selection or CanvasTool.EllipseSelect or CanvasTool.LassoSelect)
+			AutoScrollSelection (position);
 		Point origin = GetCanvasOrigin ();
 		PointD current = GetCoordinateMapper ().ViewToCanvas (position);
 		PointD bounded = new (Math.Clamp (current.X, 0, ImageSize.Width), Math.Clamp (current.Y, 0, ImageSize.Height));
@@ -2565,14 +2732,26 @@ public sealed class CanvasHost : Control, IDisposable
 		bool handled = tool_set.Get<ICanvasTool> (pointer_action_tool ?? ActiveTool).PointerMoved (
 			new CanvasToolPointerContext (this, position, current, previous, stroke_color, false,
 				(e.KeyModifiers & KeyModifiers.Shift) != 0,
-				(e.KeyModifiers & KeyModifiers.Control) != 0, (e.KeyModifiers & KeyModifiers.Alt) != 0));
+				(e.KeyModifiers & KeyModifiers.Control) != 0, (e.KeyModifiers & KeyModifiers.Alt) != 0,
+				e.GetCurrentPoint (this).Properties.Pressure));
 		last_canvas_point = current;
 		e.Handled = handled;
 	}
 
 	private void OnKeyDown (object? sender, KeyEventArgs e)
 	{
-		if (e.Key == Key.Escape) {
+		if (e.Key == Key.Space) {
+			space_pressed = true;
+			e.Handled = true;
+		} else if (e.Key == Key.H) {
+			h_pressed = true;
+			e.Handled = true;
+		} else if (e.Key == Key.M) {
+			ActiveTool = ActiveTool == CanvasTool.MoveSelectedPixels
+				? CanvasTool.MoveSelection
+				: CanvasTool.MoveSelectedPixels;
+			e.Handled = true;
+		} else if (e.Key == Key.Escape) {
 			ClearAnnotationSelection ();
 			selection_tool.CancelSelection ();
 			if (shape_tool.IsEditing)
@@ -2697,6 +2876,14 @@ public sealed class CanvasHost : Control, IDisposable
 		}
 	}
 
+	private void OnKeyUp (object? sender, KeyEventArgs e)
+	{
+		if (e.Key == Key.Space)
+			space_pressed = false;
+		else if (e.Key == Key.H)
+			h_pressed = false;
+	}
+
 	private Rect GetCanvasRect ()
 	{
 		if (rendered_canvas_rect.Width > 0 && rendered_canvas_rect.Height > 0)
@@ -2721,7 +2908,10 @@ public sealed class CanvasHost : Control, IDisposable
 		ColorBgra[] basePixels = surface.GetReadOnlyPixelData ().ToArray ();
 		ShapeRasterizer.Draw (surface, shape, from, to, outline, fill, style, width, dash, cornerRadius, antialias);
 		shape_tool.RegisterPaintedShape (ActiveLayer, basePixels, shape, from, to, outline, fill,
-			style, width, dash, cornerRadius, antialias);
+			style, width, dash, cornerRadius, antialias, CaptureSelectionClip ());
+		if (shape_tool.SelectedShape is { } state) {
+			state.Clip?.RestoreOutside (surface, basePixels);
+		}
 		MarkCanvasChanged (true);
 	}
 
@@ -2737,6 +2927,7 @@ public sealed class CanvasHost : Control, IDisposable
 			return;
 		BeginStroke ();
 		GradientTool.Apply (Surface, from, to, BrushColor, SecondaryBrushColor, GradientReversed);
+		CaptureSelectionClip ()?.RestoreOutside (Surface, undo_stack.Peek ().Pixels);
 		MarkCanvasChanged (true);
 	}
 

@@ -5,12 +5,9 @@ using Pintora.Avalonia.Imaging;
 namespace Pintora.Avalonia.Canvas;
 
 /// <summary>
-/// Select-by-color tool, ported from the GTK MagicWandTool / FloodTool
-/// (`Pinta.Tools/Tools/MagicWandTool.cs`, `FloodTool.cs`). Uses the same
-/// tolerance math (<see cref="ColorBgra.ColorsWithinTolerance"/>) and the same
-/// modifier mapping as the GTK SelectionModeHandler:
-/// Ctrl+click = Add, Alt+click = Intersect, right-click = Subtract,
-/// Ctrl+right-click = Xor, Shift (or Global mode) = full-layer scan.
+/// Select-by-color tool using the shared flood math. Modifiers follow Paint.NET:
+/// Ctrl+left = Add, Alt+left = Subtract, Ctrl+right = Invert, Alt+right = Intersect.
+/// A plain right click remains Subtract for compatibility with the existing tool.
 /// </summary>
 internal sealed class MagicWandTool : ICanvasTool
 {
@@ -40,11 +37,13 @@ internal sealed class MagicWandTool : ICanvasTool
 	private static SelectionCombineMode DetermineMode (CanvasToolPointerContext context)
 	{
 		if (context.IsRightButton)
-			return context.ControlPressed ? SelectionCombineMode.Xor : SelectionCombineMode.Subtract;
+			return context.ControlPressed ? SelectionCombineMode.Xor
+				: context.AltPressed ? SelectionCombineMode.Intersect
+				: SelectionCombineMode.Subtract;
 		if (context.ControlPressed)
 			return SelectionCombineMode.Add;
 		if (context.AltPressed)
-			return SelectionCombineMode.Intersect;
+			return SelectionCombineMode.Subtract;
 		return SelectionCombineMode.Replace;
 	}
 

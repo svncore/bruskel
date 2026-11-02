@@ -124,6 +124,60 @@ public static class FloodStencil
 		return mask;
 	}
 
+	/// <summary>Builds a full-size elliptical mask inside the bounding box (Ellipse Select).</summary>
+	public static bool[] FromEllipse (RectangleI bounds, int width, int height)
+	{
+		var mask = new bool[width * height];
+		if (bounds.Width <= 0 || bounds.Height <= 0)
+			return mask;
+		double radiusX = bounds.Width / 2.0;
+		double radiusY = bounds.Height / 2.0;
+		double centerX = bounds.X + radiusX;
+		double centerY = bounds.Y + radiusY;
+		for (int y = Math.Max (0, bounds.Y); y < Math.Min (height, bounds.Y + bounds.Height); y++)
+			for (int x = Math.Max (0, bounds.X); x < Math.Min (width, bounds.X + bounds.Width); x++) {
+				double dx = (x + 0.5 - centerX) / radiusX;
+				double dy = (y + 0.5 - centerY) / radiusY;
+				if (dx * dx + dy * dy <= 1.0)
+					mask[y * width + x] = true;
+			}
+		return mask;
+	}
+
+	/// <summary>Rasterizes a closed polygon (even-odd rule) into a full-size mask (Lasso Select).</summary>
+	public static bool[] FromPolygon (System.Collections.Generic.IReadOnlyList<PointD> points, int width, int height)
+	{
+		var mask = new bool[width * height];
+		if (points.Count < 3)
+			return mask;
+		double minY = points[0].Y;
+		double maxY = points[0].Y;
+		foreach (PointD point in points) {
+			minY = Math.Min (minY, point.Y);
+			maxY = Math.Max (maxY, point.Y);
+		}
+		for (int y = Math.Max (0, (int) Math.Floor (minY)); y <= Math.Min (height - 1, (int) Math.Floor (maxY)); y++) {
+			double scanY = y + 0.5;
+			var crossings = new System.Collections.Generic.List<double> ();
+			for (int i = 0; i < points.Count; i++) {
+				PointD a = points[i];
+				PointD b = points[(i + 1) % points.Count];
+				if ((a.Y <= scanY && b.Y > scanY) || (b.Y <= scanY && a.Y > scanY)) {
+					double t = (scanY - a.Y) / (b.Y - a.Y);
+					crossings.Add (a.X + t * (b.X - a.X));
+				}
+			}
+			crossings.Sort ();
+			for (int i = 0; i + 1 < crossings.Count; i += 2) {
+				int xStart = Math.Clamp ((int) Math.Ceiling (crossings[i] - 0.5), 0, width);
+				int xEnd = Math.Clamp ((int) Math.Ceiling (crossings[i + 1] - 0.5), 0, width);
+				for (int x = xStart; x < xEnd; x++)
+					mask[y * width + x] = true;
+			}
+		}
+		return mask;
+	}
+
 	/// <summary>Bounding box of a mask, or null when the mask is empty.</summary>
 	public static RectangleI? GetBounds (bool[] mask, int width, int height)
 	{

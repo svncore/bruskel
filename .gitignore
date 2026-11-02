@@ -38,3 +38,5 @@ xdg/pinta.appdata.xml
 .vs
 .vscode
 .aider*
+.aider*
+artifacts/

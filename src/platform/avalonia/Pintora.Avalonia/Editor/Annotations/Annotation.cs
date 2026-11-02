@@ -12,6 +12,7 @@ public abstract record Annotation
 {
 	public required Rect Bounds { get; init; }
 	public double Rotation { get; init; }
+	public SelectionClip? Clip { get; init; }
 }
 
 public sealed record ShapeAnnotation : Annotation

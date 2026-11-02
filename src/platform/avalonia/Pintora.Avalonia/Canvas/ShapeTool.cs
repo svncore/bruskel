@@ -19,19 +19,21 @@ internal sealed class ShapeTool : ICanvasTool
 		public CanvasHost.ShapeKind Kind { get; set; }
 		public PointD From { get; set; }
 		public PointD To { get; set; }
-		public ColorBgra Outline { get; init; }
-		public ColorBgra Fill { get; init; }
+		public ColorBgra Outline { get; set; }
+		public ColorBgra Fill { get; set; }
+		public bool ColorsReversed { get; set; }
 		public CanvasHost.ShapeFillStyle FillStyle { get; set; }
 		public int Width { get; set; }
 		public CanvasHost.ShapeDashStyle Dash { get; set; }
 		public int CornerRadius { get; set; }
 		public bool Antialias { get; set; }
 		public double Rotation { get; set; }
+		public SelectionClip? Clip { get; set; }
 	}
 	internal sealed record ShapeSnapshot (AvaloniaLayer Layer, ColorBgra[] BasePixels,
 		CanvasHost.ShapeKind Kind, PointD From, PointD To, ColorBgra Outline, ColorBgra Fill,
 		CanvasHost.ShapeFillStyle FillStyle, int Width, CanvasHost.ShapeDashStyle Dash,
-		int CornerRadius, bool Antialias, double Rotation);
+		int CornerRadius, bool Antialias, double Rotation, SelectionClip? Clip = null, bool ColorsReversed = false);
 
 	internal enum HitKind { None, Move, Resize, Rotate }
 	internal readonly record struct HitTarget (HitKind Kind, int HandleIndex = -1);
@@ -43,7 +45,7 @@ internal sealed class ShapeTool : ICanvasTool
 			return null;
 		return new ShapeSnapshot (shape.Layer, shape.BasePixels, shape.Kind, shape.From, shape.To,
 			shape.Outline, shape.Fill, shape.FillStyle, shape.Width, shape.Dash,
-			shape.CornerRadius, shape.Antialias, shape.Rotation);
+			shape.CornerRadius, shape.Antialias, shape.Rotation, shape.Clip, shape.ColorsReversed);
 	}
 
 	public void RestoreState (ShapeSnapshot? snapshot)
@@ -56,12 +58,14 @@ internal sealed class ShapeTool : ICanvasTool
 			To = state.To,
 			Outline = state.Outline,
 			Fill = state.Fill,
+			ColorsReversed = state.ColorsReversed,
 			FillStyle = state.FillStyle,
 			Width = state.Width,
 			Dash = state.Dash,
 			CornerRadius = state.CornerRadius,
 			Antialias = state.Antialias,
 			Rotation = state.Rotation,
+			Clip = state.Clip,
 		} : null;
 		SyncAnnotation (SelectedShape);
 	}
@@ -89,6 +93,8 @@ internal sealed class ShapeTool : ICanvasTool
 	private int creationWidth;
 	private int creationCornerRadius;
 	private bool creationAntialias;
+	private SelectionClip? creationClip;
+	private bool creationColorsReversed;
 
 	public bool PointerPressed (CanvasToolPointerContext context)
 	{
@@ -97,11 +103,16 @@ internal sealed class ShapeTool : ICanvasTool
 			return false;
 		AvaloniaLayer? layer = host.ActiveLayerIndex >= 0 && host.ActiveLayerIndex < host.Layers.Count
 			? host.Layers[host.ActiveLayerIndex] : null;
-		return BeginPointerAction (context.Point, layer, host.Surface as MemoryImageSurface,
+		bool started = BeginPointerAction (context.Point, layer, host.Surface as MemoryImageSurface,
 			host.SelectedShape, context.Color,
 			context.IsRightButton ? host.BrushColor : host.SecondaryBrushColor,
 			host.FillStyle, host.ShapeOutlineWidth, host.DashStyle,
 			host.ShapeCornerRadius, host.ShapeAntialias, host.BeginStroke);
+		if (started && IsCreating) {
+			creationClip = host.CaptureSelectionClip ();
+			creationColorsReversed = context.IsRightButton;
+		}
+		return started;
 	}
 
 	public bool PointerMoved (CanvasToolPointerContext context)
@@ -109,7 +120,7 @@ internal sealed class ShapeTool : ICanvasTool
 		if (IsEditing)
 			UpdateEdit (context.Point, context.ShiftPressed);
 		else if (IsCreating)
-			UpdateCreation (context.Point);
+			UpdateCreation (context.Point, context.ShiftPressed, context.AltPressed);
 		else
 			return false;
 		context.Host.InvalidateToolVisual ();
@@ -130,6 +141,31 @@ internal sealed class ShapeTool : ICanvasTool
 	}
 
 	public void CancelPointerAction () => CancelCreate ();
+
+	public bool UpdateColors (AvaloniaLayer? layer, MemoryImageSurface? surface, ColorBgra primary, ColorBgra secondary,
+		Action beginStroke, Action commitStroke)
+	{
+		if (layer is null || layer.IsLocked || surface is null) return false;
+		if (IsCreating) {
+			creationOutline = creationColorsReversed ? secondary : primary;
+			creationFill = creationColorsReversed ? primary : secondary;
+			return false;
+		}
+		if (IsEditing || SelectedShape is not { } shape || !ReferenceEquals (shape.Layer, layer)) return false;
+		ColorBgra outline = shape.ColorsReversed ? secondary : primary;
+		ColorBgra fill = shape.ColorsReversed ? primary : secondary;
+		if (shape.Outline == outline && shape.Fill == fill) return false;
+		beginStroke ();
+		shape.BasePixels.AsSpan ().CopyTo (surface.GetPixelData ());
+		Annotation? previous = shape.Annotation;
+		shape.Outline = outline;
+		shape.Fill = fill;
+		SyncAnnotation (shape);
+		AnnotationRenderer.Render (surface, shape.Annotation!);
+		if (previous is not null) layer.Annotations.Replace (previous, shape.Annotation!);
+		commitStroke ();
+		return true;
+	}
 
 	public bool UpdateSelectedOptions (AvaloniaLayer? activeLayer, MemoryImageSurface? surface,
 		CanvasHost.ShapeKind kind, CanvasHost.ShapeFillStyle fillStyle, int width,
@@ -160,11 +196,12 @@ internal sealed class ShapeTool : ICanvasTool
 	public void RegisterPaintedShape (AvaloniaLayer? layer, ColorBgra[] basePixels,
 		CanvasHost.ShapeKind kind, PointD from, PointD to, ColorBgra outline, ColorBgra fill,
 		CanvasHost.ShapeFillStyle fillStyle, int width, CanvasHost.ShapeDashStyle dash,
-		int cornerRadius, bool antialias)
+		int cornerRadius, bool antialias, SelectionClip? clip = null)
 	{
 		if (layer is null)
 			return;
 		SelectedShape = new ShapeState {
+			Clip = clip,
 			Layer = layer,
 			BasePixels = basePixels,
 			Kind = kind,
@@ -189,6 +226,8 @@ internal sealed class ShapeTool : ICanvasTool
 		if (surface is null)
 			return false;
 		creationStart = creationEnd = point;
+		creationColorsReversed = false;
+		creationClip = null;
 		creationBasePixels = surface.GetReadOnlyPixelData ().ToArray ();
 		creationKind = kind;
 		creationOutline = outline;
@@ -215,10 +254,30 @@ internal sealed class ShapeTool : ICanvasTool
 		return BeginCreate (point, surface, kind, outline, fill, fillStyle, width, dash, cornerRadius, antialias);
 	}
 
-	public void UpdateCreation (PointD point)
+	public void UpdateCreation (PointD point, bool constrainAspect = false, bool fromCenter = false)
 	{
-		if (IsCreating)
-			creationEnd = point;
+		if (!IsCreating)
+			return;
+		PointD anchor = creationStart;
+		PointD start = anchor;
+		PointD end = point;
+		if (fromCenter) {
+			PointD delta = new (point.X - anchor.X, point.Y - anchor.Y);
+			start = new PointD (anchor.X - delta.X, anchor.Y - delta.Y);
+		}
+		if (constrainAspect && creationKind != CanvasHost.ShapeKind.Line) {
+			double side = Math.Max (Math.Abs (end.X - anchor.X), Math.Abs (end.Y - anchor.Y));
+			double directionX = Math.Sign (end.X - anchor.X);
+			double directionY = Math.Sign (end.Y - anchor.Y);
+			start = fromCenter
+				? new PointD (anchor.X - side * directionX, anchor.Y - side * directionY)
+				: anchor;
+			end = new PointD (
+				anchor.X + side * directionX,
+				anchor.Y + side * directionY);
+		}
+		creationStart = start;
+		creationEnd = end;
 	}
 
 	public void DrawCreationPreview (MemoryImageSurface preview)
@@ -228,6 +287,7 @@ internal sealed class ShapeTool : ICanvasTool
 		creationBasePixels.AsSpan ().CopyTo (preview.GetPixelData ());
 		ShapeRasterizer.Draw (preview, creationKind, creationStart, creationEnd, creationOutline, creationFill,
 			creationFillStyle, creationWidth, creationDash, creationCornerRadius, creationAntialias);
+		creationClip?.RestoreOutside (preview, creationBasePixels);
 	}
 
 	public bool CompleteCreate (MemoryImageSurface? surface, AvaloniaLayer? layer, Action commitStroke)
@@ -236,7 +296,10 @@ internal sealed class ShapeTool : ICanvasTool
 			return false;
 		ShapeRasterizer.Draw (surface, creationKind, creationStart, creationEnd, creationOutline, creationFill,
 			creationFillStyle, creationWidth, creationDash, creationCornerRadius, creationAntialias);
+		creationClip?.RestoreOutside (surface, creationBasePixels);
 		SelectedShape = new ShapeState {
+			Clip = creationClip,
+			ColorsReversed = creationColorsReversed,
 			Layer = layer,
 			BasePixels = creationBasePixels,
 			Kind = creationKind,
@@ -363,6 +426,7 @@ internal sealed class ShapeTool : ICanvasTool
 		PointD to = new (shape.To.X + delta.X, shape.To.Y + delta.Y);
 		ShapeRasterizer.DrawRotated (surface, shape.Kind, from, to, shape.Outline, shape.Fill, shape.FillStyle,
 			shape.Width, shape.Dash, shape.CornerRadius, shape.Antialias, shape.Rotation);
+		shape.Clip?.RestoreOutside (surface, shape.BasePixels);
 		Annotation? previousAnnotation = shape.Annotation;
 		shape.From = from;
 		shape.To = to;
@@ -380,7 +444,7 @@ internal sealed class ShapeTool : ICanvasTool
 		beginStroke ();
 		shape.BasePixels.AsSpan ().CopyTo (surface.GetPixelData ());
 		Annotation? previousAnnotation = shape.Annotation;
-		shape.Rotation += deltaRadians;
+		shape.Rotation += deltaRadians * 180 / Math.PI;
 		SyncAnnotation (shape);
 		if (shape.Annotation is not null)
 			AnnotationRenderer.Render (surface, shape.Annotation);
@@ -404,6 +468,7 @@ internal sealed class ShapeTool : ICanvasTool
 		double left = Math.Min (shape.From.X, shape.To.X);
 		double top = Math.Min (shape.From.Y, shape.To.Y);
 		shape.Annotation = new ShapeAnnotation {
+			Clip = shape.Clip,
 			Bounds = new Rect (left, top, Math.Abs (shape.To.X - shape.From.X), Math.Abs (shape.To.Y - shape.From.Y)),
 			Rotation = shape.Rotation,
 			Kind = shape.Kind,

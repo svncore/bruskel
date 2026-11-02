@@ -103,6 +103,7 @@
     <Style Selector="Button.tool-button.active">
       <Setter Property="Background" Value="{DynamicResource Pintora.Accent}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Pintora.Accent}" />
+      <Setter Property="Foreground" Value="{DynamicResource Pintora.Tool.IconActive}" />
     </Style>
     <Style Selector="Button.tool-button.active PathIcon">
       <Setter Property="Foreground" Value="{DynamicResource Pintora.Tool.IconActive}" />
@@ -127,6 +128,38 @@
     </Style>
     <Style Selector="Slider">
       <Setter Property="Foreground" Value="{DynamicResource Pintora.Accent}" />
+    </Style>
+    <Style Selector="StackPanel.toolbar-options > Button">
+      <Setter Property="Height" Value="32" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+    </Style>
+    <Style Selector="StackPanel.toolbar-options ComboBox">
+      <Setter Property="Height" Value="32" />
+      <Setter Property="MinHeight" Value="32" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style Selector="StackPanel.toolbar-options NumericUpDown">
+      <Setter Property="Height" Value="32" />
+      <Setter Property="MinWidth" Value="64" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style Selector="StackPanel.toolbar-options NumericUpDown /template/ ButtonSpinner /template/ RepeatButton">
+      <Setter Property="Width" Value="18" />
+      <Setter Property="MinWidth" Value="18" />
+      <Setter Property="Padding" Value="2" />
+    </Style>
+    <Style Selector="StackPanel.toolbar-options NumericUpDown /template/ ButtonSpinner /template/ RepeatButton PathIcon">
+      <Setter Property="Width" Value="10" />
+      <Setter Property="Height" Value="10" />
+    </Style>
+    <Style Selector="StackPanel.toolbar-options TextBox">
+      <Setter Property="Height" Value="30" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style Selector="StackPanel.toolbar-options Slider">
+      <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
   </Application.Styles>
 </Application>

@@ -75,13 +75,16 @@ public static class AnnotationRenderer
 
 	public static void Render (MemoryImageSurface surface, ShapeAnnotation annotation)
 	{
+		ColorBgra[]? before = annotation.Clip is null ? null : surface.GetReadOnlyPixelData ().ToArray ();
 		ShapeRasterizer.DrawRotated (surface, annotation.Kind, annotation.From, annotation.To,
 			annotation.Outline, annotation.Fill, annotation.FillStyle, annotation.OutlineWidth,
 			annotation.Dash, annotation.CornerRadius, annotation.Antialias, annotation.Rotation);
+		if (before is not null) annotation.Clip!.RestoreOutside (surface, before);
 	}
 
 	public static void Render (MemoryImageSurface surface, TextAnnotation annotation)
 	{
+		ColorBgra[]? before = annotation.Clip is null ? null : surface.GetReadOnlyPixelData ().ToArray ();
 		using var overlay = new SKBitmap (surface.Width, surface.Height, SKColorType.Bgra8888, SKAlphaType.Premul);
 		using var canvas = new SKCanvas (overlay);
 		using var paint = new SKPaint {
@@ -103,6 +106,7 @@ public static class AnnotationRenderer
 		canvas.Restore ();
 		canvas.Flush ();
 		CopyOverlay (surface, overlay);
+		if (before is not null) annotation.Clip!.RestoreOutside (surface, before);
 	}
 
 	private static SKFont CreateFont (double size, string family, FontWeight weight)
@@ -115,6 +119,7 @@ public static class AnnotationRenderer
 
 	public static void Render (MemoryImageSurface surface, RegionEffectAnnotation annotation)
 	{
+		ColorBgra[]? before = annotation.Clip is null ? null : surface.GetReadOnlyPixelData ().ToArray ();
 		int left = Math.Max (0, (int) Math.Floor (annotation.Bounds.X));
 		int top = Math.Max (0, (int) Math.Floor (annotation.Bounds.Y));
 		int right = Math.Min (surface.Width, (int) Math.Ceiling (annotation.Bounds.Right));
@@ -137,6 +142,7 @@ public static class AnnotationRenderer
 				Spotlight (surface, left, top, right, bottom, annotation.Strength);
 				break;
 		}
+		if (before is not null) annotation.Clip!.RestoreOutside (surface, before);
 	}
 
 	private static void Magnify (MemoryImageSurface surface, int left, int top, int right, int bottom, double strength)
