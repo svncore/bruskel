@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\Bruskel.Core\Bruskel.Core.csproj" />
+    <ProjectReference Include="..\..\core\Bruskel.Effects\Bruskel.Effects.csproj" />
+    <ProjectReference Include="..\..\core\Bruskel.Tools\Bruskel.Tools.csproj" />
+  </ItemGroup>
+</Project>

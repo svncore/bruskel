@@ -1,16 +1,16 @@
-# Swedish translation for pinta
+# Swedish translation for bruskel
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
-# This file is distributed under the same license as the pinta package.
+# This file is distributed under the same license as the bruskel package.
 # Åke Engelbrektson <eson@svenskasprakfiler, 2016, 2021.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: pinta\n"
+"Project-Id-Version: bruskel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 00:27+0000\n"
 "PO-Revision-Date: 2026-10-18 07:18+0000\n"
 "Last-Translator: Åke Engelbrektson <eson@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/pinta/pinta/sv/>"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/bruskel/bruskel/sv/>"
 "\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -20,429 +20,429 @@ msgstr ""
 "X-Generator: Weblate 2026.11.dev0\n"
 "X-Launchpad-Export-Date: 2023-12-18 03:00+0000\n"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:284
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:284
 msgid " (in user directory)"
 msgstr " (i användarkatalogen)"
 
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:56
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:56
 msgid " Selection Mode: "
 msgstr " Markeringsläge: "
 
-#: ../Pinta.Core/Managers/EffectsManager.cs:78
-#: ../Pinta.Core/Managers/EffectsManager.cs:116
+#: ../Bruskel.Core/Managers/EffectsManager.cs:78
+#: ../Bruskel.Core/Managers/EffectsManager.cs:116
 msgid "..."
 msgstr "..."
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:236
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:236
 msgid "3 x 3 Region"
 msgstr "3 x 3-område"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:237
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:237
 msgid "5 x 5 Region"
 msgstr "5 x 5-område"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:238
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:238
 msgid "7 x 7 Region"
 msgstr "7 x 7-område"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:239
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:239
 msgid "9 x 9 Region"
 msgstr "9 x 9-område"
 
-#: ../Pinta/MainWindow.cs:397
+#: ../Bruskel/MainWindow.cs:397
 msgid "A_dd-ins"
 msgstr "T_illägg"
 
-#: ../Pinta.Core/Actions/AppActions.cs:44
+#: ../Bruskel.Core/Actions/AppActions.cs:44
 msgid "About"
 msgstr "Om"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:64
-msgid "About Pinta"
-msgstr "Om Pinta"
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:64
+msgid "About Bruskel"
+msgstr "Om Bruskel"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:61
-#: ../Pinta.Core/Actions/LayerActions.cs:400
-#: ../Pinta/Actions/Edit/PasteAction.cs:187
+#: ../Bruskel.Core/Actions/LayerActions.cs:61
+#: ../Bruskel.Core/Actions/LayerActions.cs:400
+#: ../Bruskel/Actions/Edit/PasteAction.cs:187
 msgid "Add New Layer"
 msgstr "Lägg till nytt lager"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:24
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:24
 msgid "Add Noise"
 msgstr "Lägg till brus"
 
-#: ../Pinta.Core/Actions/AddinActions.cs:40
+#: ../Bruskel.Core/Actions/AddinActions.cs:40
 msgid "Add-in Manager..."
 msgstr "Instickshanterare..."
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:852
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:852
 msgid "Added"
 msgstr "Tillagd"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:104
-#: ../Pinta/MainWindow.cs:460
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:104
+#: ../Bruskel/MainWindow.cs:460
 msgid "Adjustments"
 msgstr "Justeringar"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:207
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:207
 msgid "After select"
 msgstr "Efter markering"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:76
-#: ../Pinta.Effects/Effects/AlignObjectEffect.cs:12
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:76
+#: ../Bruskel.Effects/Effects/AlignObjectEffect.cs:12
 msgid "Align Object"
 msgstr "Justera objekt"
 
 #. Translators: 'All Petite Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:206
+#: ../Bruskel.Tools/Tools/TextTool.cs:206
 msgid "All Petite Caps"
 msgstr "Alla pyttesmå versaler"
 
 #. Translators: 'All Small Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:194
+#: ../Bruskel.Tools/Tools/TextTool.cs:194
 msgid "All Small Caps"
 msgstr "Alla små versaler"
 
-#: ../Pinta.Core/Actions/EditActions.cs:619
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:302
-#: ../Pinta/Actions/File/OpenDocumentAction.cs:102
+#: ../Bruskel.Core/Actions/EditActions.cs:619
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:302
+#: ../Bruskel/Actions/File/OpenDocumentAction.cs:102
 msgid "All files"
 msgstr "Alla filer"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:371
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:371
 msgid "Alpha"
 msgstr "Alfa"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:212
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:212
 msgid "Alpha Gradient"
 msgstr "Alfatoning"
 
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:116
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:88
-#: ../Pinta.Effects/Effects/SharpenEffect.cs:57
-#: ../Pinta.Effects/Effects/TwistEffect.cs:217
-#: ../Pinta.Effects/Effects/ZoomBlurEffect.cs:136
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:116
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:88
+#: ../Bruskel.Effects/Effects/SharpenEffect.cs:57
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:217
+#: ../Bruskel.Effects/Effects/ZoomBlurEffect.cs:136
 msgid "Amount"
 msgstr "Mängd"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:154
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:154
 msgid "Anchor:"
 msgstr "Ankare:"
 
-#: ../Pinta.Effects/Effects/EdgeDetectEffect.cs:81
-#: ../Pinta.Effects/Effects/EmbossEffect.cs:120
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:169
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:168
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:147
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:136
-#: ../Pinta.Effects/Effects/ReliefEffect.cs:77
-#: ../Pinta.Tools/Brushes/SlashBrush.cs:53
-#: ../Pinta.Tools/Editable/EditEngines/ArrowedEditEngine.cs:310
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:145
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:72
+#: ../Bruskel.Effects/Effects/EdgeDetectEffect.cs:81
+#: ../Bruskel.Effects/Effects/EmbossEffect.cs:120
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:169
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:168
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:147
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:136
+#: ../Bruskel.Effects/Effects/ReliefEffect.cs:77
+#: ../Bruskel.Tools/Brushes/SlashBrush.cs:53
+#: ../Bruskel.Tools/Editable/EditEngines/ArrowedEditEngine.cs:310
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:145
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:72
 msgid "Angle"
 msgstr "Vinkel"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:14
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:14
 msgid "Animate Selection Outline"
 msgstr "Animera markeringskontur"
 
-#: ../Pinta.Effects/Effects/TwistEffect.cs:225
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:225
 msgid "Antialias"
 msgstr "Kantutjämning"
 
-#: ../Pinta.Core/Classes/BaseTool.cs:359
+#: ../Bruskel.Core/Classes/BaseTool.cs:359
 msgid "Antialiasing Off"
 msgstr "Kantutjämning av"
 
-#: ../Pinta.Core/Classes/BaseTool.cs:358
+#: ../Bruskel.Core/Classes/BaseTool.cs:358
 msgid "Antialiasing On"
 msgstr "Kantutjämning på"
 
-#: ../Pinta.Tools/Editable/EditEngines/ArrowedEditEngine.cs:262
+#: ../Bruskel.Tools/Editable/EditEngines/ArrowedEditEngine.cs:262
 msgid "Arrow"
 msgstr "Pil"
 
-#: ../Pinta.Effects/Effects/InkSketchEffect.cs:41
-#: ../Pinta.Effects/Effects/OilPaintingEffect.cs:32
-#: ../Pinta.Effects/Effects/PencilSketchEffect.cs:33
+#: ../Bruskel.Effects/Effects/InkSketchEffect.cs:41
+#: ../Bruskel.Effects/Effects/OilPaintingEffect.cs:32
+#: ../Bruskel.Effects/Effects/PencilSketchEffect.cs:33
 msgid "Artistic"
 msgstr "Konstnärlig"
 
 #. Translators: Image dithering matrix named after Bill Atkinson
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:28
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:28
 msgid "Atkinson"
 msgstr "Atkinson"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:3
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:3
 msgid "Author"
 msgstr "Utvecklare"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:271
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:271
 msgid "Auto"
 msgstr "Auto"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:63
+#: ../Bruskel.Core/Actions/ImageActions.cs:63
 msgid "Auto Crop"
 msgstr "Beskär automatiskt"
 
-#: ../Pinta.Effects/Adjustments/AutoLevelEffect.cs:24
+#: ../Bruskel.Effects/Adjustments/AutoLevelEffect.cs:24
 msgid "Auto Level"
 msgstr "Autonivå"
 
-#: ../Pinta.Tools/Tools/SelectTool.cs:264
+#: ../Bruskel.Tools/Tools/SelectTool.cs:264
 msgid "Autoscroll Off"
 msgstr "Autorullning av"
 
-#: ../Pinta.Tools/Tools/SelectTool.cs:263
+#: ../Bruskel.Tools/Tools/SelectTool.cs:263
 msgid "Autoscroll On"
 msgstr "Autorullning på"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:19
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:131
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:19
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:131
 msgid "Background"
 msgstr "Bakgrund"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:118
+#: ../Bruskel/Dialogs/NewImageDialog.cs:118
 msgid "Background Color"
 msgstr "Bakgrundsfärg"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:322
+#: ../Bruskel/Dialogs/NewImageDialog.cs:322
 msgid "Background:"
 msgstr "Bakgrund:"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:94
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:94
 msgid "Based on the work of Paint.NET:"
 msgstr "Baserat på arbetet med Paint.NET:"
 
 #. Translators: Gradient with the colors of the flag of Italy: red, white, and green
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:23
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:23
 msgid "Beautiful Italy"
 msgstr "Vackra Italien"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:84
+#: ../Bruskel.Core/Actions/ViewActions.cs:84
 msgid "Best Fit"
 msgstr "Bästa passning"
 
 #. Translators: 'Bevel Join' refers to the Cairo.LineJoin property
-#: ../Pinta.Tools/Tools/TextTool.cs:458
+#: ../Bruskel.Tools/Tools/TextTool.cs:458
 msgid "Bevel Join"
 msgstr "Bevel Join"
 
-#: ../Pinta.Core/Enumerations/ResamplingMode.cs:22
+#: ../Bruskel.Core/Enumerations/ResamplingMode.cs:22
 msgid "Bilinear"
 msgstr "Bilinjär"
 
 #. Translators: Simple gradient that goes from black to white
-#: ../Pinta.Effects/Adjustments/BlackAndWhiteEffect.cs:29
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:27
+#: ../Bruskel.Effects/Adjustments/BlackAndWhiteEffect.cs:29
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:27
 msgid "Black and White"
 msgstr "Svartvitt"
 
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:73
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:73
 msgid "Blend Mode"
 msgstr "Blandningsläge"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:121
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:64
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:370
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:121
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:64
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:370
 msgid "Blue"
 msgstr "Blå"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:91
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:91
 msgid "Blue "
 msgstr "Blå "
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:33
-#: ../Pinta.Effects/Effects/GaussianBlurEffect.cs:28
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:33
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:27
-#: ../Pinta.Effects/Effects/UnfocusEffect.cs:27
-#: ../Pinta.Effects/Effects/ZoomBlurEffect.cs:32
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:33
+#: ../Bruskel.Effects/Effects/GaussianBlurEffect.cs:28
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:33
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:27
+#: ../Bruskel.Effects/Effects/UnfocusEffect.cs:27
+#: ../Bruskel.Effects/Effects/ZoomBlurEffect.cs:32
 msgid "Blurs"
 msgstr "Oskärpa"
 
 #. Translators: 'Bold' (700) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:302
+#: ../Bruskel.Tools/Tools/TextTool.cs:302
 msgid "Bold"
 msgstr "Fet"
 
 #. Translators: Gradient that starts out white, like the core of a raging fire, and then goes through yellow, red, and black (like visible black smoke), and finally transparent, blending with the background
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:31
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:31
 msgid "Bonfire"
 msgstr "Brasa"
 
 #. Translators: 'Book' (380) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:278
+#: ../Bruskel.Tools/Tools/TextTool.cs:278
 msgid "Book"
 msgstr "Book"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:40
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:40
 msgid "Bottom Center"
 msgstr "Centrum underkant"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:39
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:39
 msgid "Bottom Left"
 msgstr "Vänster underkant"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:41
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:41
 msgid "Bottom Right"
 msgstr "Höger underkant"
 
-#: ../Pinta.Effects/Adjustments/BrightnessContrastEffect.cs:87
-#: ../Pinta.Effects/Effects/GlowEffect.cs:79
+#: ../Bruskel.Effects/Adjustments/BrightnessContrastEffect.cs:87
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:79
 msgid "Brightness"
 msgstr "Ljusstyrka"
 
-#: ../Pinta.Effects/Adjustments/BrightnessContrastEffect.cs:40
+#: ../Bruskel.Effects/Adjustments/BrightnessContrastEffect.cs:40
 msgid "Brightness / Contrast"
 msgstr "Ljus / Kontrast"
 
-#: ../Pinta.Effects/Effects/OilPaintingEffect.cs:147
+#: ../Bruskel.Effects/Effects/OilPaintingEffect.cs:147
 msgid "Brush Size"
 msgstr "Penselstorlek"
 
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:129
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:129
 msgid "Brush width"
 msgstr "Penselbredd"
 
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:23
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:23
 msgid "Bulge"
 msgstr "Utbuktning"
 
 #. Translators: Image dithering matrix named after Daniel Burkes
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:24
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:24
 msgid "Burkes"
 msgstr "Burkes"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:121
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:90
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:121
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:90
 msgid "By absolute size:"
 msgstr "Efter absolut storlek:"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:114
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:83
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:114
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:83
 msgid "By percentage:"
 msgstr "Efter procent:"
 
-#: ../Pinta.Core/Actions/EditActions.cs:556
-#: ../Pinta.Gui.Addins/InstallDialog.cs:126
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:498
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:96
+#: ../Bruskel.Core/Actions/EditActions.cs:556
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:126
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:498
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:96
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:13 ../Pinta/Pads/CanvasPad.cs:41
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:13 ../Bruskel/Pads/CanvasPad.cs:41
 msgid "Canvas"
 msgstr "Arbetsyta"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:122
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:122
 msgid "Canvas Grid Settings"
 msgstr "Inställningar för arbetsytans stödlinjer"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:123
+#: ../Bruskel.Core/Actions/ViewActions.cs:123
 msgid "Canvas Grid..."
 msgstr "Arbetsytans stödlinjer..."
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:1
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:1
 msgid "Category"
 msgstr "Kategori"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:176
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:176
 msgid "Cell Radius"
 msgstr "Cellradie"
 
-#: ../Pinta.Effects/Effects/PixelateEffect.cs:121
+#: ../Bruskel.Effects/Effects/PixelateEffect.cs:121
 msgid "Cell Size"
 msgstr "Rutstorlek"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:19
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:19
 msgid "Cells"
 msgstr "Celler"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:37
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:37
 msgid "Center"
 msgstr "Centrum"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:371
+#: ../Bruskel.Tools/Tools/TextTool.cs:371
 msgid "Center Align"
 msgstr "Centrera"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:36
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:36
 msgid "Center Left"
 msgstr "Centrum vänster"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:159
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:96
-#: ../Pinta.Effects/Effects/TwistEffect.cs:229
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:159
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:96
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:229
 msgid "Center Offset"
 msgstr "Centrum förskjutning"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:38
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:38
 msgid "Center Right"
 msgstr "Centrum höger"
 
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:154
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:154
 msgid "Centered"
 msgstr "Centrerad"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:215
+#: ../Bruskel.Core/Actions/ViewActions.cs:215
 msgid "Centimeters"
 msgstr "Centimeter"
 
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:47
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:47
 msgid "Change brush width."
 msgstr "Ändra penselbredd."
 
-#: ../Pinta.Tools/Tools/TextTool.cs:238
+#: ../Bruskel.Tools/Tools/TextTool.cs:238
 msgid "Change font size."
 msgstr "Ändra teckenstorlek."
 
-#: ../Pinta.Tools/Tools/TextTool.cs:237
+#: ../Bruskel.Tools/Tools/TextTool.cs:237
 msgid "Change font size. Shortcut keys: [ ]"
 msgstr "Byt teckenstorlek. Snabbtangenter: [ ]"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:370
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:370
 msgid "Change outline width."
 msgstr "Ändra konturbredd."
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:300
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:300
 msgid "Changed Shape Type"
 msgstr "Ändrad figurtyp"
 
 #. Translators: Gradient that starts out off-white, like cherry blossoms against sunlight, then goes through pink, then light blue (like the sky) and finally transparent, blending with the background
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:35
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:35
 msgid "Cherry Blossom"
 msgstr "Körsbärsblom"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:666
-#: ../Pinta.Gui.Widgets/Dialogs/SimpleEffectDialog.cs:359
-#: ../Pinta/Dialogs/PreferencesDialog.cs:183
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:666
+#: ../Bruskel.Gui.Widgets/Dialogs/SimpleEffectDialog.cs:359
+#: ../Bruskel/Dialogs/PreferencesDialog.cs:183
 msgid "Choose Color"
 msgstr "Välj färg"
 
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:380
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:380
 msgid "Choose Colors"
 msgstr "Välj färger"
 
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:164
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:164
 msgid "Choose Palette Color"
 msgstr "Välj palettfärg"
 
-#: ../Pinta.Tools/Brushes/CircleBrush.cs:36
+#: ../Bruskel.Tools/Brushes/CircleBrush.cs:36
 msgid "Circles"
 msgstr "Cirklar"
 
 #. Translators: Arrangement of points along a circular path
-#: ../Pinta.Core/Algorithms/SpatialPartition.cs:170
+#: ../Bruskel.Core/Algorithms/SpatialPartition.cs:170
 msgid "Circular"
 msgstr "Cirkulär"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:7
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:7
 msgid "Clamp"
 msgstr "Sammanfoga"
 
-#: ../Pinta.Tools/Tools/RectangleSelectTool.cs:42
+#: ../Bruskel.Tools/Tools/RectangleSelectTool.cs:42
 msgid ""
 "Click and drag to draw a rectangular selection.\n"
 "Hold Shift to constrain to a square."
@@ -450,7 +450,7 @@ msgstr ""
 "Klicka och dra för att rita en rektangulär markering.\n"
 "Håll ner Shift för att begränsa till en fyrkant."
 
-#: ../Pinta.Tools/Tools/EllipseSelectTool.cs:41
+#: ../Bruskel.Tools/Tools/EllipseSelectTool.cs:41
 msgid ""
 "Click and drag to draw an elliptical selection.\n"
 "Hold Shift to constrain to a circle."
@@ -458,7 +458,7 @@ msgstr ""
 "Klicka och dra för att rita en elliptisk markering.\n"
 "Håll ner Skift för att begränsa till en cirkel."
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:62
+#: ../Bruskel.Tools/Tools/GradientTool.cs:62
 msgid ""
 "Click and drag to draw gradient from primary to secondary color.\n"
 "Right click to reverse.\n"
@@ -468,20 +468,20 @@ msgstr ""
 "Högerklicka för att vända.\n"
 "Klicka på en kontrollpunkt och dra för att flytta den."
 
-#: ../Pinta.Tools/Tools/PanTool.cs:42
+#: ../Bruskel.Tools/Tools/PanTool.cs:42
 msgid "Click and drag to navigate image."
 msgstr "Klicka och dra för att navigera bilden."
 
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:356
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:356
 msgid "Click to reset primary and secondary color."
 msgstr "Klicka för att återställa primär och sekundär färg."
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:602
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:344
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:602
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:344
 msgid "Click to select primary color."
 msgstr "Klicka för att välja primär färg."
 
-#: ../Pinta.Tools/Tools/MagicWandTool.cs:57
+#: ../Bruskel.Tools/Tools/MagicWandTool.cs:57
 msgid ""
 "Click to select region of similar color.\n"
 "Hold shift to use Global mode."
@@ -489,339 +489,339 @@ msgstr ""
 "Klicka för att välja liknande färgregion.\n"
 "Håll ner Shift för att använda övergripande läge."
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:607
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:348
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:607
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:348
 msgid "Click to select secondary color."
 msgstr "Klicka för att välja sekundär färg."
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:367
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:351
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:367
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:351
 msgid "Click to switch between primary and secondary color."
 msgstr "Klicka för att växla mellan primär och sekundär färg."
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:373
-#: ../Pinta/Dialogs/NewImageDialog.cs:430
-#: ../Pinta/Dialogs/NewImageDialog.cs:449
-#: ../Pinta/Dialogs/NewImageDialog.cs:545
+#: ../Bruskel/Dialogs/NewImageDialog.cs:373
+#: ../Bruskel/Dialogs/NewImageDialog.cs:430
+#: ../Bruskel/Dialogs/NewImageDialog.cs:449
+#: ../Bruskel/Dialogs/NewImageDialog.cs:545
 msgid "Clipboard"
 msgstr "Urklipp"
 
-#: ../Pinta.Tools/Tools/CloneStampTool.cs:60
+#: ../Bruskel.Tools/Tools/CloneStampTool.cs:60
 msgid "Clone Stamp"
 msgstr "Klonstämpel"
 
-#: ../Pinta.Core/Actions/FileActions.cs:81
-#: ../Pinta.Gui.Addins/InstallDialog.cs:343
+#: ../Bruskel.Core/Actions/FileActions.cs:81
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:343
 msgid "Close"
 msgstr "Stäng"
 
-#: ../Pinta.Core/Actions/WindowActions.cs:51
+#: ../Bruskel.Core/Actions/WindowActions.cs:51
 msgid "Close All"
 msgstr "Stäng alla"
 
-#: ../Pinta.Tools/Editable/EditEngines/RectangleEditEngine.cs:37
+#: ../Bruskel.Tools/Editable/EditEngines/RectangleEditEngine.cs:37
 msgid "Closed Curve Shape"
 msgstr "Stängd kurvfigur"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:275
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:275
 msgid "Closed Line/Curve Series"
 msgstr "Stängd linje-/kurvserie"
 
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:26
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:26
 msgid "Clouds"
 msgstr "Moln"
 
-#: ../Pinta.Effects/Effects/OilPaintingEffect.cs:151
+#: ../Bruskel.Effects/Effects/OilPaintingEffect.cs:151
 msgid "Coarseness"
 msgstr "Kornighet"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:26
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:43
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:23
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:323
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:26
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:43
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:23
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:323
 msgid "Color"
 msgstr "Färg"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:33
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:33
 msgid "Color Burn"
 msgstr "Efterbelys färg"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:34
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:34
 msgid "Color Dodge"
 msgstr "Färgskugga"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:215
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:215
 msgid "Color Gradient"
 msgstr "Färgtoning"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:328
+#: ../Bruskel.Tools/Tools/GradientTool.cs:328
 msgid "Color Mode"
 msgstr "Färgläge"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:57
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:57
 msgid "Color Picker"
 msgstr "Färghämtare"
 
-#: ../Pinta.Effects/Effects/PencilSketchEffect.cs:90
+#: ../Bruskel.Effects/Effects/PencilSketchEffect.cs:90
 msgid "Color Range"
 msgstr "Färgområde"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:171
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:171
 msgid "Color Saturation"
 msgstr "Färgmättnad"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:6
-#: ../Pinta.Effects/Effects/CellsEffect.cs:183
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:148
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:158
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:174
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:6
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:183
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:148
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:158
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:174
 msgid "Color Scheme"
 msgstr "Färgschema"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:194
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:194
 msgid "Color Scheme Edge Behavior"
 msgstr "Färgschemats kantuppförande"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:180
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:145
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:155
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:171
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:180
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:145
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:155
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:171
 msgid "Color Scheme Source"
 msgstr "Källa för färgschema"
 
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:191
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:191
 msgid "Color Sorting"
 msgstr "Färgsortering"
 
-#: ../Pinta.Effects/Effects/InkSketchEffect.cs:150
+#: ../Bruskel.Effects/Effects/InkSketchEffect.cs:150
 msgid "Coloring"
 msgstr "Färgläggning"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:298
+#: ../Bruskel.Tools/Tools/GradientTool.cs:298
 msgid "Conical Gradient"
 msgstr "Konisk gradient"
 
-#: ../Pinta.Core/Actions/HelpActions.cs:46
+#: ../Bruskel.Core/Actions/HelpActions.cs:46
 msgid "Contents"
 msgstr "Innehåll"
 
-#: ../Pinta.Tools/Tools/FloodTool.cs:131
+#: ../Bruskel.Tools/Tools/FloodTool.cs:131
 msgid "Contiguous"
 msgstr "Sammanhängande"
 
-#: ../Pinta.Effects/Adjustments/BrightnessContrastEffect.cs:90
-#: ../Pinta.Effects/Effects/GlowEffect.cs:83
+#: ../Bruskel.Effects/Adjustments/BrightnessContrastEffect.cs:90
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:83
 msgid "Contrast"
 msgstr "Kontrast"
 
-#: ../Pinta.Core/Actions/EditActions.cs:93
+#: ../Bruskel.Core/Actions/EditActions.cs:93
 msgid "Copy"
 msgstr "Kopiera"
 
-#: ../Pinta.Core/Actions/EditActions.cs:100
+#: ../Bruskel.Core/Actions/EditActions.cs:100
 msgid "Copy Merged"
 msgstr "Kopiera sammanfogat"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:81
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:81
 msgid "Copyright"
 msgstr "Upphovsrätt"
 
 #. Translators: Gradient with the colors of blue and pink cotton candy
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:39
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:39
 msgid "Cotton Candy"
 msgstr "Sockervadd"
 
 #. Translators: {0} is the name of a layer, and {1} is the path to a .ora file.
-#: ../Pinta.Core/ImageFormats/OraFormat.cs:125
+#: ../Bruskel.Core/ImageFormats/OraFormat.cs:125
 #, csharp-format
 msgid "Could not import layer \"{0}\" from {1}"
 msgstr "Kunde inte importera lager \"{0}\" från {1}"
 
-#: ../Pinta.Core/Extensions/OtherExtensions.cs:166
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:428
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:440
+#: ../Bruskel.Core/Extensions/OtherExtensions.cs:166
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:428
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:440
 #, csharp-format
 msgid "Could not open file: {0}"
 msgstr "Kunde inte öppna filen: {0}"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:175
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:175
 msgid "Coverage"
 msgstr "Täckning"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:56
-#: ../Pinta.Core/Actions/ImageActions.cs:295
+#: ../Bruskel.Core/Actions/ImageActions.cs:56
+#: ../Bruskel.Core/Actions/ImageActions.cs:295
 msgid "Crop to Selection"
 msgstr "Beskär till markering"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:159
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:159
 msgid "Current Palette"
 msgstr "Aktuell palett"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:247
+#: ../Bruskel.Effects/Effects/TileEffect.cs:247
 msgid "Curved"
 msgstr "Böjd"
 
-#: ../Pinta.Effects/Adjustments/CurvesEffect.cs:28
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:137
+#: ../Bruskel.Effects/Adjustments/CurvesEffect.cs:28
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:137
 msgid "Curves"
 msgstr "Kurvor"
 
 #. Translators: Background option for the image created at startup, using a chosen color.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:25
-#: ../Pinta/Dialogs/NewImageDialog.cs:375
-#: ../Pinta/Dialogs/NewImageDialog.cs:430
-#: ../Pinta/Dialogs/NewImageDialog.cs:451
-#: ../Pinta/Dialogs/NewImageDialog.cs:545
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:25
+#: ../Bruskel/Dialogs/NewImageDialog.cs:375
+#: ../Bruskel/Dialogs/NewImageDialog.cs:430
+#: ../Bruskel/Dialogs/NewImageDialog.cs:451
+#: ../Bruskel/Dialogs/NewImageDialog.cs:545
 msgid "Custom"
 msgstr "Anpassa"
 
-#: ../Pinta.Core/Actions/EditActions.cs:86
-#: ../Pinta.Core/Actions/EditActions.cs:369
+#: ../Bruskel.Core/Actions/EditActions.cs:86
+#: ../Bruskel.Core/Actions/EditActions.cs:369
 msgid "Cut"
 msgstr "Klipp ut"
 
 #. Translators: This refers to using a dark variant of the color scheme.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:10
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:10
 msgid "Dark"
 msgstr "Mörk"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:38
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:38
 msgid "Darken"
 msgstr "Mörkare"
 
-#: ../Pinta.Tools/Dashes/DashPatternBox.cs:59
+#: ../Bruskel.Tools/Dashes/DashPatternBox.cs:59
 msgid "Dash"
 msgstr "Streck"
 
 #. Translators: This refers to using the system default color scheme.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:5
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:5
 msgid "Default"
 msgstr "Standard"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:68
-#: ../Pinta.Core/Actions/LayerActions.cs:382
+#: ../Bruskel.Core/Actions/LayerActions.cs:68
+#: ../Bruskel.Core/Actions/LayerActions.cs:382
 msgid "Delete Layer"
 msgstr "Radera lager"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:690
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:690
 msgid "Deleted"
 msgstr "Borttagen"
 
 #. Translators: This refers to an image distortion that creates small, random warps or distortions in the image, like tiny dents, bumps, or waves
-#: ../Pinta.Effects/Effects/DentsEffect.cs:49
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:49
 msgid "Dents"
 msgstr "Bucklor"
 
-#: ../Pinta.Core/Actions/EditActions.cs:384
+#: ../Bruskel.Core/Actions/EditActions.cs:384
 msgid "Deselect"
 msgstr "Avmarkera"
 
-#: ../Pinta.Core/Actions/EditActions.cs:164
+#: ../Bruskel.Core/Actions/EditActions.cs:164
 msgid "Deselect All"
 msgstr "Avmarkera allt"
 
-#: ../Pinta/Dialogs/ErrorDialog.cs:66
+#: ../Bruskel/Dialogs/ErrorDialog.cs:66
 msgid "Details"
 msgstr "Detaljer"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:36
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:36
 msgid "Difference"
 msgstr "Skillnad"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:130
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:130
 msgid "Diffusion"
 msgstr "Spridning"
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:128
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:150
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:128
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:150
 msgid "Distance"
 msgstr "Avstånd"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:153
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:184
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:153
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:184
 msgid "Distance Metric"
 msgstr "Avstånd metriskt"
 
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:27
-#: ../Pinta.Effects/Effects/DentsEffect.cs:52
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:27
-#: ../Pinta.Effects/Effects/PixelateEffect.cs:29
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:32
-#: ../Pinta.Effects/Effects/TileEffect.cs:34
-#: ../Pinta.Effects/Effects/TwistEffect.cs:33
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:27
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:52
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:27
+#: ../Bruskel.Effects/Effects/PixelateEffect.cs:29
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:32
+#: ../Bruskel.Effects/Effects/TileEffect.cs:34
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:33
 msgid "Distort"
 msgstr "Förvräng"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:14
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:14
 msgid "Dithering"
 msgstr "Gitter"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:216
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:216
 msgid "Do not switch tool"
 msgstr "Växla inte verktyg"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:4
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:4
 msgid "Download size"
 msgstr "Nedladdningsstorlek"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:75
-#: ../Pinta.Core/Actions/LayerActions.cs:369
+#: ../Bruskel.Core/Actions/LayerActions.cs:75
+#: ../Bruskel.Core/Actions/LayerActions.cs:369
 msgid "Duplicate Layer"
 msgstr "Klona lager"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:2
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:69
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:2
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:69
 msgid "Easily create and edit images"
 msgstr "Skapa och redigera bilder enkelt"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:162
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:99
-#: ../Pinta.Effects/Effects/TileEffect.cs:237
-#: ../Pinta.Effects/Effects/TwistEffect.cs:232 Polar Inversion dialog
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:162
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:99
+#: ../Bruskel.Effects/Effects/TileEffect.cs:237
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:232 Polar Inversion dialog
 msgid "Edge Behavior"
 msgstr "Kantbeteende"
 
-#: ../Pinta.Effects/Effects/EdgeDetectEffect.cs:26
+#: ../Bruskel.Effects/Effects/EdgeDetectEffect.cs:26
 msgid "Edge Detect"
 msgstr "Kantidentifiering"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:101
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:101
 msgid "Edit"
 msgstr "Redigera"
 
-#: ../Pinta/MainWindow.cs:395
+#: ../Bruskel/MainWindow.cs:395
 msgid "Effe_cts"
 msgstr "_Effekter"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:105
-#: ../Pinta/MainWindow.cs:455
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:105
+#: ../Bruskel/MainWindow.cs:455
 msgid "Effects"
 msgstr "Effekter"
 
 #. Translators: Gradient that starts out white, like the the inner part of a spark, and goes through progressively dark shades of blue until it reaches black, and finally transparent, blending with the background
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:43
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:43
 msgid "Electric"
 msgstr "Elektrisk"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:276
-#: ../Pinta.Tools/Editable/EditEngines/EllipseEditEngine.cs:36
-#: ../Pinta.Tools/Tools/EllipseTool.cs:43
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:276
+#: ../Bruskel.Tools/Editable/EditEngines/EllipseEditEngine.cs:36
+#: ../Bruskel.Tools/Tools/EllipseTool.cs:43
 msgid "Ellipse"
 msgstr "Ellips"
 
-#: ../Pinta.Tools/Tools/EllipseSelectTool.cs:39
+#: ../Bruskel.Tools/Tools/EllipseSelectTool.cs:39
 msgid "Ellipse Select"
 msgstr "Ellipsmarkering"
 
-#: ../Pinta.Effects/Effects/EmbossEffect.cs:26
+#: ../Bruskel.Effects/Effects/EmbossEffect.cs:26
 msgid "Emboss"
 msgstr "Lättnad"
 
-#: ../Pinta/Main.cs:71
+#: ../Bruskel/Main.cs:71
 msgid "Enable additional logging or behavior changes for debugging"
 msgstr "Aktivera ytterligare loggning eller beteendeändringar för felsökning"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:15
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:15
 msgid ""
 "Enables a \"marching ants\" effect to improve the selection's visibility. "
 "Disable to reduce CPU usage."
@@ -829,370 +829,370 @@ msgstr ""
 "Aktiverar en \"marscherande myror-effekt\" för att göra markeringen mer "
 "synlig. Stäng av för att minska CPU-användningen."
 
-#: ../Pinta.Core/Actions/EditActions.cs:129
-#: ../Pinta.Core/Actions/EditActions.cs:370
+#: ../Bruskel.Core/Actions/EditActions.cs:129
+#: ../Bruskel.Core/Actions/EditActions.cs:370
 msgid "Erase Selection"
 msgstr "Sudda ut markering"
 
-#: ../Pinta.Tools/Tools/EraserTool.cs:62
+#: ../Bruskel.Tools/Tools/EraserTool.cs:62
 msgid "Eraser"
 msgstr "Suddgummi"
 
-#: ../Pinta.Core/ImageFormats/OraFormat.cs:126
+#: ../Bruskel.Core/ImageFormats/OraFormat.cs:126
 msgid "Error"
 msgstr "Fel"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:168
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:168
 msgid "Error Diffusion Method"
 msgstr "Metod för feldiffusion"
 
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:46
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:46
 msgid "Exclude (-) (Right Click)"
 msgstr "Exkludera (-) (Högerklick)"
 
 #. Translators: This refers to expanding the canvas size when pasting a larger image.
-#: ../Pinta/Actions/Edit/PasteAction.cs:256
+#: ../Bruskel/Actions/Edit/PasteAction.cs:256
 msgid "Expand"
 msgstr "Expandera"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:294
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:294
 msgid "Extension packages"
 msgstr "Tilläggspaket"
 
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:143
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:156
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:143
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:156
 msgid "Factor"
 msgstr "Faktor"
 
-#: ../Pinta/Actions/File/NewScreenshotAction.cs:86
+#: ../Bruskel/Actions/File/NewScreenshotAction.cs:86
 msgid "Failed to access XDG Desktop Portals"
 msgstr "Det gick inte att komma åt XDG-skrivbordsportaler"
 
-#: ../Pinta/MainWindow.cs:323
+#: ../Bruskel/MainWindow.cs:323
 msgid "Failed to initialize add-in"
 msgstr "Det gick inte att starta tillägget"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:215
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:215
 msgid "Failed to load extension package"
 msgstr "Det gick inte att läsa in tilläggspaketet"
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:460
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:460
 msgid "Failed to open image"
 msgstr "Kunde ine öppna bild"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:236
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:236
 msgid "Failed to save image"
 msgstr "Kunde inte spara bilden"
 
-#: ../Pinta/Actions/File/NewScreenshotAction.cs:85
-#: ../Pinta/Actions/File/NewScreenshotAction.cs:110
+#: ../Bruskel/Actions/File/NewScreenshotAction.cs:85
+#: ../Bruskel/Actions/File/NewScreenshotAction.cs:110
 msgid "Failed to take screenshot"
 msgstr "Kunde inte ta skärmklipp"
 
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:175
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:175
 msgid "Feather Canvas Edge"
 msgstr "Mjukt tonad objektkant"
 
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:18
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:18
 msgid "Feather Object"
 msgstr "Mjukt tonat objekt"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:100
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:100
 msgid "File"
 msgstr "Arkiv"
 
-#: ../Pinta.Core/Actions/HelpActions.cs:59
+#: ../Bruskel.Core/Actions/HelpActions.cs:59
 msgid "File a Bug"
 msgstr "Rapportera ett fel"
 
-#: ../Pinta/Main.cs:66
+#: ../Bruskel/Main.cs:66
 msgid "Files to open"
 msgstr "Filer att öppna"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:407
+#: ../Bruskel.Tools/Tools/TextTool.cs:407
 msgid "Fill Background"
 msgstr "Fyll bakgrund"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:221
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:221
 msgid "Fill Object Background"
 msgstr "Fyll objektbakgrund"
 
-#: ../Pinta.Core/Actions/EditActions.cs:136
-#: ../Pinta.Core/Actions/EditActions.cs:322
+#: ../Bruskel.Core/Actions/EditActions.cs:136
+#: ../Bruskel.Core/Actions/EditActions.cs:322
 msgid "Fill Selection"
 msgstr "Fyll markering"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:337
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:226
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:337
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:226
 msgid "Fill Shape"
 msgstr "Fyll form"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:327
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:219
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:327
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:219
 msgid "Fill Style"
 msgstr "Fyllnadsstil"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:338
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:227
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:338
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:227
 msgid "Fill and Outline Shape"
 msgstr "Fyll och konturera form"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:1117
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:1403
-#: ../Pinta.Tools/Tools/GradientTool.cs:186
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:1117
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:1403
+#: ../Bruskel.Tools/Tools/GradientTool.cs:186
 msgid "Finalized"
 msgstr "Slutförd"
 
-#: ../Pinta.Core/HistoryItems/FinishPixelsHistoryItem.cs:41
+#: ../Bruskel.Core/HistoryItems/FinishPixelsHistoryItem.cs:41
 msgid "Finish Pixels"
 msgstr "Slutför bildpunkter"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:117
-#: ../Pinta.Core/Actions/ImageActions.cs:221
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:279
+#: ../Bruskel.Core/Actions/ImageActions.cs:117
+#: ../Bruskel.Core/Actions/ImageActions.cs:221
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:279
 msgid "Flatten"
 msgstr "Tillplatta"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:275
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:275
 msgid "Flattening the image will merge all layers into a single layer."
 msgstr "Om du plattar ut bilden sammanfogas alla lager till ett enda lager."
 
-#: ../Pinta.Core/Actions/ImageActions.cs:84
-#: ../Pinta.Core/Actions/LayerActions.cs:95
+#: ../Bruskel.Core/Actions/ImageActions.cs:84
+#: ../Bruskel.Core/Actions/LayerActions.cs:95
 msgid "Flip Horizontal"
 msgstr "Vänd horisontellt"
 
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:51
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:51
 msgid "Flip Image Horizontal"
 msgstr "Vänd bild horisontellt"
 
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:55
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:55
 msgid "Flip Image Vertical"
 msgstr "Vänd bild vertikalt"
 
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:76
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:76
 msgid "Flip Layer Horizontal"
 msgstr "Vänd lager horisontellt"
 
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:80
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:80
 msgid "Flip Layer Vertical"
 msgstr "Vänd lager vertikalt"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:90
-#: ../Pinta.Core/Actions/LayerActions.cs:102
+#: ../Bruskel.Core/Actions/ImageActions.cs:90
+#: ../Bruskel.Core/Actions/LayerActions.cs:102
 msgid "Flip Vertical"
 msgstr "Vänd vertikalt"
 
-#: ../Pinta.Tools/Tools/FloodTool.cs:121
+#: ../Bruskel.Tools/Tools/FloodTool.cs:121
 msgid "Flood Mode"
 msgstr "Flödesläge"
 
 #. Translators: Image dithering matrix named after Robert W. Floyd and Louis Steinberg
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:40
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:40
 msgid "Floyd-Steinberg"
 msgstr "Floyd-Steinberg"
 
 #. Translators: Image dithering matrix named after Robert W. Floyd and Louis Steinberg. Some software may use it and call it Floyd-Steinberg, but it's not the actual Floyd-Steinberg matrix
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:44
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:44
 msgid "Floyd-Steinberg Lite"
 msgstr "Floyd-Steinberg Lite"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:149
+#: ../Bruskel.Tools/Tools/TextTool.cs:149
 msgid "Font"
 msgstr "Typsnitt"
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:27
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:27
 msgid "Fragment"
 msgstr "Fragment"
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:124
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:124
 msgid "Fragments"
 msgstr "Fragment"
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:220
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:220
 msgid "Freeform"
 msgstr "Fri form"
 
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:48
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:48
 msgid "Freeform Shape"
 msgstr "Fri form"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:23
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:23
 msgid "Frosted Glass"
 msgstr "Frostat glas"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:152
+#: ../Bruskel.Core/Actions/ViewActions.cs:152
 msgid "Fullscreen"
 msgstr "Helskärm"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:103
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:103
 msgid "Gallery"
 msgstr "Galleri"
 
-#: ../Pinta.Effects/Effects/GaussianBlurEffect.cs:24
+#: ../Bruskel.Effects/Effects/GaussianBlurEffect.cs:24
 msgid "Gaussian Blur"
 msgstr "Gaussisk oskärpa"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:1
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:1
 msgid "General"
 msgstr "Allmänt"
 
-#: ../Pinta.Tools/Tools/FloodTool.cs:132
+#: ../Bruskel.Tools/Tools/FloodTool.cs:132
 msgid "Global"
 msgstr "Global"
 
-#: ../Pinta.Effects/Effects/GlowEffect.cs:26
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:26
 msgid "Glow"
 msgstr "Glöd"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:60
-#: ../Pinta.Tools/Tools/GradientTool.cs:288
+#: ../Bruskel.Tools/Tools/GradientTool.cs:60
+#: ../Bruskel.Tools/Tools/GradientTool.cs:288
 msgid "Gradient"
 msgstr "Tonad"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:127
+#: ../Bruskel.Tools/Tools/GradientTool.cs:127
 msgid "Gradient Created"
 msgstr "Toning skapad"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:128
+#: ../Bruskel.Tools/Tools/GradientTool.cs:128
 msgid "Gradient Modified"
 msgstr "Toning ändrad"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:90
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:117
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:63
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:369
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:90
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:117
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:63
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:369
 msgid "Green"
 msgstr "Grön"
 
-#: ../Pinta.Tools/Brushes/GridBrush.cs:36
+#: ../Bruskel.Tools/Brushes/GridBrush.cs:36
 msgid "Grid"
 msgstr "Rutnät"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:41
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:41
 msgid "Hard Light"
 msgstr "Skarpt ljus"
 
 #. Translators: 'Heavy' (900) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:314
+#: ../Bruskel.Tools/Tools/TextTool.cs:314
 msgid "Heavy"
 msgstr "Tung"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:18
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:18
 msgid "Height"
 msgstr "Höjd"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:99
-#: ../Pinta/Dialogs/NewImageDialog.cs:348
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:87
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:126
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:99
+#: ../Bruskel/Dialogs/NewImageDialog.cs:348
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:87
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:126
 msgid "Height:"
 msgstr "Höjd:"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:107
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:107
 msgid "Help"
 msgstr "Hjålp"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:304
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:304
 msgid "Hex"
 msgstr "Hex"
 
-#: ../Pinta.Gui.Widgets/Widgets/Layers/LayersListViewItemWidget.cs:99
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:113
+#: ../Bruskel.Gui.Widgets/Widgets/Layers/LayersListViewItemWidget.cs:99
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:113
 msgid "Hide Layer"
 msgstr "Dölj lager"
 
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:58
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:58
 msgid "Hint: For best results, first use selection tools to select each eye."
 msgstr ""
 "Tips: För bästa resultat, använd först markeringsverktyg för att markera "
 "varje öga."
 
-#: ../Pinta/Pads/HistoryPad.cs:49
+#: ../Bruskel/Pads/HistoryPad.cs:49
 msgid "History"
 msgstr "Historik"
 
 #. Translators: Horizontal color sorting with blue (B) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:237
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:237
 msgid "Horizontal blue (B)"
 msgstr "Horisontell blå (B)"
 
 #. Translators: Horizontal color sorting with green (G) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:240
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:240
 msgid "Horizontal green (G)"
 msgstr "Horisontell grön (G)"
 
 #. Translators: Horizontal color sorting with red (R) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:243
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:243
 msgid "Horizontal red (R)"
 msgstr "Horisontell röd (R)"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:45
-#: ../Pinta.Effects/Adjustments/HueSaturationEffect.cs:61
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:364
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:45
+#: ../Bruskel.Effects/Adjustments/HueSaturationEffect.cs:61
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:364
 msgid "Hue"
 msgstr "Nyans"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:210
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:210
 msgid "Hue & Sat"
 msgstr "Nyans & Mättnad"
 
-#: ../Pinta.Effects/Adjustments/HueSaturationEffect.cs:23
+#: ../Bruskel.Effects/Adjustments/HueSaturationEffect.cs:23
 msgid "Hue / Saturation"
 msgstr "Nyans / Mättnad"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:228
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:228
 msgid "ICO files can not be larger than 256 x 256 pixels."
 msgstr "ICO-filer kan inte vara större än 256 x 256 pixlar."
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:195
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:195
 msgid "If enabled, the Value component is applied to the color wheel."
 msgstr "Om så är möjligt appliceras värdekomponenten på färghjulet."
 
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:75
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:75
 msgid "If you don't save, all changes will be permanently lost."
 msgstr "Om du inte sparar kommer alla ändringar att gå förlorade."
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:254
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:103
-#: ../Pinta/MainWindow.cs:465
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:254
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:103
+#: ../Bruskel/MainWindow.cs:465
 msgid "Image"
 msgstr "Bild"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:3
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:3
 msgid "Image Editor"
 msgstr "Bildredigerare"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:110
+#: ../Bruskel.Core/Actions/ViewActions.cs:110
 msgid "Image Tabs"
 msgstr "Bildflikar"
 
-#: ../Pinta/Actions/Edit/PasteAction.cs:236
+#: ../Bruskel/Actions/Edit/PasteAction.cs:236
 msgid "Image cannot be pasted"
 msgstr "Bilden kan inte klistras in"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:213
-#: ../Pinta/Actions/File/OpenDocumentAction.cs:111
+#: ../Bruskel.Core/Actions/LayerActions.cs:213
+#: ../Bruskel/Actions/File/OpenDocumentAction.cs:111
 msgid "Image files"
 msgstr "Bildfiler"
 
-#: ../Pinta/Actions/Edit/PasteAction.cs:243
+#: ../Bruskel/Actions/Edit/PasteAction.cs:243
 msgid "Image larger than canvas"
 msgstr "Bilden är större än arbetsytan"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:227
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:227
 msgid "Image too large"
 msgstr "Bilden är för stor"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:260
+#: ../Bruskel.Core/Actions/LayerActions.cs:260
 msgid "Import From File"
 msgstr "Importera från fil"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:89
+#: ../Bruskel.Core/Actions/LayerActions.cs:89
 msgid "Import from File..."
 msgstr "Importera från fil..."
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:57
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:57
 msgid ""
 "In Freeform mode, click and drag to draw the outline for a selection area.\n"
 "\n"
@@ -1207,139 +1207,139 @@ msgstr ""
 "Tryck på Retur för att avsluta markeringen.\n"
 "Tryck på Backslag för att ta bort sista punkten."
 
-#: ../Pinta.Core/Actions/ViewActions.cs:214
+#: ../Bruskel.Core/Actions/ViewActions.cs:214
 msgid "Inches"
 msgstr "Tum"
 
-#: ../Pinta.Effects/Effects/InkSketchEffect.cs:146
+#: ../Bruskel.Effects/Effects/InkSketchEffect.cs:146
 msgid "Ink Outline"
 msgstr "Bläckkontur"
 
-#: ../Pinta.Effects/Effects/InkSketchEffect.cs:35
+#: ../Bruskel.Effects/Effects/InkSketchEffect.cs:35
 msgid "Ink Sketch"
 msgstr "Bläckskiss"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:286
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:286
 msgid "Input"
 msgstr "Indata"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:285
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:285
 msgid "Input Histogram"
 msgstr "Indatahistogram"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:129
-#: ../Pinta.Gui.Addins/InstallDialog.cs:263
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:129
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:263
 msgid "Install"
 msgstr "Installera"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:268
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:268
 msgid "Install Extension Package"
 msgstr "Installera tilläggspaket"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:127
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:127
 msgid "Install from file..."
 msgstr "Installera från fil..."
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:6
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:6
 msgid "Install..."
 msgstr "Installera..."
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:104
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:104
 msgid "Installed"
 msgstr "Installerade"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:167
-#: ../Pinta.Effects/Effects/OutlineEdgeEffect.cs:137
-#: ../Pinta.Effects/Effects/TileEffect.cs:230
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:167
+#: ../Bruskel.Effects/Effects/OutlineEdgeEffect.cs:137
+#: ../Bruskel.Effects/Effects/TileEffect.cs:230
 msgid "Intensity"
 msgstr "Intensitet"
 
 #. Translators: {0} is 'Alt', or a platform-specific key such as 'Option' on macOS.
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:50
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:50
 #, csharp-format
 msgid "Intersect ({0} + Left Click)"
 msgstr "Skär ({0} + Vänsterklick)"
 
-#: ../Pinta.Effects/Adjustments/InvertColorsEffect.cs:29
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:185
+#: ../Bruskel.Effects/Adjustments/InvertColorsEffect.cs:29
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:185
 msgid "Invert Colors"
 msgstr "Invertera färger"
 
-#: ../Pinta.Core/Actions/EditActions.cs:143
-#: ../Pinta.Core/Actions/EditActions.cs:641
+#: ../Bruskel.Core/Actions/EditActions.cs:143
+#: ../Bruskel.Core/Actions/EditActions.cs:641
 msgid "Invert Selection"
 msgstr "Invertera markering"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:334
+#: ../Bruskel.Tools/Tools/TextTool.cs:334
 msgid "Italic"
 msgstr "Kursiv"
 
-#: ../Pinta/Dialogs/JpegCompressionDialog.cs:48
+#: ../Bruskel/Dialogs/JpegCompressionDialog.cs:48
 msgid "JPEG Quality"
 msgstr "JPEG-kvalitet"
 
 #. Translators: Image dithering matrix named after J. F. Jarvis, C. N. Judice, and W. H. Ninke
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:36
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:36
 msgid "Jarvis-Judice-Ninke"
 msgstr "Jarvis-Judice-Ninke"
 
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:26
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:26
 msgid "Julia Fractal"
 msgstr "Julia-fraktal"
 
-#: ../Pinta.Core/Actions/AppActions.cs:55
+#: ../Bruskel.Core/Actions/AppActions.cs:55
 msgid "Keyboard Shortcuts"
 msgstr "Snabbtangenter"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:315
+#: ../Bruskel/Dialogs/NewImageDialog.cs:315
 msgid "Landscape"
 msgstr "Liggande"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:3
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:3
 msgid "Language"
 msgstr "Språk"
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:213
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:213
 msgid "Lasso Mode"
 msgstr "Lassoläge"
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:55
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:55
 msgid "Lasso Select"
 msgstr "Lassomarkering"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:253
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:253
 msgid "Layer"
 msgstr "Lager"
 
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:101
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:101
 msgid "Layer Opacity"
 msgstr "Lageropacitet"
 
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:119
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:119
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:119
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:119
 msgid "Layer Properties"
 msgstr "Lageregenskaper"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:127
+#: ../Bruskel.Core/Actions/LayerActions.cs:127
 msgid "Layer Properties..."
 msgstr "Lagerinställningar..."
 
 #. Translators: {0} is a unique id for new layers, e.g. "Layer 2".
-#: ../Pinta.Core/Classes/DocumentLayers.cs:131
+#: ../Bruskel.Core/Classes/DocumentLayers.cs:131
 #, csharp-format
 msgid "Layer {0}"
 msgstr "Lager {0}"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:97
-#: ../Pinta/Pads/LayersPad.cs:49
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:97
+#: ../Bruskel/Pads/LayersPad.cs:49
 msgid "Layers"
 msgstr "Lager"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:360
+#: ../Bruskel.Tools/Tools/TextTool.cs:360
 msgid "Left Align"
 msgstr "Vänsterjustera"
 
-#: ../Pinta.Tools/Tools/MoveSelectedTool.cs:49
+#: ../Bruskel.Tools/Tools/MoveSelectedTool.cs:49
 #, csharp-format
 msgid ""
 "Left click and drag the selection to move selected content.\n"
@@ -1354,7 +1354,7 @@ msgstr ""
 "Håll nen Skift för att rotera stegvis.\n"
 "Använd piltangenterna för att flytta markerat innehåll pixel för pixel."
 
-#: ../Pinta.Tools/Tools/MoveSelectionTool.cs:50
+#: ../Bruskel.Tools/Tools/MoveSelectionTool.cs:50
 #, csharp-format
 msgid ""
 "Left click and drag the selection to move selection outline.\n"
@@ -1370,7 +1370,7 @@ msgstr ""
 "Använd piltangenterna för att flytta markeringskonturen pixel för pixel."
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Tools/Tools/ShapeTool.cs:50
+#: ../Bruskel.Tools/Tools/ShapeTool.cs:50
 #, csharp-format
 msgid ""
 "Left click to draw a shape with the primary color.\n"
@@ -1404,7 +1404,7 @@ msgstr ""
 "form på exakt samma position.\n"
 "Tryck på Retur för att slutföra formen."
 
-#: ../Pinta.Tools/Tools/PencilTool.cs:51
+#: ../Bruskel.Tools/Tools/PencilTool.cs:51
 msgid ""
 "Left click to draw freeform one-pixel wide lines with the primary color.\n"
 "Right click to use the secondary color."
@@ -1413,8 +1413,8 @@ msgstr ""
 "primärfärgen.\n"
 "Högerklicka för att använda den sekundära färgen."
 
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:50
-#: ../Pinta.Tools/Tools/PaintBrushTool.cs:82
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:50
+#: ../Bruskel.Tools/Tools/PaintBrushTool.cs:82
 msgid ""
 "Left click to draw with primary color, right click to draw with secondary "
 "color."
@@ -1422,14 +1422,14 @@ msgstr ""
 "Vänsterklicka för att rita med den primära färgen, högerklicka för att rita "
 "med sekundär färg."
 
-#: ../Pinta.Tools/Tools/EraserTool.cs:68
+#: ../Bruskel.Tools/Tools/EraserTool.cs:68
 msgid ""
 "Left click to erase to transparent, right click to erase to secondary color. "
 msgstr ""
 "Vänsterklicka för att radera till transparent, högerklicka för att radera "
 "till sekundär färg. "
 
-#: ../Pinta.Tools/Tools/PaintBucketTool.cs:47
+#: ../Bruskel.Tools/Tools/PaintBucketTool.cs:47
 msgid ""
 "Left click to fill a region with the primary color, right click to fill with "
 "the secondary color.\n"
@@ -1439,7 +1439,7 @@ msgstr ""
 "för att fylla med den sekundära färgen.\n"
 "Håll ner Shift för att använda övergripande läge."
 
-#: ../Pinta.Tools/Tools/TextTool.cs:95
+#: ../Bruskel.Tools/Tools/TextTool.cs:95
 msgid ""
 "Left click to place cursor, then type desired text. Text color is primary "
 "color."
@@ -1447,7 +1447,7 @@ msgstr ""
 "Vänsterklicka för att placera markören och skriv sedan önskad text. "
 "Textfärgen är den primära färgen."
 
-#: ../Pinta.Tools/Tools/RecolorTool.cs:58
+#: ../Bruskel.Tools/Tools/RecolorTool.cs:58
 msgid ""
 "Left click to replace the secondary color with the primary color.\n"
 "Right click to reverse."
@@ -1455,7 +1455,7 @@ msgstr ""
 "Vänsterklicka för att ersätta den sekundära färgen med den primära färgen.\n"
 "Högerklicka för att vända."
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:59
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:59
 msgid ""
 "Left click to set primary color.\n"
 "Right click to set secondary color."
@@ -1463,14 +1463,14 @@ msgstr ""
 "Vänsterklicka för att ställa in primärfärg.\n"
 "Högerklicka för att ställa in sekundär färg."
 
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:339
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:339
 msgid "Left click to set primary color. Right click to set secondary color."
 msgstr ""
 "Vänsterklicka för att ställa in den primära färgen. Högerklicka för sekundär "
 "färg."
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:331
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:331
 #, csharp-format
 msgid ""
 "Left click to set primary color. Right click to set secondary color. Middle "
@@ -1479,7 +1479,7 @@ msgstr ""
 "Vänsterklick för att ange primär färg. Högerklick för att ange sekundär "
 "färg. Mellanklick eller tryck {0} och vänsterklick för att välja palettfärg."
 
-#: ../Pinta.Tools/Tools/ZoomTool.cs:59
+#: ../Bruskel.Tools/Tools/ZoomTool.cs:59
 msgid ""
 "Left click to zoom in.\n"
 "Right click to zoom out.\n"
@@ -1489,1166 +1489,1166 @@ msgstr ""
 "Högerklicka för att zooma ut.\n"
 "Klicka och dra för att zooma in markeringen."
 
-#: ../Pinta.Tools/Editable/EditEngines/ArrowedEditEngine.cs:331
+#: ../Bruskel.Tools/Editable/EditEngines/ArrowedEditEngine.cs:331
 msgid "Length"
 msgstr "Längd"
 
-#: ../Pinta.Effects/Adjustments/LevelsEffect.cs:23
+#: ../Bruskel.Effects/Adjustments/LevelsEffect.cs:23
 msgid "Levels"
 msgstr "Nivåer"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:263
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:263
 msgid "Levels Adjustment"
 msgstr "Nivåjustering"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:90
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:90
 msgid "License"
 msgstr "Licens"
 
 #. Translators: This refers to using a light variant of the color scheme.
 #. Translators: 'Light' (300) refers to the font-weight text property
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:8
-#: ../Pinta.Tools/Tools/TextTool.cs:266
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:8
+#: ../Bruskel.Tools/Tools/TextTool.cs:266
 msgid "Light"
 msgstr "Ljus"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:37
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:37
 msgid "Lighten"
 msgstr "Ljusare"
 
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:129
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:129
 msgid "Lighting"
 msgstr "Ljussättning"
 
-#: ../Pinta.Effects/Adjustments/HueSaturationEffect.cs:67
+#: ../Bruskel.Effects/Adjustments/HueSaturationEffect.cs:67
 msgid "Lightness"
 msgstr "Ljus"
 
 #. Translators: Gradient with a citrusy vibe that starts out white, goes through light yellow, several shades of green, and then transparent, blending with the background
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:47
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:47
 msgid "Lime Lemon"
 msgstr "Lime Citron"
 
-#: ../Pinta.Tools/Tools/LineCurveTool.cs:42
+#: ../Bruskel.Tools/Tools/LineCurveTool.cs:42
 msgid "Line/Curve"
 msgstr "Linje/Kurva"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:296
+#: ../Bruskel.Tools/Tools/GradientTool.cs:296
 msgid "Linear Diamond Gradient"
 msgstr "Linjär diamantgradient"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:294
+#: ../Bruskel.Tools/Tools/GradientTool.cs:294
 msgid "Linear Gradient"
 msgstr "Linjär gradient"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:295
+#: ../Bruskel.Tools/Tools/GradientTool.cs:295
 msgid "Linear Reflected Gradient"
 msgstr "Linjär reflekterad gradient"
 
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:92
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:92
 msgid "Linked"
 msgstr "Länkad"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:44
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:174
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:44
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:174
 msgid "Luminosity"
 msgstr "Luminositet"
 
-#: ../Pinta.Tools/Tools/MagicWandTool.cs:54
+#: ../Bruskel.Tools/Tools/MagicWandTool.cs:54
 msgid "Magic Wand Select"
 msgstr "Trollspömarkering"
 
-#: ../Pinta/MainWindow.cs:450
+#: ../Bruskel/MainWindow.cs:450
 msgid "Main Menu"
 msgstr "Huvudmeny"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:112
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:75
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:112
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:75
 msgid "Maintain aspect ratio"
 msgstr "Bevara proportioner"
 
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:26
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:26
 msgid "Mandelbrot Fractal"
 msgstr "Mandelbrot-fraktal"
 
 #. Translators: Gradient with bright, high-energy, and otherworldly tones of blue, purple, and yellow, along with a dark red that gives off the appearance of burning
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:51
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:51
 msgid "Martian Lava"
 msgstr "Marsiansk lava"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:122
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:122
 msgid "Maximum Scatter Radius"
 msgstr "Maximal spridningsradie"
 
-#: ../Pinta.Tools/Brushes/SplatterBrush.cs:65
+#: ../Bruskel.Tools/Brushes/SplatterBrush.cs:65
 msgid "Maximum Size"
 msgstr "Största storlek"
 
-#: ../Pinta.Effects/Effects/MedianEffect.cs:23
+#: ../Bruskel.Effects/Effects/MedianEffect.cs:23
 msgid "Median"
 msgstr "Median"
 
 #. Translators: 'Medium' (500) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:290
+#: ../Bruskel.Tools/Tools/TextTool.cs:290
 msgid "Medium"
 msgstr "Medium"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:82
-#: ../Pinta.Core/Actions/LayerActions.cs:335
+#: ../Bruskel.Core/Actions/LayerActions.cs:82
+#: ../Bruskel.Core/Actions/LayerActions.cs:335
 msgid "Merge Layer Down"
 msgstr "Sammanfoga lager nedåt"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:126
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:126
 msgid "Minimum Scatter Radius"
 msgstr "Minimal spridningsradie"
 
-#: ../Pinta.Tools/Brushes/SplatterBrush.cs:56
+#: ../Bruskel.Tools/Brushes/SplatterBrush.cs:56
 msgid "Minimum Size"
 msgstr "Minsta storlek"
 
 #. Translators: 'Miter Join' refers to the Cairo.LineJoin property
-#: ../Pinta.Tools/Tools/TextTool.cs:446
+#: ../Bruskel.Tools/Tools/TextTool.cs:446
 msgid "Miter Join"
 msgstr "Miter Join"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:322
+#: ../Bruskel.Tools/Tools/GradientTool.cs:322
 msgid "Mode"
 msgstr "Läge"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:934
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:934
 msgid "Modified"
 msgstr "Ändrad"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:8
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:8
 msgid "More Information..."
 msgstr "Mer information..."
 
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:27
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:27
 msgid "Motion Blur"
 msgstr "Rörelseoskärpa"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:121
-#: ../Pinta.Core/Actions/LayerActions.cs:316
+#: ../Bruskel.Core/Actions/LayerActions.cs:121
+#: ../Bruskel.Core/Actions/LayerActions.cs:316
 msgid "Move Layer Down"
 msgstr "Flytta lager nedåt"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:115
-#: ../Pinta.Core/Actions/LayerActions.cs:300
+#: ../Bruskel.Core/Actions/LayerActions.cs:115
+#: ../Bruskel.Core/Actions/LayerActions.cs:300
 msgid "Move Layer Up"
 msgstr "Flytta lager uppåt"
 
-#: ../Pinta.Tools/Tools/MoveSelectedTool.cs:45
+#: ../Bruskel.Tools/Tools/MoveSelectedTool.cs:45
 msgid "Move Selected Pixels"
 msgstr "Flytta markerade bildpunkter"
 
-#: ../Pinta.Tools/Tools/MoveSelectionTool.cs:46
+#: ../Bruskel.Tools/Tools/MoveSelectionTool.cs:46
 msgid "Move Selection"
 msgstr "Flytta markering"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:32
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:32
 msgid "Multiply"
 msgstr "Multiplicera"
 
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:61
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:61
 msgid "Name:"
 msgstr "Namn:"
 
-#: ../Pinta.Core/Enumerations/ResamplingMode.cs:23
+#: ../Bruskel.Core/Enumerations/ResamplingMode.cs:23
 msgid "Nearest Neighbor"
 msgstr "Närmaste granne"
 
-#: ../Pinta.Core/Actions/FileActions.cs:63
+#: ../Bruskel.Core/Actions/FileActions.cs:63
 msgid "New"
 msgstr "Nytt"
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:139
-#: ../Pinta/Dialogs/NewImageDialog.cs:194
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:139
+#: ../Bruskel/Dialogs/NewImageDialog.cs:194
 msgid "New Image"
 msgstr "Ny bild"
 
-#: ../Pinta.Core/Actions/FileActions.cs:67
+#: ../Bruskel.Core/Actions/FileActions.cs:67
 msgid "New Screenshot..."
 msgstr "Ny skärmbild..."
 
-#: ../Pinta/Actions/Edit/ResizePaletteAction.cs:71
+#: ../Bruskel/Actions/Edit/ResizePaletteAction.cs:71
 msgid "New palette size:"
 msgstr "Ny palettstorlek:"
 
-#: ../Pinta.Core/Actions/FileActions.cs:59
+#: ../Bruskel.Core/Actions/FileActions.cs:59
 msgid "New..."
 msgstr "Nytt..."
 
-#: ../Pinta.Gui.Addins/AddinListView.cs:60
+#: ../Bruskel.Gui.Addins/AddinListView.cs:60
 msgid "No Items Found"
 msgstr "Inga objekt hittades"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:28
-#: ../Pinta.Effects/Effects/MedianEffect.cs:27
-#: ../Pinta.Effects/Effects/ReduceNoiseEffect.cs:32
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:28
+#: ../Bruskel.Effects/Effects/MedianEffect.cs:27
+#: ../Bruskel.Effects/Effects/ReduceNoiseEffect.cs:32
 msgid "Noise"
 msgstr "Brus"
 
 #. Translators: 'Normal' refers to the font-variant text property
 #. Translators: 'Normal' (400) refers to the font-weight text property
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:31
-#: ../Pinta.Tools/Brushes/PlainBrush.cs:41
-#: ../Pinta.Tools/Tools/EraserTool.cs:336 ../Pinta.Tools/Tools/TextTool.cs:182
-#: ../Pinta.Tools/Tools/TextTool.cs:284 ../Pinta.Tools/Tools/TextTool.cs:404
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:31
+#: ../Bruskel.Tools/Brushes/PlainBrush.cs:41
+#: ../Bruskel.Tools/Tools/EraserTool.cs:336 ../Bruskel.Tools/Tools/TextTool.cs:182
+#: ../Bruskel.Tools/Tools/TextTool.cs:284 ../Bruskel.Tools/Tools/TextTool.cs:404
 msgid "Normal"
 msgstr "Normalt"
 
-#: ../Pinta.Core/Classes/BaseTool.cs:341
+#: ../Bruskel.Core/Classes/BaseTool.cs:341
 msgid "Normal Blending"
 msgstr "Normal blandning"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:97
+#: ../Bruskel.Core/Actions/ViewActions.cs:97
 msgid "Normal Size"
 msgstr "Normal storlek"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:405
+#: ../Bruskel.Tools/Tools/TextTool.cs:405
 msgid "Normal and Outline"
 msgstr "Normalt och Konturlinje"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:172
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:187
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:172
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:187
 msgid "Number of Cells"
 msgstr "Antal celler"
 
-#: ../Pinta/Main.cs:60
+#: ../Bruskel/Main.cs:60
 msgid "Number of threads to use for rendering"
 msgstr "Antal trådar att använda för rendering"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:493
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:493
 msgid "OK"
 msgstr "OK"
 
-#: ../Pinta.Effects/Effects/AlignObjectEffect.cs:14
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:22
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:22
+#: ../Bruskel.Effects/Effects/AlignObjectEffect.cs:14
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:22
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:22
 msgid "Object"
 msgstr "Objekt"
 
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:120
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:139
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:133
-#: ../Pinta.Effects/Effects/ZoomBlurEffect.cs:140
-#: ../Pinta/Dialogs/OffsetSelectionDialog.cs:60
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:120
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:139
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:133
+#: ../Bruskel.Effects/Effects/ZoomBlurEffect.cs:140
+#: ../Bruskel/Dialogs/OffsetSelectionDialog.cs:60
 msgid "Offset"
 msgstr "Kompensation"
 
-#: ../Pinta.Core/Actions/EditActions.cs:150
-#: ../Pinta/Actions/Edit/OffsetSelectionAction.cs:79
-#: ../Pinta/Dialogs/OffsetSelectionDialog.cs:52
+#: ../Bruskel.Core/Actions/EditActions.cs:150
+#: ../Bruskel/Actions/Edit/OffsetSelectionAction.cs:79
+#: ../Bruskel/Dialogs/OffsetSelectionDialog.cs:52
 msgid "Offset Selection"
 msgstr "Förskjutningsmarkering"
 
-#: ../Pinta.Effects/Effects/OilPaintingEffect.cs:26
+#: ../Bruskel.Effects/Effects/OilPaintingEffect.cs:26
 msgid "Oil Painting"
 msgstr "Oljemålning"
 
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:85
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:85
 msgid "Opacity:"
 msgstr "Opacitet:"
 
-#: ../Pinta.Core/Actions/FileActions.cs:77
+#: ../Bruskel.Core/Actions/FileActions.cs:77
 msgid "Open"
 msgstr "Öppna"
 
-#: ../Pinta.Tools/Editable/EditEngines/LineCurveEditEngine.cs:37
+#: ../Bruskel.Tools/Editable/EditEngines/LineCurveEditEngine.cs:37
 msgid "Open Curve Shape"
 msgstr "Öppen kurvfigur"
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:351
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:351
 msgid "Open Image"
 msgstr "Öppna bild"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:231
-#: ../Pinta/Actions/File/OpenDocumentAction.cs:73
+#: ../Bruskel.Core/Actions/LayerActions.cs:231
+#: ../Bruskel/Actions/File/OpenDocumentAction.cs:73
 msgid "Open Image File"
 msgstr "Öppna bildfil"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:274
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:274
 msgid "Open Line/Curve Series"
 msgstr "Öppen linje-/kurvserie"
 
-#: ../Pinta.Core/Actions/EditActions.cs:521
+#: ../Bruskel.Core/Actions/EditActions.cs:521
 msgid "Open Palette File"
 msgstr "Öppna palettfil"
 
-#: ../Pinta.Core/Actions/EditActions.cs:171
-#: ../Pinta.Core/Actions/FileActions.cs:73
+#: ../Bruskel.Core/Actions/EditActions.cs:171
+#: ../Bruskel.Core/Actions/FileActions.cs:73
 msgid "Open..."
 msgstr "Öppna..."
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:331
+#: ../Bruskel/Dialogs/NewImageDialog.cs:331
 msgid "Orientation:"
 msgstr "Orientering:"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:25
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:25
 msgid "Original"
 msgstr "Original"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:406
+#: ../Bruskel.Tools/Tools/TextTool.cs:406
 msgid "Outline"
 msgstr "Konturera"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:218
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:218
 msgid "Outline Border"
 msgstr "Konturkantlinje"
 
-#: ../Pinta.Effects/Effects/OutlineEdgeEffect.cs:23
+#: ../Bruskel.Effects/Effects/OutlineEdgeEffect.cs:23
 msgid "Outline Edge"
 msgstr "Konturkant"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:18
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:18
 msgid "Outline Object"
 msgstr "Konturobjekt"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:336
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:225
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:336
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:225
 msgid "Outline Shape"
 msgstr "Konturera form"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:353
-#: ../Pinta.Tools/Tools/TextTool.cs:420
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:353
+#: ../Bruskel.Tools/Tools/TextTool.cs:420
 msgid "Outline width"
 msgstr "Bredd på konturlinje"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:287
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:287
 msgid "Output"
 msgstr "Utmatning"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:288
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:288
 msgid "Output Histogram"
 msgstr "Utmatningshistogram"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:35
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:35
 msgid "Overlay"
 msgstr "Överlägg"
 
-#: ../Pinta.Core/Classes/BaseTool.cs:342
+#: ../Bruskel.Core/Classes/BaseTool.cs:342
 msgid "Overwrite"
 msgstr "Skriv över"
 
-#: ../Pinta.Tools/Tools/PaintBucketTool.cs:44
+#: ../Bruskel.Tools/Tools/PaintBucketTool.cs:44
 msgid "Paint Bucket"
 msgstr "Färghink"
 
-#: ../Pinta.Tools/Tools/PaintBrushTool.cs:80
+#: ../Bruskel.Tools/Tools/PaintBrushTool.cs:80
 msgid "Paintbrush"
 msgstr "Pensel"
 
-#: ../Pinta.Core/Actions/EditActions.cs:237
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:174
+#: ../Bruskel.Core/Actions/EditActions.cs:237
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:174
 msgid "Palette"
 msgstr "Palett"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:171
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:171
 msgid "Palette Source"
 msgstr "Palettkälla"
 
-#: ../Pinta.Core/Actions/EditActions.cs:602
+#: ../Bruskel.Core/Actions/EditActions.cs:602
 msgid "Palette files"
 msgstr "Palettfiler"
 
-#: ../Pinta.Tools/Tools/PanTool.cs:40
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:148
+#: ../Bruskel.Tools/Tools/PanTool.cs:40
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:148
 msgid "Pan"
 msgstr "Panorera"
 
-#: ../Pinta.Core/Actions/EditActions.cs:107
-#: ../Pinta.Core/HistoryItems/PasteHistoryItem.cs:38
-#: ../Pinta/Actions/Edit/PasteAction.cs:118
+#: ../Bruskel.Core/Actions/EditActions.cs:107
+#: ../Bruskel.Core/HistoryItems/PasteHistoryItem.cs:38
+#: ../Bruskel/Actions/Edit/PasteAction.cs:118
 msgid "Paste"
 msgstr "Klistra in"
 
-#: ../Pinta.Core/Actions/EditActions.cs:122
+#: ../Bruskel.Core/Actions/EditActions.cs:122
 msgid "Paste Into New Image"
 msgstr "Klistra in i ny bild"
 
-#: ../Pinta.Core/Actions/EditActions.cs:114
-#: ../Pinta/Actions/Edit/PasteAction.cs:118
+#: ../Bruskel.Core/Actions/EditActions.cs:114
+#: ../Bruskel/Actions/Edit/PasteAction.cs:118
 msgid "Paste Into New Layer"
 msgstr "Klistra in i nytt lager"
 
-#: ../Pinta.Tools/Tools/PencilTool.cs:48
+#: ../Bruskel.Tools/Tools/PencilTool.cs:48
 msgid "Pencil"
 msgstr "Penna"
 
-#: ../Pinta.Effects/Effects/PencilSketchEffect.cs:29
+#: ../Bruskel.Effects/Effects/PencilSketchEffect.cs:29
 msgid "Pencil Sketch"
 msgstr "Blyertsskiss"
 
-#: ../Pinta.Effects/Effects/PencilSketchEffect.cs:86
+#: ../Bruskel.Effects/Effects/PencilSketchEffect.cs:86
 msgid "Pencil Tip Size"
 msgstr "Pennspetsstorlek"
 
-#: ../Pinta.Effects/Effects/MedianEffect.cs:63
+#: ../Bruskel.Effects/Effects/MedianEffect.cs:63
 msgid "Percentile"
 msgstr "Percentil"
 
 #. Translators: 'Petite Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:200
+#: ../Bruskel.Tools/Tools/TextTool.cs:200
 msgid "Petite Caps"
 msgstr "Pyttesmå versaler"
 
-#: ../Pinta.Effects/Effects/GlowEffect.cs:30
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:27
-#: ../Pinta.Effects/Effects/SharpenEffect.cs:27
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:58
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:52
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:30
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:27
+#: ../Bruskel.Effects/Effects/SharpenEffect.cs:27
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:58
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:52
 msgid "Photo"
 msgstr "Foto"
 
 #. Translators: Arrangement of points similar to how sunflower seeds are arranged
-#: ../Pinta.Core/Algorithms/SpatialPartition.cs:174
+#: ../Bruskel.Core/Algorithms/SpatialPartition.cs:174
 msgid "Phyllotaxis"
 msgstr "Fyllotaxi"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:1
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:65 ../Pinta/Main.cs:75
-#: ../Pinta/MainWindow.cs:57
-msgid "Pinta"
-msgstr "Pinta"
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:1
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:65 ../Bruskel/Main.cs:75
+#: ../Bruskel/MainWindow.cs:57
+msgid "Bruskel"
+msgstr "Bruskel"
 
-#: ../Pinta/AddinSetupService.cs:66
-msgid "Pinta Community Addins - Cross-Platform"
-msgstr "Pinta Community-tillägg - Plattformsöverkridande"
+#: ../Bruskel/AddinSetupService.cs:66
+msgid "Bruskel Community Addins - Cross-Platform"
+msgstr "Bruskel Community-tillägg - Plattformsöverkridande"
 
-#: ../Pinta/AddinSetupService.cs:62
-msgid "Pinta Community Addins - Platform-Specific"
-msgstr "Pinta Community-tillägg - Plattformsspecifik"
+#: ../Bruskel/AddinSetupService.cs:62
+msgid "Bruskel Community Addins - Platform-Specific"
+msgstr "Bruskel Community-tillägg - Plattformsspecifik"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:4
-msgid "Pinta Image Editor"
-msgstr "Pinta Bildredigerare"
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:4
+msgid "Bruskel Image Editor"
+msgstr "Bruskel Bildredigerare"
 
-#: ../Pinta.Core/Actions/HelpActions.cs:53
-msgid "Pinta Website"
-msgstr "Pintas webbplats"
+#: ../Bruskel.Core/Actions/HelpActions.cs:53
+msgid "Bruskel Website"
+msgstr "Bruskels webbplats"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:207
-msgid "Pinta does not support saving images in this file format."
-msgstr "Pinta stöder inte sparande av bilder i detta filformat."
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:207
+msgid "Bruskel does not support saving images in this file format."
+msgstr "Bruskel stöder inte sparande av bilder i detta filformat."
 
-#: ../xdg/com.github.PintaProject.Pinta.metainfo.xml.in.h:1
+#: ../xdg/com.github.BruskelProject.Bruskel.metainfo.xml.in.h:1
 msgid ""
-"Pinta is a image editing, drawing and painting application with a simple yet "
-"powerful interface. Pinta has a wide range of drawing tools, including: "
+"Bruskel is a image editing, drawing and painting application with a simple yet "
+"powerful interface. Bruskel has a wide range of drawing tools, including: "
 "freehand, rectangles, circles and lines. It also has over 35 effects to "
 "apply to your images, and also has the ability to create unlimited layers to "
 "help organize your creativity."
 msgstr ""
-"Pinta är ett bildredigerings-, tecknings- och målningsprogram med ett enkelt "
-"men kraftfullt gränssnitt. Pinta har ett brett utbud av ritverktyg, "
+"Bruskel är ett bildredigerings-, tecknings- och målningsprogram med ett enkelt "
+"men kraftfullt gränssnitt. Bruskel har ett brett utbud av ritverktyg, "
 "inklusive: frihand, rektanglar, cirklar och linjer. Det har också över 35 "
 "effekter att tillämpa på dina bilder och har även förmågan att skapa ett "
 "obegränsat antal lager för att hjälpa till att organisera din kreativitet."
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:441
-msgid "Pinta supports the following file formats:"
-msgstr "Pinta stöder följande filformat:"
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:441
+msgid "Bruskel supports the following file formats:"
+msgstr "Bruskel stöder följande filformat:"
 
-#: ../Pinta.Core/Extensions/OtherExtensions.cs:167
-msgid "Pinta supports the following palette formats:"
-msgstr "Pinta stöder följande palettformat:"
+#: ../Bruskel.Core/Extensions/OtherExtensions.cs:167
+msgid "Bruskel supports the following palette formats:"
+msgstr "Bruskel stöder följande palettformat:"
 
-#: ../Pinta.Effects/Effects/PixelateEffect.cs:23
+#: ../Bruskel.Effects/Effects/PixelateEffect.cs:23
 msgid "Pixelate"
 msgstr "Pixelisera"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:213
+#: ../Bruskel.Core/Actions/ViewActions.cs:213
 msgid "Pixels"
 msgstr "Bildpunkter"
 
 #. Translators: Gradient with different shades of brownish yellow
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:55
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:55
 msgid "Piña Colada"
 msgstr "Piña Colada"
 
-#: ../Pinta/Dialogs/PreferencesDialog.cs:204
-msgid "Please restart Pinta for the changes to take effect."
-msgstr "Starta om Pinta för att ändringarna skall träda i kraft."
+#: ../Bruskel/Dialogs/PreferencesDialog.cs:204
+msgid "Please restart Bruskel for the changes to take effect."
+msgstr "Starta om Bruskel för att ändringarna skall träda i kraft."
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:620
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:823
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:620
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:823
 msgid "Point Added"
 msgstr "Punkt tillagd"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:156
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:201
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:156
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:201
 msgid "Point Arrangement"
 msgstr "Punktarrangement"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:169
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:216
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:169
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:216
 msgid "Point Color"
 msgstr "Punktfärg"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:671
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:671
 msgid "Point Deleted"
 msgstr "Punkt borttagen"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:165
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:211
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:165
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:211
 msgid "Point Size"
 msgstr "Punktstorlek"
 
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:26
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:26
 msgid "Polar Inversion"
 msgstr "Polär inversion"
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:221
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:221
 msgid "Polygon"
 msgstr "Polygon"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:311
+#: ../Bruskel/Dialogs/NewImageDialog.cs:311
 msgid "Portrait"
 msgstr "Stående"
 
-#: ../Pinta.Effects/Effects/AlignObjectEffect.cs:129
+#: ../Bruskel.Effects/Effects/AlignObjectEffect.cs:129
 msgid "Position"
 msgstr "Position"
 
-#: ../Pinta.Effects/Adjustments/PosterizeEffect.cs:25
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:54
+#: ../Bruskel.Effects/Adjustments/PosterizeEffect.cs:25
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:54
 msgid "Posterize"
 msgstr "Färgreduktion"
 
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:138
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:138
 msgid "Power"
 msgstr "Styrka"
 
-#: ../Pinta.Core/Actions/AppActions.cs:49
+#: ../Bruskel.Core/Actions/AppActions.cs:49
 msgid "Preferences..."
 msgstr "Inställningar..."
 
 #. Translators: This refers to preserving the current canvas size when pasting a larger image.
-#: ../Pinta/Actions/Edit/PasteAction.cs:254
+#: ../Bruskel/Actions/Edit/PasteAction.cs:254
 msgid "Preserve"
 msgstr "Bevara"
 
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:10
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:10
 msgid "Preset Gradient"
 msgstr "Förinställd toning"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:156
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:156
 msgid "Preset Palettes"
 msgstr "Förinställda paletter"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:356
+#: ../Bruskel/Dialogs/NewImageDialog.cs:356
 msgid "Preset:"
 msgstr "Förinställning:"
 
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:49
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:49
 #, csharp-format
 msgid "Press {0} to decrease brush width"
 msgstr "Tryck {0} för att minska penselbredden"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:240
+#: ../Bruskel.Tools/Tools/TextTool.cs:240
 #, csharp-format
 msgid "Press {0} to decrease font size"
 msgstr "Tryck {0} för att minska teckenstorleken"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:372
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:372
 #, csharp-format
 msgid "Press {0} to decrease outline width"
 msgstr "Tryck {0} för att minska konturbredden"
 
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:50
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:50
 #, csharp-format
 msgid "Press {0} to increase brush width"
 msgstr "Tryck {0} för att öka penselbredden"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:241
+#: ../Bruskel.Tools/Tools/TextTool.cs:241
 #, csharp-format
 msgid "Press {0} to increase font size"
 msgstr "Tryck {0} för att öka teckenstorleken"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:373
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:373
 #, csharp-format
 msgid "Press {0} to increase outline width"
 msgstr "Tryck {0} för att öka konturbredden"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:169
+#: ../Bruskel/Dialogs/NewImageDialog.cs:169
 msgid "Preview"
 msgstr "Förhandsgranska"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:16
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:16
 msgid "Primary"
 msgstr "Primär"
 
-#: ../Pinta.Core/Actions/FileActions.cs:102
+#: ../Bruskel.Core/Actions/FileActions.cs:102
 msgid "Print"
 msgstr "Skriv ut"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:197
-#: ../Pinta.Effects/Effects/DentsEffect.cs:155
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:147
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:160
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:92
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:142
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:220
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:197
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:155
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:147
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:160
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:92
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:142
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:220
 msgid "Quality"
 msgstr "Kvalitet"
 
-#: ../Pinta/Dialogs/JpegCompressionDialog.cs:40
+#: ../Bruskel/Dialogs/JpegCompressionDialog.cs:40
 msgid "Quality: "
 msgstr "Kvalitet: "
 
-#: ../Pinta.Core/Actions/AppActions.cs:60
+#: ../Bruskel.Core/Actions/AppActions.cs:60
 msgid "Quit"
 msgstr "Avsluta"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:173
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:173
 msgid "RGB"
 msgstr "RGB"
 
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:23
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:23
 msgid "Radial Blur"
 msgstr "Radiell oskärpa"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:297
+#: ../Bruskel.Tools/Tools/GradientTool.cs:297
 msgid "Radial Gradient"
 msgstr "Radiell gradient"
 
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:167
-#: ../Pinta.Effects/Effects/GaussianBlurEffect.cs:247
-#: ../Pinta.Effects/Effects/GlowEffect.cs:75
-#: ../Pinta.Effects/Effects/MedianEffect.cs:59
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:204
-#: ../Pinta.Effects/Effects/ReduceNoiseEffect.cs:84
-#: ../Pinta.Effects/Effects/UnfocusEffect.cs:88
-#: ../Pinta.Tools/Editable/EditEngines/RoundedLineEditEngine.cs:85
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:167
+#: ../Bruskel.Effects/Effects/GaussianBlurEffect.cs:247
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:75
+#: ../Bruskel.Effects/Effects/MedianEffect.cs:59
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:204
+#: ../Bruskel.Effects/Effects/ReduceNoiseEffect.cs:84
+#: ../Bruskel.Effects/Effects/UnfocusEffect.cs:88
+#: ../Bruskel.Tools/Editable/EditEngines/RoundedLineEditEngine.cs:85
 msgid "Radius"
 msgstr "Radie"
 
 #. Translators: This refers to how big the radius is as a percentage of the image's dimensions
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:124
-#: ../Pinta.Effects/Effects/TwistEffect.cs:221
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:137
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:124
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:221
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:137
 msgid "Radius Percentage"
 msgstr "Radie i procent"
 
-#: ../Pinta.Core/Algorithms/SpatialPartition.cs:166
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:233
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:16
+#: ../Bruskel.Core/Algorithms/SpatialPartition.cs:166
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:233
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:16
 msgid "Random"
 msgstr "Slumpmässig"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:187
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:152
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:162
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:178
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:187
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:152
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:162
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:178
 msgid "Random Color Scheme Seed"
 msgstr "Slumpmässigt färgschema"
 
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:198
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:198
 msgid "Random Colors"
 msgstr "Slumpmässiga färger"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:179
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:142
-#: ../Pinta.Effects/Effects/DentsEffect.cs:151
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:138
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:179
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:142
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:151
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:138
 msgid "Random Noise Seed"
 msgstr "Slumpmässigt brus"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:159
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:204
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:159
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:204
 msgid "Random Point Locations"
 msgstr "Slumpmässiga punktplatser"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:162
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:162
 msgid "Recently Used Colors"
 msgstr "Nyligen använda färger"
 
-#: ../Pinta.Tools/Tools/RecolorTool.cs:55
+#: ../Bruskel.Tools/Tools/RecolorTool.cs:55
 msgid "Recolor"
 msgstr "Omfärga"
 
-#: ../Pinta.Tools/Tools/RectangleTool.cs:42
+#: ../Bruskel.Tools/Tools/RectangleTool.cs:42
 msgid "Rectangle"
 msgstr "Rektangel"
 
-#: ../Pinta.Tools/Tools/RectangleSelectTool.cs:39
+#: ../Bruskel.Tools/Tools/RectangleSelectTool.cs:39
 msgid "Rectangle Select"
 msgstr "Rektangelmarkering"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:113
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:62
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:368
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:113
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:62
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:368
 msgid "Red"
 msgstr "Röd"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:89
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:89
 msgid "Red  "
 msgstr "Röd  "
 
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:23
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:23
 msgid "Red Eye Removal"
 msgstr "Ta bort röda ögon"
 
-#: ../Pinta.Core/Actions/EditActions.cs:79
+#: ../Bruskel.Core/Actions/EditActions.cs:79
 msgid "Redo"
 msgstr "Upprepa"
 
-#: ../Pinta.Effects/Effects/ReduceNoiseEffect.cs:26
+#: ../Bruskel.Effects/Effects/ReduceNoiseEffect.cs:26
 msgid "Reduce Noise"
 msgstr "Reducera brus"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:13
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:13
 msgid "Reflect"
 msgstr "Spegla"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:139
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:139
 msgid "Refraction"
 msgstr "Brytning"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:119
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:119
 msgid "Refresh"
 msgstr "Uppdatera"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:91
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:91
 msgid "Released under the MIT X11 License."
 msgstr "Släppt under MIT X11 License."
 
-#: ../Pinta.Effects/Effects/ReliefEffect.cs:40
+#: ../Bruskel.Effects/Effects/ReliefEffect.cs:40
 msgid "Relief"
 msgstr "Lättnad"
 
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:107
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:107
 msgid "Rename Layer"
 msgstr "Döp om lager"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:25
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:32
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:32
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:32
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:27
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:25
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:32
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:32
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:32
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:27
 msgid "Render"
 msgstr "Rendera"
 
-#: ../Pinta.Core/Managers/LivePreviewManager.cs:120
+#: ../Bruskel.Core/Managers/LivePreviewManager.cs:120
 msgid "Rendering Effect"
 msgstr "Renderingseffekt"
 
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:43
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:43
 msgid "Replace"
 msgstr "Ersätt"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:12
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:12
 msgid "Replaces the header bar with a separate menu bar and tool bar."
 msgstr "Byter ut rubrikfältet mot en separat menyrad och verktygsrad."
 
-#: ../Pinta/Dialogs/ErrorDialog.cs:71
+#: ../Bruskel/Dialogs/ErrorDialog.cs:71
 msgid "Report Bug..."
 msgstr "Rapportera fel..."
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:5
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:5
 msgid "Repository"
 msgstr "Kodförråd"
 
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:141
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:141
 msgid "Resampling:"
 msgstr "Omsampling:"
 
-#: ../Pinta.Gui.Widgets/Dialogs/SimpleEffectDialog.cs:645
+#: ../Bruskel.Gui.Widgets/Dialogs/SimpleEffectDialog.cs:645
 msgid "Reseed"
 msgstr "Seeda om"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:205
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:274
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:481
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:205
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:274
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:481
 msgid "Reset"
 msgstr "Återställ"
 
-#: ../Pinta.Core/Actions/EditActions.cs:183
+#: ../Bruskel.Core/Actions/EditActions.cs:183
 msgid "Reset to Default"
 msgstr "Återställ till standard"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:97
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:80
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:97
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:80
 msgid "Reset to image size"
 msgstr "Återställ till bildstorlek"
 
-#: ../Pinta.Core/Classes/Document.cs:327
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:213
+#: ../Bruskel.Core/Classes/Document.cs:327
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:213
 msgid "Resize Canvas"
 msgstr "Ändra storlek på arbetsytan"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:77
+#: ../Bruskel.Core/Actions/ImageActions.cs:77
 msgid "Resize Canvas..."
 msgstr "Ändra storlek på arbetsytan..."
 
-#: ../Pinta.Core/HistoryItems/ResizeHistoryItem.cs:39
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:154
+#: ../Bruskel.Core/HistoryItems/ResizeHistoryItem.cs:39
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:154
 msgid "Resize Image"
 msgstr "Ändra bildstorlek"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:70
+#: ../Bruskel.Core/Actions/ImageActions.cs:70
 msgid "Resize Image..."
 msgstr "Ändra storlek på bilden..."
 
-#: ../Pinta/Actions/Edit/ResizePaletteAction.cs:69
+#: ../Bruskel/Actions/Edit/ResizePaletteAction.cs:69
 msgid "Resize Palette"
 msgstr "Ändra palettstorlek"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:191
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:156
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:166
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:182
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:191
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:156
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:166
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:182
 msgid "Reverse Color Scheme"
 msgstr "Omvänt färgschema"
 
 #. Translators: In this context, "reverse" is a verb, and the user can choose whether or not they want to reverse the color sorting
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:195
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:195
 msgid "Reverse Color Sorting"
 msgstr "Omvänd färgsortering"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:382
+#: ../Bruskel.Tools/Tools/TextTool.cs:382
 msgid "Right Align"
 msgstr "Högerjustera"
 
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:70
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:136
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:70
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:136
 msgid "Rotate / Zoom Layer"
 msgstr "Rotera / Zooma lager"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:109
+#: ../Bruskel.Core/Actions/LayerActions.cs:109
 msgid "Rotate / Zoom Layer..."
 msgstr "Rotera / Zooma lager..."
 
-#: ../Pinta.Core/Actions/ImageActions.cs:110
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:47
+#: ../Bruskel.Core/Actions/ImageActions.cs:110
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:47
 msgid "Rotate 180°"
 msgstr "Rotera 180°"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:96
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:59
+#: ../Bruskel.Core/Actions/ImageActions.cs:96
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:59
 msgid "Rotate 90° Clockwise"
 msgstr "Rotera 90° medurs"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:103
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:63
+#: ../Bruskel.Core/Actions/ImageActions.cs:103
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:63
 msgid "Rotate 90° Counter-Clockwise"
 msgstr "Rotera 90° moturs"
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:132
-#: ../Pinta.Effects/Effects/TileEffect.cs:222
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:132
+#: ../Bruskel.Effects/Effects/TileEffect.cs:222
 msgid "Rotation"
 msgstr "Rotation"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:143
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:143
 msgid "Roughness"
 msgstr "Ruggighet"
 
 #. Translators: 'Round Join' refers to the Cairo.LineJoin property
-#: ../Pinta.Tools/Tools/TextTool.cs:452
+#: ../Bruskel.Tools/Tools/TextTool.cs:452
 msgid "Round Join"
 msgstr "Round Join"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:277
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:277
 msgid "Rounded Line Series"
 msgstr "Rundad linjeserie"
 
-#: ../Pinta.Tools/Editable/EditEngines/RoundedLineEditEngine.cs:37
+#: ../Bruskel.Tools/Editable/EditEngines/RoundedLineEditEngine.cs:37
 msgid "Rounded Line Shape"
 msgstr "Rundad linjefigur"
 
-#: ../Pinta.Tools/Tools/RoundedRectangleTool.cs:43
+#: ../Bruskel.Tools/Tools/RoundedRectangleTool.cs:43
 msgid "Rounded Rectangle"
 msgstr "Rundad rektangel"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:218
+#: ../Bruskel.Core/Actions/ViewActions.cs:218
 msgid "Ruler Units"
 msgstr "Linjalenheter"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:141
+#: ../Bruskel.Core/Actions/ViewActions.cs:141
 msgid "Rulers"
 msgstr "Linjaler"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:208
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:208
 msgid "Sampling"
 msgstr "Provtagning"
 
 #. Translators: this is an abbreviation for "Saturation"
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:366
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:366
 msgid "Sat"
 msgstr "Mättnad"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:200
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:200
 msgid "Sat & Value"
 msgstr "Mättnad & Värde"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:46
-#: ../Pinta.Effects/Adjustments/HueSaturationEffect.cs:64
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:46
+#: ../Bruskel.Effects/Adjustments/HueSaturationEffect.cs:64
 msgid "Saturation"
 msgstr "Mättnad"
 
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:57
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:57
 msgid "Saturation Percentage"
 msgstr "Mättnadsprocent"
 
-#: ../Pinta.Core/Actions/EditActions.cs:555
-#: ../Pinta.Core/Actions/FileActions.cs:88
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:95
+#: ../Bruskel.Core/Actions/EditActions.cs:555
+#: ../Bruskel.Core/Actions/FileActions.cs:88
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:95
 msgid "Save"
 msgstr "Spara"
 
-#: ../Pinta.Core/Actions/WindowActions.cs:44
+#: ../Bruskel.Core/Actions/WindowActions.cs:44
 msgid "Save All"
 msgstr "Spara alla"
 
-#: ../Pinta.Core/Actions/EditActions.cs:177
-#: ../Pinta.Core/Actions/FileActions.cs:95
+#: ../Bruskel.Core/Actions/EditActions.cs:177
+#: ../Bruskel.Core/Actions/FileActions.cs:95
 msgid "Save As..."
 msgstr "Spara som..."
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:92
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:92
 msgid "Save Image File"
 msgstr "Spara bildfil"
 
-#: ../Pinta.Core/Actions/EditActions.cs:552
+#: ../Bruskel.Core/Actions/EditActions.cs:552
 msgid "Save Palette File"
 msgstr "Spara palettfil"
 
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:72
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:72
 #, csharp-format
 msgid "Save changes to image \"{0}\" before closing?"
 msgstr "Vill du spara ändringar i bilden \"{0}\" före stängning?"
 
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:134
-#: ../Pinta.Effects/Effects/DentsEffect.cs:135
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:134
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:135
 msgid "Scale"
 msgstr "Skala"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:39
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:39
 msgid "Screen"
 msgstr "Skärm"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:19
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:19
 msgid "Secondary"
 msgstr "Sekundär"
 
-#: ../Pinta.Core/Actions/EditActions.cs:157
-#: ../Pinta.Core/Actions/EditActions.cs:338
+#: ../Bruskel.Core/Actions/EditActions.cs:157
+#: ../Bruskel.Core/Actions/EditActions.cs:338
 msgid "Select All"
 msgstr "Markera alla"
 
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:13
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:13
 msgid "Selected Colors"
 msgstr "Valda färger"
 
 #. Translators: 'Semibold' (600) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:296
+#: ../Bruskel.Tools/Tools/TextTool.cs:296
 msgid "Semibold"
 msgstr "Halvfet"
 
 #. Translators: 'Semilight' (350) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:272
+#: ../Bruskel.Tools/Tools/TextTool.cs:272
 msgid "Semilight"
 msgstr "Halvlätt"
 
-#: ../Pinta.Effects/Adjustments/SepiaEffect.cs:52
+#: ../Bruskel.Effects/Adjustments/SepiaEffect.cs:52
 msgid "Sepia"
 msgstr "Sepia"
 
-#: ../Pinta.Core/Actions/EditActions.cs:189
+#: ../Bruskel.Core/Actions/EditActions.cs:189
 msgid "Set Number of Colors"
 msgstr "Ställ in antal färger"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:265
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:265
 msgid "Shape Type"
 msgstr "Figurtyp"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:244
+#: ../Bruskel.Effects/Effects/TileEffect.cs:244
 msgid "Sharp Edges"
 msgstr "Skarpa kanter"
 
-#: ../Pinta.Effects/Effects/SharpenEffect.cs:23
+#: ../Bruskel.Effects/Effects/SharpenEffect.cs:23
 msgid "Sharpen"
 msgstr "Skärpa"
 
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:106
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:368
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:352
-#: ../Pinta.Gui.Widgets/Widgets/ToolBoxWidget.cs:49
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:106
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:368
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:352
+#: ../Bruskel.Gui.Widgets/Widgets/ToolBoxWidget.cs:49
 msgid "Shortcut key"
 msgstr "Snabbtangent"
 
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:107
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:107
 msgid "Shortcut keys"
 msgstr "Snabbtangenter"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:371
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:48
-#: ../Pinta.Tools/Tools/TextTool.cs:239
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:371
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:48
+#: ../Bruskel.Tools/Tools/TextTool.cs:239
 msgid "Shortcut keys:"
 msgstr "Snabbtangenter:"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:75
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:75
 msgid "Show Axonometric Grid"
 msgstr "Visa axonometriskt fält"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:54
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:54
 msgid "Show Grid"
 msgstr "Visa stödlinjer"
 
-#: ../Pinta.Gui.Widgets/Widgets/Layers/LayersListViewItemWidget.cs:99
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:113
+#: ../Bruskel.Gui.Widgets/Widgets/Layers/LayersListViewItemWidget.cs:99
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:113
 msgid "Show Layer"
 msgstr "Visa lager"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:11
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:11
 msgid "Show Menu Bar"
 msgstr "Visa menyfält"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:162
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:208
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:162
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:208
 msgid "Show Points"
 msgstr "Visa punkter"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:193
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:193
 msgid "Show Value"
 msgstr "Visa värde"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:229
+#: ../Bruskel.Core/Actions/ViewActions.cs:229
 msgid "Show/Hide"
 msgstr "Visa/dölj"
 
 #. Translators: Image dithering matrix named after Frankie Sierra
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:12
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:12
 msgid "Sierra"
 msgstr "Sierra"
 
 #. Translators: Image dithering matrix named after Frankie Sierra
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:20
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:20
 msgid "Sierra Lite"
 msgstr "Sierra Lite"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:235
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:235
 msgid "Single Pixel"
 msgstr "Enkel bildpunkt"
 
-#: ../Pinta.Tools/Editable/EditEngines/ArrowedEditEngine.cs:289
+#: ../Bruskel.Tools/Editable/EditEngines/ArrowedEditEngine.cs:289
 msgid "Size"
 msgstr "Storlek"
 
-#: ../Pinta.Tools/Brushes/SlashBrush.cs:36
+#: ../Bruskel.Tools/Brushes/SlashBrush.cs:36
 msgid "Slash"
 msgstr "Slash"
 
 #. Translators: 'Small Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:188
+#: ../Bruskel.Tools/Tools/TextTool.cs:188
 msgid "Small Caps"
 msgstr "Små versaler"
 
-#: ../Pinta.Tools/Tools/EraserTool.cs:336
+#: ../Bruskel.Tools/Tools/EraserTool.cs:336
 msgid "Smooth"
 msgstr "Utjämnad"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:134
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:134
 msgid "Smoothness"
 msgstr "Jämnhet"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:42
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:42
 msgid "Soft Light"
 msgstr "Mjukt ljus"
 
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:54
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:54
 msgid "Soften Portrait"
 msgstr "Mjuka upp porträtt"
 
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:125
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:125
 msgid "Softness"
 msgstr "Mjukhet"
 
-#: ../Pinta.Tools/Brushes/SplatterBrush.cs:37
+#: ../Bruskel.Tools/Brushes/SplatterBrush.cs:37
 msgid "Splatter"
 msgstr "Splatter"
 
-#: ../Pinta.Tools/Brushes/SquaresBrush.cs:35
+#: ../Bruskel.Tools/Brushes/SquaresBrush.cs:35
 msgid "Squares"
 msgstr "Rutor"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:16
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:16
 msgid "Startup Image"
 msgstr "Startbild"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:129
+#: ../Bruskel.Core/Actions/ViewActions.cs:129
 msgid "Status Bar"
 msgstr "Statusfält"
 
-#: ../Pinta.Effects/Effects/ReduceNoiseEffect.cs:88
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:142
+#: ../Bruskel.Effects/Effects/ReduceNoiseEffect.cs:88
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:142
 msgid "Strength"
 msgstr "Styrka"
 
 #. Translators: Image dithering matrix named after Peter Stucki
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:32
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:32
 msgid "Stucki"
 msgstr "Stucki"
 
-#: ../Pinta.Effects/Effects/EdgeDetectEffect.cs:32
-#: ../Pinta.Effects/Effects/EmbossEffect.cs:32
-#: ../Pinta.Effects/Effects/OutlineEdgeEffect.cs:27
-#: ../Pinta.Effects/Effects/ReliefEffect.cs:33
+#: ../Bruskel.Effects/Effects/EdgeDetectEffect.cs:32
+#: ../Bruskel.Effects/Effects/EmbossEffect.cs:32
+#: ../Bruskel.Effects/Effects/OutlineEdgeEffect.cs:27
+#: ../Bruskel.Effects/Effects/ReliefEffect.cs:33
 msgid "Stylize"
 msgstr "Stilisera"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:218
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:218
 msgid "Switch to Pencil tool"
 msgstr "Växla till pennverktyget"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:217
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:217
 msgid "Switch to previous tool"
 msgstr "Växla till föregående verktyg"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:80
+#: ../Bruskel.Tools/Tools/TextTool.cs:80
 msgid "Text"
 msgstr "Text"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:83
+#: ../Bruskel.Tools/Tools/TextTool.cs:83
 msgid "Text - Finalize"
 msgstr "Text - Slutför"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:395
+#: ../Bruskel.Tools/Tools/TextTool.cs:395
 msgid "Text Style"
 msgstr "Textstil"
 
 #. Translators: {0} is the name of an add-in.
-#: ../Pinta/MainWindow.cs:320
+#: ../Bruskel/MainWindow.cs:320
 #, csharp-format
-msgid "The '{0}' add-in may not be compatible with this version of Pinta"
+msgid "The '{0}' add-in may not be compatible with this version of Bruskel"
 msgstr ""
-"Tillägget \"{0}\" kanske inte är kompatibelt med den här versionen av Pinta"
+"Tillägget \"{0}\" kanske inte är kompatibelt med den här versionen av Bruskel"
 
-#: ../Pinta/Actions/Edit/PasteAction.cs:237
+#: ../Bruskel/Actions/Edit/PasteAction.cs:237
 msgid "The clipboard does not contain an image."
 msgstr "Urklipp innehåller ingen bild."
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:216
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:216
 msgid "The file may be an invalid or corrupt extension package"
 msgstr "Filen kan vara ett ogiltigt eller skadat tilläggspaket"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:89
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:89
 msgid "The following dependencies could not be resolved:"
 msgstr "Följande beroenden kunde inte lösas:"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:82
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:82
 msgid "The following packages need to be uninstalled:"
 msgstr "Följande paket behöver avinstalleras:"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:76
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:76
 msgid "The following packages will be installed:"
 msgstr "Följande paket kommer att installeras:"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:245
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:245
 msgid "The following packages will be uninstalled:"
 msgstr "Följande paket kommer att avinstalleras:"
 
-#: ../Pinta/Actions/Edit/PasteAction.cs:244
+#: ../Bruskel/Actions/Edit/PasteAction.cs:244
 msgid ""
 "The image being pasted is larger than the canvas. What would you like to do "
 "to the canvas size?"
@@ -2656,15 +2656,15 @@ msgstr ""
 "Bilden som klistras in är större än arbetsytan. Vad vill du göra med "
 "arbetsytans storlek?"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:368
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:368
 msgid "The installation failed!"
 msgstr "Installationen misslyckades!"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:369
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:369
 msgid "The installation has completed with warnings."
 msgstr "Installationen slutfördes med varningar."
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:62
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:62
 msgid ""
 "The selected extension packages can't be installed because there are "
 "dependency conflicts."
@@ -2672,15 +2672,15 @@ msgstr ""
 "De valda tilläggspaketen kan inte installeras eftersom det finns "
 "beroendekonflikter."
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:375
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:375
 msgid "The uninstallation failed!"
 msgstr "Avinstallationen misslyckades!"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:376
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:376
 msgid "The uninstallation has completed with warnings."
 msgstr "Avinstallationen slutfördes med varningar."
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:257
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:257
 msgid ""
 "There are other extension packages that depend on the previous ones which "
 "will also be uninstalled:"
@@ -2688,186 +2688,186 @@ msgstr ""
 "Det finns andra tilläggspaket som är beroende av de tidigare som också "
 "kommer att avinstalleras:"
 
-#: ../Pinta.Effects/Effects/OutlineEdgeEffect.cs:133
+#: ../Bruskel.Effects/Effects/OutlineEdgeEffect.cs:133
 msgid "Thickness"
 msgstr "Tjocklek"
 
 #. Translators: 'Thin' (100) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:254
+#: ../Bruskel.Tools/Tools/TextTool.cs:254
 msgid "Thin"
 msgstr "Tunn"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:274
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:274
 msgid "This format does not support layers. Flatten image?"
 msgstr "Det här formatet stöder inte lager. Platta ut bild?"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:28
+#: ../Bruskel.Effects/Effects/TileEffect.cs:28
 msgid "Tile Reflection"
 msgstr "Rutreflektion"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:226
+#: ../Bruskel.Effects/Effects/TileEffect.cs:226
 msgid "Tile Size"
 msgstr "Rutstorlek"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:234
+#: ../Bruskel.Effects/Effects/TileEffect.cs:234
 msgid "Tile Type"
 msgstr "Ruttyp"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:95
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:95
 msgid "Tip: Right-click to remove control points."
 msgstr "Tips: Högerklicka för att ta bort kontrollpunkter."
 
 #. Translators: 'Title Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:218
+#: ../Bruskel.Tools/Tools/TextTool.cs:218
 msgid "Title Caps"
 msgstr "Rubrikversaler"
 
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:171
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:208
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:53
-#: ../Pinta.Tools/Tools/FloodTool.cs:122
-#: ../Pinta.Tools/Tools/RecolorTool.cs:196
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:171
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:208
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:53
+#: ../Bruskel.Tools/Tools/FloodTool.cs:122
+#: ../Bruskel.Tools/Tools/RecolorTool.cs:196
 msgid "Tolerance"
 msgstr "Tolerans"
 
-#: ../Pinta.Core/Managers/ToolManager.cs:351
+#: ../Bruskel.Core/Managers/ToolManager.cs:351
 msgid "Tool"
 msgstr "Verktyg"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:135
+#: ../Bruskel.Core/Actions/ViewActions.cs:135
 msgid "Tool Box"
 msgstr "Verktyg"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:116
+#: ../Bruskel.Core/Actions/ViewActions.cs:116
 msgid "Tool Windows"
 msgstr "Verktygsfönster"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:104
+#: ../Bruskel.Core/Actions/ViewActions.cs:104
 msgid "Toolbar"
 msgstr "Verktygsrad"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:81
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:81
 msgid "Tools"
 msgstr "Verktyg"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:34
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:34
 msgid "Top Center"
 msgstr "Centrum överkant"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:33
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:33
 msgid "Top Left"
 msgstr "Vänster överkant"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:35
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:35
 msgid "Top Right"
 msgstr "Höger överkant"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:105
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:105
 msgid "Transfer Map"
 msgstr "Överföringskarta"
 
-#: ../Pinta.Core/Actions/HelpActions.cs:65
+#: ../Bruskel.Core/Actions/HelpActions.cs:65
 msgid "Translate This Application"
 msgstr "Översätt detta program"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:329
+#: ../Bruskel.Tools/Tools/GradientTool.cs:329
 msgid "Transparency Mode"
 msgstr "Transparensläge"
 
 #. Translators: Background option for the image created at startup.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:23
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:22
-#: ../Pinta/Dialogs/NewImageDialog.cs:128
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:23
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:22
+#: ../Bruskel/Dialogs/NewImageDialog.cs:128
 msgid "Transparent"
 msgstr "Transparent"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:147
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:147
 msgid "Turbulence"
 msgstr "Turbulens"
 
-#: ../Pinta.Effects/Effects/TwistEffect.cs:27
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:27
 msgid "Twist"
 msgstr "Vrid"
 
 #. Translators: Image dithering matrix named after Frankie Sierra
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:16
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:16
 msgid "Two-Row Sierra"
 msgstr "Two-Row Sierra"
 
-#: ../Pinta.Tools/Tools/EraserTool.cs:332
-#: ../Pinta.Tools/Tools/PaintBrushTool.cs:242
+#: ../Bruskel.Tools/Tools/EraserTool.cs:332
+#: ../Bruskel.Tools/Tools/PaintBrushTool.cs:242
 msgid "Type"
 msgstr "Typ"
 
 #. Translators: 'Ultrabold' (800) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:308
+#: ../Bruskel.Tools/Tools/TextTool.cs:308
 msgid "Ultrabold"
 msgstr "Ultrafet"
 
 #. Translators: 'Ultraheavy' (1000) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:320
+#: ../Bruskel.Tools/Tools/TextTool.cs:320
 msgid "Ultraheavy"
 msgstr "Ultratung"
 
 #. Translators: 'Ultralight' (200) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:260
+#: ../Bruskel.Tools/Tools/TextTool.cs:260
 msgid "Ultralight"
 msgstr "Ultralätt"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:345
+#: ../Bruskel.Tools/Tools/TextTool.cs:345
 msgid "Underline"
 msgstr "Understruken"
 
-#: ../Pinta.Core/Actions/EditActions.cs:72
+#: ../Bruskel.Core/Actions/EditActions.cs:72
 msgid "Undo"
 msgstr "Ångra"
 
-#: ../Pinta.Effects/Effects/UnfocusEffect.cs:23
+#: ../Bruskel.Effects/Effects/UnfocusEffect.cs:23
 msgid "Unfocus"
 msgstr "Avfokusera"
 
 #. Translators: 'Unicase' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:212
+#: ../Bruskel.Tools/Tools/TextTool.cs:212
 msgid "Unicase"
 msgstr "Unicase"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:232
-#: ../Pinta.Gui.Addins/InstallDialog.cs:233
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:232
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:233
 msgid "Uninstall"
 msgstr "Avinstallera"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:9
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:9
 msgid "Uninstall..."
 msgstr "Avinstallera..."
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:45
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:45
 #, csharp-format
 msgid "Union (+) ({0} + Left Click)"
 msgstr "Union (+) ({0} + vänsterklick)"
 
-#: ../Pinta.Core/Classes/Document.cs:102
+#: ../Bruskel.Core/Classes/Document.cs:102
 #, csharp-format
 msgid "Unsaved Image {0}"
 msgstr "Osparad bild {0}"
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:346
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:346
 msgid "Unsupported file format"
 msgstr "Filformatet saknar stöd"
 
-#: ../Pinta.Core/Actions/EditActions.cs:544
+#: ../Bruskel.Core/Actions/EditActions.cs:544
 msgid "Unsupported palette format"
 msgstr "Palettformatet stöds ej"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:7
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:7
 msgid "Update..."
 msgstr "Uppdatera..."
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:105
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:105
 msgid "Updates"
 msgstr "Uppdateringar"
 
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:143
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:143
 msgid ""
 "Use low quality for previews, small images, and small angles.  Use high "
 "quality for final quality, large images, and large angles."
@@ -2875,107 +2875,107 @@ msgstr ""
 "Använd låg kvalitet för förhandsvisningar, små bilder och små vinklar. "
 "Använd hög kvalitet för slutlig kvalitet, stora bilder och stora vinklar."
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:2
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:2
 msgid "User Interface"
 msgstr "Användargränssnitt"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:98
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:98
 msgid "Using some icons from:"
 msgstr "Använder en del ikoner från:"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:367
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:367
 msgid "Value"
 msgstr "Värde"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:2
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:2
 msgid "Version"
 msgstr "Version"
 
 #. Translators: Vertical color sorting with blue (B) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:247
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:247
 msgid "Vertical blue (B)"
 msgstr "Vertikal blå (B)"
 
 #. Translators: Vertical color sorting with green (G) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:250
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:250
 msgid "Vertical green (G)"
 msgstr "Vertikal grön (G)"
 
 #. Translators: Vertical color sorting with red (R) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:253
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:253
 msgid "Vertical red (R)"
 msgstr "Vertikal röd (R)"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:102
-#: ../Pinta/MainWindow.cs:470
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:102
+#: ../Bruskel/MainWindow.cs:470
 msgid "View"
 msgstr "Visa"
 
 #. Translators: The vignette effect darkens the outer edges of an image, which fade into an unchanged circular area in the center (or at some other point chosen by the user), similar to what is seen during the closing scene in old cartoons
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:49
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:49
 msgid "Vignette"
 msgstr "Vinjett"
 
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:70
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:70
 msgid "Visible"
 msgstr "Synligt"
 
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:21
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:21
 msgid "Voronoi Diagram"
 msgstr "Voronoi-diagram"
 
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:133
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:133
 msgid "Warmth"
 msgstr "Värme"
 
 #. Translators: Background option for the image created at startup.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:21
-#: ../Pinta/Dialogs/NewImageDialog.cs:109
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:21
+#: ../Bruskel/Dialogs/NewImageDialog.cs:109
 msgid "White"
 msgstr "Vit"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:17
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:17
 msgid "Width"
 msgstr "Bredd"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:95
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:105
-#: ../Pinta/Dialogs/NewImageDialog.cs:340
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:80
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:123
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:95
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:105
+#: ../Bruskel/Dialogs/NewImageDialog.cs:340
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:80
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:123
 msgid "Width:"
 msgstr "Bredd:"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:195
-#: ../Pinta.Core/Actions/ViewActions.cs:368
-#: ../Pinta.Core/Classes/DocumentWorkspace.cs:357
-#: ../Pinta.Core/Classes/DocumentWorkspace.cs:366
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:106
+#: ../Bruskel.Core/Actions/ViewActions.cs:195
+#: ../Bruskel.Core/Actions/ViewActions.cs:368
+#: ../Bruskel.Core/Classes/DocumentWorkspace.cs:357
+#: ../Bruskel.Core/Classes/DocumentWorkspace.cs:366
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:106
 msgid "Window"
 msgstr "Fönster"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:10
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:10
 msgid "Wrap"
 msgstr "Omslut"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:40
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:40
 msgid "Xor"
 msgstr "Xor"
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:48
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:48
 #, csharp-format
 msgid "Xor ({0} + Right Click)"
 msgstr "Xor ({0} + Högerklick)"
 
 #. Translators: {0} is the name of a file that the user does not have permission to open.
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:463
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:463
 #, csharp-format
 msgid "You do not have access to '{0}'."
 msgstr "Du har inte åtkomstbehörighet till \"{0}\"."
 
 #. Translators: {0} is the name of a file that the user does not have write permission for.
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:242
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:242
 #, csharp-format
 msgid ""
 "You do not have access to modify '{0}'. The file or folder may be read-only."
@@ -2983,101 +2983,101 @@ msgstr ""
 "Du har inte behörighet att ändra \"{0}\". Filen eller mappen kan vara "
 "skrivskyddad."
 
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:151
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:164
-#: ../Pinta.Tools/Tools/ZoomTool.cs:56
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:151
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:151
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:164
+#: ../Bruskel.Tools/Tools/ZoomTool.cs:56
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:151
 msgid "Zoom"
 msgstr "Zooma"
 
-#: ../Pinta.Effects/Effects/ZoomBlurEffect.cs:26
+#: ../Bruskel.Effects/Effects/ZoomBlurEffect.cs:26
 msgid "Zoom Blur"
 msgstr "Zoomoskärpa"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:70
+#: ../Bruskel.Core/Actions/ViewActions.cs:70
 msgid "Zoom In"
 msgstr "Zooma in"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:77
+#: ../Bruskel.Core/Actions/ViewActions.cs:77
 msgid "Zoom Out"
 msgstr "Zooma ut"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:91
+#: ../Bruskel.Core/Actions/ViewActions.cs:91
 msgid "Zoom to Selection"
 msgstr "Zooma till markering"
 
-#: ../Pinta/MainWindow.cs:394
+#: ../Bruskel/MainWindow.cs:394
 msgid "_Adjustments"
 msgstr "_Justeringar"
 
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:214
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:216
-#: ../Pinta/Actions/Edit/PasteAction.cs:252
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:83
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:278
-#: ../Pinta/Dialogs/ProgressDialog.cs:71
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:214
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:216
+#: ../Bruskel/Actions/Edit/PasteAction.cs:252
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:83
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:278
+#: ../Bruskel/Dialogs/ProgressDialog.cs:71
 msgid "_Cancel"
 msgstr "_Avbryt"
 
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:84
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:84
 msgid "_Discard"
 msgstr "_Förkasta"
 
-#: ../Pinta/MainWindow.cs:390
+#: ../Bruskel/MainWindow.cs:390
 msgid "_Edit"
 msgstr "R_edigera"
 
-#: ../Pinta/MainWindow.cs:389
+#: ../Bruskel/MainWindow.cs:389
 msgid "_File"
 msgstr "_Arkiv"
 
-#: ../Pinta/MainWindow.cs:399
+#: ../Bruskel/MainWindow.cs:399
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: ../Pinta/MainWindow.cs:393
+#: ../Bruskel/MainWindow.cs:393
 msgid "_Image"
 msgstr "B_ild"
 
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:213
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:217
-#: ../Pinta.Gui.Addins/InstallDialog.cs:220 ../Pinta/Dialogs/ErrorDialog.cs:44
-#: ../Pinta/Dialogs/ErrorDialog.cs:73
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:213
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:217
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:220 ../Bruskel/Dialogs/ErrorDialog.cs:44
+#: ../Bruskel/Dialogs/ErrorDialog.cs:73
 msgid "_OK"
 msgstr "OK"
 
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:85
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:85
 msgid "_Save"
 msgstr "_Spara"
 
-#: ../Pinta/MainWindow.cs:392
+#: ../Bruskel/MainWindow.cs:392
 msgid "_View"
 msgstr "_Visa"
 
-#: ../Pinta/MainWindow.cs:398
+#: ../Bruskel/MainWindow.cs:398
 msgid "_Window"
 msgstr "_Fönster"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:82
-msgid "by Pinta contributors"
-msgstr "av Pinta-bidragsgivare"
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:82
+msgid "by Bruskel contributors"
+msgstr "av Bruskel-bidragsgivare"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:5
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:5
 msgid "draw;drawing;paint;painting;graphics;raster;2d;"
 msgstr "rita;teckning;måla;målning;grafik;raster;2d;"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:97
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:101
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:107
-#: ../Pinta/Dialogs/NewImageDialog.cs:288
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:106
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:110
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:135
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:139
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:97
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:101
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:107
+#: ../Bruskel/Dialogs/NewImageDialog.cs:288
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:106
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:110
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:135
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:139
 msgid "pixels"
 msgstr "bildpunkter"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:73
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:73
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -3092,7 +3092,7 @@ msgstr ""
 "  Åke Engelbrektson https://svenskasprakfiler.se"
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Tools/Tools/CloneStampTool.cs:63
+#: ../Bruskel.Tools/Tools/CloneStampTool.cs:63
 #, csharp-format
 msgid "{0} + left click to set origin, left click to paint."
 msgstr ""
@@ -3100,25 +3100,25 @@ msgstr ""
 
 #. Translators: this is the auto-generated name for a duplicated layer.
 #. {0} is the name of the source layer. Example: "Layer 3 copy".
-#: ../Pinta.Core/Classes/DocumentLayers.cs:205
+#: ../Bruskel.Core/Classes/DocumentLayers.cs:205
 #, csharp-format
 msgid "{0} copy"
 msgstr "{0} kopia"
 
-#: ../Pinta.Core/ImageFormats/FormatDescriptor.cs:122
+#: ../Bruskel.Core/ImageFormats/FormatDescriptor.cs:122
 #, csharp-format
 msgid "{0} image ({1})"
 msgstr "{0}-bild ({1})"
 
 #. Translators: {0} is the palette format (e.g. "GIMP") and {1} is a list of file extensions.
-#: ../Pinta.Core/PaletteFormats/PaletteDescriptor.cs:63
+#: ../Bruskel.Core/PaletteFormats/PaletteDescriptor.cs:63
 #, csharp-format
 msgid "{0} palette ({1})"
 msgstr "{0} palett ({1})"
 
 #. Translators: This specifies the format of the zoom percentage choices
 #. in the toolbar.
-#: ../Pinta.Core/Actions/ViewActions.cs:349
+#: ../Bruskel.Core/Actions/ViewActions.cs:349
 #, csharp-format
 msgid "{0}%"
 msgstr "{0}%"
@@ -3138,8 +3138,8 @@ msgstr "{0}%"
 #~ msgid "Menu Bar"
 #~ msgstr "Menyfält"
 
-#~ msgid "Restart Pinta"
-#~ msgstr "Starta om Pinta"
+#~ msgid "Restart Bruskel"
+#~ msgstr "Starta om Bruskel"
 
 #~ msgid "ICO files can not be larger than 255 x 255 pixels."
 #~ msgstr "ICO-filer kan inte vara större än 255 x 255 pixlar."
@@ -3458,8 +3458,8 @@ msgstr "{0}%"
 #~ msgid "Display the application version."
 #~ msgstr "Visa programversion."
 
-#~ msgid "Usage: pinta [files]"
-#~ msgstr "Användning: pinta [filer]"
+#~ msgid "Usage: bruskel [files]"
+#~ msgstr "Användning: bruskel [filer]"
 
 #~ msgid "Options: "
 #~ msgstr "Alternativ: "

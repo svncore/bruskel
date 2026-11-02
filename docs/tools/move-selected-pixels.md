@@ -1,6 +1,5 @@
 # Move Selected Pixels
 
-**Paint.NET:** [Move Tools](https://mail.getpaint.net/doc/latest/MoveTools.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 
@@ -10,7 +9,7 @@ Moves, scales, and rotates pixels in the active layer or selection. With no sele
 
 `M` once selects Move Selected Pixels. The button shows four-way arrows; the cursor and control nubs indicate move, resize, and rotate states. Arrow keys move by 1 px; `Ctrl` increases the step to 10 px.
 
-## Pintora implementation
+## Bruskel implementation
 
 `MoveSelectedTool.cs` creates a selection layer when needed, snapshots it, and applies a matrix transform through `BaseTransformTool`. Avalonia has no separate move entry in `CanvasToolFactory`.
 

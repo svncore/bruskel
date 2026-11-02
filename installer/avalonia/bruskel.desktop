@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Bruskel
+Comment=Raster graphics editor
+Exec=bruskel %F
+Icon=bruskel
+Terminal=false
+Categories=Graphics;RasterGraphics;2DGraphics;
+MimeType=image/png;image/jpeg;image/bmp;image/tiff;image/webp;

@@ -1,0 +1,5 @@
+namespace Bruskel;
+
+interface IDockPad
+{
+}

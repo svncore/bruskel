@@ -1,0 +1,244 @@
+name: Bruskel Avalonia
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  verify:
+    name: Build and test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ runner.os }}-${{ hashFiles('**/*.csproj', '**/Directory.Packages.props') }}
+          restore-keys: nuget-${{ runner.os }}-
+
+      - name: Restore
+        run: dotnet restore tests/Bruskel.Avalonia.Tests/Bruskel.Avalonia.Tests.csproj
+
+      - name: Build
+        run: dotnet build src/platform/avalonia/Bruskel.Avalonia/Bruskel.Avalonia.csproj --configuration Release --no-restore -warnaserror
+
+      - name: Build dependency boundary targets
+        run: |
+          dotnet build src/graphics/Bruskel.Graphics.Skia/Bruskel.Graphics.Skia.csproj --configuration Release --no-restore -warnaserror
+          dotnet build src/codecs/Bruskel.Codecs/Bruskel.Codecs.csproj --configuration Release --no-restore -warnaserror
+
+      - name: Test
+        run: dotnet test tests/Bruskel.Avalonia.Tests/Bruskel.Avalonia.Tests.csproj --configuration Release --no-restore -p:BuildInParallel=false -m:1
+
+  package:
+    name: Package (${{ matrix.rid }})
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: verify
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - rid: win-x64
+            os: windows-latest
+          - rid: linux-x64
+            os: ubuntu-latest
+          - rid: osx-x64
+            os: macos-latest
+          - rid: osx-arm64
+            os: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Read app version
+        id: version
+        shell: bash
+        run: |
+          app_version="$(sed -n 's/^[[:space:]]*<Version>\(.*\)<\/Version>[[:space:]]*$/\1/p' src/platform/avalonia/Bruskel.Avalonia/Bruskel.Avalonia.csproj | head -n 1)"
+          echo "app-version=$app_version" >> "$GITHUB_OUTPUT"
+          echo "msi-version=${app_version%%-*}" >> "$GITHUB_OUTPUT"
+          deb_version="$(printf '%s' "$app_version" | sed 's/-/~/')"
+          echo "deb-version=$deb_version" >> "$GITHUB_OUTPUT"
+
+      - name: Publish self-contained app
+        run: dotnet publish src/platform/avalonia/Bruskel.Avalonia/Bruskel.Avalonia.csproj --configuration Release --runtime ${{ matrix.rid }} --self-contained true --output publish/${{ matrix.rid }}
+
+      - name: Include licenses and release documentation
+        shell: bash
+        run: |
+          cp LICENSE.md src/platform/avalonia/Bruskel.Avalonia/README.md CHANGELOG.md publish/${{ matrix.rid }}/
+          cp third-party/pinta/LICENSE.md publish/${{ matrix.rid }}/LICENSE-BRUSKEL-LEGACY.md
+          cp third-party/paint.net/LICENSE.md publish/${{ matrix.rid }}/LICENSE-PAINT.NET.md
+          cp src/core/Bruskel.Resources/icons/bruskel-icons.md publish/${{ matrix.rid }}/THIRD-PARTY-NOTICES-icons.md
+
+      - name: Archive portable app
+        if: startsWith(matrix.rid, 'win-')
+        shell: pwsh
+        run: Compress-Archive -Path publish/${{ matrix.rid }}/* -DestinationPath Bruskel-${{ matrix.rid }}.zip
+
+      - name: Archive portable app
+        if: startsWith(matrix.rid, 'linux-') || startsWith(matrix.rid, 'osx-')
+        shell: bash
+        run: |
+          tar -czf Bruskel-${{ matrix.rid }}.tar.gz -C publish/${{ matrix.rid }} .
+
+      - name: Install WiX Toolset
+        if: matrix.rid == 'win-x64'
+        shell: pwsh
+        run: |
+          dotnet tool install --global wix --version 5.0.2
+          wix extension add WixToolset.UI.wixext/5.0.2
+
+      - name: Build Windows MSI
+        if: matrix.rid == 'win-x64'
+        shell: pwsh
+        run: >
+          wix build installer/avalonia/Package.wxs
+          -d BruskelVersion=${{ steps.version.outputs.msi-version }}
+          -arch x64 -out Bruskel-win-x64.msi
+
+      - name: Download appimagetool
+        if: matrix.rid == 'linux-x64'
+        shell: bash
+        run: |
+          curl --fail --location --silent --show-error \
+            https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage \
+            --output "$RUNNER_TEMP/appimagetool"
+          chmod +x "$RUNNER_TEMP/appimagetool"
+
+      - name: Build Linux AppImage
+        if: matrix.rid == 'linux-x64'
+        env:
+          APPIMAGETOOL: ${{ runner.temp }}/appimagetool
+        run: bash scripts/make-bruskel-appimage.sh publish/linux-x64 dist
+
+      - name: Build Linux deb package
+        if: matrix.rid == 'linux-x64'
+        run: bash scripts/make-bruskel-linux-deb.sh publish/linux-x64 '${{ steps.version.outputs.deb-version }}' dist
+
+      - name: Bundle macOS app and DMG
+        if: startsWith(matrix.rid, 'osx-')
+        shell: bash
+        run: |
+          app_dir="Bruskel-${{ matrix.rid }}/Bruskel.app/Contents"
+          mkdir -p "$app_dir/MacOS" "$app_dir/Resources"
+          cp -R "publish/${{ matrix.rid }}/." "$app_dir/MacOS/"
+          cp installer/macos/bruskel.icns "$app_dir/Resources/Bruskel.icns"
+          cat > "$app_dir/Info.plist" <<PLIST
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>CFBundleName</key><string>Bruskel</string>
+            <key>CFBundleDisplayName</key><string>Bruskel</string>
+            <key>CFBundleIdentifier</key><string>org.bruskel.editor</string>
+            <key>CFBundleVersion</key><string>${{ steps.version.outputs.msi-version }}</string>
+            <key>CFBundleShortVersionString</key><string>${{ steps.version.outputs.app-version }}</string>
+            <key>CFBundlePackageType</key><string>APPL</string>
+            <key>CFBundleExecutable</key><string>Bruskel</string>
+            <key>CFBundleIconFile</key><string>Bruskel.icns</string>
+          </dict></plist>
+          PLIST
+          chmod +x "$app_dir/MacOS/Bruskel"
+          bash scripts/make-bruskel-macos-dmg.sh "Bruskel-${{ matrix.rid }}/Bruskel.app" "Bruskel-${{ matrix.rid }}.dmg"
+
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Bruskel-${{ matrix.rid }}
+          path: |
+            Bruskel-${{ matrix.rid }}.*
+            dist/Bruskel-*.AppImage
+            dist/bruskel_*.deb
+          if-no-files-found: error
+          retention-days: 7
+
+  draft-release:
+    name: Publish alpha release
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: package
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Read app version
+        id: version
+        shell: bash
+        run: |
+          version="$(sed -n 's/^[[:space:]]*<Version>\(.*\)<\/Version>[[:space:]]*$/\1/p' src/platform/avalonia/Bruskel.Avalonia/Bruskel.Avalonia.csproj | head -n 1)"
+          echo "app-version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Extract release notes for this version
+        shell: bash
+        env:
+          APP_VERSION: ${{ steps.version.outputs.app-version }}
+        run: |
+          # Take only the "## <version>" section of CHANGELOG.md, up to the next "## " heading.
+          awk -v v="$APP_VERSION" '$0 == "## " v {f=1; next} f && /^## / {exit} f' CHANGELOG.md > release-notes.md
+          if ! grep -q '[^[:space:]]' release-notes.md; then
+            echo "::error::CHANGELOG.md has no non-empty '## $APP_VERSION' section"
+            exit 1
+          fi
+
+      - name: Download platform packages
+        uses: actions/download-artifact@v4
+        with:
+          pattern: Bruskel-*
+          path: release-assets
+          merge-multiple: true
+
+      - name: Publish GitHub release with packages
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Bruskel v${{ steps.version.outputs.app-version }}
+          tag_name: v${{ steps.version.outputs.app-version }}
+          target_commitish: ${{ github.sha }}
+          body_path: release-notes.md
+          draft: true
+          prerelease: true
+          files: release-assets/*
+          fail_on_unmatched_files: true
+
+      - name: Publish release after all assets are attached
+        uses: actions/github-script@v7
+        env:
+          RELEASE_TAG: v${{ steps.version.outputs.app-version }}
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const releases = await github.paginate(github.rest.repos.listReleases, { owner, repo, per_page: 100 });
+            const release = releases.find((item) => item.tag_name === process.env.RELEASE_TAG && item.draft);
+            if (!release) {
+              throw new Error(`Draft release ${process.env.RELEASE_TAG} was not found after uploading assets.`);
+            }
+            await github.rest.repos.updateRelease({ owner, repo, release_id: release.id, draft: false });
+            core.info(`Published ${release.html_url}`);

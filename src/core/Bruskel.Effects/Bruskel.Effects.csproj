@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bruskel.Core\Bruskel.Core.csproj" />
+    <ProjectReference Include="..\..\platform\gtk\Bruskel.Gui.Widgets\Bruskel.Gui.Widgets.csproj" />
+    <ProjectReference Include="..\Bruskel.Core.Neutral\Bruskel.Core.Neutral.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Mono.Addins" />
+  </ItemGroup>
+</Project>

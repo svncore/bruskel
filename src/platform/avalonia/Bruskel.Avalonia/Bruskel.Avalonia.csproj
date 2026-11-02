@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>Bruskel</AssemblyName>
+    <RootNamespace>Bruskel.Avalonia</RootNamespace>
+    <Version>0.0.5-alpha</Version>
+    <AssemblyVersion>0.0.5.0</AssemblyVersion>
+    <FileVersion>0.0.5.0</FileVersion>
+    <InformationalVersion>0.0.5-alpha</InformationalVersion>
+    <Authors>Bruskel contributors</Authors>
+    <Product>Bruskel Raster Editor</Product>
+    <ApplicationIcon>Bruskel.ico</ApplicationIcon>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" />
+    <PackageReference Include="Avalonia.Desktop" />
+    <PackageReference Include="Avalonia.Themes.Fluent" />
+    <PackageReference Include="SkiaSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\Bruskel.Resources.Neutral\Bruskel.Resources.Neutral.csproj" />
+    <ProjectReference Include="..\..\..\core\Bruskel.Core\Bruskel.Core.csproj" />
+    <ProjectReference Include="..\..\..\application\Bruskel.Application\Bruskel.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Bruskel.Avalonia.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../../../core/Bruskel.Resources/icons/hicolor/scalable/actions/tool-*-symbolic.svg" LogicalName="%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <!-- Optional compiled translations (build the GTK project with -p:BuildTranslations=true). -->
+  <ItemGroup>
+    <None Include="../../gtk/build/bin/locale/**/bruskel.mo" Link="locale/%(RecursiveDir)bruskel.mo" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

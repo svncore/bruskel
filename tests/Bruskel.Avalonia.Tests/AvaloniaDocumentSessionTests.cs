@@ -1,0 +1,83 @@
+using NUnit.Framework;
+using Bruskel.Avalonia.Document;
+
+namespace Bruskel.Avalonia.Tests;
+
+[TestFixture]
+internal sealed class AvaloniaDocumentSessionTests
+{
+	[Test]
+	public void SessionOwnsViewportState ()
+	{
+		AvaloniaDocumentSession session = new (new Bruskel.Core.Size (800, 600));
+
+		session.SetScale (2);
+
+		Assert.That (session.ImageSize, Is.EqualTo (new Bruskel.Core.Size (800, 600)));
+		Assert.That (session.ViewSize, Is.EqualTo (new Bruskel.Core.Size (1600, 1200)));
+		Assert.That (session.Scale, Is.EqualTo (2));
+	}
+
+	[Test]
+	public void LayersCanBeAddedSelectedAndRemoved ()
+	{
+		var surface = new Bruskel.Avalonia.Imaging.MemoryImageSurface (800, 600);
+		AvaloniaDocumentSession session = new (new Bruskel.Core.Size (800, 600), surface);
+
+		AvaloniaLayer layer = session.AddLayer ("Paint");
+		session.SelectLayer (0);
+
+		Assert.That (session.Layers, Has.Count.EqualTo (2));
+		Assert.That (session.ActiveLayer, Is.SameAs (session.Layers[0]));
+		Assert.That (session.RemoveActiveLayer (), Is.True);
+		Assert.That (session.Layers, Has.Count.EqualTo (1));
+		Assert.That (layer.Surface.Width, Is.EqualTo (800));
+	}
+
+	[Test]
+	public void LayerOpacityCanBeChanged ()
+	{
+		var session = new AvaloniaDocumentSession (new Bruskel.Core.Size (2, 2), new Bruskel.Avalonia.Imaging.MemoryImageSurface (2, 2));
+		AvaloniaLayer layer = session.AddLayer ("Overlay");
+
+		layer.Opacity = 0.35;
+
+		Assert.That (layer.Opacity, Is.EqualTo (0.35));
+	}
+
+	[Test]
+	public void ActiveLayerCanMoveUpAndDown ()
+	{
+		var session = new AvaloniaDocumentSession (new Bruskel.Core.Size (2, 2), new Bruskel.Avalonia.Imaging.MemoryImageSurface (2, 2));
+		session.AddLayer ("Top");
+		session.SelectLayer (0);
+
+		Assert.That (session.MoveActiveLayer (1), Is.True);
+		Assert.That (session.ActiveLayer?.Name, Is.EqualTo ("Background"));
+		Assert.That (session.MoveActiveLayer (-1), Is.True);
+		Assert.That (session.ActiveLayer?.Name, Is.EqualTo ("Background"));
+		Assert.That (session.Layers[1].Name, Is.EqualTo ("Top"));
+	}
+
+	[Test]
+	public void LayerCanMoveToArbitraryPosition ()
+	{
+		var session = new AvaloniaDocumentSession (new Bruskel.Core.Size (4, 4), new Bruskel.Avalonia.Imaging.MemoryImageSurface (4, 4));
+		session.AddLayer ("Middle");
+		session.AddLayer ("Top");
+
+		Assert.That (session.MoveLayerTo (2, 0), Is.True);
+		Assert.That (session.Layers[0].Name, Is.EqualTo ("Top"));
+		Assert.That (session.ActiveLayerIndex, Is.EqualTo (0));
+	}
+
+	[Test]
+	public void ActiveLayerCanBeRenamed ()
+	{
+		var session = new AvaloniaDocumentSession (new Bruskel.Core.Size (2, 2), new Bruskel.Avalonia.Imaging.MemoryImageSurface (2, 2));
+
+		session.RenameActiveLayer ("Sketch");
+
+		Assert.That (session.ActiveLayer?.Name, Is.EqualTo ("Sketch"));
+	}
+}

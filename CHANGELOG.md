@@ -1,11 +1,23 @@
-# Pintora changelog
+# Bruskel changelog
 
-Notable changes to Pintora are documented here. The initial `0.0.0` entry records the fork
-baseline; later entries track Pintora-specific work.
+Notable changes to Bruskel are documented here. The initial `0.0.0` entry records the fork
+baseline; later entries track Bruskel-specific work.
 
 ## Unreleased
 
 No changes yet.
+
+## 0.0.5-alpha
+
+### Added
+
+- Bruskel project and namespace rename across the solution, platform projects, tests, installers, and release assets.
+- Initial Mac App Store sandbox entitlements and documentation for the future signed `.pkg` pipeline.
+
+### Fixed
+
+- macOS bundle metadata now launches the `Bruskel` executable and uses the Bruskel icon.
+- Public documentation no longer ships migration plans, obsolete screenshots, or external reference-workflow material.
 
 ## 0.0.4-alpha
 
@@ -23,13 +35,13 @@ No changes yet.
 - Persistent clipping masks for editable text and effects in ORA annotation metadata.
 - Zoom anchoring after panning and rectangle zoom gestures.
 - Active shape colors now follow the palette until the shape is finished.
-- Paint.NET-style Magic Wand modifiers, shape rotation units, footer alignment, and tool icons.
+- reference-style Magic Wand modifiers, shape rotation units, footer alignment, and tool icons.
 
 ### Known limitations
 
 - This is an alpha preview. Keep backups of important artwork and project files.
 - Brush presets are not yet exact GTK equivalents, and pen pressure requires real-device verification.
-- Packages retain the legacy Pintora executable and package names. macOS packages are unsigned and not notarized.
+- Packages retain the legacy Bruskel executable and package names. macOS packages are unsigned and not notarized.
 
 ## 0.0.2-alpha
 
@@ -47,7 +59,7 @@ No changes yet.
 
 ## 0.0.1-alpha
 
-First alpha preview of the Pintora desktop editor.
+First alpha preview of the Bruskel desktop editor.
 
 ### Added
 
@@ -61,7 +73,7 @@ First alpha preview of the Pintora desktop editor.
 
 ### Known limitations
 
-- Feature coverage and file-format workflows remain incomplete compared with the original Pinta
+- Feature coverage and file-format workflows remain incomplete compared with the original Bruskel
   application and mature raster editors.
 - This is an early preview; keep backups of important artwork and project files.
 - Packages are unsigned. macOS builds are not notarized and may show a security warning on first
@@ -69,5 +81,5 @@ First alpha preview of the Pintora desktop editor.
 
 ## 0.0.0 — Fork baseline
 
-- Started from the Pinta raster graphics editor codebase as the foundation for Pintora.
-- Preserved the original Pinta and Paint.NET license notices and icon attributions.
+- Started from the Bruskel raster graphics editor codebase as the foundation for Bruskel.
+- Preserved the original Bruskel and reference editor license notices and icon attributions.

@@ -22,8 +22,8 @@ THE SOFTWARE.
 
 ## Third-party code
 
-The original Pinta code retains its upstream MIT license and copyright notice in
-[`third-party/pinta/LICENSE.md`](third-party/pinta/LICENSE.md). Paint.NET-derived portions retain
+The original Bruskel code retains its upstream MIT license and copyright notice in
+[`third-party/bruskel/LICENSE.md`](third-party/bruskel/LICENSE.md). Paint.NET-derived portions retain
 their original notices and licensing terms in
 [`third-party/paint.net/LICENSE.md`](third-party/paint.net/LICENSE.md). This file does not change
 those third-party terms.

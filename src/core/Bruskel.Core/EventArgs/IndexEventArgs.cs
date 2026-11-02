@@ -1,0 +1,22 @@
+/////////////////////////////////////////////////////////////////////////////////
+// Paint.NET                                                                   //
+// Copyright (C) Rick Brewster, Tom Jackson, and past contributors.            //
+// Portions Copyright (C) Microsoft Corporation. All Rights Reserved.          //
+// See third-party/paint.net/LICENSE.md for full licensing and attribution details.             //
+/////////////////////////////////////////////////////////////////////////////////
+
+using System;
+
+namespace Bruskel.Core;
+
+public sealed class IndexEventArgs : EventArgs
+{
+
+	public int Index { get; }
+
+	public IndexEventArgs (int i)
+	{
+		Index = i;
+	}
+}
+

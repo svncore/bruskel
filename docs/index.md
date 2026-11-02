@@ -1,24 +1,18 @@
 ---
 layout: default
-title: Pintora
-description: A cross-platform raster editor inspired by Paint.NET.
+title: Bruskel
+description: A cross-platform raster editor inspired by reference editor.
 ---
 
-# Pintora
+# Bruskel
 
-Pintora is a cross-platform raster editor focused on a familiar Paint.NET-style
+Bruskel is a cross-platform raster editor focused on a familiar reference-style
 workflow: a canvas in the center, dockable tool windows, document tabs, layers,
 and direct keyboard shortcuts.
 
-![Pintora first alpha screenshot](assets/pintora-first-screenshot.png)
-
-Pintora 0.0.3-alpha with a document open in the Avalonia interface. This
-first screenshot shows the full-window canvas, document thumbnail tab, tool
-palette, color controls, and layers panel in the Paint.NET-inspired layout.
-
 ## Current alpha
 
-The current Avalonia alpha is **0.0.4-alpha**. It includes:
+The current Avalonia alpha is **0.0.5-alpha**. It includes:
 
 - document tabs with thumbnails and drag-to-reorder;
 - a compact save/discard dialog for unsaved documents;
@@ -28,11 +22,11 @@ The current Avalonia alpha is **0.0.4-alpha**. It includes:
 
 ### Tool architecture decisions
 
-The `Shapes` tool intentionally follows the established Paint.NET layout: one
+The `Shapes` tool intentionally follows the established reference editor layout: one
 Shapes tool exposes the supported shape kinds and their shared options. This is
 a fixed product decision; do not split it into separate toolbox buttons.
 
-Avalonia now also exposes a dedicated **Pan** tool with Paint.NET-style viewport
+Avalonia now also exposes a dedicated **Pan** tool with reference-style viewport
 dragging. Middle-button dragging and temporary Space/H dragging remain available.
 
 Brush parity is being completed incrementally. Precise (subpixel) size, optional
@@ -45,7 +39,7 @@ still pending.
 From the published application directory:
 
 ```sh
-./Pintora
+./Bruskel
 ```
 
 The application opens directly into a clean 800 × 600 canvas. Use **File → New**
@@ -54,14 +48,13 @@ or **Image → Resize canvas** when a different size is needed.
 ## Build from source
 
 ```sh
-dotnet build src/platform/avalonia/Pintora.Avalonia/Pintora.Avalonia.csproj -c Release
-dotnet test tests/Pintora.Avalonia.Tests/Pintora.Avalonia.Tests.csproj --no-restore -m:1
+dotnet build src/platform/avalonia/Bruskel.Avalonia/Bruskel.Avalonia.csproj -c Release
+dotnet test tests/Bruskel.Avalonia.Tests/Bruskel.Avalonia.Tests.csproj --no-restore -m:1
 ```
 
-See the [Paint.NET workflow notes](paint-net/README.md), [tool reference](tools/README.md),
-and [algorithm migration inventory](algorithm-migration-inventory.md) for more detail.
+See the [tool reference](tools/README.md) for more detail.
 
 ## Project status
 
-Pintora is an alpha project. UI behavior and platform boundaries are changing
+Bruskel is an alpha project. UI behavior and platform boundaries are changing
 as the GTK and Avalonia implementations are aligned around shared core logic.

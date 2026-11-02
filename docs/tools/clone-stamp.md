@@ -1,6 +1,5 @@
 # Clone Stamp
 
-**Paint.NET:** [Clone Stamp Tool](https://mail.getpaint.net/doc/latest/CloneStampTool.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 
@@ -10,7 +9,7 @@
 
 `L` activates Clone Stamp. The shaped cursor shows brush size and source state; a source nub/offset is visible on the canvas. Brush controls remain available in the toolbar.
 
-## Pintora implementation
+## Bruskel implementation
 
 `CloneStampTool.cs` implements Ctrl-origin, `BrushHandle`, offset tracking, and history. Avalonia has no separate Clone Stamp descriptor in `CanvasToolFactory`.
 

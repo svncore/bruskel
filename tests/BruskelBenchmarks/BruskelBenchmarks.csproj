@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <IsPublishable>false</IsPublishable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\core\Bruskel.Core\Bruskel.Core.csproj" />
+    <ProjectReference Include="..\..\src\core\Bruskel.Effects\Bruskel.Effects.csproj" />
+    <ProjectReference Include="..\..\src\platform\gtk\Bruskel.Gui.Widgets\Bruskel.Gui.Widgets.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assets\2000px-test.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

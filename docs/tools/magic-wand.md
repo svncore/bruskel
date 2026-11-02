@@ -1,6 +1,5 @@
 # Magic Wand
 
-**Paint.NET:** [Magic Wand Tool](https://mail.getpaint.net/doc/latest/MagicWand.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 
@@ -12,9 +11,9 @@ Selects pixels of similar color. Contiguous mode floods from the click through n
 
 `S` four times, or `Shift+S`, selects it. The toolbar contains tolerance, flood, sampling, alpha, and selection modes; the canvas shows a source-point control nub.
 
-## Pintora implementation
+## Bruskel implementation
 
-`src/core/Pinta.Tools/Tools/MagicWandTool.cs` shares the flood/selection pipeline with `FloodTool.cs` and GTK toolbar adapters. Avalonia has `FillTool`, but no separate Magic Wand or editable tolerance selection.
+`src/core/Bruskel.Tools/Tools/MagicWandTool.cs` shares the flood/selection pipeline with `FloodTool.cs` and GTK toolbar adapters. Avalonia has `FillTool`, but no separate Magic Wand or editable tolerance selection.
 
 ## Improvements
 

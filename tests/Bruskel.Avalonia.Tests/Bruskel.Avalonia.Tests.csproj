@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit3TestAdapter" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/platform/avalonia/Bruskel.Avalonia/Bruskel.Avalonia.csproj" />
+    <ProjectReference Include="../../src/core/Bruskel.Core/Bruskel.Core.csproj" />
+    <ProjectReference Include="../../src/graphics/Bruskel.Graphics.Skia/Bruskel.Graphics.Skia.csproj" />
+    <ProjectReference Include="../../src/codecs/Bruskel.Codecs/Bruskel.Codecs.csproj" />
+  </ItemGroup>
+</Project>
