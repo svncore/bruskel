@@ -22,7 +22,7 @@ cp src/core/Bruskel.Resources/icons/hicolor/96x96/apps/com.github.BruskelProject
     "$STAGING/usr/share/icons/hicolor/96x96/apps/bruskel.png"
 cp LICENSE.md CHANGELOG.md \
     "$STAGING/usr/share/doc/bruskel/"
-cp third-party/bruskel/LICENSE.md "$STAGING/usr/share/doc/bruskel/LICENSE-BRUSKEL.md"
+cp third-party/pinta/LICENSE.md "$STAGING/usr/share/doc/bruskel/LICENSE-BRUSKEL-LEGACY.md"
 cp third-party/paint.net/LICENSE.md "$STAGING/usr/share/doc/bruskel/LICENSE-PAINT.NET.md"
 sed "s/__VERSION__/$VERSION/" installer/avalonia/bruskel.control > "$STAGING/DEBIAN/control"
 echo "Installed-Size: $(du -sk "$STAGING/usr" | cut -f1)" >> "$STAGING/DEBIAN/control"
