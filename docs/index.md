@@ -9,11 +9,6 @@ description: A cross-platform raster editor inspired by reference editor.
 Bruskel is a cross-platform raster editor focused on a familiar reference-style
 workflow: a canvas in the center, dockable tool windows, document tabs, layers,
 and direct keyboard shortcuts.
-
-![Bruskel first alpha screenshot](assets/bruskel-first-screenshot.png)
-
-Bruskel 0.0.3-alpha with a document open in the Avalonia interface. This
-first screenshot shows the full-window canvas, document thumbnail tab, tool
 palette, color controls, and layers panel in the reference-inspired layout.
 
 ## Current alpha
