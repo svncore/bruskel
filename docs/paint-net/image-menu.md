@@ -8,7 +8,7 @@
 
 Image commands affect all layers. Crop to Selection uses the selection bounding rectangle and makes pixels outside a non-rectangular selection transparent. `Ctrl+R` opens Resize; it supports percentage/absolute size, resolution/DPI, aspect-ratio lock, and multiple resampling algorithms. Canvas Size changes the document bounds without scaling pixels; Flip/Rotate affect the complete image.
 
-## Pintora implementation
+## Bruskel implementation
 
 Core owns `Document`, image size, selections, layer history, and pixel operations. GTK has image resize/canvas/rotate actions and dialogs. Avalonia exposes resize/canvas actions in `MainWindow` and keeps image-size state in `CanvasHost`/`DocumentSession`.
 

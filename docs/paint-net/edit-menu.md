@@ -10,9 +10,9 @@
 
 Selection commands include Select All (`Ctrl+A`), Deselect (`Ctrl+Shift+A`), Invert Selection (`Ctrl+I`), and selection offset/transform commands. The active document, not another open tab, owns the history operation.
 
-## Pintora implementation
+## Bruskel implementation
 
-Core exposes `ActionManager`, history, clipboard contracts, selection, and `FileActions`. GTK has `PasteAction` and selection actions. Avalonia registers Undo/Redo, copy variants, paste variants, Select All/Deselect, and selection transforms in `PintoraKeyboardSettings` and `MainWindow`.
+Core exposes `ActionManager`, history, clipboard contracts, selection, and `FileActions`. GTK has `PasteAction` and selection actions. Avalonia registers Undo/Redo, copy variants, paste variants, Select All/Deselect, and selection transforms in `BruskelKeyboardSettings` and `MainWindow`.
 
 ## Gaps and poor behavior to fix
 

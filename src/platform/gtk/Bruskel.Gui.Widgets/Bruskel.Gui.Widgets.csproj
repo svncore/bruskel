@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\Bruskel.Core\Bruskel.Core.csproj" />
+    <ProjectReference Include="..\..\..\core\Bruskel.Tools\Bruskel.Tools.csproj" />
+    <ProjectReference Include="..\..\..\core\Bruskel.Core.Neutral\Bruskel.Core.Neutral.csproj" />
+  </ItemGroup>
+</Project>

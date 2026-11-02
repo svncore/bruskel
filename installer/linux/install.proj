@@ -15,7 +15,7 @@
 
   <!-- All of our compiled translation files -->
   <ItemGroup>
-      <Translation Include="$(PublishDir)/locale/**/pinta.mo"/>
+      <Translation Include="$(PublishDir)/locale/**/bruskel.mo"/>
   </ItemGroup>
 
   <!-- All of our icons -->
@@ -30,28 +30,28 @@
     <BinFile Include="$(PublishDir)/*.json" />
   </ItemGroup>
 
-  <!-- Install everything for Pinta -->
+  <!-- Install everything for Bruskel -->
   <Target Name="Install">
-    <Copy SourceFiles="@(BinFile)" DestinationFolder="$(InstallLibDir)/pinta" />
+    <Copy SourceFiles="@(BinFile)" DestinationFolder="$(InstallLibDir)/bruskel" />
     <MakeDir Directories="$(InstallBinDir)" />
-    <Copy SourceFiles="$(SourceDir)/xdg/pinta.1" DestinationFolder="$(InstallManDir)/man1" />
-    <Exec Command='gzip -f "$(InstallManDir)/man1/pinta.1"' />
-    <Copy SourceFiles="$(SourceDir)/xdg/com.github.PintaProject.Pinta.metainfo.xml" DestinationFolder="$(InstallDataRootDir)/metainfo" />
-    <Copy SourceFiles="$(SourceDir)/xdg/com.github.PintaProject.Pinta.desktop" DestinationFolder="$(InstallDataRootDir)/applications" />
+    <Copy SourceFiles="$(SourceDir)/xdg/bruskel.1" DestinationFolder="$(InstallManDir)/man1" />
+    <Exec Command='gzip -f "$(InstallManDir)/man1/bruskel.1"' />
+    <Copy SourceFiles="$(SourceDir)/xdg/com.github.BruskelProject.Bruskel.metainfo.xml" DestinationFolder="$(InstallDataRootDir)/metainfo" />
+    <Copy SourceFiles="$(SourceDir)/xdg/com.github.BruskelProject.Bruskel.desktop" DestinationFolder="$(InstallDataRootDir)/applications" />
     <Copy SourceFiles="@(Icon)" DestinationFolder="$(InstallDataRootDir)/icons/%(Icon.RecursiveDir)" />
     <Copy SourceFiles="@(Translation)" DestinationFolder="$(InstallLocaleDir)/%(Translation.RecursiveDir)" />
   </Target>
 
-  <!-- Uninstall everything for Pinta -->
+  <!-- Uninstall everything for Bruskel -->
   <Target Name="Uninstall">
-    <Exec Command='rm -rf "$(InstallLibDir)/pinta"' />
-    <Delete Files="$(InstallBinDir)/pinta" />
-    <Delete Files="$(InstallLocaleDir)/%(Translation.Code)/LC_MESSAGES/pinta.mo" />
-    <Delete Files="$(InstallManDir)/man1/pinta.1" />
-    <Delete Files="$(InstallManDir)/man1/pinta.1.gz" />
-    <Delete Files="$(InstallDataRootDir)/metainfo/com.github.PintaProject.Pinta.metainfo.xml" />
-    <Delete Files="$(InstallDataRootDir)/applications/com.github.PintaProject.Pinta.desktop" />
+    <Exec Command='rm -rf "$(InstallLibDir)/bruskel"' />
+    <Delete Files="$(InstallBinDir)/bruskel" />
+    <Delete Files="$(InstallLocaleDir)/%(Translation.Code)/LC_MESSAGES/bruskel.mo" />
+    <Delete Files="$(InstallManDir)/man1/bruskel.1" />
+    <Delete Files="$(InstallManDir)/man1/bruskel.1.gz" />
+    <Delete Files="$(InstallDataRootDir)/metainfo/com.github.BruskelProject.Bruskel.metainfo.xml" />
+    <Delete Files="$(InstallDataRootDir)/applications/com.github.BruskelProject.Bruskel.desktop" />
     <Delete Files="$(InstallDataRootDir)/icons/%(Icon.RecursiveDir)/%(Icon.Filename)%(Icon.Extension)" />
-    <Delete Files="$(InstallLocaleDir)/%(Translation.RecursiveDir)/pinta.mo" />
+    <Delete Files="$(InstallLocaleDir)/%(Translation.RecursiveDir)/bruskel.mo" />
   </Target>
 </Project>

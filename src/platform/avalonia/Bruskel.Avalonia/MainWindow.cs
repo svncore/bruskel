@@ -1,0 +1,2262 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Input;
+using Avalonia.Layout;
+using Avalonia.Markup.Xaml.MarkupExtensions;
+using Avalonia.Media;
+using Avalonia.Media.Imaging;
+using Avalonia.Platform;
+using Avalonia.Platform.Storage;
+using Bruskel.Core;
+using Bruskel.Application;
+using Bruskel.Avalonia.Canvas;
+using Bruskel.Avalonia.Document;
+using Bruskel.Avalonia.Editor.Commands;
+using Bruskel.Avalonia.Editor.Hosting;
+using Bruskel.Avalonia.Editor.Annotations;
+using Bruskel.Avalonia.Imaging;
+using Bruskel.Avalonia.Input;
+
+namespace Bruskel.Avalonia;
+
+public sealed class MainWindow : Window
+{
+	private const double PanelEdgeInset = 8;
+	private readonly BruskelKeyboardSettings keyboard;
+	private readonly SettingsManager settings;
+	private readonly BruskelViewSettings view_settings;
+	private readonly string version;
+	private readonly IImageSourceProvider image_source_provider;
+	private readonly IAvaloniaClipboardService? clipboard_service;
+	private readonly List<ColorBgra> recent_colors = new ();
+	private readonly List<ColorBgra> palette_colors = new ();
+	private readonly List<Control> draggable_panels = new ();
+	private LayerThumbnailProvider? thumbnail_provider;
+	private EventHandler<LayerThumbnailUpdatedEventArgs>? thumbnail_updated_handler;
+	private Action? refresh_layers;
+	private Action? rebuild_layers_panel;
+	private StackPanel? tool_options;
+	private ScrollViewer? tool_options_scroll;
+	private readonly EditorCommandRegistry commands = new ();
+	private readonly DocumentTabManager tab_manager;
+	private readonly DocumentCloseCoordinator close_coordinator;
+	private readonly DocumentTabStrip tab_strip = new ();
+	private readonly ContentControl canvas_host = new ();
+	private CanvasHost? startup_canvas;
+	private Control? toolbar_control;
+	private Control? toolbox_control;
+	private Control? status_bar_control;
+	private Control? palette_control;
+	private Control? layers_control;
+	private Control? tab_strip_host;
+	private Border? canvas_panel_control;
+	private bool closing_after_confirmation;
+	private bool close_in_progress;
+	private CanvasHost? subscribed_canvas;
+	private Action? refresh_status;
+	private Action? refresh_history_commands;
+	private Action? refresh_zoom;
+	private CanvasHost.CanvasTool active_tool = CanvasHost.CanvasTool.Brush;
+	private List<(Button Button, CanvasHost.CanvasTool Tool)>? tool_buttons;
+	private static readonly CanvasHost.CanvasTool[] EffectTools = [CanvasHost.CanvasTool.Blur, CanvasHost.CanvasTool.Pixelate, CanvasHost.CanvasTool.Highlight, CanvasHost.CanvasTool.Magnify, CanvasHost.CanvasTool.Spotlight];
+
+	public MainWindow (BruskelApplication application)
+	{
+		version = typeof (MainWindow).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute> ()?.InformationalVersion
+			?? "0.0.1-alpha";
+		int buildMetadata = version.IndexOf ('+');
+		if (buildMetadata >= 0)
+			version = version[..buildMetadata];
+		Title = string.Empty;
+		Width = 1200;
+		Height = 760;
+		MinWidth = 900;
+		MinHeight = 600;
+
+		settings = application.GetService<SettingsManager> ();
+		App.InitializeTheme (settings);
+		keyboard = new BruskelKeyboardSettings (settings);
+		view_settings = new BruskelViewSettings (settings);
+		CanvasHost canvas = CreateCanvasHost (keyboard);
+		startup_canvas = canvas;
+		// Close prompts perform the save asynchronously before asking the manager
+		// to remove the tab; the synchronous delegate is therefore a final guard.
+		tab_manager = new DocumentTabManager (_ => true, tab => tab.Canvas.Dispose ());
+		close_coordinator = new DocumentCloseCoordinator (tab_manager, PromptCloseDecisionAsync, SaveTabAsync);
+		// The first document is added only after the startup size dialog is accepted.
+		tab_manager.ActiveTabChanged += (_, _) => {
+			if (tab_manager.ActiveTab is not { Canvas: { } active }) {
+				if (!closing_after_confirmation)
+					tab_manager.AddNewDocument ();
+				else
+					canvas_host.Content = null;
+				return;
+			}
+			ApplyGridViewSettings (active);
+			active.ShowRulers = view_settings.ShowRulers;
+			active.ActiveTool = active_tool;
+			if (tool_buttons is not null)
+				UpdateToolButtons (tool_buttons, active_tool);
+			RefreshToolOptions (active);
+			SyncActiveCanvas ();
+			RebindActiveCanvas ();
+			rebuild_layers_panel?.Invoke ();
+		};
+		clipboard_service = Clipboard is null ? null : new AvaloniaClipboardService (Clipboard);
+		if (Clipboard is not null)
+			application.Services.ReplaceService<Bruskel.Core.IClipboardService> (new AvaloniaNeutralClipboardService (Clipboard));
+		application.Services.ReplaceService<Bruskel.Core.IFileDialogService> (new AvaloniaFileDialogService (this));
+		image_source_provider = new FileImageSourceProvider (clipboard_service);
+		UpdateDocumentTitle (canvas, version);
+		canvas.BrushColor = LoadColor ("Bruskel.Palette.Primary", ColorBgra.Black);
+		canvas.SecondaryBrushColor = LoadColor ("Bruskel.Palette.Secondary", ColorBgra.White);
+		LoadRecentColors ();
+		LoadPaletteColors ();
+		canvas.BrushSize = settings.GetSetting ("Bruskel.Brush.Size", 1);
+		canvas.BrushHardness = settings.GetSetting ("Bruskel.Brush.Hardness", 1.0);
+		canvas.BrushOpacity = settings.GetSetting ("Bruskel.Brush.Opacity", 1.0);
+		canvas.BrushSpacing = settings.GetSetting ("Bruskel.Brush.Spacing", 0.25);
+		canvas.BrushSmoothing = settings.GetSetting ("Bruskel.Brush.Smoothing", 0.5);
+		canvas.FillTolerance = settings.GetSetting ("Bruskel.Fill.Tolerance", 0);
+		canvas.MagicWandTolerance = settings.GetSetting ("Bruskel.MagicWand.Tolerance", 0);
+		canvas.MagicWandGlobalMode = settings.GetSetting ("Bruskel.MagicWand.GlobalMode", false);
+		canvas.ShapeFilled = settings.GetSetting ("Bruskel.Shape.Filled", false);
+		if (Enum.TryParse (settings.GetSetting ("Bruskel.Shape.FillStyle", canvas.ShapeFilled ? "Fill" : "Outline"), out CanvasHost.ShapeFillStyle saved_fill_style)
+			&& Enum.IsDefined (saved_fill_style))
+			canvas.FillStyle = saved_fill_style;
+		canvas.ShapeOutlineWidth = settings.GetSetting ("Bruskel.Shape.OutlineWidth", 2);
+		canvas.ShapeCornerRadius = settings.GetSetting ("Bruskel.Shape.CornerRadius", 8);
+		canvas.ShapeAntialias = settings.GetSetting ("Bruskel.Shape.Antialias", true);
+		if (Enum.TryParse (settings.GetSetting ("Bruskel.Shape.DashStyle", "Solid"), out CanvasHost.ShapeDashStyle saved_dash_style)
+			&& Enum.IsDefined (saved_dash_style))
+			canvas.DashStyle = saved_dash_style;
+		if (Enum.TryParse (settings.GetSetting ("Bruskel.Shape.Kind", "Rectangle"), out CanvasHost.ShapeKind saved_shape)
+			&& Enum.IsDefined (saved_shape))
+			canvas.SelectedShape = saved_shape;
+		canvas.GradientReversed = settings.GetSetting ("Bruskel.Gradient.Reversed", false);
+		foreach (CanvasHost.CanvasTool effect in EffectTools) {
+			EffectToolOptions options = canvas.GetEffectOptions (effect);
+			options.Strength = settings.GetSetting ($"Bruskel.Effect.{effect}.Strength", options.Strength);
+			options.PixelSize = settings.GetSetting ($"Bruskel.Effect.{effect}.PixelSize", options.PixelSize);
+		}
+		commands.Register (BruskelKeyCommands.Undo, canvas.UndoLastStroke, () => canvas.CanUndoStroke);
+		commands.Register (BruskelKeyCommands.Redo, canvas.RedoLastStroke, () => canvas.CanRedoStroke);
+		commands.Register (BruskelKeyCommands.ClearHistory, canvas.ClearHistory);
+		commands.Register (BruskelKeyCommands.Save, () => _ = SaveActiveTabAsync ());
+		commands.Register (BruskelKeyCommands.SaveAll, () => _ = SaveAllDocumentsAsync ());
+		commands.Register (BruskelKeyCommands.CloseDocument, () => _ = CloseActiveTabAsync ());
+		commands.Register (BruskelKeyCommands.Exit, () => _ = ExitAsync ());
+		string saved_tool_name = settings.GetSetting ("Bruskel.Tool", "Brush");
+		if (Enum.TryParse (saved_tool_name, out CanvasHost.ShapeKind legacy_shape)) {
+			canvas.SelectedShape = legacy_shape;
+			active_tool = CanvasHost.CanvasTool.Shapes;
+		} else if (Enum.TryParse (saved_tool_name, out CanvasHost.CanvasTool saved_tool) && Enum.IsDefined (saved_tool))
+			active_tool = saved_tool;
+		canvas.ActiveTool = active_tool;
+		Closing += OnWindowClosing;
+		Closed += (_, _) => {
+			if (subscribed_canvas is not null) {
+				subscribed_canvas.HistoryChanged -= OnActiveCanvasHistoryChanged;
+				subscribed_canvas.ScaleChanged -= OnActiveCanvasScaleChanged;
+				subscribed_canvas.ActiveToolChanged -= OnActiveCanvasToolOptionsChanged;
+				subscribed_canvas.SelectedShapeChanged -= OnActiveCanvasToolOptionsChanged;
+				subscribed_canvas.BrushSizeChanged -= OnActiveCanvasToolOptionsChanged;
+				subscribed_canvas.PointerPositionChanged -= OnActiveCanvasToolChanged;
+				subscribed_canvas.ColorsChanged -= OnActiveCanvasColorsChanged;
+				subscribed_canvas.LayersChanged -= OnActiveCanvasLayersChanged;
+				subscribed_canvas.ActiveLayerChanged -= OnActiveCanvasLayersChanged;
+				subscribed_canvas.ToolOptionsChanged -= OnActiveCanvasToolOptionsChanged;
+				subscribed_canvas.AnnotationSelectionChanged -= OnActiveCanvasToolOptionsChanged;
+				subscribed_canvas.DocumentStateChanged -= OnActiveCanvasDocumentStateChanged;
+				subscribed_canvas = null;
+			}
+			if (thumbnail_provider is not null && thumbnail_updated_handler is not null)
+				thumbnail_provider.ThumbnailUpdated -= thumbnail_updated_handler;
+			thumbnail_updated_handler = null;
+			thumbnail_provider?.Dispose ();
+			thumbnail_provider = null;
+			settings.PutSetting ("Bruskel.Brush.Size", canvas.BrushSize);
+			settings.PutSetting ("Bruskel.Brush.Hardness", canvas.BrushHardness);
+			settings.PutSetting ("Bruskel.Brush.Opacity", canvas.BrushOpacity);
+			settings.PutSetting ("Bruskel.Brush.Spacing", canvas.BrushSpacing);
+			settings.PutSetting ("Bruskel.Brush.Smoothing", canvas.BrushSmoothing);
+			settings.PutSetting ("Bruskel.Fill.Tolerance", canvas.FillTolerance);
+			settings.PutSetting ("Bruskel.MagicWand.Tolerance", canvas.MagicWandTolerance);
+			settings.PutSetting ("Bruskel.MagicWand.GlobalMode", canvas.MagicWandGlobalMode);
+			settings.PutSetting ("Bruskel.Shape.Filled", canvas.ShapeFilled);
+			settings.PutSetting ("Bruskel.Shape.FillStyle", canvas.FillStyle.ToString ());
+			settings.PutSetting ("Bruskel.Shape.OutlineWidth", canvas.ShapeOutlineWidth);
+			settings.PutSetting ("Bruskel.Shape.CornerRadius", canvas.ShapeCornerRadius);
+			settings.PutSetting ("Bruskel.Shape.Antialias", canvas.ShapeAntialias);
+			settings.PutSetting ("Bruskel.Shape.DashStyle", canvas.DashStyle.ToString ());
+			settings.PutSetting ("Bruskel.Shape.Kind", canvas.SelectedShape.ToString ());
+			settings.PutSetting ("Bruskel.Gradient.Reversed", canvas.GradientReversed);
+			foreach (CanvasHost.CanvasTool effect in EffectTools) {
+				EffectToolOptions options = canvas.GetEffectOptions (effect);
+				settings.PutSetting ($"Bruskel.Effect.{effect}.Strength", options.Strength);
+				settings.PutSetting ($"Bruskel.Effect.{effect}.PixelSize", options.PixelSize);
+			}
+			settings.PutSetting ("Bruskel.Tool", canvas.ActiveTool.ToString ());
+			settings.DoSaveSettingsBeforeQuit ();
+		};
+		Content = new Grid {
+			RowDefinitions = new RowDefinitions ("Auto,Auto,Auto,*,Auto"),
+			Children = {
+				CreateMenuBar (canvas),
+				CreateCommandBar (canvas),
+				CreateToolbar (canvas),
+				CreateWorkspace (canvas),
+				CreateStatusBar (canvas)
+			}
+		};
+		ApplyChromeViewSettings ();
+		Opened += (_, _) => InitializeStartupDocument (canvas);
+	}
+
+	private Control CreateMenuBar (CanvasHost canvas)
+	{
+		Menu menu = CreateMainMenu (canvas);
+		tab_strip.AttachAsync (tab_manager, RequestCloseDecisionAsync);
+		var tabs_host = new Border {
+			MinHeight = 34,
+			Padding = new global::Avalonia.Thickness (4, 0),
+			Child = new ScrollViewer {
+				HorizontalScrollBarVisibility = global::Avalonia.Controls.Primitives.ScrollBarVisibility.Auto,
+				VerticalScrollBarVisibility = global::Avalonia.Controls.Primitives.ScrollBarVisibility.Hidden,
+				HorizontalContentAlignment = HorizontalAlignment.Left,
+				Content = tab_strip
+			}
+		};
+		tab_strip_host = tabs_host;
+		var bar = new Grid {
+			ColumnDefinitions = new ColumnDefinitions ("Auto,*"),
+			Children = { menu, tabs_host }
+		};
+		Grid.SetColumn (tabs_host, 1);
+		bar.Bind (Grid.BackgroundProperty, new DynamicResourceExtension ("Bruskel.Toolbar.Background"));
+		return bar;
+	}
+
+	private static Button CreateCompactCommand (string label, string tooltip, Action action)
+	{
+		var button = new Button {
+			Content = CreateCommandIcon (label) is { } icon ? icon : label,
+			MinWidth = 34,
+			Height = 30,
+			Padding = new global::Avalonia.Thickness (6, 2),
+			HorizontalContentAlignment = HorizontalAlignment.Center,
+			VerticalContentAlignment = VerticalAlignment.Center
+		};
+		button.Click += (_, _) => action ();
+		ToolTip.SetTip (button, tooltip);
+		return button;
+	}
+
+	private static PathIcon? CreateCommandIcon (string label, double size = 12)
+	{
+		string? path = label switch {
+			"−" or "-" => "M5 11h14v2H5z",
+			"+" => "M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z",
+			"×" => "M5 6.4L6.4 5L12 10.6L17.6 5L19 6.4L13.4 12L19 17.6L17.6 19L12 13.4L6.4 19L5 17.6L10.6 12L5 6.4Z",
+			"New" => "M6 2h9l5 5v15H6V2zm8 0.8V7h4.2L14 2.8zM9 12h6v2H9v-2z",
+			"Open" => "M3 6h6l2 2h10v11H3V6zm2 2v9h14V10H9.8L8 8H5z",
+			"Save" => "M5 3h11l5 5v13H5V3zm4 0.5V9h8V3.5H9zM8 21v-7h8v7H8z",
+			"Paste" => "M9 3h6v2h4v16H5V7h4V3zm1 1v3h4V4h-4zM7 8v13h10V8H7z",
+			"Select all" => "M4 4h16v16H4V4zm2 2v12h12V6H6z",
+			"Deselect" => "M6 6l12 12m0-12L6 18",
+			"Apply" => "M5 12l4 4L19 6l1.4 1.4L9 19 3.6 13.4 5 12z",
+			"Fit" => "M4 4h6v2H6v4H4V4zm10 0h6v6h-2V6h-4V4zM4 14h2v4h4v2H4v-6zm14 0h2v6h-6v-2h4v-4z",
+			"⇄" => "M4 7h13l-3-3 1.4-1.4L21.8 9l-6.4 6.4L14 14l3-3H4V7zm16 10H7l3 3-1.4 1.4L2.2 15l6.4-6.4L10 10l-3 3h13v4z",
+			"◩" => "M5 5h10v10H5V5zm4-2h10v10h-2V5H9V3z",
+			"More…" => "M5 12a2 2 0 1 0 0 .1M12 12a2 2 0 1 0 0 .1M19 12a2 2 0 1 0 0 .1",
+			"⧉" => "M8 8h11v11H8V8zM5 5h11v2H7v9H5V5z",
+			"↑" => "M11 19V8l-4 4-1.4-1.4L12 4.2l6.4 6.4L17 12l-4-4v11h-2z",
+			"↓" => "M11 5v11l-4-4-1.4 1.4 6.4 6.4 6.4-6.4L17 12l-4 4V5h-2z",
+			"↶" => "M9 7H4v5h2V9.8c1.1-1 2.6-1.6 4.3-1.6 3.7 0 6.7 2.7 6.7 6.1s-3 6.1-6.7 6.1c-2.1 0-4-.9-5.2-2.4l-1.6 1.2C5.1 21.1 7.4 22 10.3 22 15.2 22 19 18.4 19 14.3S15.2 6.6 10.3 6.6L9 7z",
+			"↷" => "M15 7h5v5h-2V9.8c-1.1-1-2.6-1.6-4.3-1.6-3.7 0-6.7 2.7-6.7 6.1s3 6.1 6.7 6.1c2.1 0 4-.9 5.2-2.4l1.6 1.2C18.9 21.1 16.6 22 13.7 22 8.8 22 5 18.4 5 14.3s3.8-7.7 8.7-7.7L15 7z",
+			"⧨" => "M5 6h14v2H5V6zm2 4h10v2H7v-2zm3 4h4v2h-4v-2z",
+			"✎" => "M5 17.3V20h2.7L18.8 8.9l-2.7-2.7L5 17.3zM20.7 7c.4-.4.4-1 0-1.4l-2.3-2.3c-.4-.4-1-.4-1.4 0l-1.3 1.3 3.7 3.7L20.7 7z",
+			_ => null
+		};
+		return path is null ? null : new PathIcon { Data = StreamGeometry.Parse (path), Width = size, Height = size };
+	}
+
+	private Button CreateIconCommand (string icon, string tooltip, Action action)
+	{
+		var button = new Button {
+			Content = CreateCommandIcon (icon) ?? (object) icon,
+			MinWidth = 34,
+			Height = 30,
+			Padding = new global::Avalonia.Thickness (6, 2),
+			HorizontalContentAlignment = HorizontalAlignment.Center,
+			VerticalContentAlignment = VerticalAlignment.Center
+		};
+		button.Click += (_, _) => action ();
+		ToolTip.SetTip (button, tooltip);
+		return button;
+	}
+
+	private Control CreateCommandBar (CanvasHost canvas)
+	{
+		Button new_button = CreateIconCommand ("New", "New document", () => tab_manager.AddNewDocument ());
+		Button open_button = CreateIconCommand ("Open", "Open image", () => _ = OpenImageAsync (ActiveCanvas));
+		Button save_button = CreateIconCommand ("Save", "Save", () => _ = SaveActiveTabAsync ());
+		Button undo_button = CreateIconCommand ("↶", "Undo", () => commands.TryExecute (BruskelKeyCommands.Undo.Id));
+		Button redo_button = CreateIconCommand ("↷", "Redo", () => commands.TryExecute (BruskelKeyCommands.Redo.Id));
+		Button copy_button = CreateIconCommand ("⧉", "Copy selection", () => ActiveCanvas.CopySelection ());
+		Button paste_button = CreateIconCommand ("Paste", "Paste selection", () => ActiveCanvas.PasteSelection ());
+		// Keep undo/redo enabled state in sync with history, reusing the same
+		// refresh hook the menu items use.
+		var previous_refresh = refresh_history_commands;
+		refresh_history_commands = () => {
+			previous_refresh?.Invoke ();
+			CanvasHost active = ActiveCanvas;
+			undo_button.IsEnabled = active.CanUndoStroke;
+			redo_button.IsEnabled = active.CanRedoStroke;
+		};
+		refresh_history_commands ();
+		Control Separator ()
+		{
+			var line = new Border {
+				Width = 1,
+				Margin = new global::Avalonia.Thickness (4, 4),
+				VerticalAlignment = VerticalAlignment.Stretch
+			};
+			line.Bind (Border.BackgroundProperty, new DynamicResourceExtension ("Bruskel.Control.Border"));
+			return line;
+		}
+		var bar = new Border {
+			Padding = new global::Avalonia.Thickness (8, 4),
+			Child = new StackPanel {
+				Orientation = Orientation.Horizontal,
+				Spacing = 6,
+				VerticalAlignment = VerticalAlignment.Center,
+				Children = {
+					new_button, open_button, save_button,
+					Separator (),
+					undo_button, redo_button,
+					Separator (),
+					copy_button, paste_button
+				}
+			}
+		};
+		bar.Bind (Border.BackgroundProperty, new DynamicResourceExtension ("Bruskel.Toolbar.Background"));
+		Grid.SetRow (bar, 1);
+		return bar;
+	}
+
+	private Control CreateToolbar (CanvasHost canvas)
+	{
+		tool_options = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 10, VerticalAlignment = VerticalAlignment.Center, Classes = { "toolbar-options" } };
+		var toolbar = new Border {
+			Padding = new global::Avalonia.Thickness (8, 4),
+			Child = new DockPanel {
+				LastChildFill = true,
+				Children = {
+					(tool_options_scroll = new ScrollViewer {
+						HorizontalScrollBarVisibility = global::Avalonia.Controls.Primitives.ScrollBarVisibility.Auto,
+						VerticalScrollBarVisibility = global::Avalonia.Controls.Primitives.ScrollBarVisibility.Disabled,
+						VerticalContentAlignment = VerticalAlignment.Center,
+						Content = tool_options
+					})
+				}
+			}
+		};
+		RefreshToolOptions (canvas);
+		toolbar.Bind (Border.BackgroundProperty, new DynamicResourceExtension ("Bruskel.Toolbar.Background"));
+		Grid.SetRow (toolbar, 2);
+		toolbar_control = toolbar;
+		return toolbar;
+	}
+
+	private static Button CreateColorSwatch (string color, Action primaryAction, Action? secondaryAction = null, Action? ctrlAction = null)
+	{
+		var button = new Button {
+			Content = "",
+			Width = 28,
+			Height = 28,
+			Background = new SolidColorBrush (Color.Parse (color)),
+			Padding = new global::Avalonia.Thickness (0)
+		};
+		ToolTip.SetTip (button, $"Color {color} · left: primary · right: secondary");
+		button.Click += (_, _) => primaryAction ();
+		button.PointerPressed += (_, args) => {
+			if (secondaryAction is not null && args.GetCurrentPoint (button).Properties.PointerUpdateKind == PointerUpdateKind.RightButtonPressed) {
+				secondaryAction ();
+				args.Handled = true;
+			} else if (ctrlAction is not null && (args.KeyModifiers & KeyModifiers.Control) != 0) {
+				ctrlAction ();
+				args.Handled = true;
+			}
+		};
+		return button;
+	}
+
+	private Control CreateStatusBar (CanvasHost canvas)
+	{
+		var dimensions = new TextBlock ();
+		var details = new TextBlock ();
+		void RefreshDetails () {
+			CanvasHost active = ActiveCanvas;
+			dimensions.Text = $"{active.ImageSize.Width} × {active.ImageSize.Height} px";
+			string position = active.PointerPosition is PointD point ? $"  •  X: {point.X:0}  Y: {point.Y:0}" : string.Empty;
+			string toolName = active.ActiveTool switch {
+				CanvasHost.CanvasTool.Shapes => active.SelectedShape.ToString (),
+				CanvasHost.CanvasTool.MagicWand => "Magic Wand",
+				_ => active.ActiveTool.ToString (),
+			};
+			details.Text = $"{toolName}  •  Brush {active.BrushSize}px{position}";
+		}
+		refresh_status = RefreshDetails;
+		RefreshDetails ();
+		var zoom = new TextBlock { VerticalAlignment = VerticalAlignment.Center };
+		void RefreshZoom () => zoom.Text = ActiveCanvas.Scale.ToString ("P0");
+		refresh_zoom = RefreshZoom;
+		RefreshZoom ();
+		dimensions.VerticalAlignment = VerticalAlignment.Center;
+		var zoom_controls = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 6, VerticalAlignment = VerticalAlignment.Center, Children = {
+			dimensions,
+			CreateCompactCommand ("−", "Zoom out", () => ActiveCanvas.SetScale (Math.Max (0.1, ActiveCanvas.Scale / 1.25))),
+			zoom,
+			CreateCompactCommand ("+", "Zoom in", () => ActiveCanvas.SetScale (Math.Min (32, ActiveCanvas.Scale * 1.25))),
+			CreateCompactCommand ("Fit", "Fit canvas to window", () => ActiveCanvas.FitToWindow ())
+		} };
+		DockPanel.SetDock (zoom_controls, Dock.Right);
+		var status = new Border {
+			BorderThickness = new global::Avalonia.Thickness (0, 1, 0, 0),
+			Padding = new global::Avalonia.Thickness (10, 3),
+			MinHeight = 36,
+			Child = new Grid {
+				ColumnDefinitions = new ColumnDefinitions ("*,Auto"),
+				Children = {
+					zoom_controls,
+					details
+				}
+			}
+		};
+		Grid.SetColumn (details, 0);
+		details.VerticalAlignment = VerticalAlignment.Center;
+		Grid.SetColumn (zoom_controls, 1);
+		status.Bind (Border.BorderBrushProperty, new DynamicResourceExtension ("Bruskel.Control.Border"));
+		status.Bind (Border.BackgroundProperty, new DynamicResourceExtension ("Bruskel.Status.Background"));
+		Grid.SetRow (status, 4);
+		status_bar_control = status;
+		return status;
+	}
+
+	private Menu CreateMainMenu (CanvasHost canvas)
+	{
+		var preferences = new MenuItem { Header = "Preferences" };
+		preferences.Click += (_, _) => new SettingsWindow (canvas, settings, keyboard).Show (this);
+		MenuItem undo = CreateMenuItem ("_Undo", () => commands.TryExecute (BruskelKeyCommands.Undo.Id), keyboard, BruskelKeyCommands.Undo);
+		MenuItem redo = CreateMenuItem ("_Redo", () => commands.TryExecute (BruskelKeyCommands.Redo.Id), keyboard, BruskelKeyCommands.Redo);
+		MenuItem layer_undo = CreateMenuItem ("Undo layer", () => ActiveCanvas.UndoLayerOperation ());
+		MenuItem layer_redo = CreateMenuItem ("Redo layer", () => ActiveCanvas.RedoLayerOperation ());
+		MenuItem clear_history = CreateMenuItem ("Clear history", () => commands.TryExecute (BruskelKeyCommands.ClearHistory.Id), keyboard, BruskelKeyCommands.ClearHistory);
+		void RefreshHistoryCommands () {
+			CanvasHost active = ActiveCanvas;
+			undo.IsEnabled = active.CanUndoStroke;
+			redo.IsEnabled = active.CanRedoStroke;
+			layer_undo.IsEnabled = active.CanUndoLayerOperation;
+			layer_redo.IsEnabled = active.CanRedoLayerOperation;
+			clear_history.IsEnabled = active.History.Count > 0;
+		}
+		refresh_history_commands = RefreshHistoryCommands;
+		RefreshHistoryCommands ();
+		var menu = new Menu {
+			Items = {
+				new MenuItem { Header = "_File", Items = {
+					CreateMenuItem ("_New", () => tab_manager.AddNewDocument ()),
+					CreateMenuItem ("_Open", () => _ = OpenImageAsync (ActiveCanvas)),
+					new Separator (),
+					CreateMenuItem ("_Save", () => _ = SaveActiveTabAsync (), keyboard, BruskelKeyCommands.Save),
+					CreateMenuItem ("Save _As", () => _ = SaveAsAsync (ActiveCanvas)),
+					CreateMenuItem ("Save _PNG", () => _ = SavePngAsync (ActiveCanvas)),
+					CreateMenuItem ("Save _JPEG", () => _ = SaveJpegAsync (ActiveCanvas)),
+					CreateMenuItem ("Save _WebP", () => _ = SaveWebpAsync (ActiveCanvas)),
+					CreateMenuItem ("Save _TIFF", () => _ = SaveTiffAsync (ActiveCanvas)),
+					CreateMenuItem ("Save _ORA", () => _ = SaveOraAsync (ActiveCanvas)),
+					new Separator (),
+					CreateMenuItem ("Save _All", () => _ = SaveAllDocumentsAsync (), keyboard, BruskelKeyCommands.SaveAll),
+					CreateMenuItem ("_Close", () => _ = CloseActiveTabAsync (), keyboard, BruskelKeyCommands.CloseDocument),
+					CreateMenuItem ("Close _All", () => _ = CloseAllDocumentsAsync ()),
+					new Separator (),
+					CreateMenuItem ("Import image as layer", () => _ = ImportImageLayerAsync (ActiveCanvas)),
+					CreateMenuItem ("Insert image annotation", () => _ = InsertImageAnnotationAsync (ActiveCanvas)),
+					new Separator (),
+					CreateMenuItem ("E_xit", () => _ = ExitAsync (), keyboard, BruskelKeyCommands.Exit)
+				} },
+				new MenuItem { Header = "_Edit", Items = {
+					undo,
+					redo,
+					new Separator (),
+					clear_history,
+					layer_undo,
+					layer_redo,
+					new Separator (),
+					CreateMenuItem ("Copy selection", () => ActiveCanvas.CopySelection (), keyboard, BruskelKeyCommands.Copy),
+					CreateMenuItem ("Copy selection to clipboard", () => _ = CopySelectionToClipboardAsync (ActiveCanvas), keyboard, BruskelKeyCommands.CopySelectionImage),
+					CreateMenuItem ("Copy image to clipboard", () => _ = CopyImageToClipboardAsync (ActiveCanvas), keyboard, BruskelKeyCommands.CopyImage),
+					CreateMenuItem ("Paste selection", () => ActiveCanvas.PasteSelection (), keyboard, BruskelKeyCommands.Paste),
+					CreateMenuItem ("Paste image as layer", () => _ = ActiveCanvas.PasteImageFromClipboardAsync (image_source_provider), keyboard, BruskelKeyCommands.PasteImageAsLayer),
+					CreateMenuItem ("Paste image as annotation", () => _ = ActiveCanvas.AddImageAnnotationFromClipboardAsync (image_source_provider), keyboard, BruskelKeyCommands.PasteImageAnnotation),
+					CreateMenuItem ("Rotate selected annotation 90° clockwise", () => {
+						CanvasHost active = ActiveCanvas;
+						if (active.SelectedAnnotation is { } annotation)
+							active.RotateAnnotation (annotation, Math.PI / 2);
+					}),
+					CreateMenuItem ("Delete selected annotation", () => {
+						CanvasHost active = ActiveCanvas;
+						if (active.SelectedAnnotation is { } annotation && active.RemoveAnnotation (annotation))
+							active.ClearAnnotationSelection ();
+					}),
+					CreateMenuItem ("Duplicate selected annotation", () => ActiveCanvas.DuplicateSelectedAnnotation (), keyboard, BruskelKeyCommands.DuplicateAnnotation),
+					CreateMenuItem ("Select _all", () => ActiveCanvas.SelectAll (), keyboard, BruskelKeyCommands.SelectAll),
+					CreateMenuItem ("Deselect", () => ActiveCanvas.ClearSelection (), keyboard, BruskelKeyCommands.Deselect),
+					CreateMenuItem ("Flip selection horizontally", () => ActiveCanvas.FlipSelectionHorizontal ()),
+					CreateMenuItem ("Flip selection vertically", () => ActiveCanvas.FlipSelectionVertical ()),
+					CreateMenuItem ("Rotate selection 90° clockwise", () => ActiveCanvas.RotateSelectionClockwise ()),
+					CreateMenuItem ("Clear layer", () => ActiveCanvas.ClearActiveLayer (), keyboard, BruskelKeyCommands.ClearLayer)
+				} },
+				new MenuItem { Header = "_View", Items = {
+					CreateMenuItem ("Fit canvas", () => ActiveCanvas.FitToWindow (), keyboard, BruskelKeyCommands.FitCanvas),
+					CreateMenuItem ("100%", () => ActiveCanvas.SetActualSize (), keyboard, BruskelKeyCommands.ActualSize),
+					new Separator (),
+					CreateViewGridToggle (),
+					CreateViewRulersToggle (),
+					new Separator (),
+					CreateViewToggle ("Show _toolbar", () => view_settings.ShowToolbar, value => view_settings.ShowToolbar = value),
+					CreateViewToggle ("Show _toolbox", () => view_settings.ShowToolbox, value => view_settings.ShowToolbox = value),
+					CreateViewToggle ("Show _status bar", () => view_settings.ShowStatusBar, value => view_settings.ShowStatusBar = value),
+					CreateViewToggle ("Show tool _windows", () => view_settings.ShowToolWindows, value => view_settings.ShowToolWindows = value),
+					CreateViewToggle ("Show _colors", () => view_settings.ShowColors, value => view_settings.ShowColors = value),
+					CreateViewToggle ("Show _layers", () => view_settings.ShowLayers, value => view_settings.ShowLayers = value),
+					CreateViewToggle ("Show image _tabs", () => view_settings.ShowImageTabs, value => view_settings.ShowImageTabs = value),
+					new Separator (),
+					CreateMenuItem ("Light theme", () => App.SetTheme (global::Avalonia.Styling.ThemeVariant.Light)),
+					CreateMenuItem ("Dark theme", () => App.SetTheme (global::Avalonia.Styling.ThemeVariant.Dark)),
+					CreateMenuItem ("System theme", () => App.SetTheme (global::Avalonia.Styling.ThemeVariant.Default))
+				} },
+				new MenuItem { Header = "_Image", Items = {
+					CreateMenuItem ("Resize image", () => new ResizeImageWindow (ActiveCanvas).Show (this)),
+					CreateMenuItem ("Resize canvas", () => new ResizeCanvasWindow (ActiveCanvas).Show (this)),
+					CreateMenuItem ("Crop image", () => new CropImageWindow (ActiveCanvas).Show (this)),
+					new Separator (),
+					CreateMenuItem ("Flip image horizontally", () => ActiveCanvas.FlipImageHorizontal ()),
+					CreateMenuItem ("Flip image vertically", () => ActiveCanvas.FlipImageVertical ()),
+					new Separator (),
+					CreateMenuItem ("Rotate image 90° clockwise", () => ActiveCanvas.RotateImageClockwise ()),
+					CreateMenuItem ("Rotate image 90° counter-clockwise", () => ActiveCanvas.RotateImageCounterClockwise ()),
+					CreateMenuItem ("Rotate image 180°", () => ActiveCanvas.RotateImage180 ()),
+					new Separator (),
+					CreateMenuItem ("Flatten image", () => ActiveCanvas.FlattenImage ())
+				} },
+				new MenuItem { Header = "_Layers", Items = {
+					CreateMenuItem ("Add layer", () => ActiveCanvas.AddLayer ()),
+					CreateMenuItem ("Duplicate layer", () => ActiveCanvas.DuplicateActiveLayer (), keyboard, BruskelKeyCommands.DuplicateLayer),
+					CreateMenuItem ("Move layer up", () => ActiveCanvas.MoveLayer (1)),
+					CreateMenuItem ("Move layer down", () => ActiveCanvas.MoveLayer (-1)),
+					CreateMenuItem ("Merge layer down", () => ActiveCanvas.MergeActiveLayerDown ()),
+					CreateMenuItem ("Delete layer", () => ActiveCanvas.RemoveLayer ()),
+					CreateMenuItem ("Rename layer", () => {
+						CanvasHost active = ActiveCanvas;
+						new LayerRenameWindow (active, active.Layers[active.ActiveLayerIndex].Name, () => { }).Show (this);
+					})
+				} },
+				new MenuItem { Header = "_Effects", Items = {
+					CreateMenuItem ("_Blur", () => SelectTool (CanvasHost.CanvasTool.Blur)),
+					CreateMenuItem ("_Pixelate", () => SelectTool (CanvasHost.CanvasTool.Pixelate)),
+					CreateMenuItem ("_Highlight", () => SelectTool (CanvasHost.CanvasTool.Highlight)),
+					CreateMenuItem ("_Magnify", () => SelectTool (CanvasHost.CanvasTool.Magnify)),
+					CreateMenuItem ("_Spotlight", () => SelectTool (CanvasHost.CanvasTool.Spotlight))
+				} },
+				new MenuItem { Header = "_Window", Items = {
+					CreateMenuItem ("History", () => new HistoryWindow (ActiveCanvas).Show (this)),
+					new Separator (),
+					preferences
+				} },
+				new MenuItem { Header = "_Help", Items = {
+					CreateMenuItem ("Keyboard _shortcuts", () => new KeyboardSettingsWindow (keyboard).Show (this)),
+					CreateMenuItem ("About Bruskel", () => new AboutWindow ().ShowDialog (this))
+				} }
+			}
+		};
+		Grid.SetRow (menu, 0);
+		return menu;
+	}
+
+	private CanvasHost ActiveCanvas
+		=> tab_manager.ActiveTab?.Canvas ?? startup_canvas ?? throw new InvalidOperationException ("No active document tab.");
+
+	private void InitializeStartupDocument (CanvasHost canvas)
+	{
+		// Start with a clean standard-size canvas; dimensions can be changed later.
+		if (tab_manager.ActiveTab is null)
+			tab_manager.AddTab (canvas, canvas.DocumentSession);
+		startup_canvas = null;
+		SyncActiveCanvas ();
+		UpdateDocumentTitle (canvas, version);
+		// Fit after layout so the initial canvas uses the available viewport
+		// instead of sitting at 100% with large unused margins.
+		global::Avalonia.Threading.Dispatcher.UIThread.Post (canvas.FitToWindow, global::Avalonia.Threading.DispatcherPriority.Loaded);
+	}
+
+	private MenuItem CreateViewGridToggle ()
+	{
+		var item = new MenuItem {
+			Header = "Show _grid",
+			ToggleType = MenuItemToggleType.CheckBox,
+			IsChecked = view_settings.ShowGrid
+		};
+		item.Click += (_, _) => {
+			view_settings.ShowGrid = item.IsChecked == true;
+			view_settings.Save ();
+			ApplyGridViewSettingsToAllTabs ();
+		};
+		return item;
+	}
+
+	private MenuItem CreateViewRulersToggle ()
+	{
+		var item = new MenuItem {
+			Header = "Show _rulers",
+			ToggleType = MenuItemToggleType.CheckBox,
+			IsChecked = view_settings.ShowRulers
+		};
+		item.Click += (_, _) => {
+			view_settings.ShowRulers = item.IsChecked == true;
+			view_settings.Save ();
+			foreach (DocumentTab tab in tab_manager.Tabs)
+				tab.Canvas.ShowRulers = view_settings.ShowRulers;
+		};
+		return item;
+	}
+
+	private MenuItem CreateViewToggle (string header, Func<bool> get, Action<bool> set)
+	{
+		var item = new MenuItem {
+			Header = header,
+			ToggleType = MenuItemToggleType.CheckBox,
+			IsChecked = get ()
+		};
+		item.Click += (_, _) => {
+			set (item.IsChecked == true);
+			view_settings.Save ();
+			ApplyChromeViewSettings ();
+		};
+		return item;
+	}
+
+	/// <summary>
+	/// Shows or hides the existing chrome elements according to the persisted
+	/// view settings. Hiding never touches documents, tabs or canvas state.
+	/// </summary>
+	private void ApplyChromeViewSettings ()
+	{
+		if (toolbar_control is not null) toolbar_control.IsVisible = view_settings.ShowToolbar && (tool_options?.Children.Count ?? 0) > 0;
+		if (toolbox_control is not null) toolbox_control.IsVisible = view_settings.ShowToolbox;
+		if (status_bar_control is not null) status_bar_control.IsVisible = view_settings.ShowStatusBar;
+		if (palette_control is not null) palette_control.IsVisible = view_settings.ShowToolWindows && view_settings.ShowColors;
+		if (layers_control is not null) layers_control.IsVisible = view_settings.ShowToolWindows && view_settings.ShowLayers;
+		if (tab_strip_host is not null) tab_strip_host.IsVisible = view_settings.ShowImageTabs;
+		// Tool windows float above the workspace, so the canvas keeps the full
+		// central area instead of reserving fixed margins for those panels.
+		if (canvas_panel_control is not null)
+			canvas_panel_control.Margin = new global::Avalonia.Thickness (0);
+	}
+
+	/// <summary>
+	/// Applies the persisted grid settings to a single canvas. Called for the
+	/// initial document and whenever a tab becomes active so every canvas
+	/// reflects the shared view settings.
+	/// </summary>
+	private void ApplyGridViewSettings (CanvasHost canvas)
+	{
+		canvas.GridSize = view_settings.GridSize;
+		canvas.ShowGrid = view_settings.ShowGrid;
+	}
+
+	private void ApplyGridViewSettingsToAllTabs ()
+	{
+		foreach (DocumentTab tab in tab_manager.Tabs)
+			ApplyGridViewSettings (tab.Canvas);
+	}
+
+	private void UpdateDocumentTitle (CanvasHost canvas, string version)
+	{
+		// Keep the native window chrome empty; document state is shown by the tab preview.
+		Title = string.Empty;
+	}
+
+	private static Button CreateBrushButton (string label, Action action)
+	{
+		return CreateCompactCommand (label, label, action);
+	}
+
+	private static NumericUpDown CreateBrushSizeInput (CanvasHost canvas)
+	{
+		var input = CreateToolbarNumber (0.25m, 256, (decimal) canvas.BrushSizePrecise, value => canvas.BrushSizePrecise = (double) value, "0.##", 0.25m);
+		// Paint.NET-style wheel adjustment: hover the width control and scroll.
+		input.PointerWheelChanged += (_, args) => {
+			canvas.AdjustBrushSize (args.Delta.Y > 0 ? 1 : -1);
+			input.Value = (decimal) canvas.BrushSizePrecise;
+			args.Handled = true;
+		};
+		return input;
+	}
+
+	private static TextBlock CreateToolbarLabel (string text)
+		=> new () { Text = text, VerticalAlignment = VerticalAlignment.Center };
+
+	private static NumericUpDown CreateToolbarNumber (decimal minimum, decimal maximum, decimal value,
+		Action<decimal> changed, string format = "0", decimal increment = 1)
+	{
+		var input = new NumericUpDown {
+			Minimum = minimum, Maximum = maximum, Value = value, Increment = increment,
+			FormatString = format, Width = 92, Height = 32, MinHeight = 32,
+			VerticalAlignment = VerticalAlignment.Center, VerticalContentAlignment = VerticalAlignment.Center
+		};
+		input.ValueChanged += (_, args) => { if (args.NewValue is decimal next) changed (next); };
+		return input;
+	}
+
+	private static StackPanel ToolOptionGroup (string label, Control control)
+	{
+		global::Avalonia.Automation.AutomationProperties.SetName (control, label.TrimEnd (':'));
+		return new StackPanel { Orientation = Orientation.Horizontal, Spacing = 6,
+			VerticalAlignment = VerticalAlignment.Center, Classes = { "toolbar-options" },
+			Children = { CreateToolbarLabel (label), control } };
+	}
+
+	private static Control CreatePercentSlider (double minimum, double maximum, double value, Action<double> changed)
+	{
+		var amount = new TextBlock { Text = $"{value:0}%", Width = 40,
+			TextAlignment = global::Avalonia.Media.TextAlignment.Right, VerticalAlignment = VerticalAlignment.Center };
+		var slider = new Slider { Minimum = minimum, Maximum = maximum, Value = value,
+			Width = 90, VerticalAlignment = VerticalAlignment.Center };
+		slider.ValueChanged += (_, args) => {
+			amount.Text = $"{args.NewValue:0}%";
+			changed (args.NewValue);
+		};
+		return new StackPanel { Orientation = Orientation.Horizontal, Spacing = 6,
+			VerticalAlignment = VerticalAlignment.Center, Children = { slider, amount } };
+	}
+
+	private Control CreateBrushOptions (CanvasHost canvas)
+	{
+		var preset = new ComboBox { ItemsSource = Enum.GetNames<BrushPreset> (), SelectedIndex = (int) canvas.BrushPreset, MinWidth = 112 };
+		var tip = new ComboBox { ItemsSource = new[] { "Round", "Square" }, SelectedIndex = (int) canvas.BrushTipShape, MinWidth = 100 };
+		tip.SelectionChanged += (_, _) => { if (tip.SelectedIndex >= 0) canvas.BrushTipShape = (BrushTipShape) tip.SelectedIndex; };
+		var advanced = new StackPanel { Spacing = 12, Margin = new global::Avalonia.Thickness (4), Classes = { "toolbar-options" } };
+		advanced.Children.Add (ToolOptionGroup ("Spacing:", CreatePercentSlider (2, 400, canvas.BrushSpacing * 100, value => canvas.BrushSpacing = value / 100)));
+		advanced.Children.Add (ToolOptionGroup ("Smoothing:", CreatePercentSlider (0, 100, canvas.BrushSmoothing * 100, value => canvas.BrushSmoothing = value / 100)));
+		var pressure = new CheckBox { Content = "Use pen pressure", IsChecked = canvas.BrushPressureEnabled };
+		pressure.IsCheckedChanged += (_, _) => canvas.BrushPressureEnabled = pressure.IsChecked == true;
+		advanced.Children.Add (pressure);
+		var splatter = new StackPanel { Spacing = 8, Children = {
+			ToolOptionGroup ("Minimum size (px):", CreateToolbarNumber (1, 10000, canvas.BrushSplatterMinSize, value => canvas.BrushSplatterMinSize = (int) value)),
+			ToolOptionGroup ("Maximum size (px):", CreateToolbarNumber (1, 10000, canvas.BrushSplatterMaxSize, value => canvas.BrushSplatterMaxSize = (int) value))
+		} };
+		var slash = ToolOptionGroup ("Angle (°):", CreateToolbarNumber (0, 180, canvas.BrushSlashAngle, value => canvas.BrushSlashAngle = (int) value));
+		advanced.Children.Add (splatter);
+		advanced.Children.Add (slash);
+		void UpdatePreset () {
+			splatter.IsVisible = canvas.BrushPreset == BrushPreset.Splatter;
+			slash.IsVisible = canvas.BrushPreset == BrushPreset.Slash;
+		}
+		preset.SelectionChanged += (_, _) => {
+			if (preset.SelectedIndex >= 0) canvas.BrushPreset = (BrushPreset) preset.SelectedIndex;
+			UpdatePreset ();
+		};
+		UpdatePreset ();
+		var settings = new Button { Content = "Stroke settings ▾", Height = 32, VerticalAlignment = VerticalAlignment.Center };
+		var strokeFlyout = new Flyout { Content = advanced };
+		settings.Click += (_, _) => strokeFlyout.ShowAt (settings);
+		return new StackPanel { Orientation = Orientation.Horizontal, Spacing = 14,
+			VerticalAlignment = VerticalAlignment.Center, Classes = { "toolbar-options" }, Children = {
+			ToolOptionGroup ("Brush:", preset),
+			ToolOptionGroup ("Size (px):", CreateBrushSizeInput (canvas)),
+			ToolOptionGroup ("Hardness:", CreatePercentSlider (0, 100, canvas.BrushHardness * 100, value => canvas.BrushHardness = value / 100)),
+			ToolOptionGroup ("Opacity:", CreatePercentSlider (0, 100, canvas.BrushOpacity * 100, value => canvas.BrushOpacity = value / 100)),
+			ToolOptionGroup ("Tip:", tip), settings
+		} };
+	}
+
+	private Control CreatePanelHeader (string title, Action hide)
+	{
+		bool collapsed = false;
+		var collapse = new Button {
+			Content = CreateCommandIcon ("−", 10),
+			Width = 18,
+			Height = 18,
+			Padding = new global::Avalonia.Thickness (2),
+			Margin = new global::Avalonia.Thickness (0, 0, 2, 0),
+			HorizontalContentAlignment = HorizontalAlignment.Center,
+			VerticalContentAlignment = VerticalAlignment.Center
+		};
+		var button = new Button {
+			Content = CreateCommandIcon ("×", 10) is { } close_icon ? close_icon : "×",
+			Width = 18,
+			Height = 18,
+			Padding = new global::Avalonia.Thickness (2),
+			Margin = new global::Avalonia.Thickness (2, 0, 0, 0),
+			HorizontalContentAlignment = HorizontalAlignment.Center,
+			VerticalContentAlignment = VerticalAlignment.Center
+		};
+		ToolTip.SetTip (collapse, $"Collapse {title}");
+		ToolTip.SetTip (button, $"Hide {title}");
+		collapse.Click += (_, _) => {
+			if (collapse.Parent?.Parent is not StackPanel panel)
+				return;
+			collapsed = !collapsed;
+			foreach (Control child in panel.Children)
+				if (!ReferenceEquals (child, collapse.Parent)) child.IsVisible = !collapsed;
+			collapse.Content = CreateCommandIcon (collapsed ? "+" : "−", 10);
+			ToolTip.SetTip (collapse, collapsed ? $"Collapse {title}" : $"Expand {title}");
+		};
+		button.Click += (_, _) => {
+			hide ();
+			view_settings.Save ();
+			ApplyChromeViewSettings ();
+		};
+		var header = new Grid {
+			ColumnDefinitions = new ColumnDefinitions ("*,Auto,Auto"),
+			Cursor = new Cursor (StandardCursorType.SizeAll),
+			Children = {
+				new TextBlock { Text = title, FontSize = 12, VerticalAlignment = VerticalAlignment.Center },
+				collapse,
+				button
+			}
+		};
+		header.Bind (Grid.BackgroundProperty, new DynamicResourceExtension ("Bruskel.Panel.Header"));
+		Grid.SetColumn (collapse, 1);
+		Grid.SetColumn (button, 2);
+		var transform = new TranslateTransform ();
+		Point drag_start = default;
+		Vector drag_origin = default;
+		Point root_origin = default;
+		bool dragging = false;
+		bool has_root_origin = false;
+		bool snapped_left = false;
+		bool snapped_right = false;
+		bool snapped_top = false;
+		bool snapped_bottom = false;
+		Control? x_anchor_panel = null;
+		Control? y_anchor_panel = null;
+		bool x_anchor_after = false;
+		bool y_anchor_after = false;
+		const double snap_distance = 12;
+		void SnapToOtherPanels (Control root, ref double x, ref double y)
+		{
+			Rect current = new (root_origin.X + x, root_origin.Y + y, root.Bounds.Width, root.Bounds.Height);
+			double? snapped_x = null;
+			double? snapped_y = null;
+			foreach (Control other in draggable_panels) {
+				if (ReferenceEquals (other, root) || other.Bounds.Width <= 0 || other.Bounds.Height <= 0)
+					continue;
+				Point? origin = other.TranslatePoint (new Point (0, 0), this);
+				if (origin is null)
+					continue;
+				Rect target = new (origin.Value.X, origin.Value.Y, other.Bounds.Width, other.Bounds.Height);
+				double[] x_candidates = {
+					target.Left - root_origin.X,
+					target.Right - current.Width - root_origin.X,
+					target.Right + PanelEdgeInset - root_origin.X,
+					target.Left - PanelEdgeInset - current.Width - root_origin.X
+				};
+				double[] y_candidates = {
+					target.Top - root_origin.Y,
+					target.Bottom - current.Height - root_origin.Y,
+					target.Bottom + PanelEdgeInset - root_origin.Y,
+					target.Top - PanelEdgeInset - current.Height - root_origin.Y
+				};
+				snapped_x ??= NearestSnap (x, x_candidates);
+				snapped_y ??= NearestSnap (y, y_candidates);
+			}
+			if (snapped_x is double snap_x) x = snap_x;
+			if (snapped_y is double snap_y) y = snap_y;
+
+			double? NearestSnap (double value, double[] candidates)
+			{
+				double candidate = candidates.OrderBy (item => Math.Abs (item - value)).First ();
+				return Math.Abs (candidate - value) <= snap_distance ? candidate : null;
+			}
+		}
+		void ResolvePanelCollisions (Control root, ref double x, ref double y)
+		{
+			foreach (Control other in draggable_panels) {
+				if (ReferenceEquals (other, root) || other.Bounds.Width <= 0 || other.Bounds.Height <= 0)
+					continue;
+				Point? origin = other.TranslatePoint (new Point (0, 0), this);
+				if (origin is null)
+					continue;
+				Rect current = new (root_origin.X + x, root_origin.Y + y, root.Bounds.Width, root.Bounds.Height);
+				Rect target = new (
+					origin.Value.X - PanelEdgeInset,
+					origin.Value.Y - PanelEdgeInset,
+					other.Bounds.Width + PanelEdgeInset * 2,
+					other.Bounds.Height + PanelEdgeInset * 2);
+				if (!(current.Left < target.Right && current.Right > target.Left && current.Top < target.Bottom && current.Bottom > target.Top))
+					continue;
+
+				double move_left = target.Left - current.Right;
+				double move_right = target.Right - current.Left;
+				double move_up = target.Top - current.Bottom;
+				double move_down = target.Bottom - current.Top;
+				double horizontal = Math.Abs (move_left) < Math.Abs (move_right) ? move_left : move_right;
+				double vertical = Math.Abs (move_up) < Math.Abs (move_down) ? move_up : move_down;
+				if (Math.Abs (horizontal) <= Math.Abs (vertical))
+					x += horizontal;
+				else
+					y += vertical;
+			}
+		}
+		void UpdatePanelAnchors (Control root)
+		{
+			x_anchor_panel = null;
+			y_anchor_panel = null;
+			Rect current = new (root_origin.X + transform.X, root_origin.Y + transform.Y, root.Bounds.Width, root.Bounds.Height);
+			foreach (Control other in draggable_panels) {
+				if (ReferenceEquals (other, root) || other.Bounds.Width <= 0 || other.Bounds.Height <= 0)
+					continue;
+				Point? origin = other.TranslatePoint (new Point (0, 0), this);
+				if (origin is null)
+					continue;
+				Rect target = new (origin.Value.X, origin.Value.Y, other.Bounds.Width, other.Bounds.Height);
+				if (!snapped_left && !snapped_right && Math.Abs (current.Left - target.Right - PanelEdgeInset) < 1)
+					(x_anchor_panel, x_anchor_after) = (other, true);
+				else if (!snapped_left && !snapped_right && Math.Abs (current.Right - target.Left + PanelEdgeInset) < 1)
+					(x_anchor_panel, x_anchor_after) = (other, false);
+				if (!snapped_top && !snapped_bottom && Math.Abs (current.Top - target.Bottom - PanelEdgeInset) < 1)
+					(y_anchor_panel, y_anchor_after) = (other, true);
+				else if (!snapped_top && !snapped_bottom && Math.Abs (current.Bottom - target.Top + PanelEdgeInset) < 1)
+					(y_anchor_panel, y_anchor_after) = (other, false);
+			}
+		}
+		void ConstrainToWindow (Control root)
+		{
+			if (!has_root_origin)
+				return;
+			Control boundary = root.Parent as Control ?? this;
+			Point boundary_origin = boundary.TranslatePoint (new Point (0, 0), this) ?? default;
+			double min_x = boundary_origin.X + PanelEdgeInset - root_origin.X;
+			double min_y = boundary_origin.Y + PanelEdgeInset - root_origin.Y;
+			double max_x = Math.Max (min_x, boundary_origin.X + boundary.Bounds.Width - PanelEdgeInset - root_origin.X - root.Bounds.Width);
+			double max_y = Math.Max (min_y, boundary_origin.Y + boundary.Bounds.Height - PanelEdgeInset - root_origin.Y - root.Bounds.Height);
+			double x = transform.X;
+			double y = transform.Y;
+			if (Math.Abs (x - min_x) <= snap_distance) x = min_x;
+			if (Math.Abs (x - max_x) <= snap_distance) x = max_x;
+			if (Math.Abs (y - min_y) <= snap_distance) y = min_y;
+			if (Math.Abs (y - max_y) <= snap_distance) y = max_y;
+			SnapToOtherPanels (root, ref x, ref y);
+			ResolvePanelCollisions (root, ref x, ref y);
+			transform.X = Math.Clamp (x, min_x, max_x);
+			transform.Y = Math.Clamp (y, min_y, max_y);
+			snapped_left = Math.Abs (transform.X - min_x) < 1;
+			snapped_right = Math.Abs (transform.X - max_x) < 1;
+			snapped_top = Math.Abs (transform.Y - min_y) < 1;
+			snapped_bottom = Math.Abs (transform.Y - max_y) < 1;
+			UpdatePanelAnchors (root);
+		}
+		header.PointerPressed += (_, e) => {
+			if (e.Source is Control source && (ReferenceEquals (source, collapse) || ReferenceEquals (source, button)))
+				return;
+			if (!e.GetCurrentPoint (header).Properties.IsLeftButtonPressed || header.Parent?.Parent is not Control root)
+				return;
+			dragging = true;
+			snapped_left = snapped_right = snapped_top = snapped_bottom = false;
+			x_anchor_panel = y_anchor_panel = null;
+			drag_start = e.GetPosition (this);
+			drag_origin = new Vector (transform.X, transform.Y);
+			// TranslatePoint includes RenderTransform. Clear it briefly so the
+			// collision rectangle always uses the panel's layout position, not
+			// the position left by the previous drag.
+			root.RenderTransform = null;
+			root_origin = root.TranslatePoint (new Point (0, 0), this) ?? default;
+			root.RenderTransform = transform;
+			has_root_origin = true;
+			e.Pointer.Capture (header);
+		};
+		header.PointerMoved += (_, e) => {
+			if (!dragging || header.Parent?.Parent is not Control root)
+				return;
+			Point current = e.GetPosition (this);
+		transform.X = drag_origin.X + current.X - drag_start.X;
+		transform.Y = drag_origin.Y + current.Y - drag_start.Y;
+		ConstrainToWindow (root);
+			root.RenderTransform = transform;
+		};
+		header.PointerReleased += (_, e) => {
+			if (!dragging)
+				return;
+			dragging = false;
+			e.Pointer.Capture (null);
+		};
+		header.PointerCaptureLost += (_, _) => dragging = false;
+		header.AttachedToVisualTree += (_, _) => {
+			if (header.Parent?.Parent is Control root && !draggable_panels.Contains (root))
+				draggable_panels.Add (root);
+		};
+		this.SizeChanged += (_, _) => {
+			if (!has_root_origin || dragging || header.Parent?.Parent is not Control root)
+				return;
+			Point visual_origin = new (root_origin.X + transform.X, root_origin.Y + transform.Y);
+			root.RenderTransform = null;
+			root_origin = root.TranslatePoint (new Point (0, 0), this) ?? root_origin;
+			root.RenderTransform = transform;
+			Control boundary = root.Parent as Control ?? this;
+			Point boundary_origin = boundary.TranslatePoint (new Point (0, 0), this) ?? default;
+			double min_x = boundary_origin.X + PanelEdgeInset - root_origin.X;
+			double min_y = boundary_origin.Y + PanelEdgeInset - root_origin.Y;
+			double max_x = Math.Max (min_x, boundary_origin.X + boundary.Bounds.Width - PanelEdgeInset - root_origin.X - root.Bounds.Width);
+			double max_y = Math.Max (min_y, boundary_origin.Y + boundary.Bounds.Height - PanelEdgeInset - root_origin.Y - root.Bounds.Height);
+			if (snapped_left) transform.X = min_x;
+			if (snapped_right) transform.X = max_x;
+			if (snapped_top) transform.Y = min_y;
+			if (snapped_bottom) transform.Y = max_y;
+			if (!snapped_left && !snapped_right && x_anchor_panel is not null) {
+				Point? anchor_origin = x_anchor_panel.TranslatePoint (new Point (0, 0), this);
+				if (anchor_origin is not null)
+					transform.X = (x_anchor_after ? anchor_origin.Value.X + x_anchor_panel.Bounds.Width + PanelEdgeInset : anchor_origin.Value.X - PanelEdgeInset - root.Bounds.Width) - root_origin.X;
+			}
+			if (!snapped_top && !snapped_bottom && y_anchor_panel is not null) {
+				Point? anchor_origin = y_anchor_panel.TranslatePoint (new Point (0, 0), this);
+				if (anchor_origin is not null)
+					transform.Y = (y_anchor_after ? anchor_origin.Value.Y + y_anchor_panel.Bounds.Height + PanelEdgeInset : anchor_origin.Value.Y - PanelEdgeInset - root.Bounds.Height) - root_origin.Y;
+			}
+			if (!snapped_left && !snapped_right && x_anchor_panel is null)
+				transform.X = visual_origin.X - root_origin.X;
+			if (!snapped_top && !snapped_bottom && y_anchor_panel is null)
+				transform.Y = visual_origin.Y - root_origin.Y;
+			root.RenderTransform = transform;
+		};
+		return header;
+	}
+
+	private static Control CreateShapeWidthInput (CanvasHost canvas)
+	{
+		var value = new TextBox { Text = canvas.ShapeOutlineWidth.ToString (), Width = 42, Height = 30 };
+		void ApplyText ()
+		{
+			if (int.TryParse (value.Text, out int width)) canvas.ShapeOutlineWidth = width;
+			value.Text = canvas.ShapeOutlineWidth.ToString ();
+		}
+		value.LostFocus += (_, _) => ApplyText ();
+		value.KeyDown += (_, args) => {
+			if (args.Key == Key.Enter) { ApplyText (); args.Handled = true; }
+		};
+		Button decrease = new () { Content = "−", Width = 30, Height = 30 };
+		Button increase = new () { Content = "+", Width = 30, Height = 30 };
+		decrease.Click += (_, _) => { canvas.ShapeOutlineWidth--; value.Text = canvas.ShapeOutlineWidth.ToString (); };
+		increase.Click += (_, _) => { canvas.ShapeOutlineWidth++; value.Text = canvas.ShapeOutlineWidth.ToString (); };
+		var panel = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 2, Children = { value, decrease, increase } };
+		// Paint.NET-style wheel adjustment: hover the width control and scroll.
+		panel.PointerWheelChanged += (_, args) => {
+			canvas.ShapeOutlineWidth += args.Delta.Y > 0 ? 1 : -1;
+			value.Text = canvas.ShapeOutlineWidth.ToString ();
+			args.Handled = true;
+		};
+		return panel;
+	}
+
+	private static Control CreateBrushSlider (double minimum, double maximum, double value, Action<double> changed, double width)
+	{
+		var slider = new Slider {
+			Minimum = minimum,
+			Maximum = maximum,
+			Value = value,
+			Width = width,
+			Height = 30,
+			MinHeight = 0,
+			VerticalAlignment = VerticalAlignment.Center
+		};
+		slider.ValueChanged += (_, args) => changed (args.NewValue);
+		return new Border {
+			Width = width,
+			Height = 30,
+			VerticalAlignment = VerticalAlignment.Center,
+			Child = slider
+		};
+	}
+
+	private static MenuItem CreateMenuItem (string header, Action action)
+	{
+		var item = new MenuItem { Header = header };
+		item.Click += (_, _) => action ();
+		return item;
+	}
+
+	private static MenuItem CreateMenuItem (string header, Action action, BruskelKeyboardSettings keyboard, BruskelKeyCommand command)
+	{
+		MenuItem item = CreateMenuItem (header, action);
+		item.InputGesture = keyboard.GestureFor (command);
+		return item;
+	}
+
+	private async Task SavePngAsync (CanvasHost canvas)
+	{
+		if (StorageProvider is null)
+			return;
+
+		var file = await StorageProvider.SaveFilePickerAsync (new FilePickerSaveOptions {
+			SuggestedFileName = SuggestedFileName (canvas, "bruskel.png"),
+			DefaultExtension = "png",
+			FileTypeChoices = new[] {
+				new FilePickerFileType ("PNG image") { Patterns = new[] { "*.png" } }
+			}
+		});
+
+		if (file is not null)
+			canvas.SavePng (file.Path.LocalPath);
+	}
+
+	private static string SuggestedFileName (CanvasHost canvas, string fallback)
+	{
+		string? path = canvas.DocumentSession.FilePath;
+		if (path is null)
+			return fallback;
+		string name = System.IO.Path.GetFileName (path);
+		return string.IsNullOrEmpty (name) ? fallback : name;
+	}
+
+	private async Task SaveAsAsync (CanvasHost canvas)
+	{
+		if (StorageProvider is null)
+			return;
+
+		var file = await StorageProvider.SaveFilePickerAsync (new FilePickerSaveOptions {
+			SuggestedFileName = SuggestedFileName (canvas, "bruskel.png"),
+			DefaultExtension = "png",
+			FileTypeChoices = new[] {
+				new FilePickerFileType ("PNG image") { Patterns = new[] { "*.png" } },
+				new FilePickerFileType ("JPEG image") { Patterns = new[] { "*.jpg", "*.jpeg" } },
+				new FilePickerFileType ("WebP image") { Patterns = new[] { "*.webp" } },
+				new FilePickerFileType ("TIFF image") { Patterns = new[] { "*.tif", "*.tiff" } },
+				new FilePickerFileType ("OpenRaster image") { Patterns = new[] { "*.ora" } }
+			}
+		});
+
+		if (file is null)
+			return;
+
+		canvas.SaveImage (file.Path.LocalPath);
+	}
+
+	private async Task CopyImageToClipboardAsync (CanvasHost canvas)
+	{
+		if (clipboard_service is not null)
+			await canvas.CopyImageToClipboardAsync (clipboard_service);
+	}
+
+	private async Task CopySelectionToClipboardAsync (CanvasHost canvas)
+	{
+		if (clipboard_service is not null)
+			await canvas.CopySelectionToClipboardAsync (clipboard_service);
+	}
+
+	private async Task OpenImageAsync (CanvasHost canvas)
+	{
+		if (StorageProvider is null)
+			return;
+
+		var file = await StorageProvider.OpenFilePickerAsync (new FilePickerOpenOptions {
+			AllowMultiple = false,
+			FileTypeFilter = new[] {
+				new FilePickerFileType ("Bruskel images") { Patterns = new[] { "*.png", "*.jpg", "*.jpeg", "*.webp", "*.tif", "*.tiff", "*.bmp", "*.gif", "*.ora" } },
+				new FilePickerFileType ("All files") { Patterns = new[] { "*.*" } }
+			}
+		});
+
+		if (file.Count > 0) {
+			DocumentTab tab = tab_manager.AddExistingDocument (file[0].Path.LocalPath);
+			// Fit after layout so the new image uses the available viewport immediately.
+			global::Avalonia.Threading.Dispatcher.UIThread.Post (tab.Canvas.FitToWindow, global::Avalonia.Threading.DispatcherPriority.Loaded);
+		}
+	}
+
+	private async Task ImportImageLayerAsync (CanvasHost canvas)
+	{
+		if (StorageProvider is null)
+			return;
+		var file = await StorageProvider.OpenFilePickerAsync (new FilePickerOpenOptions {
+			AllowMultiple = false,
+			FileTypeFilter = new[] { new FilePickerFileType ("Image") { Patterns = new[] { "*.png", "*.jpg", "*.jpeg", "*.webp", "*.tif", "*.tiff", "*.bmp", "*.gif", "*.svg" } } }
+		});
+		if (file.Count == 0)
+			return;
+
+		string path = file[0].Path.LocalPath;
+		if (!string.Equals (Path.GetExtension (path), ".svg", StringComparison.OrdinalIgnoreCase)) {
+			using var image = new Bitmap (path);
+			int width = image.PixelSize.Width;
+			int height = image.PixelSize.Height;
+			Bruskel.Core.Size canvas_size = canvas.ImageSize;
+			if (width > canvas_size.Width || height > canvas_size.Height) {
+				bool expand = await ConfirmCanvasExpansionAsync (width, height);
+				if (!expand)
+					return;
+				canvas.ResizeCanvas (Math.Max (width, canvas_size.Width), Math.Max (height, canvas_size.Height));
+			}
+		}
+		canvas.ImportImageAsLayer (path);
+	}
+
+	private async Task<bool> ConfirmCanvasExpansionAsync (int width, int height)
+	{
+		var cancel = new Button { Content = "Cancel", MinWidth = 96, IsCancel = true };
+		var expand = new Button { Content = "Expand canvas", MinWidth = 112, IsDefault = true };
+		var dialog = new Window {
+			Title = "Image is larger than the canvas",
+			MinWidth = 380,
+			SizeToContent = SizeToContent.WidthAndHeight,
+			CanResize = false,
+			WindowStartupLocation = WindowStartupLocation.CenterOwner,
+			Content = new StackPanel {
+				Spacing = 16,
+				Margin = new Thickness (22, 18),
+				Children = {
+					new TextBlock { Text = $"The selected image is {width} × {height} px. Expand the canvas to fit it?", TextWrapping = TextWrapping.Wrap },
+					new StackPanel {
+						Orientation = Orientation.Horizontal,
+						HorizontalAlignment = HorizontalAlignment.Right,
+						Spacing = 10,
+						Children = { cancel, expand }
+					}
+				}
+			}
+		};
+		cancel.Click += (_, _) => dialog.Close (false);
+		expand.Click += (_, _) => dialog.Close (true);
+		return await dialog.ShowDialog<bool> (this);
+	}
+
+	private async Task InsertImageAnnotationAsync (CanvasHost canvas)
+	{
+		if (StorageProvider is null)
+			return;
+		var file = await StorageProvider.OpenFilePickerAsync (new FilePickerOpenOptions {
+			AllowMultiple = false,
+			FileTypeFilter = new[] { new FilePickerFileType ("Image") { Patterns = new[] { "*.png", "*.jpg", "*.jpeg", "*.webp", "*.tif", "*.tiff", "*.bmp", "*.gif" } } }
+		});
+		if (file.Count == 0)
+			return;
+		var size = canvas.ImageSize;
+		var bounds = new Rect (size.Width * 0.25, size.Height * 0.25, size.Width * 0.5, size.Height * 0.5);
+		await canvas.AddImageAnnotationFromFileAsync (image_source_provider, file[0].Path.LocalPath, bounds);
+	}
+
+	private async Task SaveOraAsync (CanvasHost canvas)
+	{
+		if (StorageProvider is null)
+			return;
+		var file = await StorageProvider.SaveFilePickerAsync (new FilePickerSaveOptions {
+			SuggestedFileName = SuggestedFileName (canvas, "bruskel.ora"),
+			DefaultExtension = "ora",
+			FileTypeChoices = new[] { new FilePickerFileType ("OpenRaster image") { Patterns = new[] { "*.ora" } } }
+		});
+		if (file is not null)
+			canvas.SaveOra (file.Path.LocalPath);
+	}
+
+	private async Task SaveJpegAsync (CanvasHost canvas)
+	{
+		if (StorageProvider is null)
+			return;
+		var file = await StorageProvider.SaveFilePickerAsync (new FilePickerSaveOptions {
+			SuggestedFileName = SuggestedFileName (canvas, "bruskel.jpg"),
+			DefaultExtension = "jpg",
+			FileTypeChoices = new[] { new FilePickerFileType ("JPEG image") { Patterns = new[] { "*.jpg", "*.jpeg" } } }
+		});
+		if (file is not null)
+			canvas.SaveJpeg (file.Path.LocalPath);
+	}
+
+	private async Task SaveWebpAsync (CanvasHost canvas)
+	{
+		if (StorageProvider is null) return;
+		var file = await StorageProvider.SaveFilePickerAsync (new FilePickerSaveOptions {
+			SuggestedFileName = SuggestedFileName (canvas, "bruskel.webp"),
+			DefaultExtension = "webp",
+			FileTypeChoices = new[] { new FilePickerFileType ("WebP image") { Patterns = new[] { "*.webp" } } }
+		});
+		if (file is not null) canvas.SaveWebp (file.Path.LocalPath);
+	}
+
+	private async Task SaveTiffAsync (CanvasHost canvas)
+	{
+		if (StorageProvider is null) return;
+		var file = await StorageProvider.SaveFilePickerAsync (new FilePickerSaveOptions {
+			SuggestedFileName = SuggestedFileName (canvas, "bruskel.tiff"),
+			DefaultExtension = "tiff",
+			FileTypeChoices = new[] { new FilePickerFileType ("TIFF image") { Patterns = new[] { "*.tif", "*.tiff" } } }
+		});
+		if (file is not null) canvas.SaveTiff (file.Path.LocalPath);
+	}
+
+	private async Task OpenOraAsync (CanvasHost canvas)
+	{
+		if (StorageProvider is null)
+			return;
+		var files = await StorageProvider.OpenFilePickerAsync (new FilePickerOpenOptions {
+			AllowMultiple = false,
+			FileTypeFilter = new[] { new FilePickerFileType ("OpenRaster image") { Patterns = new[] { "*.ora" } } }
+		});
+		if (files.Count > 0)
+			canvas.OpenOra (files[0].Path.LocalPath);
+	}
+
+	private Control CreateWorkspace (CanvasHost canvas)
+	{
+		var workspace = new Grid {
+			Children = {
+				CreateCanvasPlaceholder (canvas),
+				(toolbox_control = CreateToolPanel (canvas)),
+				(palette_control = CreatePalette (canvas)),
+				(layers_control = CreateLayersPanel ())
+			}
+		};
+		workspace.Bind (Grid.BackgroundProperty, new DynamicResourceExtension ("Bruskel.Workspace.Background"));
+		Grid.SetRow (workspace, 3);
+		return workspace;
+	}
+
+	private Control CreateToolPanel (CanvasHost canvas)
+	{
+		var tools = new WrapPanel { Width = 76, ItemWidth = 38, ItemHeight = 38 };
+		var buttons = new List<(Button Button, CanvasHost.CanvasTool Tool)> ();
+		Button brush = CreateToolButton (canvas, "Brush", CanvasHost.CanvasTool.Brush,
+			"M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34c-.39-.39-1.02-.39-1.41 0L9 12.25 11.75 15l8.96-8.96c.39-.39.39-1.02 0-1.41z");
+		Button pencil = CreateToolButton (canvas, "Pencil", CanvasHost.CanvasTool.Pencil,
+			"M4 17.25V21h3.75L18.81 9.94l-3.75-3.75L4 17.25zM20.71 8.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z");
+		Button shapes = CreateToolButton (canvas, "Shapes", CanvasHost.CanvasTool.Shapes,
+			"M4 4h16v16H4V4zm2 2v12h12V6H6z");
+		Button gradient = CreateToolButton (canvas, "Gradient", CanvasHost.CanvasTool.Gradient,
+			"M4 4h16v16H4V4zm2 12L16 6h4L8 18H6z");
+		Button fill = CreateToolButton (canvas, "Fill", CanvasHost.CanvasTool.Fill,
+			"M5 3h10v2H5V3zm0 4h10v2H5V7zm0 4h10v2H5v-2zm12-8h2v18h-2V3z");
+		Button magicWand = CreateToolButton (canvas, "Magic Wand", CanvasHost.CanvasTool.MagicWand,
+			"M7 21L14 3l1.5 4.5L20 9l-4.5 1.5L14 15l-2-2-1 1 2 2-4 5-2-1zm9.5-13.5l-.9 2.6 2.6-.9-1.7-1.7z");
+		Button picker = CreateToolButton (canvas, "Color Picker", CanvasHost.CanvasTool.ColorPicker,
+			"M19.35 10.04L14 4.69 15.41 3.28 20.76 8.63 19.35 10.04zM3 17.25V21h3.75l10.81-10.81-3.75-3.75L3 17.25z");
+		Button recolor = CreateToolButton (canvas, "Recolor", CanvasHost.CanvasTool.Recolor,
+			"M12 3s5.5 6.2 5.5 10.5a5.5 5.5 0 1 1-11 0C6.5 9.2 12 3 12 3zm-2.5 10.5A1.5 1.5 0 1 0 11 12a1.5 1.5 0 0 0-1.5 1.5zm5 0A1.5 1.5 0 1 0 16 12a1.5 1.5 0 0 0-1.5 1.5z");
+		Button zoom = CreateToolButton (canvas, "Zoom", CanvasHost.CanvasTool.Zoom,
+			"M9.5 3a6.5 6.5 0 1 0 4.06 11.58L19 20l1-1-5.44-5.42A6.5 6.5 0 0 0 9.5 3zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9z");
+		Button pan = CreateToolButton (canvas, "Pan", CanvasHost.CanvasTool.Pan,
+			"M12 2a2 2 0 0 1 2 2v5h1V5a2 2 0 1 1 4 0v5h1V7a2 2 0 1 1 4 0v7c0 5-3 8-8 8h-1c-3 0-5-1-7-4l-3-5a2 2 0 0 1 3-2l2 3V4a2 2 0 0 1 2-2z");
+		Button eraser = CreateToolButton (canvas, "Eraser", CanvasHost.CanvasTool.Eraser,
+			"M15.8698 2.66878L20.8384 7.6373C21.717 8.51598 21.717 9.9406 20.8384 10.8193L12.1566 19.4998L18.2544 19.5C18.6341 19.5 18.9479 19.7821 18.9976 20.1482L19.0044 20.25C19.0044 20.6297 18.7223 20.9435 18.3562 20.9931L18.2544 21L9.84443 21.0012C9.22822 21.0348 8.60082 20.8163 8.1301 20.3456L3.16157 15.377C2.28289 14.4984 2.28289 13.0737 3.16157 12.1951L12.6879 2.66878C13.5665 1.7901 14.9912 1.7901 15.8698 2.66878Z");
+		Button clone_stamp = CreateToolButton (canvas, "Clone Stamp", CanvasHost.CanvasTool.CloneStamp,
+			"M12 2a4 4 0 0 0-4 4v2h8V6a4 4 0 0 0-4-4zM5 9v3h14V9H5zm2 5v2.5C7 18.4 8.6 19 10 19h4c1.4 0 3-.6 3-2.5V14H7z");
+		Button selection = CreateToolButton (canvas, "Select", CanvasHost.CanvasTool.Selection, "M3 3h18v18H3V3zm2 2v14h14V5H5z");
+		Button ellipse_select = CreateToolButton (canvas, "Ellipse Select", CanvasHost.CanvasTool.EllipseSelect,
+			"M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9zm0 2a7 7 0 1 1-7 7 7 7 0 0 1 7-7z");
+		Button lasso_select = CreateToolButton (canvas, "Lasso Select", CanvasHost.CanvasTool.LassoSelect,
+			"M7 4c3 0 6 1 8 3s3 5 3 8c0 2-1 4-3 4s-3-1-4-3c-1-3-2-6-5-6S3 12 4 15s4 5 7 5c5 0 9-3 10-8");
+		Button move_pixels = CreateToolButton (canvas, "Move Selected Pixels", CanvasHost.CanvasTool.MoveSelectedPixels,
+			"M12 2l4 4h-3v5h5V8l4 4-4 4v-3h-5v5h3l-4 4-4-4h3v-5H6v3l-4-4 4-4v3h5V6H8l4-4z");
+		Button move_selection = CreateToolButton (canvas, "Move Selection", CanvasHost.CanvasTool.MoveSelection,
+			"M4 4h7v2H6v3H4V4zm9 0h7v5h-2V6h-5V4zM4 13h2v3h3v2H4v-5zm14 0h2v5h-7v-2h5v-3zM11 9h2v3h3v2h-3v3h-2v-3H8v-2h3V9z");
+		Button text = CreateToolButton (canvas, "Text", CanvasHost.CanvasTool.Text, "M5 4h14v3h-5v13h-4V7H5V4z");
+		Button blur = CreateToolButton (canvas, "Blur", CanvasHost.CanvasTool.Blur, "M12 2C10 5 5 10 5 14a7 7 0 0014 0c0-4-5-9-7-12zm0 4c2 3 5 6 5 8a5 5 0 01-10 0c0-2 3-5 5-8zM9 14h2a2 2 0 002 2v2a4 4 0 01-4-4z");
+		Button pixelate = CreateToolButton (canvas, "Pixelate", CanvasHost.CanvasTool.Pixelate, "M4 4h6v6H4V4zm10 0h6v6h-6V4zM4 14h6v6H4v-6zm10 0h6v6h-6v-6z");
+		Button highlight = CreateToolButton (canvas, "Highlight", CanvasHost.CanvasTool.Highlight, "M14 2l8 8-9 9-3-3-3-3 7-11zm0 3l-4 7 3 4 6-6-5-5zM6 14l4 4-3 3H2v-2l4-5zM2 22h20v2H2z");
+		Button magnify = CreateToolButton (canvas, "Magnify", CanvasHost.CanvasTool.Magnify, "M10 2a8 8 0 105 14l6 6 2-2-6-6A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12zM9 6h2v3h3v2h-3v3H9v-3H6V9h3z");
+		Button spotlight = CreateToolButton (canvas, "Spotlight", CanvasHost.CanvasTool.Spotlight, "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 3a6 6 0 1 1 0 12 6 6 0 0 1 0-12z");
+		buttons.Add ((selection, CanvasHost.CanvasTool.Selection));
+		buttons.Add ((ellipse_select, CanvasHost.CanvasTool.EllipseSelect));
+		buttons.Add ((lasso_select, CanvasHost.CanvasTool.LassoSelect));
+		buttons.Add ((move_pixels, CanvasHost.CanvasTool.MoveSelectedPixels));
+		buttons.Add ((move_selection, CanvasHost.CanvasTool.MoveSelection));
+		buttons.Add ((text, CanvasHost.CanvasTool.Text));
+		buttons.Add ((brush, CanvasHost.CanvasTool.Brush));
+		buttons.Add ((pencil, CanvasHost.CanvasTool.Pencil));
+		buttons.Add ((shapes, CanvasHost.CanvasTool.Shapes));
+		buttons.Add ((gradient, CanvasHost.CanvasTool.Gradient));
+		buttons.Add ((fill, CanvasHost.CanvasTool.Fill));
+		buttons.Add ((magicWand, CanvasHost.CanvasTool.MagicWand));
+		buttons.Add ((picker, CanvasHost.CanvasTool.ColorPicker));
+		buttons.Add ((recolor, CanvasHost.CanvasTool.Recolor));
+		buttons.Add ((zoom, CanvasHost.CanvasTool.Zoom));
+		buttons.Add ((pan, CanvasHost.CanvasTool.Pan));
+		buttons.Add ((eraser, CanvasHost.CanvasTool.Eraser));
+		buttons.Add ((clone_stamp, CanvasHost.CanvasTool.CloneStamp));
+		buttons.Add ((blur, CanvasHost.CanvasTool.Blur));
+		buttons.Add ((pixelate, CanvasHost.CanvasTool.Pixelate));
+		buttons.Add ((highlight, CanvasHost.CanvasTool.Highlight));
+		buttons.Add ((magnify, CanvasHost.CanvasTool.Magnify));
+		buttons.Add ((spotlight, CanvasHost.CanvasTool.Spotlight));
+		tool_buttons = buttons;
+		foreach ((Button button, CanvasHost.CanvasTool tool) in buttons) {
+			button.Click += (_, _) => {
+				CanvasHost active = ActiveCanvas;
+				active_tool = tool;
+				active.ActiveTool = tool;
+				UpdateToolButtons (buttons, active.ActiveTool);
+				RefreshToolOptions (active);
+			};
+			tools.Children.Add (button);
+		}
+		// Tool buttons and options always follow the active tab. The handlers
+		// read ActiveCanvas instead of capturing the initial canvas, so a tab
+		// switch cannot leave them pointing at a stale document.
+		tab_manager.ActiveTabChanged += (_, _) => {
+			CanvasHost active = ActiveCanvas;
+			UpdateToolButtons (buttons, active.ActiveTool);
+			RefreshToolOptions (active);
+		};
+		var panel = new Border {
+			Width = 88,
+			Padding = new global::Avalonia.Thickness (5),
+			Margin = new global::Avalonia.Thickness (8),
+			HorizontalAlignment = HorizontalAlignment.Left,
+			VerticalAlignment = VerticalAlignment.Top,
+			Child = new StackPanel { Spacing = 4, Children = {
+				CreatePanelHeader ("Tools", () => view_settings.ShowToolbox = false), tools
+			} }
+		};
+		panel.Bind (Border.BackgroundProperty, new DynamicResourceExtension ("Bruskel.Panel.Background"));
+		panel.Bind (Border.BorderBrushProperty, new DynamicResourceExtension ("Bruskel.Control.Border"));
+		panel.BorderThickness = new global::Avalonia.Thickness (1);
+		return panel;
+	}
+
+	private Control CreatePalette (CanvasHost canvas)
+	{
+		var primary = new Button { Content = "", Width = 30, Height = 30, Background = new SolidColorBrush (Colors.Black) };
+		var secondary = new Button { Content = "", Width = 30, Height = 30, Background = new SolidColorBrush (Colors.White) };
+		var wheel = new ColorPickerSurface { Width = 136, Height = 136, ShowValue = false };
+		void RefreshColors ()
+		{
+			CanvasHost active = ActiveCanvas;
+			primary.Background = new SolidColorBrush (ToAvaloniaColor (active.BrushColor));
+			secondary.Background = new SolidColorBrush (ToAvaloniaColor (active.SecondaryBrushColor));
+			wheel.Color = ToAvaloniaColor (active.BrushColor);
+		}
+		tab_manager.ActiveTabChanged += (_, _) => RefreshColors ();
+		void SaveColors ()
+		{
+			CanvasHost active = ActiveCanvas;
+			settings.PutSetting ("Bruskel.Palette.Primary", ToAvaloniaColor (active.BrushColor).ToString ());
+			settings.PutSetting ("Bruskel.Palette.Secondary", ToAvaloniaColor (active.SecondaryBrushColor).ToString ());
+			settings.PutSetting ("Bruskel.Palette.Recent", string.Join (",", recent_colors.ConvertAll (ToAvaloniaColor).ConvertAll (color => color.ToString ())));
+			settings.PutSetting ("Bruskel.Palette.Colors", string.Join (",", palette_colors.ConvertAll (ToAvaloniaColor).ConvertAll (color => color.ToString ())));
+			RefreshColors ();
+		}
+		primary.Click += (_, _) => new ColorDialogWindow (ToAvaloniaColor (ActiveCanvas.BrushColor), color => {
+			CanvasHost active = ActiveCanvas;
+			active.BrushColor = ColorBgra.FromBgra (color.B, color.G, color.R, color.A);
+			SavePaletteColor (active);
+			RefreshColors ();
+		}).Show (this);
+		secondary.Click += (_, _) => new ColorDialogWindow (ToAvaloniaColor (ActiveCanvas.SecondaryBrushColor), color => {
+			CanvasHost active = ActiveCanvas;
+			active.SecondaryBrushColor = ColorBgra.FromBgra (color.B, color.G, color.R, color.A);
+			SavePaletteColor (active);
+			RefreshColors ();
+		}).Show (this);
+		wheel.ColorChanged += (_, color) => {
+			ActiveCanvas.BrushColor = ColorBgra.FromBgra (color.B, color.G, color.R, color.A);
+			SaveColors ();
+		};
+		var swap = CreateCompactCommand ("⇄", "Swap colors", () => {
+			ActiveCanvas.SwapColors ();
+			SaveColors ();
+		});
+		var reset = CreateCompactCommand ("◩", "Reset colors", () => {
+			ActiveCanvas.ResetColors ();
+			SaveColors ();
+		});
+		var colors = new WrapPanel { Width = 216, ItemWidth = 18, ItemHeight = 18 };
+		string[] default_palette = {
+			"#000000", "#404040", "#808080", "#BFBFBF", "#FFFFFF",
+			"#7F0000", "#FF0000", "#FF7F00", "#FFFF00", "#7FFF00", "#00FF00", "#00FF7F",
+			"#00FFFF", "#007FFF", "#0000FF", "#7F00FF", "#FF00FF", "#FF007F",
+			"#800000", "#C00000", "#E95B64", "#F0B75E", "#72C991", "#3B8CFF"
+		};
+		if (palette_colors.Count == 0)
+			foreach (string hex in default_palette)
+				palette_colors.Add (ToColorBgra (Color.Parse (hex)));
+		for (int palette_index = 0; palette_index < palette_colors.Count; palette_index++) {
+			int index = palette_index;
+			ColorBgra color = palette_colors[index];
+			var swatch = CreateColorSwatch (ToAvaloniaColor (color).ToString (),
+				() => { CanvasHost active = ActiveCanvas; active.BrushColor = color; SavePaletteColor (active); RefreshColors (); },
+				() => { CanvasHost active = ActiveCanvas; active.SecondaryBrushColor = color; SavePaletteColor (active); RefreshColors (); },
+				() => new ColorDialogWindow (ToAvaloniaColor (color), picked => {
+					palette_colors[index] = ColorBgra.FromBgra (picked.B, picked.G, picked.R, picked.A);
+					CanvasHost active = ActiveCanvas;
+					active.BrushColor = palette_colors[index];
+					SavePaletteColor (active);
+					RefreshColors ();
+				}).Show (this));
+			swatch.Width = 18;
+			swatch.Height = 18;
+			colors.Children.Add (swatch);
+		}
+		var recent = new WrapPanel { Width = 216, ItemWidth = 18, ItemHeight = 18 };
+		foreach (ColorBgra recent_color in recent_colors) {
+			ColorBgra color = recent_color;
+			var swatch = CreateColorSwatch (ToAvaloniaColor (color).ToString (),
+				() => { CanvasHost active = ActiveCanvas; active.BrushColor = color; SavePaletteColor (active); },
+				() => { CanvasHost active = ActiveCanvas; active.SecondaryBrushColor = color; SavePaletteColor (active); });
+			swatch.Width = 18;
+			swatch.Height = 18;
+			recent.Children.Add (swatch);
+		}
+		var hexInput = new TextBox { Width = 112, PlaceholderText = "#RRGGBB" };
+		var applyHex = new Button { Content = "Apply", MinWidth = 58 };
+		var advancedColors = new StackPanel {
+			Spacing = 4,
+			IsVisible = false,
+			Children = {
+				new TextBlock { Text = "Custom color", FontSize = 11 },
+				new StackPanel { Orientation = Orientation.Horizontal, Spacing = 4, Children = { hexInput, applyHex } }
+			}
+		};
+		applyHex.Click += (_, _) => {
+			if (!string.IsNullOrWhiteSpace (hexInput.Text) &&
+				Color.TryParse (hexInput.Text.Trim (), out Color parsed)) {
+				CanvasHost active = ActiveCanvas;
+				active.BrushColor = ToColorBgra (parsed);
+				SavePaletteColor (active);
+				RefreshColors ();
+			}
+		};
+		var more = CreateCompactCommand ("More…", "Show custom color controls", () => {
+			advancedColors.IsVisible = !advancedColors.IsVisible;
+			if (advancedColors.IsVisible)
+				hexInput.Text = ToAvaloniaColor (ActiveCanvas.BrushColor).ToString ();
+		});
+		RefreshColors ();
+		var content = new StackPanel {
+			Spacing = 5,
+			Children = {
+				CreatePanelHeader ("Colors", () => view_settings.ShowColors = false),
+				new StackPanel { Orientation = Orientation.Horizontal, Spacing = 4, Children = { primary, secondary, swap, reset, more } },
+				advancedColors,
+				new Border { HorizontalAlignment = HorizontalAlignment.Center, Child = wheel },
+				new TextBlock { Text = "Recent", FontSize = 11 },
+				recent,
+				new TextBlock { Text = "Palette", FontSize = 11 },
+				colors,
+			}
+		};
+		var panel = new Border {
+			Width = 232,
+			Padding = new global::Avalonia.Thickness (7),
+			Margin = new global::Avalonia.Thickness (8),
+			HorizontalAlignment = HorizontalAlignment.Left,
+			VerticalAlignment = VerticalAlignment.Bottom,
+			Child = content,
+			BorderThickness = new global::Avalonia.Thickness (1)
+		};
+		panel.Bind (Border.BackgroundProperty, new DynamicResourceExtension ("Bruskel.Panel.Background"));
+		panel.Bind (Border.BorderBrushProperty, new DynamicResourceExtension ("Bruskel.Control.Border"));
+		return panel;
+	}
+
+	private void SavePaletteColor (CanvasHost canvas)
+	{
+		settings.PutSetting ("Bruskel.Palette.Primary", ToAvaloniaColor (canvas.BrushColor).ToString ());
+		settings.PutSetting ("Bruskel.Palette.Secondary", ToAvaloniaColor (canvas.SecondaryBrushColor).ToString ());
+		recent_colors.Remove (canvas.BrushColor);
+		recent_colors.Insert (0, canvas.BrushColor);
+		if (recent_colors.Count > 10)
+			recent_colors.RemoveAt (recent_colors.Count - 1);
+		settings.PutSetting ("Bruskel.Palette.Recent", string.Join (",", recent_colors.ConvertAll (ToAvaloniaColor).ConvertAll (color => color.ToString ())));
+		settings.PutSetting ("Bruskel.Palette.Colors", string.Join (",", palette_colors.ConvertAll (ToAvaloniaColor).ConvertAll (color => color.ToString ())));
+	}
+
+	private void LoadRecentColors ()
+	{
+		foreach (string value in settings.GetSetting ("Bruskel.Palette.Recent", string.Empty).Split (',', StringSplitOptions.RemoveEmptyEntries)) {
+			if (global::Avalonia.Media.Color.TryParse (value, out global::Avalonia.Media.Color color))
+				recent_colors.Add (ToColorBgra (color));
+			if (recent_colors.Count == 10)
+				break;
+		}
+	}
+
+	private void LoadPaletteColors ()
+	{
+		foreach (string value in settings.GetSetting ("Bruskel.Palette.Colors", string.Empty).Split (',', StringSplitOptions.RemoveEmptyEntries)) {
+			if (global::Avalonia.Media.Color.TryParse (value, out global::Avalonia.Media.Color color))
+				palette_colors.Add (ToColorBgra (color));
+			if (palette_colors.Count == 32)
+				break;
+		}
+	}
+
+	private ColorBgra LoadColor (string key, ColorBgra fallback)
+	{
+		string value = settings.GetSetting (key, string.Empty);
+		return global::Avalonia.Media.Color.TryParse (value, out global::Avalonia.Media.Color color)
+			? ColorBgra.FromBgra (color.B, color.G, color.R, color.A)
+			: fallback;
+	}
+
+	private static global::Avalonia.Media.Color ToAvaloniaColor (ColorBgra color)
+		=> global::Avalonia.Media.Color.FromArgb (color.A, color.R, color.G, color.B);
+
+	private static ColorBgra ToColorBgra (global::Avalonia.Media.Color color)
+		=> ColorBgra.FromBgra (color.B, color.G, color.R, color.A);
+
+	private void RefreshToolOptions (CanvasHost canvas)
+	{
+		if (tool_options is null)
+			return;
+		tool_options.Children.Clear ();
+		if (tool_options_scroll is not null)
+			tool_options_scroll.Offset = new Vector (0, 0);
+		switch (canvas.ActiveTool) {
+			case CanvasHost.CanvasTool.Selection:
+				tool_options.Children.Add (CreateBrushButton ("Select all", () => canvas.SelectAll ()));
+				tool_options.Children.Add (CreateBrushButton ("Deselect", canvas.ClearSelection));
+				break;
+			case CanvasHost.CanvasTool.MoveSelectedPixels:
+			case CanvasHost.CanvasTool.MoveSelection:
+			case CanvasHost.CanvasTool.EllipseSelect:
+			case CanvasHost.CanvasTool.LassoSelect:
+				// No options: drag moves the selection (pixels for Move Selected
+				// Pixels, outline only for Move Selection).
+				break;
+			case CanvasHost.CanvasTool.CloneStamp:
+				tool_options.Children.Add (CreateToolbarLabel ("Brush width:"));
+				tool_options.Children.Add (CreateBrushSizeInput (canvas));
+				tool_options.Children.Add (CreateToolbarLabel ("Opacity:"));
+				tool_options.Children.Add (CreateBrushSlider (0, 1, canvas.BrushOpacity, value => canvas.BrushOpacity = value, 90));
+				break;
+			case CanvasHost.CanvasTool.Text:
+				tool_options.Children.Add (CreateToolbarLabel ("Text:"));
+				TextAnnotation? selected_text = canvas.SelectedAnnotation as TextAnnotation;
+				var text_input = new TextBox { Text = selected_text?.Text ?? canvas.TextToolText, Width = 160 };
+				text_input.TextChanged += (_, _) => {
+					string value = text_input.Text ?? string.Empty;
+					if (selected_text is not null && canvas.UpdateTextAnnotation (selected_text, value))
+						selected_text = canvas.SelectedAnnotation as TextAnnotation;
+					else
+						canvas.TextToolText = value;
+				};
+				tool_options.Children.Add (text_input);
+				tool_options.Children.Add (CreateToolbarLabel ("Font:"));
+				var font = new ComboBox { ItemsSource = new[] { "Inter", "Sans", "Serif" }, SelectedItem = selected_text?.FontFamily ?? canvas.TextToolFontFamily, MinWidth = 92 };
+				font.SelectionChanged += (_, _) => {
+					string value = font.SelectedItem?.ToString () ?? "Inter";
+					if (selected_text is not null && canvas.UpdateTextAnnotation (selected_text, selected_text.Text, fontFamily: value))
+						selected_text = canvas.SelectedAnnotation as TextAnnotation;
+					else
+						canvas.TextToolFontFamily = value;
+				};
+				tool_options.Children.Add (font);
+				tool_options.Children.Add (CreateToolbarLabel ("Size:"));
+				var text_size = new NumericUpDown { Minimum = 1, Maximum = 256, Value = (decimal) (selected_text?.FontSize ?? canvas.TextToolFontSize), Width = 72 };
+				text_size.ValueChanged += (_, args) => {
+					double value = (double) (args.NewValue ?? 16);
+					if (selected_text is not null && canvas.UpdateTextAnnotation (selected_text, selected_text.Text, value))
+						selected_text = canvas.SelectedAnnotation as TextAnnotation;
+					else
+						canvas.TextToolFontSize = value;
+				};
+				tool_options.Children.Add (text_size);
+				var bold = new CheckBox { Content = "Bold", IsChecked = selected_text?.FontWeight == FontWeight.Bold || canvas.TextToolBold };
+				bold.IsCheckedChanged += (_, _) => {
+					if (selected_text is not null && canvas.UpdateTextAnnotation (selected_text, selected_text.Text, fontWeight: bold.IsChecked == true ? FontWeight.Bold : FontWeight.Normal))
+						selected_text = canvas.SelectedAnnotation as TextAnnotation;
+					else
+						canvas.TextToolBold = bold.IsChecked == true;
+				};
+				tool_options.Children.Add (bold);
+				var underline = new CheckBox { Content = "Underline", IsChecked = selected_text?.Underline ?? canvas.TextToolUnderline };
+				underline.IsCheckedChanged += (_, _) => {
+					if (selected_text is not null && canvas.UpdateTextAnnotation (selected_text, selected_text.Text, underline: underline.IsChecked == true))
+						selected_text = canvas.SelectedAnnotation as TextAnnotation;
+					else
+						canvas.TextToolUnderline = underline.IsChecked == true;
+				};
+				tool_options.Children.Add (underline);
+				break;
+			case CanvasHost.CanvasTool.Brush:
+				tool_options.Children.Add (CreateBrushOptions (canvas));
+				break;
+			case CanvasHost.CanvasTool.Pencil:
+				break;
+			case CanvasHost.CanvasTool.Shapes:
+				tool_options.Children.Add (new TextBlock { Text = "Shape:", VerticalAlignment = VerticalAlignment.Center });
+				var shape = new ComboBox {
+					ItemsSource = new[] { "Line", "Rectangle", "Ellipse", "Rounded rectangle" },
+					SelectedIndex = (int) canvas.SelectedShape,
+					MinWidth = 135
+				};
+				tool_options.Children.Add (shape);
+				tool_options.Children.Add (new TextBlock { Text = "Fill:", VerticalAlignment = VerticalAlignment.Center });
+				var fill = new ComboBox {
+					ItemsSource = new[] { "Outline", "Fill", "Fill + outline" },
+					SelectedIndex = (int) canvas.FillStyle,
+					MinWidth = 130,
+					IsEnabled = canvas.SelectedShape != CanvasHost.ShapeKind.Line
+				};
+				fill.SelectionChanged += (_, _) => {
+					if (fill.SelectedIndex >= 0) canvas.FillStyle = (CanvasHost.ShapeFillStyle) fill.SelectedIndex;
+				};
+				tool_options.Children.Add (fill);
+				tool_options.Children.Add (new TextBlock { Text = "Width:", VerticalAlignment = VerticalAlignment.Center });
+				tool_options.Children.Add (CreateShapeWidthInput (canvas));
+				tool_options.Children.Add (new TextBlock { Text = "Dash:", VerticalAlignment = VerticalAlignment.Center });
+				var dash = new ComboBox {
+					ItemsSource = new[] { "Solid  ━━━", "Dash  ━ ━", "Dot  · · ·", "Dash-dot  ━ ·" },
+					SelectedIndex = (int) canvas.DashStyle,
+					MinWidth = 135
+				};
+				dash.SelectionChanged += (_, _) => {
+					if (dash.SelectedIndex >= 0) canvas.DashStyle = (CanvasHost.ShapeDashStyle) dash.SelectedIndex;
+				};
+				tool_options.Children.Add (dash);
+				var corner = new NumericUpDown { Minimum = 1, Maximum = 256, Value = canvas.ShapeCornerRadius, Width = 70, IsVisible = canvas.SelectedShape == CanvasHost.ShapeKind.RoundedRectangle };
+				corner.ValueChanged += (_, args) => canvas.ShapeCornerRadius = (int) (args.NewValue ?? 8);
+				tool_options.Children.Add (corner);
+				shape.SelectionChanged += (_, _) => {
+					if (shape.SelectedIndex >= 0) {
+						CanvasHost.ShapeKind selected = (CanvasHost.ShapeKind) shape.SelectedIndex;
+						canvas.SelectedShape = selected;
+						fill.IsEnabled = selected != CanvasHost.ShapeKind.Line;
+						corner.IsVisible = selected == CanvasHost.ShapeKind.RoundedRectangle;
+					}
+				};
+				break;
+			case CanvasHost.CanvasTool.Fill:
+				tool_options.Children.Add (new TextBlock { Text = "Tolerance", VerticalAlignment = VerticalAlignment.Center });
+				tool_options.Children.Add (CreateBrushSlider (0, 255, canvas.FillTolerance, value => canvas.FillTolerance = (int) value, 90));
+				break;
+			case CanvasHost.CanvasTool.MagicWand:
+				tool_options.Children.Add (CreateToolbarLabel ("Tolerance"));
+				tool_options.Children.Add (CreateBrushSlider (0, 100, canvas.MagicWandTolerance, value => canvas.MagicWandTolerance = (int) value, 90));
+				tool_options.Children.Add (CreateToolbarLabel ("Mode"));
+				var flood_mode = new ComboBox {
+					ItemsSource = new[] { "Contiguous", "Global" },
+					SelectedIndex = canvas.MagicWandGlobalMode ? 1 : 0,
+					MinWidth = 105
+				};
+				flood_mode.SelectionChanged += (_, _) => canvas.MagicWandGlobalMode = flood_mode.SelectedIndex == 1;
+				tool_options.Children.Add (flood_mode);
+				break;
+			case CanvasHost.CanvasTool.Gradient:
+				tool_options.Children.Add (CreateToolbarLabel ("From:"));
+				var gradient_primary = CreateToolbarColorButton (canvas, true);
+				tool_options.Children.Add (gradient_primary);
+				tool_options.Children.Add (CreateToolbarLabel ("To:"));
+				var gradient_secondary = CreateToolbarColorButton (canvas, false);
+				tool_options.Children.Add (gradient_secondary);
+				var reverse = new CheckBox { Content = "Reverse", IsChecked = canvas.GradientReversed };
+				reverse.IsCheckedChanged += (_, _) => canvas.GradientReversed = reverse.IsChecked == true;
+				tool_options.Children.Add (reverse);
+				break;
+			case CanvasHost.CanvasTool.Blur:
+			case CanvasHost.CanvasTool.Pixelate:
+			case CanvasHost.CanvasTool.Highlight:
+			case CanvasHost.CanvasTool.Magnify:
+			case CanvasHost.CanvasTool.Spotlight:
+				EffectToolOptions effect_options = canvas.GetEffectOptions (canvas.ActiveTool);
+				tool_options.Children.Add (CreateToolbarLabel ("Strength:"));
+				tool_options.Children.Add (CreateBrushSlider (0, 1, effect_options.Strength, value =>
+				{
+					canvas.GetEffectOptions (canvas.ActiveTool).Strength = value;
+					canvas.UpdateSelectedEffectOptions (strength: value);
+				}, 90));
+				if (canvas.ActiveTool == CanvasHost.CanvasTool.Pixelate) {
+					tool_options.Children.Add (CreateToolbarLabel ("Pixel size:"));
+					var pixel_size = new NumericUpDown { Minimum = 2, Maximum = 64, Value = effect_options.PixelSize, Width = 70 };
+					pixel_size.ValueChanged += (_, args) => {
+						int value = (int) (args.NewValue ?? 8);
+						canvas.GetEffectOptions (canvas.ActiveTool).PixelSize = value;
+						canvas.UpdateSelectedEffectOptions (pixelSize: value);
+					};
+					tool_options.Children.Add (pixel_size);
+				}
+				break;
+			case CanvasHost.CanvasTool.Eraser:
+				tool_options.Children.Add (new TextBlock { Text = "Size", VerticalAlignment = VerticalAlignment.Center });
+				tool_options.Children.Add (CreateBrushSizeInput (canvas));
+				break;
+		}
+		// A tool without options must not leave an empty options strip below
+		// the command bar; collapse the whole toolbar row instead.
+		if (toolbar_control is not null)
+			toolbar_control.IsVisible = tool_options.Children.Count > 0;
+	}
+
+	private Button CreateToolbarColorButton (CanvasHost canvas, bool primary)
+	{
+		var button = new Button { Width = 34, Height = 30, Padding = new global::Avalonia.Thickness (0) };
+		void Refresh () => button.Background = new SolidColorBrush (ToAvaloniaColor (primary ? canvas.BrushColor : canvas.SecondaryBrushColor));
+		Refresh ();
+		button.Click += (_, _) => new ColorDialogWindow (ToAvaloniaColor (primary ? canvas.BrushColor : canvas.SecondaryBrushColor), color => {
+			if (primary)
+				canvas.BrushColor = ColorBgra.FromBgra (color.B, color.G, color.R, color.A);
+			else
+				canvas.SecondaryBrushColor = ColorBgra.FromBgra (color.B, color.G, color.R, color.A);
+			SavePaletteColor (canvas);
+			Refresh ();
+		}).Show (this);
+		ToolTip.SetTip (button, primary ? "Gradient start color" : "Gradient end color");
+		return button;
+	}
+
+	private static Button CreateToolButton (CanvasHost canvas, string label, CanvasHost.CanvasTool tool, string path)
+	{
+		var button = new Button {
+			Width = 34,
+			Height = 34,
+			Padding = new global::Avalonia.Thickness (5),
+			HorizontalContentAlignment = HorizontalAlignment.Center,
+			VerticalContentAlignment = VerticalAlignment.Center,
+			Classes = { "tool-button" }
+		};
+		var icon = new global::Avalonia.Controls.Shapes.Path { Data = StreamGeometry.Parse ("F1 " + ToolIcons.LoadPath (tool, path)) };
+		icon.Bind (global::Avalonia.Controls.Shapes.Shape.FillProperty,
+			new global::Avalonia.Data.Binding ("Foreground") { Source = button });
+		button.Content = new Viewbox { Width = 20, Height = 20,
+			Child = new global::Avalonia.Controls.Canvas { Width = 24, Height = 24, Children = { icon } } };
+		if (tool == canvas.ActiveTool)
+			button.Classes.Add ("active");
+		ToolTip.SetTip (button, label);
+		return button;
+	}
+
+	private static void UpdateToolButtons (IEnumerable<(Button Button, CanvasHost.CanvasTool Tool)> buttons, CanvasHost.CanvasTool active)
+	{
+		foreach ((Button button, CanvasHost.CanvasTool tool) in buttons)
+			button.Classes.Set ("active", active == tool);
+	}
+
+	private void SelectTool (CanvasHost.CanvasTool tool)
+	{
+		CanvasHost active = ActiveCanvas;
+		active_tool = tool;
+		active.ActiveTool = tool;
+		if (tool_buttons is not null)
+			UpdateToolButtons (tool_buttons, active.ActiveTool);
+		RefreshToolOptions (active);
+	}
+
+	private async Task<CloseDecision> PromptCloseDecisionAsync (DocumentTab tab)
+	{
+		if (!tab.IsDirty)
+			return CloseDecision.Discard;
+
+		var cancel = new Button { Content = "Cancel", MinWidth = 92, IsCancel = true };
+		var discard = new Button { Content = "Discard", MinWidth = 92 };
+		var save = new Button { Content = "Save", MinWidth = 92, IsDefault = true };
+		var buttons = new StackPanel {
+			Orientation = Orientation.Horizontal,
+			HorizontalAlignment = HorizontalAlignment.Right,
+			Spacing = 10,
+			Children = { cancel, discard, save }
+		};
+		var content = new StackPanel {
+			Spacing = 18,
+			Margin = new Thickness (22, 18),
+			Children = {
+				new TextBlock { Text = "Save changes before closing?", FontSize = 16, FontWeight = FontWeight.Bold },
+				buttons
+			}
+		};
+		var dialog = new Window {
+			Title = $"Save changes to {tab.Title}?",
+			MinWidth = 320,
+			SizeToContent = SizeToContent.WidthAndHeight,
+			CanResize = false,
+			WindowStartupLocation = WindowStartupLocation.CenterOwner,
+			Content = content
+		};
+		cancel.Click += (_, _) => dialog.Close (CloseDecision.Cancel);
+		discard.Click += (_, _) => dialog.Close (CloseDecision.Discard);
+		save.Click += (_, _) => dialog.Close (CloseDecision.Save);
+		return await dialog.ShowDialog<CloseDecision> (this);
+	}
+
+	private async Task<CloseDecision> RequestCloseDecisionAsync (DocumentTab tab)
+	{
+		CloseDecision decision = await PromptCloseDecisionAsync (tab);
+		if (decision == CloseDecision.Save && !await SaveTabAsync (tab))
+			return CloseDecision.Cancel;
+		return decision;
+	}
+
+	private async Task SaveActiveTabAsync ()
+	{
+		DocumentTab? tab = tab_manager.ActiveTab;
+		if (tab is null)
+			return;
+		await SaveTabAsync (tab);
+	}
+
+	private async Task SaveAllDocumentsAsync ()
+		=> await close_coordinator.SaveAllAsync ();
+
+	private async Task CloseActiveTabAsync ()
+	{
+		DocumentTab? tab = tab_manager.ActiveTab;
+		if (tab is not null)
+			await close_coordinator.CloseTabAsync (tab);
+	}
+
+	private async Task CloseAllDocumentsAsync ()
+		=> await close_coordinator.CloseAllAsync ();
+
+	private async Task ExitAsync ()
+	{
+		if (closing_after_confirmation)
+			return;
+		closing_after_confirmation = true;
+		if (await close_coordinator.TryExitAsync ())
+			Close ();
+		else
+			closing_after_confirmation = false;
+	}
+
+	private async Task<bool> SaveTabAsync (DocumentTab tab)
+	{
+		string? path = tab.Session.FilePath;
+		if (path is null) {
+			if (StorageProvider is null)
+				return false;
+			var file = await StorageProvider.SaveFilePickerAsync (new FilePickerSaveOptions {
+				SuggestedFileName = "bruskel.png",
+				DefaultExtension = "png",
+				FileTypeChoices = new[] { new FilePickerFileType ("PNG image") { Patterns = new[] { "*.png" } } }
+			});
+			if (file is null)
+				return false;
+			path = file.Path.LocalPath;
+		}
+		try {
+			tab.Canvas.SaveImage (path);
+			tab.Session.MarkSaved (path);
+			return true;
+		} catch (Exception exception) {
+			System.Diagnostics.Debug.WriteLine ($"Failed to save '{path}': {exception.Message}");
+			await ShowErrorAsync ($"Could not save '{tab.Title}'.", exception.Message);
+			return false;
+		}
+	}
+
+	private async Task ShowErrorAsync (string title, string message)
+	{
+		var dialog = new Window {
+			Title = title,
+			Width = 420,
+			Height = 160,
+			CanResize = false,
+			Content = new StackPanel {
+				Margin = new Thickness (16),
+				Spacing = 12,
+				Children = {
+					new TextBlock { Text = message, TextWrapping = TextWrapping.Wrap },
+					new Button {
+						Content = "OK",
+						HorizontalAlignment = HorizontalAlignment.Right,
+					}
+				}
+			}
+		};
+		if (dialog.Content is StackPanel root && root.Children[1] is Button ok)
+			ok.Click += (_, _) => dialog.Close ();
+		await dialog.ShowDialog (this);
+	}
+
+	private async void OnWindowClosing (object? sender, WindowClosingEventArgs e)
+	{
+		if (closing_after_confirmation)
+			return;
+		if (close_in_progress) {
+			e.Cancel = true;
+			return;
+		}
+		e.Cancel = true;
+		close_in_progress = true;
+		closing_after_confirmation = true;
+		try {
+			if (!await close_coordinator.TryExitAsync ())
+			{
+				closing_after_confirmation = false;
+				return;
+			}
+			Close ();
+		} catch (Exception exception) {
+			closing_after_confirmation = false;
+			System.Diagnostics.Debug.WriteLine ($"Failed to close window: {exception.Message}");
+		} finally {
+			close_in_progress = false;
+		}
+	}
+
+	private Control CreateCanvasPlaceholder (CanvasHost canvas)
+	{
+		var canvas_panel = new Border {
+			Margin = new global::Avalonia.Thickness (0),
+			Child = canvas_host
+		};
+		canvas_panel_control = canvas_panel;
+		return canvas_panel;
+	}
+
+	private void SyncActiveCanvas ()
+	{
+		canvas_host.Content = tab_manager.ActiveTab?.Canvas;
+	}
+
+	/// <summary>
+	/// Moves the per-canvas event subscriptions and the thumbnail provider to
+	/// the currently active tab. The previous canvas is detached first so
+	/// handlers never accumulate across tab switches.
+	/// </summary>
+	private void RebindActiveCanvas ()
+	{
+		if (subscribed_canvas is not null) {
+			subscribed_canvas.HistoryChanged -= OnActiveCanvasHistoryChanged;
+			subscribed_canvas.ScaleChanged -= OnActiveCanvasScaleChanged;
+			subscribed_canvas.ActiveToolChanged -= OnActiveCanvasToolOptionsChanged;
+			subscribed_canvas.SelectedShapeChanged -= OnActiveCanvasToolOptionsChanged;
+			subscribed_canvas.BrushSizeChanged -= OnActiveCanvasToolOptionsChanged;
+			subscribed_canvas.PointerPositionChanged -= OnActiveCanvasToolChanged;
+			subscribed_canvas.ColorsChanged -= OnActiveCanvasColorsChanged;
+			subscribed_canvas.LayersChanged -= OnActiveCanvasLayersChanged;
+			subscribed_canvas.ActiveLayerChanged -= OnActiveCanvasLayersChanged;
+			subscribed_canvas.ToolOptionsChanged -= OnActiveCanvasToolOptionsChanged;
+			subscribed_canvas.AnnotationSelectionChanged -= OnActiveCanvasToolOptionsChanged;
+			subscribed_canvas.DocumentStateChanged -= OnActiveCanvasDocumentStateChanged;
+			subscribed_canvas = null;
+		}
+
+		if (thumbnail_provider is not null && thumbnail_updated_handler is not null)
+			thumbnail_provider.ThumbnailUpdated -= thumbnail_updated_handler;
+		thumbnail_updated_handler = null;
+		thumbnail_provider?.Dispose ();
+		thumbnail_provider = null;
+
+		CanvasHost? active = tab_manager.ActiveTab?.Canvas;
+		if (active is null)
+			return;
+
+		thumbnail_provider = new LayerThumbnailProvider (active);
+		subscribed_canvas = active;
+		active.HistoryChanged += OnActiveCanvasHistoryChanged;
+		active.ScaleChanged += OnActiveCanvasScaleChanged;
+		active.ActiveToolChanged += OnActiveCanvasToolOptionsChanged;
+		active.SelectedShapeChanged += OnActiveCanvasToolOptionsChanged;
+		active.BrushSizeChanged += OnActiveCanvasToolOptionsChanged;
+		active.PointerPositionChanged += OnActiveCanvasToolChanged;
+		active.ColorsChanged += OnActiveCanvasColorsChanged;
+		active.LayersChanged += OnActiveCanvasLayersChanged;
+		active.ActiveLayerChanged += OnActiveCanvasLayersChanged;
+		active.ToolOptionsChanged += OnActiveCanvasToolOptionsChanged;
+		active.AnnotationSelectionChanged += OnActiveCanvasToolOptionsChanged;
+		active.DocumentStateChanged += OnActiveCanvasDocumentStateChanged;
+
+		refresh_history_commands?.Invoke ();
+		refresh_status?.Invoke ();
+		refresh_zoom?.Invoke ();
+		refresh_layers?.Invoke ();
+		UpdateDocumentTitle (active, version);
+	}
+
+	private void OnActiveCanvasHistoryChanged (object? sender, EventArgs e)
+		=> refresh_history_commands?.Invoke ();
+
+	private void OnActiveCanvasDocumentStateChanged (object? sender, EventArgs e)
+	{
+		if (sender is CanvasHost canvas)
+			UpdateDocumentTitle (canvas, version);
+	}
+
+	private void OnActiveCanvasScaleChanged (object? sender, EventArgs e)
+	{
+		refresh_status?.Invoke ();
+		refresh_zoom?.Invoke ();
+	}
+
+	private void OnActiveCanvasToolChanged (object? sender, EventArgs e)
+		=> refresh_status?.Invoke ();
+
+	private void OnActiveCanvasToolOptionsChanged (object? sender, EventArgs e)
+	{
+		refresh_status?.Invoke ();
+		if (sender is CanvasHost canvas) {
+			// Tool selection is editor-global; document-specific options remain
+			// owned by each CanvasHost.
+			if (ReferenceEquals (canvas, ActiveCanvas))
+				active_tool = canvas.ActiveTool;
+			RefreshToolOptions (canvas);
+		}
+	}
+
+	private void OnActiveCanvasColorsChanged (object? sender, EventArgs e)
+		=> refresh_status?.Invoke ();
+
+	private void OnActiveCanvasLayersChanged (object? sender, EventArgs e)
+		=> refresh_layers?.Invoke ();
+
+	private CanvasHost CreateCanvasHost (BruskelKeyboardSettings keyboard)
+	{
+		MemoryImageSurface surface = new (800, 600);
+		surface.Fill (ColorBgra.White);
+
+		CanvasHost canvas = new (new Bruskel.Core.Size (surface.Width, surface.Height), surface, keyboard);
+		ApplyGridViewSettings (canvas);
+		canvas.ShowRulers = view_settings.ShowRulers;
+		return canvas;
+	}
+
+	private Control CreateLayersPanel ()
+	{
+		var layers = new StackPanel { Spacing = 3 };
+		// Maps each layer to the Image control currently displaying it. Rebuilt
+		// on every refresh; the single provider subscription below looks up the
+		// live control instead of capturing per-row handlers.
+		var thumbnails = new Dictionary<AvaloniaLayer, Image> ();
+		Slider? opacity_slider = null;
+		void RebuildLayers ()
+		{
+			CanvasHost canvas = ActiveCanvas;
+			LayerThumbnailProvider? provider = thumbnail_provider;
+			int? drag_source = null;
+			layers.Children.Clear ();
+			thumbnails.Clear ();
+			for (int i = canvas.Layers.Count - 1; i >= 0; i--) {
+				int index = i;
+				AvaloniaLayer layer = canvas.Layers[index];
+				var visibility = new CheckBox { IsChecked = layer.IsVisible };
+				ToolTip.SetTip (visibility, "Layer visible");
+				var locked = new CheckBox { IsChecked = layer.IsLocked };
+				ToolTip.SetTip (locked, "Layer locked");
+				var name = new TextBlock {
+					Text = layer.Name,
+					VerticalAlignment = VerticalAlignment.Center,
+					MaxWidth = 120,
+					TextTrimming = TextTrimming.CharacterEllipsis
+				};
+				visibility.IsCheckedChanged += (_, _) => {
+					ActiveCanvas.SetLayerVisibility (index, visibility.IsChecked == true);
+				};
+				locked.IsCheckedChanged += (_, _) => ActiveCanvas.SetLayerLocked (index, locked.IsChecked == true);
+				var thumbnail = new Image { Source = provider?.GetThumbnail (layer), Width = 42, Height = 28, Stretch = Stretch.Uniform };
+				thumbnails[layer] = thumbnail;
+				var button = new Button {
+					Content = new StackPanel {
+						Orientation = Orientation.Horizontal,
+						Spacing = 4,
+						Children = {
+						new TextBlock { Text = index == canvas.ActiveLayerIndex ? "▣" : "□" },
+						thumbnail,
+						visibility, name, locked
+					}
+					},
+					HorizontalContentAlignment = HorizontalAlignment.Left,
+					Padding = new global::Avalonia.Thickness (4, 2)
+				};
+				button.PointerPressed += (_, args) => {
+					if (args.GetCurrentPoint (button).Properties.IsLeftButtonPressed)
+						drag_source = index;
+				};
+				button.PointerReleased += (_, args) => {
+					if (drag_source is int source && source != index)
+						ActiveCanvas.MoveLayerTo (source, index);
+					drag_source = null;
+					RebuildLayers ();
+				};
+				button.Click += (_, _) => ActiveCanvas.SelectLayer (index);
+				button.ContextMenu = new ContextMenu {
+					Items = {
+						CreateMenuItem ("Rename", () => new LayerRenameWindow (ActiveCanvas, ActiveCanvas.Layers[index].Name, RebuildLayers).Show (this)),
+						CreateMenuItem ("Duplicate", () => { ActiveCanvas.SelectLayer (index); ActiveCanvas.DuplicateActiveLayer (); RebuildLayers (); }),
+						CreateMenuItem ("Delete", () => { ActiveCanvas.SelectLayer (index); ActiveCanvas.RemoveLayer (); RebuildLayers (); }),
+						new Separator (),
+						CreateMenuItem ("Move up", () => { ActiveCanvas.SelectLayer (index); ActiveCanvas.MoveLayer (1); RebuildLayers (); }),
+						CreateMenuItem ("Move down", () => { ActiveCanvas.SelectLayer (index); ActiveCanvas.MoveLayer (-1); RebuildLayers (); }),
+						CreateMenuItem ("Merge down", () => { ActiveCanvas.SelectLayer (index); ActiveCanvas.MergeActiveLayerDown (); RebuildLayers (); })
+					}
+				};
+				layers.Children.Add (button);
+			}
+			if (opacity_slider is not null && canvas.Layers.Count > 0)
+				opacity_slider.Value = canvas.Layers[canvas.ActiveLayerIndex].Opacity;
+		}
+		opacity_slider = CreateOpacitySlider ();
+		var controls = new StackPanel {
+			Spacing = 5,
+			Children = {
+			CreatePanelHeader ("Layers", () => view_settings.ShowLayers = false),
+			new ScrollViewer { MaxHeight = 280, Content = layers },
+			new TextBlock { Text = "Opacity", FontSize = 11 },
+			opacity_slider,
+			new WrapPanel { Width = 216, ItemWidth = 43, ItemHeight = 34, Children = {
+				CreateCompactCommand ("+", "Add layer", () => { ActiveCanvas.AddLayer (); RebuildLayers (); }),
+				CreateCompactCommand ("−", "Delete layer", () => { ActiveCanvas.RemoveLayer (); RebuildLayers (); }),
+				CreateCompactCommand ("⧉", "Duplicate layer", () => { ActiveCanvas.DuplicateActiveLayer (); RebuildLayers (); }),
+				CreateCompactCommand ("↑", "Move layer up", () => { ActiveCanvas.MoveLayer (1); RebuildLayers (); }),
+				CreateCompactCommand ("↓", "Move layer down", () => { ActiveCanvas.MoveLayer (-1); RebuildLayers (); }),
+				CreateCompactCommand ("⧨", "Merge layer down", () => { ActiveCanvas.MergeActiveLayerDown (); RebuildLayers (); }),
+				CreateCompactCommand ("✎", "Rename layer", () => new LayerRenameWindow (ActiveCanvas, ActiveCanvas.Layers[ActiveCanvas.ActiveLayerIndex].Name, RebuildLayers).Show (this)),
+				CreateCompactCommand ("↶", "Undo layer operation", () => { ActiveCanvas.UndoLayerOperation (); RebuildLayers (); }),
+				CreateCompactCommand ("↷", "Redo layer operation", () => { ActiveCanvas.RedoLayerOperation (); RebuildLayers (); })
+			} }
+		}
+		};
+		RebuildLayers ();
+		refresh_layers = RebuildLayers;
+		// Single subscription for the lifetime of the panel. Rebuilds only
+		// replace the dictionary entries, so no handler can outlive its row.
+		// The handler reads the current provider via the field so it never
+		// holds a reference to a disposed provider after a tab switch.
+		EventHandler<LayerThumbnailUpdatedEventArgs> handler = (_, e) => {
+			if (e.Thumbnail is not null && thumbnails.TryGetValue (e.Layer, out Image? image))
+				image.Source = e.Thumbnail;
+		};
+		thumbnail_updated_handler = handler;
+		if (thumbnail_provider is not null)
+			thumbnail_provider.ThumbnailUpdated += handler;
+		rebuild_layers_panel = () => {
+			// RebindActiveCanvas has already disposed the previous provider and
+			// created a fresh one; re-attach the handler to the new instance so
+			// no row keeps a reference to a disposed provider.
+			if (thumbnail_provider is not null)
+				thumbnail_provider.ThumbnailUpdated += handler;
+			RebuildLayers ();
+		};
+		var panel = new Border {
+			Width = 260,
+			Padding = new global::Avalonia.Thickness (7),
+			Margin = new global::Avalonia.Thickness (8),
+			HorizontalAlignment = HorizontalAlignment.Right,
+			VerticalAlignment = VerticalAlignment.Top,
+			BorderThickness = new global::Avalonia.Thickness (1),
+			Child = controls
+		};
+		panel.Bind (Border.BackgroundProperty, new DynamicResourceExtension ("Bruskel.Panel.Background"));
+		panel.Bind (Border.BorderBrushProperty, new DynamicResourceExtension ("Bruskel.Control.Border"));
+		return panel;
+	}
+
+	private Slider CreateOpacitySlider ()
+	{
+		CanvasHost canvas = ActiveCanvas;
+		var slider = new Slider { Minimum = 0, Maximum = 1, Value = canvas.Layers.Count == 0 ? 1 : canvas.Layers[canvas.ActiveLayerIndex].Opacity };
+		slider.ValueChanged += (_, args) => {
+			CanvasHost active = ActiveCanvas;
+			if (active.Layers.Count == 0)
+				return;
+			active.SetActiveLayerOpacity (args.NewValue);
+		};
+		return slider;
+	}
+
+}

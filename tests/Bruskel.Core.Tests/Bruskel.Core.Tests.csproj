@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPublishable>false</IsPublishable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NUnit3TestAdapter" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\core\Bruskel.Core\Bruskel.Core.csproj" />
+    <ProjectReference Include="..\..\src\codecs\Bruskel.Codecs\Bruskel.Codecs.csproj" />
+    <ProjectReference Include="..\..\src\core\Bruskel.Core.Neutral\Bruskel.Core.Neutral.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="Assets/*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -10,7 +10,7 @@ Removes alpha from the active layer, rather than painting white. Brush size, har
 
 `E` activates Eraser; `[` and `]` change size. The button and shaped cursor show an eraser. The toolbar inherits brush controls and adds erase type.
 
-## Pintora implementation
+## Bruskel implementation
 
 `EraserTool.cs` uses `BaseBrushTool`, an alpha lookup table, and the persisted `ERASER_ERASE_TYPE` setting. Avalonia currently represents it as `BrushTool(CanvasTool.Eraser)`.
 

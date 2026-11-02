@@ -10,7 +10,7 @@ Draws a continuous colored stroke. Left uses Primary and right uses Secondary. B
 
 `B` activates Paintbrush. The cursor reflects the brush diameter. The toolbar contains size, hardness, preset, spacing, and brush-specific controls.
 
-## Pintora implementation
+## Bruskel implementation
 
 `PaintBrushTool.cs` and `BaseBrushTool.cs` use `IPaintBrushService`, shaped cursors, and neutral `IToolbarSurface`; GTK supplies control adapters. Avalonia `Canvas/BrushTool.cs` handles basic brush/opacity but does not yet expose the complete preset service.
 

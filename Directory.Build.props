@@ -8,7 +8,7 @@
     <Version>3.2.0.0</Version>
     <!-- User-facing version number, used for the version command line argument -->
     <InformationalVersion>3.2</InformationalVersion>
-    <Authors>PintaProject</Authors>
+    <Authors>BruskelProject</Authors>
     <Company />
     <Product />
 
@@ -19,7 +19,7 @@
     <GirCoreSource />
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(MSBuildProjectName)' != 'Pinta.Core.Neutral'">
-    <ProjectReference Include="$(MSBuildThisFileDirectory)src/core/Pinta.Core.Neutral/Pinta.Core.Neutral.csproj" />
+  <ItemGroup Condition="'$(MSBuildProjectName)' != 'Bruskel.Core.Neutral'">
+    <ProjectReference Include="$(MSBuildThisFileDirectory)src/core/Bruskel.Core.Neutral/Bruskel.Core.Neutral.csproj" />
   </ItemGroup>
 </Project>

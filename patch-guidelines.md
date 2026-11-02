@@ -8,10 +8,10 @@
 
 ### Contributing a Patch
 
-If you are interested in contributing to the core of Pinta, like to fix
+If you are interested in contributing to the core of Bruskel, like to fix
 a bug or tweak existing code, you'll want to make your changes available
 as pull requests on GitHub. Using Git is an important part of
-contributing to Pinta, so if you want to read up on this we recommend
+contributing to Bruskel, so if you want to read up on this we recommend
 reading the excellent documentation on GitHub, or if you want an even
 deeper understanding read [Pro Git](http://progit.org/book/).
 
@@ -19,16 +19,16 @@ deeper understanding read [Pro Git](http://progit.org/book/).
 #### Claiming a bug to work on
 
 If you plan to work on a bug that has been registered on our [bug
-tracker](https://github.com/PintaProject/Pinta/issues), then go to the relevant
+tracker](https://github.com/BruskelProject/Bruskel/issues), then go to the relevant
 bug and make sure no one else is already working on it, then leave
 comment saying that you are working on it.
 
-#### Creating a GitHub Fork of Pinta
+#### Creating a GitHub Fork of Bruskel
 
 First you need  to make yourself an account with GitHub if you haven't
 already got one. It is recommended that you use your full name, because
-we need something to put in the credits! Then you fork the [PintaProject
-Repository](https://github.com/PintaProject/Pinta) , and pull the code
+we need something to put in the credits! Then you fork the [BruskelProject
+Repository](https://github.com/BruskelProject/Bruskel) , and pull the code
 down to your local machine. (All explained [here]
 (http://help.github.com/fork-a-repo/))
 
@@ -56,9 +56,9 @@ step.
 #### Sending a GitHub Pull Request
 
 Pull requests are thoroughly explained [here](http://help.github.com/send-pull-requests/). You will want to send a
-pull request to the Pinta repository from your fork. When the developers
+pull request to the Bruskel repository from your fork. When the developers
 see your request, they will test your solution and if it is good they
-will merge it into the Pinta source code. They will then close the bug
+will merge it into the Bruskel source code. They will then close the bug
 on Launchpad and add your name to the credits as a contributor, and you
 get a lovely warm feeling inside from helping make the world a better
 place!

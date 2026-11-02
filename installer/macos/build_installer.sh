@@ -24,7 +24,7 @@ if [ "$runtimeid" != "osx-x64" ] && [ "$runtimeid" != "osx-arm64" ]; then
     exit 1
 fi
 
-MAC_APP_DIR="$PWD/package/Pinta.app"
+MAC_APP_DIR="$PWD/package/Bruskel.app"
 MAC_APP_BIN_DIR="${MAC_APP_DIR}/Contents/MacOS/"
 MAC_APP_RESOURCE_DIR="${MAC_APP_DIR}/Contents/Resources/"
 MAC_APP_SHARE_DIR="${MAC_APP_RESOURCE_DIR}/share"
@@ -40,7 +40,7 @@ run_codesign()
 
 mkdir -p ${MAC_APP_BIN_DIR} ${MAC_APP_RESOURCE_DIR} ${MAC_APP_SHARE_DIR}
 
-dotnet publish ../../Pinta/Pinta.csproj -p:PublishDir=${MAC_APP_BIN_DIR} -p:BuildTranslations=true -c Release -r $runtimeid --self-contained true
+dotnet publish ../../Bruskel/Bruskel.csproj -p:PublishDir=${MAC_APP_BIN_DIR} -p:BuildTranslations=true -c Release -r $runtimeid --self-contained true
 
 # Remove stuff we don't need.
 rm ${MAC_APP_BIN_DIR}/*.pdb
@@ -52,14 +52,14 @@ mv ${MAC_APP_BIN_DIR}/icons ${MAC_APP_SHARE_DIR}/icons
 cp hicolor.index.theme ${MAC_APP_SHARE_DIR}/icons/hicolor/index.theme
 
 cp Info.plist ${MAC_APP_DIR}/Contents
-cp pinta.icns ${MAC_APP_DIR}/Contents/Resources
+cp bruskel.icns ${MAC_APP_DIR}/Contents/Resources
 cp container-migration.plist ${MAC_APP_DIR}/Contents/Resources
 
 # Install the GTK dependencies.
 echo "Bundling GTK..."
 ./bundle_gtk.py --runtime $runtimeid --resource_dir ${MAC_APP_RESOURCE_DIR}
 # Add the GTK lib dir to the library search path (for dlopen()), as an alternative to $DYLD_LIBRARY_PATH.
-install_name_tool -add_rpath "@executable_path/../Resources/lib" ${MAC_APP_BIN_DIR}/Pinta
+install_name_tool -add_rpath "@executable_path/../Resources/lib" ${MAC_APP_BIN_DIR}/Bruskel
 
 # Generate the icon theme cache.
 ${GTK_UPDATE_ICON_CACHE} ${MAC_APP_SHARE_DIR}/icons/hicolor
@@ -82,17 +82,17 @@ fi
 # Create the .dmg image, and include a link to drag the app into /Applications
 echo "Creating dmg..."
 ln -s /Applications package/Applications
-hdiutil create -quiet -srcFolder package -volname "Pinta Installer" -o Pinta.dmg
+hdiutil create -quiet -srcFolder package -volname "Bruskel Installer" -o Bruskel.dmg
 
 if [ "$skip_signing" = "false" ]; then
     # Sign the .dmg image
-    run_codesign Pinta.dmg
+    run_codesign Bruskel.dmg
 
     # Notarize
     echo "Notarizing..."
-    xcrun notarytool submit --wait --apple-id=cameronwhite91@gmail.com --password ${MAC_DEV_PASSWORD} --team-id D5G6C56TBH Pinta.dmg
+    xcrun notarytool submit --wait --apple-id=cameronwhite91@gmail.com --password ${MAC_DEV_PASSWORD} --team-id D5G6C56TBH Bruskel.dmg
 
     # Staple the result to the dmg
     echo "Stapling..."
-    xcrun stapler staple Pinta.dmg
+    xcrun stapler staple Bruskel.dmg
 fi

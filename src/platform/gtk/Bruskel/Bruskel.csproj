@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ApplicationIcon>Bruskel.ico</ApplicationIcon>
+    <OutputPath>..\build\bin</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+    <!-- Disabled by default as it requires gettext to be installed. -->
+    <BuildTranslations>false</BuildTranslations>
+  </PropertyGroup>
+
+  <Import Project="../../../../properties/ReferenceGirCoreAdw1.props" />
+
+  <ItemGroup>
+    <PackageReference Include="Tmds.DBus.Protocol" />
+    <PackageReference Include="Tmds.DBus.Generator" />
+    <PackageReference Include="Mono.Addins" />
+    <PackageReference Include="Mono.Addins.Setup" />
+    <PackageReference Include="Mono.Addins.CecilReflector" />
+    <PackageReference Include="System.CommandLine" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="dbus-xml/org.freedesktop.portal.Request.xml" Namespace="Requests.DBus" DBusGeneratorMode="Proxy" />
+    <AdditionalFiles Include="dbus-xml/org.freedesktop.portal.Screenshot.xml" Namespace="ScreenshotPortal.DBus" DBusGeneratorMode="Proxy" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs/*.ui">
+      <LogicalName>%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\Bruskel.Core\Bruskel.Core.csproj" />
+    <ProjectReference Include="..\Bruskel.Docking\Bruskel.Docking.csproj" />
+    <ProjectReference Include="..\Bruskel.Gui.Addins\Bruskel.Gui.Addins.csproj" />
+    <ProjectReference Include="..\Bruskel.Gui.Widgets\Bruskel.Gui.Widgets.csproj" />
+    <ProjectReference Include="..\Bruskel.Tools.Gtk\Bruskel.Tools.Gtk.csproj" />
+    <ProjectReference Include="..\..\..\core\Bruskel.Resources\Bruskel.Resources.csproj" />
+    <ProjectReference Include="..\..\..\core\Bruskel.Tools\Bruskel.Tools.csproj" />
+    <ProjectReference Include="..\..\..\core\Bruskel.Effects\Bruskel.Effects.csproj" />
+  </ItemGroup>
+
+  <!-- Run msgfmt on our translation (po) files -->
+  <ItemGroup>
+    <Translation Include="../../../../po/*.po" />
+  </ItemGroup>
+
+  <Target Name="CompileTranslations" BeforeTargets="Build" Condition="'$(BuildTranslations)' == 'true'" Inputs="@(Translation)" Outputs="$(OutputPath)/locale/%(Translation.Filename)/LC_MESSAGES/bruskel.mo">
+
+    <MakeDir Directories="$(OutputPath)/locale/%(Translation.Filename)/LC_MESSAGES" />
+    <Exec Command="msgfmt &quot;%(Translation.FullPath)&quot; -o &quot;$(OutputPath)/locale/%(Translation.Filename)/LC_MESSAGES/bruskel.mo&quot;" />
+  </Target>
+
+  <!-- Include the compiled translation files when publishing. -->
+  <Target Name="PublishTranslations" AfterTargets="Publish" Condition="'$(BuildTranslations)' == 'true'">
+    <Copy SourceFiles="$(OutputPath)/locale/%(Translation.Filename)/LC_MESSAGES/bruskel.mo" DestinationFiles="$(PublishDir)/locale/%(Translation.Filename)/LC_MESSAGES/bruskel.mo" />
+  </Target>
+
+  <!-- For Windows, copy GTK library dependencies to the build folder. -->
+  <Import Condition="$([MSBuild]::IsOSPlatform('Windows'))" Project="../installer/windows/bundle_gtk.targets" />
+</Project>

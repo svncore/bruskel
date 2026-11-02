@@ -10,7 +10,7 @@ Click or drag a text box, type, then commit with `Enter` or by switching tools; 
 
 `T` activates Text; `[` and `]` change size. The toolbar contains font, variant, size, bold/italic/underline, alignment, fill style, outline, and join controls. The cursor changes between text, editable, and not-allowed states.
 
-## Pintora implementation
+## Bruskel implementation
 
 `TextTool.cs` uses neutral `ITextInputContext`, font descriptors, and `IToolBarFontButton`; GTK provides the IME adapter. Avalonia `Canvas/TextTool.cs` and `MainWindow.cs` support editable annotations, font family/size, bold, and underline, but variants, outline, and full IME parity need checking.
 

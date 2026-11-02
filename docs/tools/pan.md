@@ -10,7 +10,7 @@ Click and drag the canvas to scroll the view without changing pixels. Paint.NET 
 
 `H` activates Pan; holding `Space` is temporary activation. The button is a hand and the cursor changes between open/closed hand states.
 
-## Pintora implementation
+## Bruskel implementation
 
 `PanTool.cs` changes the neutral viewport. Avalonia uses `CanvasCoordinateMapper`; GTK uses `GtkDocumentViewportHost`. Verify that Space does not conflict with TextTool or IME composition.
 

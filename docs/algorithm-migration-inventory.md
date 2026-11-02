@@ -1,7 +1,7 @@
 # GTK algorithm migration inventory
 
 This inventory separates platform-neutral math from GTK rendering and input. The neutral part
-belongs in `Pinta.Core.Neutral/Algorithms`; GTK and Avalonia should call the same operation.
+belongs in `Bruskel.Core.Neutral/Algorithms`; GTK and Avalonia should call the same operation.
 
 ## Already shared
 
@@ -19,7 +19,7 @@ belongs in `Pinta.Core.Neutral/Algorithms`; GTK and Avalonia should call the sam
    only Cairo matrix construction and selection-path rendering.
 3. **Selection geometry** — already implemented by `DocumentSelection`, `RectangleI` and
    `SelectionModeHandler` in Core; Cairo path construction remains platform-side.
-4. **Gradient parameterization** — already implemented in `Pinta.Core/Effects/GradientRenderers`
+4. **Gradient parameterization** — already implemented in `Bruskel.Core/Effects/GradientRenderers`
    for linear, reflected, radial, diamond and conical coordinates; only blend operators and
    clipping remain platform-side.
 5. **Viewport math** — already implemented by `DocumentViewportState` and

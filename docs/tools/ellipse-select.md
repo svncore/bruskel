@@ -10,7 +10,7 @@ Drag a bounding rectangle for an ellipse. Holding `Shift` forces equal width and
 
 `S` cycles selection tools; `Shift+S` cycles backward. The button is an ellipse icon and the toolbar exposes selection mode.
 
-## Pintora implementation
+## Bruskel implementation
 
 `EllipseSelectTool.cs` calls `DocumentSelection.CreateEllipseSelection`. GTK uses the full Core tool; Avalonia's combined `SelectionTool` has no separately documented ellipse workflow.
 

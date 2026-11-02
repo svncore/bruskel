@@ -1,16 +1,16 @@
-# Czech translation for pinta
+# Czech translation for bruskel
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
-# This file is distributed under the same license as the pinta package.
+# This file is distributed under the same license as the bruskel package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: pinta\n"
+"Project-Id-Version: bruskel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 00:27+0000\n"
 "PO-Revision-Date: 2026-10-06 02:35+0000\n"
 "Last-Translator: Elviska <vonelviska@seznam.cz>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/pinta/pinta/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/bruskel/bruskel/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,429 +19,429 @@ msgstr ""
 "X-Generator: Weblate 2026.10.1.dev0\n"
 "X-Launchpad-Export-Date: 2023-12-18 03:00+0000\n"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:284
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:284
 msgid " (in user directory)"
 msgstr " (v uživatelském adresáři)"
 
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:56
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:56
 msgid " Selection Mode: "
 msgstr " Mód výběru: "
 
-#: ../Pinta.Core/Managers/EffectsManager.cs:78
-#: ../Pinta.Core/Managers/EffectsManager.cs:116
+#: ../Bruskel.Core/Managers/EffectsManager.cs:78
+#: ../Bruskel.Core/Managers/EffectsManager.cs:116
 msgid "..."
 msgstr "…"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:236
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:236
 msgid "3 x 3 Region"
 msgstr "Oblast 3 x 3"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:237
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:237
 msgid "5 x 5 Region"
 msgstr "Oblast 5 x 5"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:238
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:238
 msgid "7 x 7 Region"
 msgstr "Oblast 7 x 7"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:239
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:239
 msgid "9 x 9 Region"
 msgstr "Oblast 9 x 9"
 
-#: ../Pinta/MainWindow.cs:397
+#: ../Bruskel/MainWindow.cs:397
 msgid "A_dd-ins"
 msgstr "D_oplňky"
 
-#: ../Pinta.Core/Actions/AppActions.cs:44
+#: ../Bruskel.Core/Actions/AppActions.cs:44
 msgid "About"
 msgstr "O aplikaci"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:64
-msgid "About Pinta"
-msgstr "O Pinta"
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:64
+msgid "About Bruskel"
+msgstr "O Bruskel"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:61
-#: ../Pinta.Core/Actions/LayerActions.cs:400
-#: ../Pinta/Actions/Edit/PasteAction.cs:187
+#: ../Bruskel.Core/Actions/LayerActions.cs:61
+#: ../Bruskel.Core/Actions/LayerActions.cs:400
+#: ../Bruskel/Actions/Edit/PasteAction.cs:187
 msgid "Add New Layer"
 msgstr "Přidat novou vrstvu"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:24
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:24
 msgid "Add Noise"
 msgstr "Přidat šum"
 
-#: ../Pinta.Core/Actions/AddinActions.cs:40
+#: ../Bruskel.Core/Actions/AddinActions.cs:40
 msgid "Add-in Manager..."
 msgstr "Manažer Pluginů"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:852
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:852
 msgid "Added"
 msgstr "Přidané"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:104
-#: ../Pinta/MainWindow.cs:460
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:104
+#: ../Bruskel/MainWindow.cs:460
 msgid "Adjustments"
 msgstr "Úpravy"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:207
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:207
 msgid "After select"
 msgstr "Po výběru"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:76
-#: ../Pinta.Effects/Effects/AlignObjectEffect.cs:12
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:76
+#: ../Bruskel.Effects/Effects/AlignObjectEffect.cs:12
 msgid "Align Object"
 msgstr "Zarovnat Objekt"
 
 #. Translators: 'All Petite Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:206
+#: ../Bruskel.Tools/Tools/TextTool.cs:206
 msgid "All Petite Caps"
 msgstr "Všechny hezké písmena"
 
 #. Translators: 'All Small Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:194
+#: ../Bruskel.Tools/Tools/TextTool.cs:194
 msgid "All Small Caps"
 msgstr "Všechny malé písmena"
 
-#: ../Pinta.Core/Actions/EditActions.cs:619
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:302
-#: ../Pinta/Actions/File/OpenDocumentAction.cs:102
+#: ../Bruskel.Core/Actions/EditActions.cs:619
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:302
+#: ../Bruskel/Actions/File/OpenDocumentAction.cs:102
 msgid "All files"
 msgstr "Všechny soubory"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:371
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:371
 msgid "Alpha"
 msgstr "Alfa"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:212
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:212
 msgid "Alpha Gradient"
 msgstr "Alfa Přechod"
 
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:116
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:88
-#: ../Pinta.Effects/Effects/SharpenEffect.cs:57
-#: ../Pinta.Effects/Effects/TwistEffect.cs:217
-#: ../Pinta.Effects/Effects/ZoomBlurEffect.cs:136
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:116
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:88
+#: ../Bruskel.Effects/Effects/SharpenEffect.cs:57
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:217
+#: ../Bruskel.Effects/Effects/ZoomBlurEffect.cs:136
 msgid "Amount"
 msgstr "Množství"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:154
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:154
 msgid "Anchor:"
 msgstr "Kotva:"
 
-#: ../Pinta.Effects/Effects/EdgeDetectEffect.cs:81
-#: ../Pinta.Effects/Effects/EmbossEffect.cs:120
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:169
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:168
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:147
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:136
-#: ../Pinta.Effects/Effects/ReliefEffect.cs:77
-#: ../Pinta.Tools/Brushes/SlashBrush.cs:53
-#: ../Pinta.Tools/Editable/EditEngines/ArrowedEditEngine.cs:310
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:145
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:72
+#: ../Bruskel.Effects/Effects/EdgeDetectEffect.cs:81
+#: ../Bruskel.Effects/Effects/EmbossEffect.cs:120
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:169
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:168
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:147
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:136
+#: ../Bruskel.Effects/Effects/ReliefEffect.cs:77
+#: ../Bruskel.Tools/Brushes/SlashBrush.cs:53
+#: ../Bruskel.Tools/Editable/EditEngines/ArrowedEditEngine.cs:310
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:145
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:72
 msgid "Angle"
 msgstr "Úhel"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:14
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:14
 msgid "Animate Selection Outline"
 msgstr "Animovat Obrys Výběru"
 
-#: ../Pinta.Effects/Effects/TwistEffect.cs:225
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:225
 msgid "Antialias"
 msgstr "Vyhlazování"
 
-#: ../Pinta.Core/Classes/BaseTool.cs:359
+#: ../Bruskel.Core/Classes/BaseTool.cs:359
 msgid "Antialiasing Off"
 msgstr "Antialiasing Vypnout"
 
-#: ../Pinta.Core/Classes/BaseTool.cs:358
+#: ../Bruskel.Core/Classes/BaseTool.cs:358
 msgid "Antialiasing On"
 msgstr "Antialiasing Zapnout"
 
-#: ../Pinta.Tools/Editable/EditEngines/ArrowedEditEngine.cs:262
+#: ../Bruskel.Tools/Editable/EditEngines/ArrowedEditEngine.cs:262
 msgid "Arrow"
 msgstr "Šipka"
 
-#: ../Pinta.Effects/Effects/InkSketchEffect.cs:41
-#: ../Pinta.Effects/Effects/OilPaintingEffect.cs:32
-#: ../Pinta.Effects/Effects/PencilSketchEffect.cs:33
+#: ../Bruskel.Effects/Effects/InkSketchEffect.cs:41
+#: ../Bruskel.Effects/Effects/OilPaintingEffect.cs:32
+#: ../Bruskel.Effects/Effects/PencilSketchEffect.cs:33
 msgid "Artistic"
 msgstr "Umělecké"
 
 #. Translators: Image dithering matrix named after Bill Atkinson
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:28
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:28
 msgid "Atkinson"
 msgstr "Dithering dle Atkinson"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:3
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:3
 msgid "Author"
 msgstr "Autor"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:271
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:271
 msgid "Auto"
 msgstr "Automaticky"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:63
+#: ../Bruskel.Core/Actions/ImageActions.cs:63
 msgid "Auto Crop"
 msgstr "Automaticky oříznout"
 
-#: ../Pinta.Effects/Adjustments/AutoLevelEffect.cs:24
+#: ../Bruskel.Effects/Adjustments/AutoLevelEffect.cs:24
 msgid "Auto Level"
 msgstr "Automatická úroveň"
 
-#: ../Pinta.Tools/Tools/SelectTool.cs:264
+#: ../Bruskel.Tools/Tools/SelectTool.cs:264
 msgid "Autoscroll Off"
 msgstr "Automatické rolování vypnuto"
 
-#: ../Pinta.Tools/Tools/SelectTool.cs:263
+#: ../Bruskel.Tools/Tools/SelectTool.cs:263
 msgid "Autoscroll On"
 msgstr "Automatické rolování zapnuto"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:19
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:131
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:19
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:131
 msgid "Background"
 msgstr "Pozadí"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:118
+#: ../Bruskel/Dialogs/NewImageDialog.cs:118
 msgid "Background Color"
 msgstr "Barva pozadí"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:322
+#: ../Bruskel/Dialogs/NewImageDialog.cs:322
 msgid "Background:"
 msgstr "Pozadí:"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:94
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:94
 msgid "Based on the work of Paint.NET:"
 msgstr "Na základě práce Paint.NET:"
 
 #. Translators: Gradient with the colors of the flag of Italy: red, white, and green
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:23
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:23
 msgid "Beautiful Italy"
 msgstr "Přechod pomocí barev Itálie"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:84
+#: ../Bruskel.Core/Actions/ViewActions.cs:84
 msgid "Best Fit"
 msgstr "Přizpůsobit"
 
 #. Translators: 'Bevel Join' refers to the Cairo.LineJoin property
-#: ../Pinta.Tools/Tools/TextTool.cs:458
+#: ../Bruskel.Tools/Tools/TextTool.cs:458
 msgid "Bevel Join"
 msgstr "Šikmé Spojení (Bevel Join)"
 
-#: ../Pinta.Core/Enumerations/ResamplingMode.cs:22
+#: ../Bruskel.Core/Enumerations/ResamplingMode.cs:22
 msgid "Bilinear"
 msgstr "Bilineární"
 
 #. Translators: Simple gradient that goes from black to white
-#: ../Pinta.Effects/Adjustments/BlackAndWhiteEffect.cs:29
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:27
+#: ../Bruskel.Effects/Adjustments/BlackAndWhiteEffect.cs:29
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:27
 msgid "Black and White"
 msgstr "Černobílý"
 
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:73
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:73
 msgid "Blend Mode"
 msgstr "Režim míchání"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:121
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:64
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:370
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:121
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:64
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:370
 msgid "Blue"
 msgstr "Modrá"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:91
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:91
 msgid "Blue "
 msgstr "Modrá "
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:33
-#: ../Pinta.Effects/Effects/GaussianBlurEffect.cs:28
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:33
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:27
-#: ../Pinta.Effects/Effects/UnfocusEffect.cs:27
-#: ../Pinta.Effects/Effects/ZoomBlurEffect.cs:32
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:33
+#: ../Bruskel.Effects/Effects/GaussianBlurEffect.cs:28
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:33
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:27
+#: ../Bruskel.Effects/Effects/UnfocusEffect.cs:27
+#: ../Bruskel.Effects/Effects/ZoomBlurEffect.cs:32
 msgid "Blurs"
 msgstr "Rozmazání"
 
 #. Translators: 'Bold' (700) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:302
+#: ../Bruskel.Tools/Tools/TextTool.cs:302
 msgid "Bold"
 msgstr "Tučně"
 
 #. Translators: Gradient that starts out white, like the core of a raging fire, and then goes through yellow, red, and black (like visible black smoke), and finally transparent, blending with the background
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:31
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:31
 msgid "Bonfire"
 msgstr "Přechod pomocí barev ohně"
 
 #. Translators: 'Book' (380) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:278
+#: ../Bruskel.Tools/Tools/TextTool.cs:278
 msgid "Book"
 msgstr "Knižní"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:40
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:40
 msgid "Bottom Center"
 msgstr "Vprostřed Dole"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:39
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:39
 msgid "Bottom Left"
 msgstr "Vlevo Dole"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:41
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:41
 msgid "Bottom Right"
 msgstr "Vpravo Dole"
 
-#: ../Pinta.Effects/Adjustments/BrightnessContrastEffect.cs:87
-#: ../Pinta.Effects/Effects/GlowEffect.cs:79
+#: ../Bruskel.Effects/Adjustments/BrightnessContrastEffect.cs:87
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:79
 msgid "Brightness"
 msgstr "Jas"
 
-#: ../Pinta.Effects/Adjustments/BrightnessContrastEffect.cs:40
+#: ../Bruskel.Effects/Adjustments/BrightnessContrastEffect.cs:40
 msgid "Brightness / Contrast"
 msgstr "Jas / Kontrast"
 
-#: ../Pinta.Effects/Effects/OilPaintingEffect.cs:147
+#: ../Bruskel.Effects/Effects/OilPaintingEffect.cs:147
 msgid "Brush Size"
 msgstr "Velikost štětce"
 
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:129
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:129
 msgid "Brush width"
 msgstr "Šířka štětce"
 
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:23
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:23
 msgid "Bulge"
 msgstr "Vyboulit"
 
 #. Translators: Image dithering matrix named after Daniel Burkes
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:24
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:24
 msgid "Burkes"
 msgstr "Dithering dle Burkes"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:121
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:90
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:121
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:90
 msgid "By absolute size:"
 msgstr "Na velikost:"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:114
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:83
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:114
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:83
 msgid "By percentage:"
 msgstr "Procentuelně:"
 
-#: ../Pinta.Core/Actions/EditActions.cs:556
-#: ../Pinta.Gui.Addins/InstallDialog.cs:126
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:498
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:96
+#: ../Bruskel.Core/Actions/EditActions.cs:556
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:126
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:498
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:96
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:13 ../Pinta/Pads/CanvasPad.cs:41
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:13 ../Bruskel/Pads/CanvasPad.cs:41
 msgid "Canvas"
 msgstr "Plátno"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:122
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:122
 msgid "Canvas Grid Settings"
 msgstr "Nastavení Mřížky Plátna"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:123
+#: ../Bruskel.Core/Actions/ViewActions.cs:123
 msgid "Canvas Grid..."
 msgstr "Mřížka Plátna..."
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:1
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:1
 msgid "Category"
 msgstr "Kategorie"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:176
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:176
 msgid "Cell Radius"
 msgstr "Okolí Buňky"
 
-#: ../Pinta.Effects/Effects/PixelateEffect.cs:121
+#: ../Bruskel.Effects/Effects/PixelateEffect.cs:121
 msgid "Cell Size"
 msgstr "Velikost buňky"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:19
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:19
 msgid "Cells"
 msgstr "Buňky"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:37
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:37
 msgid "Center"
 msgstr "Střed"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:371
+#: ../Bruskel.Tools/Tools/TextTool.cs:371
 msgid "Center Align"
 msgstr "Zarovnat na střed"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:36
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:36
 msgid "Center Left"
 msgstr "Vlevo Uprostřed"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:159
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:96
-#: ../Pinta.Effects/Effects/TwistEffect.cs:229
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:159
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:96
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:229
 msgid "Center Offset"
 msgstr "Středové Odsazení"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:38
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:38
 msgid "Center Right"
 msgstr "Vpravo Uprostřed"
 
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:154
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:154
 msgid "Centered"
 msgstr "V Prostředku"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:215
+#: ../Bruskel.Core/Actions/ViewActions.cs:215
 msgid "Centimeters"
 msgstr "Centimetry"
 
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:47
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:47
 msgid "Change brush width."
 msgstr "Změnit šířku štětce."
 
-#: ../Pinta.Tools/Tools/TextTool.cs:238
+#: ../Bruskel.Tools/Tools/TextTool.cs:238
 msgid "Change font size."
 msgstr "Změnit velikost fontu."
 
-#: ../Pinta.Tools/Tools/TextTool.cs:237
+#: ../Bruskel.Tools/Tools/TextTool.cs:237
 msgid "Change font size. Shortcut keys: [ ]"
 msgstr "Změnit velikost fontu. Zkratka: [ ]"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:370
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:370
 msgid "Change outline width."
 msgstr "Změnit šířku obrysu."
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:300
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:300
 msgid "Changed Shape Type"
 msgstr "Změnit typ tvarování"
 
 #. Translators: Gradient that starts out off-white, like cherry blossoms against sunlight, then goes through pink, then light blue (like the sky) and finally transparent, blending with the background
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:35
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:35
 msgid "Cherry Blossom"
 msgstr "Třešňový Přechod"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:666
-#: ../Pinta.Gui.Widgets/Dialogs/SimpleEffectDialog.cs:359
-#: ../Pinta/Dialogs/PreferencesDialog.cs:183
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:666
+#: ../Bruskel.Gui.Widgets/Dialogs/SimpleEffectDialog.cs:359
+#: ../Bruskel/Dialogs/PreferencesDialog.cs:183
 msgid "Choose Color"
 msgstr "Vybrat Barvu"
 
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:380
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:380
 msgid "Choose Colors"
 msgstr "Vybrat Barvy"
 
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:164
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:164
 msgid "Choose Palette Color"
 msgstr "Vybrat Barvu Palety"
 
-#: ../Pinta.Tools/Brushes/CircleBrush.cs:36
+#: ../Bruskel.Tools/Brushes/CircleBrush.cs:36
 msgid "Circles"
 msgstr "Kruhy"
 
 #. Translators: Arrangement of points along a circular path
-#: ../Pinta.Core/Algorithms/SpatialPartition.cs:170
+#: ../Bruskel.Core/Algorithms/SpatialPartition.cs:170
 msgid "Circular"
 msgstr "Kruhový"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:7
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:7
 msgid "Clamp"
 msgstr "Svorka"
 
-#: ../Pinta.Tools/Tools/RectangleSelectTool.cs:42
+#: ../Bruskel.Tools/Tools/RectangleSelectTool.cs:42
 msgid ""
 "Click and drag to draw a rectangular selection.\n"
 "Hold Shift to constrain to a square."
@@ -449,7 +449,7 @@ msgstr ""
 "Klikněte a tahejte, abyste nakreslili obdélníkový výběr.\n"
 "Držte Shift pro omezení na čtverec."
 
-#: ../Pinta.Tools/Tools/EllipseSelectTool.cs:41
+#: ../Bruskel.Tools/Tools/EllipseSelectTool.cs:41
 msgid ""
 "Click and drag to draw an elliptical selection.\n"
 "Hold Shift to constrain to a circle."
@@ -457,7 +457,7 @@ msgstr ""
 "Klikněte a tahejte, abyste nakreslili eliptický výběr.\n"
 "Držte Shift pro omezení na kruh."
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:62
+#: ../Bruskel.Tools/Tools/GradientTool.cs:62
 msgid ""
 "Click and drag to draw gradient from primary to secondary color.\n"
 "Right click to reverse.\n"
@@ -468,20 +468,20 @@ msgstr ""
 "Pravé kliknutí na otočení.\n"
 "Klikněte na kontrolní bod a tahejte pro jeho přesun."
 
-#: ../Pinta.Tools/Tools/PanTool.cs:42
+#: ../Bruskel.Tools/Tools/PanTool.cs:42
 msgid "Click and drag to navigate image."
 msgstr "Klik a táhnutí posunou obrázek."
 
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:356
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:356
 msgid "Click to reset primary and secondary color."
 msgstr "Kliknutím restartujete primární a skundární barvu."
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:602
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:344
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:602
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:344
 msgid "Click to select primary color."
 msgstr "Kliknutím vyberte primární barvu."
 
-#: ../Pinta.Tools/Tools/MagicWandTool.cs:57
+#: ../Bruskel.Tools/Tools/MagicWandTool.cs:57
 msgid ""
 "Click to select region of similar color.\n"
 "Hold shift to use Global mode."
@@ -489,339 +489,339 @@ msgstr ""
 "Klikněte a vyberte region stejné barvy.\n"
 "Držte shift pro použití globálního módu."
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:607
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:348
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:607
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:348
 msgid "Click to select secondary color."
 msgstr "Kliknutím vyberte sekundární barvu."
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:367
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:351
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:367
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:351
 msgid "Click to switch between primary and secondary color."
 msgstr "Kliknutím přepnete mezi primární a sekundární barvou."
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:373
-#: ../Pinta/Dialogs/NewImageDialog.cs:430
-#: ../Pinta/Dialogs/NewImageDialog.cs:449
-#: ../Pinta/Dialogs/NewImageDialog.cs:545
+#: ../Bruskel/Dialogs/NewImageDialog.cs:373
+#: ../Bruskel/Dialogs/NewImageDialog.cs:430
+#: ../Bruskel/Dialogs/NewImageDialog.cs:449
+#: ../Bruskel/Dialogs/NewImageDialog.cs:545
 msgid "Clipboard"
 msgstr "Schránka"
 
-#: ../Pinta.Tools/Tools/CloneStampTool.cs:60
+#: ../Bruskel.Tools/Tools/CloneStampTool.cs:60
 msgid "Clone Stamp"
 msgstr "Klonovací razítko"
 
-#: ../Pinta.Core/Actions/FileActions.cs:81
-#: ../Pinta.Gui.Addins/InstallDialog.cs:343
+#: ../Bruskel.Core/Actions/FileActions.cs:81
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:343
 msgid "Close"
 msgstr "Zavřít"
 
-#: ../Pinta.Core/Actions/WindowActions.cs:51
+#: ../Bruskel.Core/Actions/WindowActions.cs:51
 msgid "Close All"
 msgstr "Zavřít vše"
 
-#: ../Pinta.Tools/Editable/EditEngines/RectangleEditEngine.cs:37
+#: ../Bruskel.Tools/Editable/EditEngines/RectangleEditEngine.cs:37
 msgid "Closed Curve Shape"
 msgstr "Tvar uzavřené křivky"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:275
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:275
 msgid "Closed Line/Curve Series"
 msgstr "Zavřít sadu čar/křivek"
 
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:26
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:26
 msgid "Clouds"
 msgstr "Mraky"
 
-#: ../Pinta.Effects/Effects/OilPaintingEffect.cs:151
+#: ../Bruskel.Effects/Effects/OilPaintingEffect.cs:151
 msgid "Coarseness"
 msgstr "Hrubost"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:26
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:43
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:23
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:323
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:26
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:43
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:23
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:323
 msgid "Color"
 msgstr "Barva"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:33
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:33
 msgid "Color Burn"
 msgstr "Smísení barev"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:34
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:34
 msgid "Color Dodge"
 msgstr "Nepromísení barev"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:215
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:215
 msgid "Color Gradient"
 msgstr "Přechod"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:328
+#: ../Bruskel.Tools/Tools/GradientTool.cs:328
 msgid "Color Mode"
 msgstr "Režim barev"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:57
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:57
 msgid "Color Picker"
 msgstr "Kapátko"
 
-#: ../Pinta.Effects/Effects/PencilSketchEffect.cs:90
+#: ../Bruskel.Effects/Effects/PencilSketchEffect.cs:90
 msgid "Color Range"
 msgstr "Rozsah barev"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:171
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:171
 msgid "Color Saturation"
 msgstr "Sytost Barvy"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:6
-#: ../Pinta.Effects/Effects/CellsEffect.cs:183
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:148
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:158
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:174
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:6
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:183
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:148
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:158
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:174
 msgid "Color Scheme"
 msgstr "Barevné schéma"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:194
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:194
 msgid "Color Scheme Edge Behavior"
 msgstr "Chování Hrany Barevného Schématu"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:180
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:145
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:155
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:171
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:180
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:145
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:155
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:171
 msgid "Color Scheme Source"
 msgstr "Zdroj Barevného Schématu"
 
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:191
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:191
 msgid "Color Sorting"
 msgstr "Řazení Barev"
 
-#: ../Pinta.Effects/Effects/InkSketchEffect.cs:150
+#: ../Bruskel.Effects/Effects/InkSketchEffect.cs:150
 msgid "Coloring"
 msgstr "Barevnost"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:298
+#: ../Bruskel.Tools/Tools/GradientTool.cs:298
 msgid "Conical Gradient"
 msgstr "Kónický přechod"
 
-#: ../Pinta.Core/Actions/HelpActions.cs:46
+#: ../Bruskel.Core/Actions/HelpActions.cs:46
 msgid "Contents"
 msgstr "Obsahuje"
 
-#: ../Pinta.Tools/Tools/FloodTool.cs:131
+#: ../Bruskel.Tools/Tools/FloodTool.cs:131
 msgid "Contiguous"
 msgstr "Spojité"
 
-#: ../Pinta.Effects/Adjustments/BrightnessContrastEffect.cs:90
-#: ../Pinta.Effects/Effects/GlowEffect.cs:83
+#: ../Bruskel.Effects/Adjustments/BrightnessContrastEffect.cs:90
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:83
 msgid "Contrast"
 msgstr "Kontrast"
 
-#: ../Pinta.Core/Actions/EditActions.cs:93
+#: ../Bruskel.Core/Actions/EditActions.cs:93
 msgid "Copy"
 msgstr "Kopírovat"
 
-#: ../Pinta.Core/Actions/EditActions.cs:100
+#: ../Bruskel.Core/Actions/EditActions.cs:100
 msgid "Copy Merged"
 msgstr "Kopie Sloučena"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:81
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:81
 msgid "Copyright"
 msgstr "Copyright"
 
 #. Translators: Gradient with the colors of blue and pink cotton candy
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:39
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:39
 msgid "Cotton Candy"
 msgstr "Modro Růžový Přechod"
 
 #. Translators: {0} is the name of a layer, and {1} is the path to a .ora file.
-#: ../Pinta.Core/ImageFormats/OraFormat.cs:125
+#: ../Bruskel.Core/ImageFormats/OraFormat.cs:125
 #, csharp-format
 msgid "Could not import layer \"{0}\" from {1}"
 msgstr "Nemohli jsme importovat vrstvu \"{0}\" z {1}"
 
-#: ../Pinta.Core/Extensions/OtherExtensions.cs:166
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:428
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:440
+#: ../Bruskel.Core/Extensions/OtherExtensions.cs:166
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:428
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:440
 #, csharp-format
 msgid "Could not open file: {0}"
 msgstr "Nelze otevřít soubor: {0}"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:175
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:175
 msgid "Coverage"
 msgstr "Pokrytí"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:56
-#: ../Pinta.Core/Actions/ImageActions.cs:295
+#: ../Bruskel.Core/Actions/ImageActions.cs:56
+#: ../Bruskel.Core/Actions/ImageActions.cs:295
 msgid "Crop to Selection"
 msgstr "Vystřihnout do výběru"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:159
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:159
 msgid "Current Palette"
 msgstr "Současná Paleta"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:247
+#: ../Bruskel.Effects/Effects/TileEffect.cs:247
 msgid "Curved"
 msgstr "Zakřivený"
 
-#: ../Pinta.Effects/Adjustments/CurvesEffect.cs:28
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:137
+#: ../Bruskel.Effects/Adjustments/CurvesEffect.cs:28
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:137
 msgid "Curves"
 msgstr "Křivky"
 
 #. Translators: Background option for the image created at startup, using a chosen color.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:25
-#: ../Pinta/Dialogs/NewImageDialog.cs:375
-#: ../Pinta/Dialogs/NewImageDialog.cs:430
-#: ../Pinta/Dialogs/NewImageDialog.cs:451
-#: ../Pinta/Dialogs/NewImageDialog.cs:545
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:25
+#: ../Bruskel/Dialogs/NewImageDialog.cs:375
+#: ../Bruskel/Dialogs/NewImageDialog.cs:430
+#: ../Bruskel/Dialogs/NewImageDialog.cs:451
+#: ../Bruskel/Dialogs/NewImageDialog.cs:545
 msgid "Custom"
 msgstr "Vlastní"
 
-#: ../Pinta.Core/Actions/EditActions.cs:86
-#: ../Pinta.Core/Actions/EditActions.cs:369
+#: ../Bruskel.Core/Actions/EditActions.cs:86
+#: ../Bruskel.Core/Actions/EditActions.cs:369
 msgid "Cut"
 msgstr "Vyjmout"
 
 #. Translators: This refers to using a dark variant of the color scheme.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:10
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:10
 msgid "Dark"
 msgstr "Tmavé"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:38
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:38
 msgid "Darken"
 msgstr "Ztmavit"
 
-#: ../Pinta.Tools/Dashes/DashPatternBox.cs:59
+#: ../Bruskel.Tools/Dashes/DashPatternBox.cs:59
 msgid "Dash"
 msgstr "Pomlčka"
 
 #. Translators: This refers to using the system default color scheme.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:5
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:5
 msgid "Default"
 msgstr "Výchozí"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:68
-#: ../Pinta.Core/Actions/LayerActions.cs:382
+#: ../Bruskel.Core/Actions/LayerActions.cs:68
+#: ../Bruskel.Core/Actions/LayerActions.cs:382
 msgid "Delete Layer"
 msgstr "Smazat vrstvu"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:690
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:690
 msgid "Deleted"
 msgstr "Odstraněno"
 
 #. Translators: This refers to an image distortion that creates small, random warps or distortions in the image, like tiny dents, bumps, or waves
-#: ../Pinta.Effects/Effects/DentsEffect.cs:49
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:49
 msgid "Dents"
 msgstr "Vrypy"
 
-#: ../Pinta.Core/Actions/EditActions.cs:384
+#: ../Bruskel.Core/Actions/EditActions.cs:384
 msgid "Deselect"
 msgstr "Zrušit výběr"
 
-#: ../Pinta.Core/Actions/EditActions.cs:164
+#: ../Bruskel.Core/Actions/EditActions.cs:164
 msgid "Deselect All"
 msgstr "Zrušit výběr všeho"
 
-#: ../Pinta/Dialogs/ErrorDialog.cs:66
+#: ../Bruskel/Dialogs/ErrorDialog.cs:66
 msgid "Details"
 msgstr "Podrobnosti"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:36
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:36
 msgid "Difference"
 msgstr "Rozdíl"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:130
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:130
 msgid "Diffusion"
 msgstr "Difúze"
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:128
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:150
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:128
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:150
 msgid "Distance"
 msgstr "Vzdálenost"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:153
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:184
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:153
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:184
 msgid "Distance Metric"
 msgstr "Vzdálenostní Metrika"
 
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:27
-#: ../Pinta.Effects/Effects/DentsEffect.cs:52
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:27
-#: ../Pinta.Effects/Effects/PixelateEffect.cs:29
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:32
-#: ../Pinta.Effects/Effects/TileEffect.cs:34
-#: ../Pinta.Effects/Effects/TwistEffect.cs:33
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:27
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:52
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:27
+#: ../Bruskel.Effects/Effects/PixelateEffect.cs:29
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:32
+#: ../Bruskel.Effects/Effects/TileEffect.cs:34
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:33
 msgid "Distort"
 msgstr "Pokřivit"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:14
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:14
 msgid "Dithering"
 msgstr "Dithering"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:216
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:216
 msgid "Do not switch tool"
 msgstr "Nepřepínat nástroj"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:4
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:4
 msgid "Download size"
 msgstr "Velikost ke stažení"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:75
-#: ../Pinta.Core/Actions/LayerActions.cs:369
+#: ../Bruskel.Core/Actions/LayerActions.cs:75
+#: ../Bruskel.Core/Actions/LayerActions.cs:369
 msgid "Duplicate Layer"
 msgstr "Duplikovat vrstvu"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:2
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:69
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:2
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:69
 msgid "Easily create and edit images"
 msgstr "Snadné vytváření a úprava obrázků"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:162
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:99
-#: ../Pinta.Effects/Effects/TileEffect.cs:237
-#: ../Pinta.Effects/Effects/TwistEffect.cs:232 Polar Inversion dialog
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:162
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:99
+#: ../Bruskel.Effects/Effects/TileEffect.cs:237
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:232 Polar Inversion dialog
 msgid "Edge Behavior"
 msgstr "Chování hran"
 
-#: ../Pinta.Effects/Effects/EdgeDetectEffect.cs:26
+#: ../Bruskel.Effects/Effects/EdgeDetectEffect.cs:26
 msgid "Edge Detect"
 msgstr "Detekce hran"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:101
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:101
 msgid "Edit"
 msgstr "Upravit"
 
-#: ../Pinta/MainWindow.cs:395
+#: ../Bruskel/MainWindow.cs:395
 msgid "Effe_cts"
 msgstr "Efe_kty"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:105
-#: ../Pinta/MainWindow.cs:455
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:105
+#: ../Bruskel/MainWindow.cs:455
 msgid "Effects"
 msgstr "Efekty"
 
 #. Translators: Gradient that starts out white, like the the inner part of a spark, and goes through progressively dark shades of blue until it reaches black, and finally transparent, blending with the background
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:43
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:43
 msgid "Electric"
 msgstr "Elektrický Přechod"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:276
-#: ../Pinta.Tools/Editable/EditEngines/EllipseEditEngine.cs:36
-#: ../Pinta.Tools/Tools/EllipseTool.cs:43
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:276
+#: ../Bruskel.Tools/Editable/EditEngines/EllipseEditEngine.cs:36
+#: ../Bruskel.Tools/Tools/EllipseTool.cs:43
 msgid "Ellipse"
 msgstr "Elipsa"
 
-#: ../Pinta.Tools/Tools/EllipseSelectTool.cs:39
+#: ../Bruskel.Tools/Tools/EllipseSelectTool.cs:39
 msgid "Ellipse Select"
 msgstr "Elipsový výběr"
 
-#: ../Pinta.Effects/Effects/EmbossEffect.cs:26
+#: ../Bruskel.Effects/Effects/EmbossEffect.cs:26
 msgid "Emboss"
 msgstr "Otisk"
 
-#: ../Pinta/Main.cs:71
+#: ../Bruskel/Main.cs:71
 msgid "Enable additional logging or behavior changes for debugging"
 msgstr "Zapnout přídavné záznamy nebo změny chování pro ladění"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:15
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:15
 msgid ""
 "Enables a \"marching ants\" effect to improve the selection's visibility. "
 "Disable to reduce CPU usage."
@@ -829,370 +829,370 @@ msgstr ""
 "Zapne efekt \"pochodujících mravenců\" pro zlepšení viditelnosti vybrání. "
 "Vypněte pro redukci využití CPU."
 
-#: ../Pinta.Core/Actions/EditActions.cs:129
-#: ../Pinta.Core/Actions/EditActions.cs:370
+#: ../Bruskel.Core/Actions/EditActions.cs:129
+#: ../Bruskel.Core/Actions/EditActions.cs:370
 msgid "Erase Selection"
 msgstr "Smazat výběr"
 
-#: ../Pinta.Tools/Tools/EraserTool.cs:62
+#: ../Bruskel.Tools/Tools/EraserTool.cs:62
 msgid "Eraser"
 msgstr "Guma"
 
-#: ../Pinta.Core/ImageFormats/OraFormat.cs:126
+#: ../Bruskel.Core/ImageFormats/OraFormat.cs:126
 msgid "Error"
 msgstr "Chyba"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:168
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:168
 msgid "Error Diffusion Method"
 msgstr "Metoda Rozdělení Chyby"
 
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:46
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:46
 msgid "Exclude (-) (Right Click)"
 msgstr "Vyloučit (-) (Pravé Kliknutí)"
 
 #. Translators: This refers to expanding the canvas size when pasting a larger image.
-#: ../Pinta/Actions/Edit/PasteAction.cs:256
+#: ../Bruskel/Actions/Edit/PasteAction.cs:256
 msgid "Expand"
 msgstr "Rozšířit"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:294
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:294
 msgid "Extension packages"
 msgstr "Balíčky s rozšířeními"
 
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:143
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:156
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:143
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:156
 msgid "Factor"
 msgstr "Faktor"
 
-#: ../Pinta/Actions/File/NewScreenshotAction.cs:86
+#: ../Bruskel/Actions/File/NewScreenshotAction.cs:86
 msgid "Failed to access XDG Desktop Portals"
 msgstr "Neschopní přistoupit na XDG Desktop Portals"
 
-#: ../Pinta/MainWindow.cs:323
+#: ../Bruskel/MainWindow.cs:323
 msgid "Failed to initialize add-in"
 msgstr "Selhala inicializace pluginu"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:215
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:215
 msgid "Failed to load extension package"
 msgstr "Nemohli jsme načíst balíčky s rozšířeními"
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:460
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:460
 msgid "Failed to open image"
 msgstr "Obrázek se nepodařilo otevřít"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:236
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:236
 msgid "Failed to save image"
 msgstr "Obrázek se nepodařilo uložit"
 
-#: ../Pinta/Actions/File/NewScreenshotAction.cs:85
-#: ../Pinta/Actions/File/NewScreenshotAction.cs:110
+#: ../Bruskel/Actions/File/NewScreenshotAction.cs:85
+#: ../Bruskel/Actions/File/NewScreenshotAction.cs:110
 msgid "Failed to take screenshot"
 msgstr "Snímek obrazovky se nezdařil"
 
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:175
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:175
 msgid "Feather Canvas Edge"
 msgstr "Hrana Pírkového Plátna"
 
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:18
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:18
 msgid "Feather Object"
 msgstr "Pírkový Objekt"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:100
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:100
 msgid "File"
 msgstr "Soubor"
 
-#: ../Pinta.Core/Actions/HelpActions.cs:59
+#: ../Bruskel.Core/Actions/HelpActions.cs:59
 msgid "File a Bug"
 msgstr "Nahlásit chybu"
 
-#: ../Pinta/Main.cs:66
+#: ../Bruskel/Main.cs:66
 msgid "Files to open"
 msgstr "Soubory na otevření"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:407
+#: ../Bruskel.Tools/Tools/TextTool.cs:407
 msgid "Fill Background"
 msgstr "Vyplnit Pozadí"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:221
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:221
 msgid "Fill Object Background"
 msgstr "Vyplnit Objektové Pozadí"
 
-#: ../Pinta.Core/Actions/EditActions.cs:136
-#: ../Pinta.Core/Actions/EditActions.cs:322
+#: ../Bruskel.Core/Actions/EditActions.cs:136
+#: ../Bruskel.Core/Actions/EditActions.cs:322
 msgid "Fill Selection"
 msgstr "Vyplnit Výběr"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:337
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:226
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:337
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:226
 msgid "Fill Shape"
 msgstr "Vyplnit Tvar"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:327
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:219
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:327
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:219
 msgid "Fill Style"
 msgstr "Styl Výplně"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:338
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:227
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:338
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:227
 msgid "Fill and Outline Shape"
 msgstr "Vyplnit a Obtáhnout tvar"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:1117
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:1403
-#: ../Pinta.Tools/Tools/GradientTool.cs:186
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:1117
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:1403
+#: ../Bruskel.Tools/Tools/GradientTool.cs:186
 msgid "Finalized"
 msgstr "Dokončeno"
 
-#: ../Pinta.Core/HistoryItems/FinishPixelsHistoryItem.cs:41
+#: ../Bruskel.Core/HistoryItems/FinishPixelsHistoryItem.cs:41
 msgid "Finish Pixels"
 msgstr "Dokončit pixely"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:117
-#: ../Pinta.Core/Actions/ImageActions.cs:221
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:279
+#: ../Bruskel.Core/Actions/ImageActions.cs:117
+#: ../Bruskel.Core/Actions/ImageActions.cs:221
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:279
 msgid "Flatten"
 msgstr "Zploštit"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:275
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:275
 msgid "Flattening the image will merge all layers into a single layer."
 msgstr "Zploštění obrázku spojí všechny jeho vrstvy do jedné."
 
-#: ../Pinta.Core/Actions/ImageActions.cs:84
-#: ../Pinta.Core/Actions/LayerActions.cs:95
+#: ../Bruskel.Core/Actions/ImageActions.cs:84
+#: ../Bruskel.Core/Actions/LayerActions.cs:95
 msgid "Flip Horizontal"
 msgstr "Převrátit Horizontálně"
 
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:51
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:51
 msgid "Flip Image Horizontal"
 msgstr "Překlopit obrázek horizontálně"
 
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:55
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:55
 msgid "Flip Image Vertical"
 msgstr "Překlopit obrázek vertikálně"
 
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:76
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:76
 msgid "Flip Layer Horizontal"
 msgstr "Překlopit vrstvu horizontálně"
 
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:80
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:80
 msgid "Flip Layer Vertical"
 msgstr "Překlopit vrstvu vertikálně"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:90
-#: ../Pinta.Core/Actions/LayerActions.cs:102
+#: ../Bruskel.Core/Actions/ImageActions.cs:90
+#: ../Bruskel.Core/Actions/LayerActions.cs:102
 msgid "Flip Vertical"
 msgstr "Převrátit Vertikálně"
 
-#: ../Pinta.Tools/Tools/FloodTool.cs:121
+#: ../Bruskel.Tools/Tools/FloodTool.cs:121
 msgid "Flood Mode"
 msgstr "Záplavový režim"
 
 #. Translators: Image dithering matrix named after Robert W. Floyd and Louis Steinberg
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:40
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:40
 msgid "Floyd-Steinberg"
 msgstr "Dithering dle Floyd-Steinberg"
 
 #. Translators: Image dithering matrix named after Robert W. Floyd and Louis Steinberg. Some software may use it and call it Floyd-Steinberg, but it's not the actual Floyd-Steinberg matrix
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:44
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:44
 msgid "Floyd-Steinberg Lite"
 msgstr "Dithering dle Floyd-Steinberg Lite"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:149
+#: ../Bruskel.Tools/Tools/TextTool.cs:149
 msgid "Font"
 msgstr "Písmo"
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:27
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:27
 msgid "Fragment"
 msgstr "Úlomek"
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:124
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:124
 msgid "Fragments"
 msgstr "Úlomky"
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:220
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:220
 msgid "Freeform"
 msgstr "Volný Výběr"
 
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:48
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:48
 msgid "Freeform Shape"
 msgstr "Volný Tvar"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:23
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:23
 msgid "Frosted Glass"
 msgstr "Omrzlé sklo"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:152
+#: ../Bruskel.Core/Actions/ViewActions.cs:152
 msgid "Fullscreen"
 msgstr "Celá obrazovka"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:103
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:103
 msgid "Gallery"
 msgstr "Galerie"
 
-#: ../Pinta.Effects/Effects/GaussianBlurEffect.cs:24
+#: ../Bruskel.Effects/Effects/GaussianBlurEffect.cs:24
 msgid "Gaussian Blur"
 msgstr "Gaussovo rozmazání"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:1
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:1
 msgid "General"
 msgstr "Hlavní"
 
-#: ../Pinta.Tools/Tools/FloodTool.cs:132
+#: ../Bruskel.Tools/Tools/FloodTool.cs:132
 msgid "Global"
 msgstr "Globální"
 
-#: ../Pinta.Effects/Effects/GlowEffect.cs:26
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:26
 msgid "Glow"
 msgstr "Záře"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:60
-#: ../Pinta.Tools/Tools/GradientTool.cs:288
+#: ../Bruskel.Tools/Tools/GradientTool.cs:60
+#: ../Bruskel.Tools/Tools/GradientTool.cs:288
 msgid "Gradient"
 msgstr "Přechod"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:127
+#: ../Bruskel.Tools/Tools/GradientTool.cs:127
 msgid "Gradient Created"
 msgstr "Přechod Vytvořen"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:128
+#: ../Bruskel.Tools/Tools/GradientTool.cs:128
 msgid "Gradient Modified"
 msgstr "Přechod Upraven"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:90
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:117
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:63
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:369
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:90
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:117
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:63
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:369
 msgid "Green"
 msgstr "Zelená"
 
-#: ../Pinta.Tools/Brushes/GridBrush.cs:36
+#: ../Bruskel.Tools/Brushes/GridBrush.cs:36
 msgid "Grid"
 msgstr "Mřížka"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:41
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:41
 msgid "Hard Light"
 msgstr "Tvrdé světlo"
 
 #. Translators: 'Heavy' (900) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:314
+#: ../Bruskel.Tools/Tools/TextTool.cs:314
 msgid "Heavy"
 msgstr "Těžké"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:18
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:18
 msgid "Height"
 msgstr ""
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:99
-#: ../Pinta/Dialogs/NewImageDialog.cs:348
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:87
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:126
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:99
+#: ../Bruskel/Dialogs/NewImageDialog.cs:348
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:87
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:126
 msgid "Height:"
 msgstr "Výška:"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:107
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:107
 msgid "Help"
 msgstr "Pomoc"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:304
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:304
 msgid "Hex"
 msgstr "Hexadecimální"
 
-#: ../Pinta.Gui.Widgets/Widgets/Layers/LayersListViewItemWidget.cs:99
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:113
+#: ../Bruskel.Gui.Widgets/Widgets/Layers/LayersListViewItemWidget.cs:99
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:113
 msgid "Hide Layer"
 msgstr "Skrýt vrstvu"
 
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:58
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:58
 msgid "Hint: For best results, first use selection tools to select each eye."
 msgstr ""
 "Rada: Pro lepší vysledky nejprve použijte výběrové nástroje k označení "
 "každého oka."
 
-#: ../Pinta/Pads/HistoryPad.cs:49
+#: ../Bruskel/Pads/HistoryPad.cs:49
 msgid "History"
 msgstr "Historie"
 
 #. Translators: Horizontal color sorting with blue (B) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:237
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:237
 msgid "Horizontal blue (B)"
 msgstr "Horizontální modrá (B)"
 
 #. Translators: Horizontal color sorting with green (G) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:240
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:240
 msgid "Horizontal green (G)"
 msgstr "Horizontální zelená (G)"
 
 #. Translators: Horizontal color sorting with red (R) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:243
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:243
 msgid "Horizontal red (R)"
 msgstr "Horizontální červená (R)"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:45
-#: ../Pinta.Effects/Adjustments/HueSaturationEffect.cs:61
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:364
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:45
+#: ../Bruskel.Effects/Adjustments/HueSaturationEffect.cs:61
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:364
 msgid "Hue"
 msgstr "Odstín"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:210
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:210
 msgid "Hue & Sat"
 msgstr "Odstín a Sytost"
 
-#: ../Pinta.Effects/Adjustments/HueSaturationEffect.cs:23
+#: ../Bruskel.Effects/Adjustments/HueSaturationEffect.cs:23
 msgid "Hue / Saturation"
 msgstr "Odstín / Sytost"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:228
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:228
 msgid "ICO files can not be larger than 256 x 256 pixels."
 msgstr "ICO soubory nemohou být větší než 256 x 256 pixelů."
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:195
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:195
 msgid "If enabled, the Value component is applied to the color wheel."
 msgstr "Pokud zapnuta tak se hodnota aplikuje na výběr barev."
 
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:75
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:75
 msgid "If you don't save, all changes will be permanently lost."
 msgstr "Pokud je neuložíte, veškeré změny budou navždy ztraceny."
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:254
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:103
-#: ../Pinta/MainWindow.cs:465
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:254
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:103
+#: ../Bruskel/MainWindow.cs:465
 msgid "Image"
 msgstr "Obrázek"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:3
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:3
 msgid "Image Editor"
 msgstr "Editor obrázků"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:110
+#: ../Bruskel.Core/Actions/ViewActions.cs:110
 msgid "Image Tabs"
 msgstr "Panely obrázků"
 
-#: ../Pinta/Actions/Edit/PasteAction.cs:236
+#: ../Bruskel/Actions/Edit/PasteAction.cs:236
 msgid "Image cannot be pasted"
 msgstr "Nelze vložit obrázek"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:213
-#: ../Pinta/Actions/File/OpenDocumentAction.cs:111
+#: ../Bruskel.Core/Actions/LayerActions.cs:213
+#: ../Bruskel/Actions/File/OpenDocumentAction.cs:111
 msgid "Image files"
 msgstr "Soubory obrázků"
 
-#: ../Pinta/Actions/Edit/PasteAction.cs:243
+#: ../Bruskel/Actions/Edit/PasteAction.cs:243
 msgid "Image larger than canvas"
 msgstr "Obrázek větší než plátno"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:227
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:227
 msgid "Image too large"
 msgstr "Obrázek je příliš velký"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:260
+#: ../Bruskel.Core/Actions/LayerActions.cs:260
 msgid "Import From File"
 msgstr "Vložit ze souboru"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:89
+#: ../Bruskel.Core/Actions/LayerActions.cs:89
 msgid "Import from File..."
 msgstr "Vložit ze souboru..."
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:57
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:57
 msgid ""
 "In Freeform mode, click and drag to draw the outline for a selection area.\n"
 "\n"
@@ -1206,139 +1206,139 @@ msgstr ""
 "Zmáčkněte Enter pro dokončení výběru.\n"
 "Zmáčkněte Backspace pro smazání posledního bodu."
 
-#: ../Pinta.Core/Actions/ViewActions.cs:214
+#: ../Bruskel.Core/Actions/ViewActions.cs:214
 msgid "Inches"
 msgstr "Palce"
 
-#: ../Pinta.Effects/Effects/InkSketchEffect.cs:146
+#: ../Bruskel.Effects/Effects/InkSketchEffect.cs:146
 msgid "Ink Outline"
 msgstr "Obtažení iknoustem"
 
-#: ../Pinta.Effects/Effects/InkSketchEffect.cs:35
+#: ../Bruskel.Effects/Effects/InkSketchEffect.cs:35
 msgid "Ink Sketch"
 msgstr "Inkoustový náčrt"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:286
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:286
 msgid "Input"
 msgstr "Vstup"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:285
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:285
 msgid "Input Histogram"
 msgstr "Vstupní histogram"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:129
-#: ../Pinta.Gui.Addins/InstallDialog.cs:263
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:129
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:263
 msgid "Install"
 msgstr "Instalovat"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:268
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:268
 msgid "Install Extension Package"
 msgstr "Nainstalovat balíček s rozšířeními"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:127
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:127
 msgid "Install from file..."
 msgstr "Instalovat ze souboru..."
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:6
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:6
 msgid "Install..."
 msgstr "Instalovat..."
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:104
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:104
 msgid "Installed"
 msgstr "Nainstalováno"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:167
-#: ../Pinta.Effects/Effects/OutlineEdgeEffect.cs:137
-#: ../Pinta.Effects/Effects/TileEffect.cs:230
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:167
+#: ../Bruskel.Effects/Effects/OutlineEdgeEffect.cs:137
+#: ../Bruskel.Effects/Effects/TileEffect.cs:230
 msgid "Intensity"
 msgstr "Intenzita"
 
 #. Translators: {0} is 'Alt', or a platform-specific key such as 'Option' on macOS.
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:50
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:50
 #, csharp-format
 msgid "Intersect ({0} + Left Click)"
 msgstr "Průnik ({0} + Levé Kliknutí)"
 
-#: ../Pinta.Effects/Adjustments/InvertColorsEffect.cs:29
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:185
+#: ../Bruskel.Effects/Adjustments/InvertColorsEffect.cs:29
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:185
 msgid "Invert Colors"
 msgstr "Invertovat barvy"
 
-#: ../Pinta.Core/Actions/EditActions.cs:143
-#: ../Pinta.Core/Actions/EditActions.cs:641
+#: ../Bruskel.Core/Actions/EditActions.cs:143
+#: ../Bruskel.Core/Actions/EditActions.cs:641
 msgid "Invert Selection"
 msgstr "Obrátit výběr"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:334
+#: ../Bruskel.Tools/Tools/TextTool.cs:334
 msgid "Italic"
 msgstr "Kurzíva"
 
-#: ../Pinta/Dialogs/JpegCompressionDialog.cs:48
+#: ../Bruskel/Dialogs/JpegCompressionDialog.cs:48
 msgid "JPEG Quality"
 msgstr "Kvalita JPEG"
 
 #. Translators: Image dithering matrix named after J. F. Jarvis, C. N. Judice, and W. H. Ninke
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:36
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:36
 msgid "Jarvis-Judice-Ninke"
 msgstr "Dithering dle Jarvis-Judice-Ninke"
 
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:26
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:26
 msgid "Julia Fractal"
 msgstr "Juliin fraktál"
 
-#: ../Pinta.Core/Actions/AppActions.cs:55
+#: ../Bruskel.Core/Actions/AppActions.cs:55
 msgid "Keyboard Shortcuts"
 msgstr "Zkratky Klávesnice"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:315
+#: ../Bruskel/Dialogs/NewImageDialog.cs:315
 msgid "Landscape"
 msgstr "Na šířku"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:3
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:3
 msgid "Language"
 msgstr "Jazyk"
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:213
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:213
 msgid "Lasso Mode"
 msgstr "Mód Lasa"
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:55
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:55
 msgid "Lasso Select"
 msgstr "Výběr lasem"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:253
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:253
 msgid "Layer"
 msgstr "Vrstva"
 
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:101
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:101
 msgid "Layer Opacity"
 msgstr "Průhlednost vrstvy"
 
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:119
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:119
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:119
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:119
 msgid "Layer Properties"
 msgstr "Vlastnosti vrstvy"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:127
+#: ../Bruskel.Core/Actions/LayerActions.cs:127
 msgid "Layer Properties..."
 msgstr "Vlastnosti Vrstvy..."
 
 #. Translators: {0} is a unique id for new layers, e.g. "Layer 2".
-#: ../Pinta.Core/Classes/DocumentLayers.cs:131
+#: ../Bruskel.Core/Classes/DocumentLayers.cs:131
 #, csharp-format
 msgid "Layer {0}"
 msgstr "Vrstva {0}"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:97
-#: ../Pinta/Pads/LayersPad.cs:49
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:97
+#: ../Bruskel/Pads/LayersPad.cs:49
 msgid "Layers"
 msgstr "Vrstvy"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:360
+#: ../Bruskel.Tools/Tools/TextTool.cs:360
 msgid "Left Align"
 msgstr "Zarovnat doleva"
 
-#: ../Pinta.Tools/Tools/MoveSelectedTool.cs:49
+#: ../Bruskel.Tools/Tools/MoveSelectedTool.cs:49
 #, csharp-format
 msgid ""
 "Left click and drag the selection to move selected content.\n"
@@ -1353,7 +1353,7 @@ msgstr ""
 "Držte Shift pro rotaci po částech.\n"
 "Použijte šipky pro posouvání po jednotlivých pixelech."
 
-#: ../Pinta.Tools/Tools/MoveSelectionTool.cs:50
+#: ../Bruskel.Tools/Tools/MoveSelectionTool.cs:50
 #, csharp-format
 msgid ""
 "Left click and drag the selection to move selection outline.\n"
@@ -1369,7 +1369,7 @@ msgstr ""
 "Použijte šipky pro posouvání obrysu po jednotlivých pixelech."
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Tools/Tools/ShapeTool.cs:50
+#: ../Bruskel.Tools/Tools/ShapeTool.cs:50
 #, csharp-format
 msgid ""
 "Left click to draw a shape with the primary color.\n"
@@ -1403,7 +1403,7 @@ msgstr ""
 "tvaru na jeho pozici.\n"
 "Zmáčkněte Enter pro dokončení tvaru."
 
-#: ../Pinta.Tools/Tools/PencilTool.cs:51
+#: ../Bruskel.Tools/Tools/PencilTool.cs:51
 msgid ""
 "Left click to draw freeform one-pixel wide lines with the primary color.\n"
 "Right click to use the secondary color."
@@ -1412,19 +1412,19 @@ msgstr ""
 "primární barvou.\n"
 "Pravé kliknutí pro použití sekundární barvy."
 
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:50
-#: ../Pinta.Tools/Tools/PaintBrushTool.cs:82
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:50
+#: ../Bruskel.Tools/Tools/PaintBrushTool.cs:82
 msgid ""
 "Left click to draw with primary color, right click to draw with secondary "
 "color."
 msgstr "Levý klik kreslí primární barvou, pravý klik kreslí sekundární barvou."
 
-#: ../Pinta.Tools/Tools/EraserTool.cs:68
+#: ../Bruskel.Tools/Tools/EraserTool.cs:68
 msgid ""
 "Left click to erase to transparent, right click to erase to secondary color. "
 msgstr "Levým kliknutím mažete do průhledna, pravým do sekundární barvy. "
 
-#: ../Pinta.Tools/Tools/PaintBucketTool.cs:47
+#: ../Bruskel.Tools/Tools/PaintBucketTool.cs:47
 msgid ""
 "Left click to fill a region with the primary color, right click to fill with "
 "the secondary color.\n"
@@ -1434,14 +1434,14 @@ msgstr ""
 "sekundární barvou.\n"
 "Držte shift pro globální mód."
 
-#: ../Pinta.Tools/Tools/TextTool.cs:95
+#: ../Bruskel.Tools/Tools/TextTool.cs:95
 msgid ""
 "Left click to place cursor, then type desired text. Text color is primary "
 "color."
 msgstr ""
 "Levý klik umístí kurzor, pak můžete psát text. Primární barva je barva textu."
 
-#: ../Pinta.Tools/Tools/RecolorTool.cs:58
+#: ../Bruskel.Tools/Tools/RecolorTool.cs:58
 msgid ""
 "Left click to replace the secondary color with the primary color.\n"
 "Right click to reverse."
@@ -1449,7 +1449,7 @@ msgstr ""
 "Levé kliknutí na záměnu sekundární barvy za primární.\n"
 "Pravé kliknutí opačně."
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:59
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:59
 msgid ""
 "Left click to set primary color.\n"
 "Right click to set secondary color."
@@ -1457,14 +1457,14 @@ msgstr ""
 "Levé kliknutí na nastavení primární barvy.\n"
 "Pravé kliknutí na nastavení sekundární barvy."
 
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:339
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:339
 msgid "Left click to set primary color. Right click to set secondary color."
 msgstr ""
 "Levý kliknutí na nastaví primární barvu, pravé kliknutí nastaví sekundární "
 "barvu."
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:331
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:331
 #, csharp-format
 msgid ""
 "Left click to set primary color. Right click to set secondary color. Middle "
@@ -1474,7 +1474,7 @@ msgstr ""
 "barvu. Prostřední kliknutí nebo {0} a levé kliknutí na vybírání z palety "
 "barev."
 
-#: ../Pinta.Tools/Tools/ZoomTool.cs:59
+#: ../Bruskel.Tools/Tools/ZoomTool.cs:59
 msgid ""
 "Left click to zoom in.\n"
 "Right click to zoom out.\n"
@@ -1484,1180 +1484,1180 @@ msgstr ""
 "Pravé kliknutí na oddálení.\n"
 "Kliknutí a posouvání na přiblížení k výběru."
 
-#: ../Pinta.Tools/Editable/EditEngines/ArrowedEditEngine.cs:331
+#: ../Bruskel.Tools/Editable/EditEngines/ArrowedEditEngine.cs:331
 msgid "Length"
 msgstr "Délka"
 
-#: ../Pinta.Effects/Adjustments/LevelsEffect.cs:23
+#: ../Bruskel.Effects/Adjustments/LevelsEffect.cs:23
 msgid "Levels"
 msgstr "Úrovně"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:263
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:263
 msgid "Levels Adjustment"
 msgstr "Přizpůsobení úrovně"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:90
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:90
 msgid "License"
 msgstr "Licence"
 
 #. Translators: This refers to using a light variant of the color scheme.
 #. Translators: 'Light' (300) refers to the font-weight text property
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:8
-#: ../Pinta.Tools/Tools/TextTool.cs:266
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:8
+#: ../Bruskel.Tools/Tools/TextTool.cs:266
 msgid "Light"
 msgstr "Světlé"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:37
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:37
 msgid "Lighten"
 msgstr "Zesvětlit"
 
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:129
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:129
 msgid "Lighting"
 msgstr "Nasvícení"
 
-#: ../Pinta.Effects/Adjustments/HueSaturationEffect.cs:67
+#: ../Bruskel.Effects/Adjustments/HueSaturationEffect.cs:67
 msgid "Lightness"
 msgstr "Světlost"
 
 #. Translators: Gradient with a citrusy vibe that starts out white, goes through light yellow, several shades of green, and then transparent, blending with the background
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:47
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:47
 msgid "Lime Lemon"
 msgstr "Citrusový Přechod"
 
-#: ../Pinta.Tools/Tools/LineCurveTool.cs:42
+#: ../Bruskel.Tools/Tools/LineCurveTool.cs:42
 msgid "Line/Curve"
 msgstr "Čára/Křivka"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:296
+#: ../Bruskel.Tools/Tools/GradientTool.cs:296
 msgid "Linear Diamond Gradient"
 msgstr "Lineární kosočtvercový přechod"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:294
+#: ../Bruskel.Tools/Tools/GradientTool.cs:294
 msgid "Linear Gradient"
 msgstr "Lineární přechod"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:295
+#: ../Bruskel.Tools/Tools/GradientTool.cs:295
 msgid "Linear Reflected Gradient"
 msgstr "Lineární odražeý přechod"
 
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:92
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:92
 msgid "Linked"
 msgstr "Spojený"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:44
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:174
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:44
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:174
 msgid "Luminosity"
 msgstr "Světlost"
 
-#: ../Pinta.Tools/Tools/MagicWandTool.cs:54
+#: ../Bruskel.Tools/Tools/MagicWandTool.cs:54
 msgid "Magic Wand Select"
 msgstr "Výběr kouzelnou hůlkou"
 
-#: ../Pinta/MainWindow.cs:450
+#: ../Bruskel/MainWindow.cs:450
 msgid "Main Menu"
 msgstr "Hlavní Nabídka"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:112
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:75
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:112
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:75
 msgid "Maintain aspect ratio"
 msgstr "Zachovat poměr stran"
 
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:26
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:26
 msgid "Mandelbrot Fractal"
 msgstr "Mandelbrotův fraktál"
 
 #. Translators: Gradient with bright, high-energy, and otherworldly tones of blue, purple, and yellow, along with a dark red that gives off the appearance of burning
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:51
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:51
 msgid "Martian Lava"
 msgstr "Lávový Přechod"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:122
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:122
 msgid "Maximum Scatter Radius"
 msgstr "Maximální Rádius Rozptýlení"
 
-#: ../Pinta.Tools/Brushes/SplatterBrush.cs:65
+#: ../Bruskel.Tools/Brushes/SplatterBrush.cs:65
 msgid "Maximum Size"
 msgstr "Maximální Velikost"
 
-#: ../Pinta.Effects/Effects/MedianEffect.cs:23
+#: ../Bruskel.Effects/Effects/MedianEffect.cs:23
 msgid "Median"
 msgstr "Medián"
 
 #. Translators: 'Medium' (500) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:290
+#: ../Bruskel.Tools/Tools/TextTool.cs:290
 msgid "Medium"
 msgstr "Střední"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:82
-#: ../Pinta.Core/Actions/LayerActions.cs:335
+#: ../Bruskel.Core/Actions/LayerActions.cs:82
+#: ../Bruskel.Core/Actions/LayerActions.cs:335
 msgid "Merge Layer Down"
 msgstr "Spojit vrstvy"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:126
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:126
 msgid "Minimum Scatter Radius"
 msgstr "Minimální Rádius Rozptýlení"
 
-#: ../Pinta.Tools/Brushes/SplatterBrush.cs:56
+#: ../Bruskel.Tools/Brushes/SplatterBrush.cs:56
 msgid "Minimum Size"
 msgstr "Minimální Velikost"
 
 #. Translators: 'Miter Join' refers to the Cairo.LineJoin property
-#: ../Pinta.Tools/Tools/TextTool.cs:446
+#: ../Bruskel.Tools/Tools/TextTool.cs:446
 msgid "Miter Join"
 msgstr "Úhlové Spojení(Miter Join)"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:322
+#: ../Bruskel.Tools/Tools/GradientTool.cs:322
 msgid "Mode"
 msgstr "Režim"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:934
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:934
 msgid "Modified"
 msgstr "Změněno"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:8
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:8
 msgid "More Information..."
 msgstr "Více informací..."
 
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:27
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:27
 msgid "Motion Blur"
 msgstr "Rozmazání pohybem"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:121
-#: ../Pinta.Core/Actions/LayerActions.cs:316
+#: ../Bruskel.Core/Actions/LayerActions.cs:121
+#: ../Bruskel.Core/Actions/LayerActions.cs:316
 msgid "Move Layer Down"
 msgstr "Posunout vrstvu dolů"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:115
-#: ../Pinta.Core/Actions/LayerActions.cs:300
+#: ../Bruskel.Core/Actions/LayerActions.cs:115
+#: ../Bruskel.Core/Actions/LayerActions.cs:300
 msgid "Move Layer Up"
 msgstr "Posunout vrstvu nahoru"
 
-#: ../Pinta.Tools/Tools/MoveSelectedTool.cs:45
+#: ../Bruskel.Tools/Tools/MoveSelectedTool.cs:45
 msgid "Move Selected Pixels"
 msgstr "Posunout vybrané pixely"
 
-#: ../Pinta.Tools/Tools/MoveSelectionTool.cs:46
+#: ../Bruskel.Tools/Tools/MoveSelectionTool.cs:46
 msgid "Move Selection"
 msgstr "Přesunout výběr"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:32
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:32
 msgid "Multiply"
 msgstr "Násobit"
 
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:61
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:61
 msgid "Name:"
 msgstr "Název:"
 
-#: ../Pinta.Core/Enumerations/ResamplingMode.cs:23
+#: ../Bruskel.Core/Enumerations/ResamplingMode.cs:23
 msgid "Nearest Neighbor"
 msgstr "Nejbližší soused"
 
-#: ../Pinta.Core/Actions/FileActions.cs:63
+#: ../Bruskel.Core/Actions/FileActions.cs:63
 msgid "New"
 msgstr "Nový"
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:139
-#: ../Pinta/Dialogs/NewImageDialog.cs:194
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:139
+#: ../Bruskel/Dialogs/NewImageDialog.cs:194
 msgid "New Image"
 msgstr "Nový obrázek"
 
-#: ../Pinta.Core/Actions/FileActions.cs:67
+#: ../Bruskel.Core/Actions/FileActions.cs:67
 msgid "New Screenshot..."
 msgstr "Nový Snímek obrazovky..."
 
-#: ../Pinta/Actions/Edit/ResizePaletteAction.cs:71
+#: ../Bruskel/Actions/Edit/ResizePaletteAction.cs:71
 msgid "New palette size:"
 msgstr "Nová velikost palety:"
 
-#: ../Pinta.Core/Actions/FileActions.cs:59
+#: ../Bruskel.Core/Actions/FileActions.cs:59
 msgid "New..."
 msgstr "Nový..."
 
-#: ../Pinta.Gui.Addins/AddinListView.cs:60
+#: ../Bruskel.Gui.Addins/AddinListView.cs:60
 msgid "No Items Found"
 msgstr "Žádné předměty nenalezeny"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:28
-#: ../Pinta.Effects/Effects/MedianEffect.cs:27
-#: ../Pinta.Effects/Effects/ReduceNoiseEffect.cs:32
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:28
+#: ../Bruskel.Effects/Effects/MedianEffect.cs:27
+#: ../Bruskel.Effects/Effects/ReduceNoiseEffect.cs:32
 msgid "Noise"
 msgstr "Šum"
 
 #. Translators: 'Normal' refers to the font-variant text property
 #. Translators: 'Normal' (400) refers to the font-weight text property
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:31
-#: ../Pinta.Tools/Brushes/PlainBrush.cs:41
-#: ../Pinta.Tools/Tools/EraserTool.cs:336 ../Pinta.Tools/Tools/TextTool.cs:182
-#: ../Pinta.Tools/Tools/TextTool.cs:284 ../Pinta.Tools/Tools/TextTool.cs:404
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:31
+#: ../Bruskel.Tools/Brushes/PlainBrush.cs:41
+#: ../Bruskel.Tools/Tools/EraserTool.cs:336 ../Bruskel.Tools/Tools/TextTool.cs:182
+#: ../Bruskel.Tools/Tools/TextTool.cs:284 ../Bruskel.Tools/Tools/TextTool.cs:404
 msgid "Normal"
 msgstr "Normální"
 
-#: ../Pinta.Core/Classes/BaseTool.cs:341
+#: ../Bruskel.Core/Classes/BaseTool.cs:341
 msgid "Normal Blending"
 msgstr "Normální míchání"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:97
+#: ../Bruskel.Core/Actions/ViewActions.cs:97
 msgid "Normal Size"
 msgstr "Normální velikost"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:405
+#: ../Bruskel.Tools/Tools/TextTool.cs:405
 msgid "Normal and Outline"
 msgstr "Normální a ohraničený"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:172
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:187
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:172
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:187
 msgid "Number of Cells"
 msgstr "Počet Buněk"
 
-#: ../Pinta/Main.cs:60
+#: ../Bruskel/Main.cs:60
 msgid "Number of threads to use for rendering"
 msgstr "Počet vláken použito při vykreslování"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:493
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:493
 msgid "OK"
 msgstr "Dobře"
 
-#: ../Pinta.Effects/Effects/AlignObjectEffect.cs:14
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:22
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:22
+#: ../Bruskel.Effects/Effects/AlignObjectEffect.cs:14
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:22
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:22
 msgid "Object"
 msgstr "Objekt"
 
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:120
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:139
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:133
-#: ../Pinta.Effects/Effects/ZoomBlurEffect.cs:140
-#: ../Pinta/Dialogs/OffsetSelectionDialog.cs:60
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:120
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:139
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:133
+#: ../Bruskel.Effects/Effects/ZoomBlurEffect.cs:140
+#: ../Bruskel/Dialogs/OffsetSelectionDialog.cs:60
 msgid "Offset"
 msgstr "Odstup"
 
-#: ../Pinta.Core/Actions/EditActions.cs:150
-#: ../Pinta/Actions/Edit/OffsetSelectionAction.cs:79
-#: ../Pinta/Dialogs/OffsetSelectionDialog.cs:52
+#: ../Bruskel.Core/Actions/EditActions.cs:150
+#: ../Bruskel/Actions/Edit/OffsetSelectionAction.cs:79
+#: ../Bruskel/Dialogs/OffsetSelectionDialog.cs:52
 msgid "Offset Selection"
 msgstr "Výběr Odstupu"
 
-#: ../Pinta.Effects/Effects/OilPaintingEffect.cs:26
+#: ../Bruskel.Effects/Effects/OilPaintingEffect.cs:26
 msgid "Oil Painting"
 msgstr "Olejomalba"
 
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:85
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:85
 msgid "Opacity:"
 msgstr "Průhlednost:"
 
-#: ../Pinta.Core/Actions/FileActions.cs:77
+#: ../Bruskel.Core/Actions/FileActions.cs:77
 msgid "Open"
 msgstr "Otevřít"
 
-#: ../Pinta.Tools/Editable/EditEngines/LineCurveEditEngine.cs:37
+#: ../Bruskel.Tools/Editable/EditEngines/LineCurveEditEngine.cs:37
 msgid "Open Curve Shape"
 msgstr "Tvar otevřené křivky"
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:351
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:351
 msgid "Open Image"
 msgstr "Otevřít obrázek"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:231
-#: ../Pinta/Actions/File/OpenDocumentAction.cs:73
+#: ../Bruskel.Core/Actions/LayerActions.cs:231
+#: ../Bruskel/Actions/File/OpenDocumentAction.cs:73
 msgid "Open Image File"
 msgstr "Otevřít obrázek"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:274
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:274
 msgid "Open Line/Curve Series"
 msgstr "Otevřít sadu čar/křivek"
 
-#: ../Pinta.Core/Actions/EditActions.cs:521
+#: ../Bruskel.Core/Actions/EditActions.cs:521
 msgid "Open Palette File"
 msgstr "Otevřít sobor s paletou"
 
-#: ../Pinta.Core/Actions/EditActions.cs:171
-#: ../Pinta.Core/Actions/FileActions.cs:73
+#: ../Bruskel.Core/Actions/EditActions.cs:171
+#: ../Bruskel.Core/Actions/FileActions.cs:73
 msgid "Open..."
 msgstr "Otevřít..."
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:331
+#: ../Bruskel/Dialogs/NewImageDialog.cs:331
 msgid "Orientation:"
 msgstr "Orientace:"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:25
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:25
 msgid "Original"
 msgstr "Původní"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:406
+#: ../Bruskel.Tools/Tools/TextTool.cs:406
 msgid "Outline"
 msgstr "Ohraničení"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:218
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:218
 msgid "Outline Border"
 msgstr "Okraj Ohraničení"
 
-#: ../Pinta.Effects/Effects/OutlineEdgeEffect.cs:23
+#: ../Bruskel.Effects/Effects/OutlineEdgeEffect.cs:23
 msgid "Outline Edge"
 msgstr "Hrana Ohraničení"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:18
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:18
 msgid "Outline Object"
 msgstr "Ohraničení Objektu"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:336
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:225
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:336
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:225
 msgid "Outline Shape"
 msgstr "Ohraničení Tvaru"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:353
-#: ../Pinta.Tools/Tools/TextTool.cs:420
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:353
+#: ../Bruskel.Tools/Tools/TextTool.cs:420
 msgid "Outline width"
 msgstr "Šířka Ohraničení"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:287
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:287
 msgid "Output"
 msgstr "Výstup"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:288
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:288
 msgid "Output Histogram"
 msgstr "Výstupní histogram"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:35
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:35
 msgid "Overlay"
 msgstr "Překrytí"
 
-#: ../Pinta.Core/Classes/BaseTool.cs:342
+#: ../Bruskel.Core/Classes/BaseTool.cs:342
 msgid "Overwrite"
 msgstr "Přepsat"
 
-#: ../Pinta.Tools/Tools/PaintBucketTool.cs:44
+#: ../Bruskel.Tools/Tools/PaintBucketTool.cs:44
 msgid "Paint Bucket"
 msgstr "Plechovka barvy"
 
-#: ../Pinta.Tools/Tools/PaintBrushTool.cs:80
+#: ../Bruskel.Tools/Tools/PaintBrushTool.cs:80
 msgid "Paintbrush"
 msgstr "Štětec"
 
-#: ../Pinta.Core/Actions/EditActions.cs:237
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:174
+#: ../Bruskel.Core/Actions/EditActions.cs:237
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:174
 msgid "Palette"
 msgstr "Paleta"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:171
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:171
 msgid "Palette Source"
 msgstr "Zdroj Palety"
 
-#: ../Pinta.Core/Actions/EditActions.cs:602
+#: ../Bruskel.Core/Actions/EditActions.cs:602
 msgid "Palette files"
 msgstr "Soubory Palet"
 
-#: ../Pinta.Tools/Tools/PanTool.cs:40
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:148
+#: ../Bruskel.Tools/Tools/PanTool.cs:40
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:148
 msgid "Pan"
 msgstr "Posun"
 
-#: ../Pinta.Core/Actions/EditActions.cs:107
-#: ../Pinta.Core/HistoryItems/PasteHistoryItem.cs:38
-#: ../Pinta/Actions/Edit/PasteAction.cs:118
+#: ../Bruskel.Core/Actions/EditActions.cs:107
+#: ../Bruskel.Core/HistoryItems/PasteHistoryItem.cs:38
+#: ../Bruskel/Actions/Edit/PasteAction.cs:118
 msgid "Paste"
 msgstr "Vložit"
 
-#: ../Pinta.Core/Actions/EditActions.cs:122
+#: ../Bruskel.Core/Actions/EditActions.cs:122
 msgid "Paste Into New Image"
 msgstr "Vložit do nového obrázku"
 
-#: ../Pinta.Core/Actions/EditActions.cs:114
-#: ../Pinta/Actions/Edit/PasteAction.cs:118
+#: ../Bruskel.Core/Actions/EditActions.cs:114
+#: ../Bruskel/Actions/Edit/PasteAction.cs:118
 msgid "Paste Into New Layer"
 msgstr "Vložit do nové vrstvy"
 
-#: ../Pinta.Tools/Tools/PencilTool.cs:48
+#: ../Bruskel.Tools/Tools/PencilTool.cs:48
 msgid "Pencil"
 msgstr "Tužka"
 
-#: ../Pinta.Effects/Effects/PencilSketchEffect.cs:29
+#: ../Bruskel.Effects/Effects/PencilSketchEffect.cs:29
 msgid "Pencil Sketch"
 msgstr "Náčrt tužkou"
 
-#: ../Pinta.Effects/Effects/PencilSketchEffect.cs:86
+#: ../Bruskel.Effects/Effects/PencilSketchEffect.cs:86
 msgid "Pencil Tip Size"
 msgstr "Velikost hrotu tužky"
 
-#: ../Pinta.Effects/Effects/MedianEffect.cs:63
+#: ../Bruskel.Effects/Effects/MedianEffect.cs:63
 msgid "Percentile"
 msgstr "Percentil"
 
 #. Translators: 'Petite Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:200
+#: ../Bruskel.Tools/Tools/TextTool.cs:200
 msgid "Petite Caps"
 msgstr "Hezké písmena"
 
-#: ../Pinta.Effects/Effects/GlowEffect.cs:30
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:27
-#: ../Pinta.Effects/Effects/SharpenEffect.cs:27
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:58
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:52
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:30
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:27
+#: ../Bruskel.Effects/Effects/SharpenEffect.cs:27
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:58
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:52
 msgid "Photo"
 msgstr "Fotografie"
 
 #. Translators: Arrangement of points similar to how sunflower seeds are arranged
-#: ../Pinta.Core/Algorithms/SpatialPartition.cs:174
+#: ../Bruskel.Core/Algorithms/SpatialPartition.cs:174
 msgid "Phyllotaxis"
 msgstr "Rozložení semínek"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:1
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:65 ../Pinta/Main.cs:75
-#: ../Pinta/MainWindow.cs:57
-msgid "Pinta"
-msgstr "Pinta"
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:1
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:65 ../Bruskel/Main.cs:75
+#: ../Bruskel/MainWindow.cs:57
+msgid "Bruskel"
+msgstr "Bruskel"
 
-#: ../Pinta/AddinSetupService.cs:66
-msgid "Pinta Community Addins - Cross-Platform"
-msgstr "Doplňky Pinta komunity - Nezávislé na platformě"
+#: ../Bruskel/AddinSetupService.cs:66
+msgid "Bruskel Community Addins - Cross-Platform"
+msgstr "Doplňky Bruskel komunity - Nezávislé na platformě"
 
-#: ../Pinta/AddinSetupService.cs:62
-msgid "Pinta Community Addins - Platform-Specific"
-msgstr "Doplňky Pinta komunity - Dle platformy"
+#: ../Bruskel/AddinSetupService.cs:62
+msgid "Bruskel Community Addins - Platform-Specific"
+msgstr "Doplňky Bruskel komunity - Dle platformy"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:4
-msgid "Pinta Image Editor"
-msgstr "Grafický editor Pinta"
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:4
+msgid "Bruskel Image Editor"
+msgstr "Grafický editor Bruskel"
 
-#: ../Pinta.Core/Actions/HelpActions.cs:53
-msgid "Pinta Website"
-msgstr "Stránky Pinta"
+#: ../Bruskel.Core/Actions/HelpActions.cs:53
+msgid "Bruskel Website"
+msgstr "Stránky Bruskel"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:207
-msgid "Pinta does not support saving images in this file format."
-msgstr "Pinta nepodporuje ukládání obrázků v tomto typu souborů.."
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:207
+msgid "Bruskel does not support saving images in this file format."
+msgstr "Bruskel nepodporuje ukládání obrázků v tomto typu souborů.."
 
-#: ../xdg/com.github.PintaProject.Pinta.metainfo.xml.in.h:1
+#: ../xdg/com.github.BruskelProject.Bruskel.metainfo.xml.in.h:1
 msgid ""
-"Pinta is a image editing, drawing and painting application with a simple yet "
-"powerful interface. Pinta has a wide range of drawing tools, including: "
+"Bruskel is a image editing, drawing and painting application with a simple yet "
+"powerful interface. Bruskel has a wide range of drawing tools, including: "
 "freehand, rectangles, circles and lines. It also has over 35 effects to "
 "apply to your images, and also has the ability to create unlimited layers to "
 "help organize your creativity."
 msgstr ""
-"Pinta je aplikace pro úpravu obrázků, kreslení a malování s jednoduchým, ale "
-"výkonným rozhraním. Pinta má širokou škálu nástrojů pro kreslení, včetně: "
+"Bruskel je aplikace pro úpravu obrázků, kreslení a malování s jednoduchým, ale "
+"výkonným rozhraním. Bruskel má širokou škálu nástrojů pro kreslení, včetně: "
 "volné ruky, obdélníků, kružnic a čar. Má také více než 35 efektů, které "
 "můžete použít na své obrázky, a také možnost vytvářet neomezené množství "
 "vrstev, které vám pomohou uspořádat vaši kreativitu."
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:441
-msgid "Pinta supports the following file formats:"
-msgstr "Pinta podporuje následující formáty souborů:"
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:441
+msgid "Bruskel supports the following file formats:"
+msgstr "Bruskel podporuje následující formáty souborů:"
 
-#: ../Pinta.Core/Extensions/OtherExtensions.cs:167
-msgid "Pinta supports the following palette formats:"
-msgstr "Pinta podporuje následující formáty palet:"
+#: ../Bruskel.Core/Extensions/OtherExtensions.cs:167
+msgid "Bruskel supports the following palette formats:"
+msgstr "Bruskel podporuje následující formáty palet:"
 
-#: ../Pinta.Effects/Effects/PixelateEffect.cs:23
+#: ../Bruskel.Effects/Effects/PixelateEffect.cs:23
 msgid "Pixelate"
 msgstr "Rozpixelovat"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:213
+#: ../Bruskel.Core/Actions/ViewActions.cs:213
 msgid "Pixels"
 msgstr "Pixely"
 
 #. Translators: Gradient with different shades of brownish yellow
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:55
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:55
 msgid "Piña Colada"
 msgstr "Přechod Žluto-hnědý"
 
-#: ../Pinta/Dialogs/PreferencesDialog.cs:204
-msgid "Please restart Pinta for the changes to take effect."
-msgstr "Restartujte Pinta aby se změny projevily."
+#: ../Bruskel/Dialogs/PreferencesDialog.cs:204
+msgid "Please restart Bruskel for the changes to take effect."
+msgstr "Restartujte Bruskel aby se změny projevily."
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:620
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:823
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:620
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:823
 msgid "Point Added"
 msgstr "Bod Přidán"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:156
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:201
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:156
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:201
 msgid "Point Arrangement"
 msgstr "Rozložení Bodů"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:169
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:216
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:169
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:216
 msgid "Point Color"
 msgstr "Barva Bodu"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:671
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:671
 msgid "Point Deleted"
 msgstr "Bod odstraněn"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:165
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:211
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:165
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:211
 msgid "Point Size"
 msgstr "Velikost Bodu"
 
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:26
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:26
 msgid "Polar Inversion"
 msgstr "Převrácení Pólů"
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:221
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:221
 msgid "Polygon"
 msgstr "Polygon"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:311
+#: ../Bruskel/Dialogs/NewImageDialog.cs:311
 msgid "Portrait"
 msgstr "Na výšku"
 
-#: ../Pinta.Effects/Effects/AlignObjectEffect.cs:129
+#: ../Bruskel.Effects/Effects/AlignObjectEffect.cs:129
 msgid "Position"
 msgstr "Pozice"
 
-#: ../Pinta.Effects/Adjustments/PosterizeEffect.cs:25
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:54
+#: ../Bruskel.Effects/Adjustments/PosterizeEffect.cs:25
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:54
 msgid "Posterize"
 msgstr "Posterizovat"
 
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:138
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:138
 msgid "Power"
 msgstr "Síla"
 
-#: ../Pinta.Core/Actions/AppActions.cs:49
+#: ../Bruskel.Core/Actions/AppActions.cs:49
 msgid "Preferences..."
 msgstr "Preference..."
 
 #. Translators: This refers to preserving the current canvas size when pasting a larger image.
-#: ../Pinta/Actions/Edit/PasteAction.cs:254
+#: ../Bruskel/Actions/Edit/PasteAction.cs:254
 msgid "Preserve"
 msgstr "Zachovat"
 
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:10
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:10
 msgid "Preset Gradient"
 msgstr "Přednastavený Přechod"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:156
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:156
 msgid "Preset Palettes"
 msgstr "Přednastavené Palety"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:356
+#: ../Bruskel/Dialogs/NewImageDialog.cs:356
 msgid "Preset:"
 msgstr "Předvolba:"
 
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:49
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:49
 #, csharp-format
 msgid "Press {0} to decrease brush width"
 msgstr "Pro zmenšení šířky štětce zmáčkněte {0}"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:240
+#: ../Bruskel.Tools/Tools/TextTool.cs:240
 #, csharp-format
 msgid "Press {0} to decrease font size"
 msgstr "Pro zmenšení fontu zmáčkněte {0}"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:372
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:372
 #, csharp-format
 msgid "Press {0} to decrease outline width"
 msgstr "Pro zmenšení šířky obrysu zmáčkněte {0}"
 
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:50
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:50
 #, csharp-format
 msgid "Press {0} to increase brush width"
 msgstr "Pro zvětšení šířky štětce zmáčkněte {0}"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:241
+#: ../Bruskel.Tools/Tools/TextTool.cs:241
 #, csharp-format
 msgid "Press {0} to increase font size"
 msgstr "Pro zvětšení fontu zmáčkněte {0}"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:373
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:373
 #, csharp-format
 msgid "Press {0} to increase outline width"
 msgstr "Pro zvětšení šířky obrysu zmáčkněte {0}"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:169
+#: ../Bruskel/Dialogs/NewImageDialog.cs:169
 msgid "Preview"
 msgstr "Náhled"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:16
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:16
 msgid "Primary"
 msgstr "Hlavní"
 
-#: ../Pinta.Core/Actions/FileActions.cs:102
+#: ../Bruskel.Core/Actions/FileActions.cs:102
 msgid "Print"
 msgstr "Vytisknout"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:197
-#: ../Pinta.Effects/Effects/DentsEffect.cs:155
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:147
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:160
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:92
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:142
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:220
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:197
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:155
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:147
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:160
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:92
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:142
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:220
 msgid "Quality"
 msgstr "Kvalita"
 
-#: ../Pinta/Dialogs/JpegCompressionDialog.cs:40
+#: ../Bruskel/Dialogs/JpegCompressionDialog.cs:40
 msgid "Quality: "
 msgstr "Kvalita: "
 
-#: ../Pinta.Core/Actions/AppActions.cs:60
+#: ../Bruskel.Core/Actions/AppActions.cs:60
 msgid "Quit"
 msgstr "Ukončit"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:173
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:173
 msgid "RGB"
 msgstr "RGB barvy"
 
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:23
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:23
 msgid "Radial Blur"
 msgstr "Rozmazání otáčením"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:297
+#: ../Bruskel.Tools/Tools/GradientTool.cs:297
 msgid "Radial Gradient"
 msgstr "Radiální přechod"
 
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:167
-#: ../Pinta.Effects/Effects/GaussianBlurEffect.cs:247
-#: ../Pinta.Effects/Effects/GlowEffect.cs:75
-#: ../Pinta.Effects/Effects/MedianEffect.cs:59
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:204
-#: ../Pinta.Effects/Effects/ReduceNoiseEffect.cs:84
-#: ../Pinta.Effects/Effects/UnfocusEffect.cs:88
-#: ../Pinta.Tools/Editable/EditEngines/RoundedLineEditEngine.cs:85
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:167
+#: ../Bruskel.Effects/Effects/GaussianBlurEffect.cs:247
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:75
+#: ../Bruskel.Effects/Effects/MedianEffect.cs:59
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:204
+#: ../Bruskel.Effects/Effects/ReduceNoiseEffect.cs:84
+#: ../Bruskel.Effects/Effects/UnfocusEffect.cs:88
+#: ../Bruskel.Tools/Editable/EditEngines/RoundedLineEditEngine.cs:85
 msgid "Radius"
 msgstr "Poloměr"
 
 #. Translators: This refers to how big the radius is as a percentage of the image's dimensions
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:124
-#: ../Pinta.Effects/Effects/TwistEffect.cs:221
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:137
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:124
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:221
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:137
 msgid "Radius Percentage"
 msgstr "Velikost Rádiusu v procentech"
 
-#: ../Pinta.Core/Algorithms/SpatialPartition.cs:166
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:233
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:16
+#: ../Bruskel.Core/Algorithms/SpatialPartition.cs:166
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:233
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:16
 msgid "Random"
 msgstr "Náhoda"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:187
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:152
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:162
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:178
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:187
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:152
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:162
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:178
 msgid "Random Color Scheme Seed"
 msgstr "Náhodné Semínko Barevného Schématu"
 
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:198
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:198
 msgid "Random Colors"
 msgstr "Náhodné Barvy"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:179
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:142
-#: ../Pinta.Effects/Effects/DentsEffect.cs:151
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:138
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:179
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:142
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:151
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:138
 msgid "Random Noise Seed"
 msgstr "Náhodný Šum Semínek"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:159
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:204
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:159
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:204
 msgid "Random Point Locations"
 msgstr "Náhodná Bodová Lokace"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:162
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:162
 msgid "Recently Used Colors"
 msgstr "Naposledy Použité Barvy"
 
-#: ../Pinta.Tools/Tools/RecolorTool.cs:55
+#: ../Bruskel.Tools/Tools/RecolorTool.cs:55
 msgid "Recolor"
 msgstr "Přebarvit"
 
-#: ../Pinta.Tools/Tools/RectangleTool.cs:42
+#: ../Bruskel.Tools/Tools/RectangleTool.cs:42
 msgid "Rectangle"
 msgstr "Obdélník"
 
-#: ../Pinta.Tools/Tools/RectangleSelectTool.cs:39
+#: ../Bruskel.Tools/Tools/RectangleSelectTool.cs:39
 msgid "Rectangle Select"
 msgstr "Obdélníkový výběr"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:113
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:62
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:368
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:113
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:62
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:368
 msgid "Red"
 msgstr "Červená"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:89
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:89
 msgid "Red  "
 msgstr "Červená  "
 
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:23
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:23
 msgid "Red Eye Removal"
 msgstr "Odstranění červených očí"
 
-#: ../Pinta.Core/Actions/EditActions.cs:79
+#: ../Bruskel.Core/Actions/EditActions.cs:79
 msgid "Redo"
 msgstr "Udělat znovu"
 
-#: ../Pinta.Effects/Effects/ReduceNoiseEffect.cs:26
+#: ../Bruskel.Effects/Effects/ReduceNoiseEffect.cs:26
 msgid "Reduce Noise"
 msgstr "Snížit šum"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:13
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:13
 msgid "Reflect"
 msgstr "Odraz"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:139
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:139
 msgid "Refraction"
 msgstr "Lom Světla"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:119
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:119
 msgid "Refresh"
 msgstr "Obnovit"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:91
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:91
 msgid "Released under the MIT X11 License."
 msgstr "Vydáno pod licencí MIT X11."
 
-#: ../Pinta.Effects/Effects/ReliefEffect.cs:40
+#: ../Bruskel.Effects/Effects/ReliefEffect.cs:40
 msgid "Relief"
 msgstr "Reliéf"
 
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:107
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:107
 msgid "Rename Layer"
 msgstr "Přejmenovat vrstvu"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:25
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:32
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:32
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:32
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:27
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:25
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:32
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:32
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:32
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:27
 msgid "Render"
 msgstr "Vykreslit"
 
-#: ../Pinta.Core/Managers/LivePreviewManager.cs:120
+#: ../Bruskel.Core/Managers/LivePreviewManager.cs:120
 msgid "Rendering Effect"
 msgstr "Vykreslovací efekt"
 
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:43
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:43
 msgid "Replace"
 msgstr "Nahradit"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:12
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:12
 msgid "Replaces the header bar with a separate menu bar and tool bar."
 msgstr "Zamění vrchní menu za separátní lištu nastavení a lištu nástrojů."
 
-#: ../Pinta/Dialogs/ErrorDialog.cs:71
+#: ../Bruskel/Dialogs/ErrorDialog.cs:71
 msgid "Report Bug..."
 msgstr "Nahlásit chybu..."
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:5
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:5
 msgid "Repository"
 msgstr "Repozitář"
 
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:141
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:141
 msgid "Resampling:"
 msgstr "Převzorkování:"
 
-#: ../Pinta.Gui.Widgets/Dialogs/SimpleEffectDialog.cs:645
+#: ../Bruskel.Gui.Widgets/Dialogs/SimpleEffectDialog.cs:645
 msgid "Reseed"
 msgstr "Znovu načíst"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:205
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:274
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:481
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:205
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:274
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:481
 msgid "Reset"
 msgstr "Resetovat"
 
-#: ../Pinta.Core/Actions/EditActions.cs:183
+#: ../Bruskel.Core/Actions/EditActions.cs:183
 msgid "Reset to Default"
 msgstr "Nastavit na výchozí"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:97
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:80
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:97
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:80
 msgid "Reset to image size"
 msgstr "Obnovit velikost obrázku"
 
-#: ../Pinta.Core/Classes/Document.cs:327
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:213
+#: ../Bruskel.Core/Classes/Document.cs:327
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:213
 msgid "Resize Canvas"
 msgstr "Změna velikosti plátna"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:77
+#: ../Bruskel.Core/Actions/ImageActions.cs:77
 msgid "Resize Canvas..."
 msgstr "Změna velikosti plátna..."
 
-#: ../Pinta.Core/HistoryItems/ResizeHistoryItem.cs:39
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:154
+#: ../Bruskel.Core/HistoryItems/ResizeHistoryItem.cs:39
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:154
 msgid "Resize Image"
 msgstr "Změnit velikost"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:70
+#: ../Bruskel.Core/Actions/ImageActions.cs:70
 msgid "Resize Image..."
 msgstr "Změnit velikost obrázku..."
 
-#: ../Pinta/Actions/Edit/ResizePaletteAction.cs:69
+#: ../Bruskel/Actions/Edit/ResizePaletteAction.cs:69
 msgid "Resize Palette"
 msgstr "Velikost Palety"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:191
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:156
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:166
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:182
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:191
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:156
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:166
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:182
 msgid "Reverse Color Scheme"
 msgstr "Obrátit Barevné Schéma"
 
 #. Translators: In this context, "reverse" is a verb, and the user can choose whether or not they want to reverse the color sorting
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:195
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:195
 msgid "Reverse Color Sorting"
 msgstr "Obrátit Řazení Barev"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:382
+#: ../Bruskel.Tools/Tools/TextTool.cs:382
 msgid "Right Align"
 msgstr "Zarovnat doprava"
 
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:70
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:136
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:70
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:136
 msgid "Rotate / Zoom Layer"
 msgstr "Otočit / Přiblížit vrstvu"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:109
+#: ../Bruskel.Core/Actions/LayerActions.cs:109
 msgid "Rotate / Zoom Layer..."
 msgstr "Otočit / Přiblížit vrstvu ..."
 
-#: ../Pinta.Core/Actions/ImageActions.cs:110
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:47
+#: ../Bruskel.Core/Actions/ImageActions.cs:110
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:47
 msgid "Rotate 180°"
 msgstr "Otočit o 180°"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:96
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:59
+#: ../Bruskel.Core/Actions/ImageActions.cs:96
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:59
 msgid "Rotate 90° Clockwise"
 msgstr "Otočit o 90° po směru hodin"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:103
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:63
+#: ../Bruskel.Core/Actions/ImageActions.cs:103
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:63
 msgid "Rotate 90° Counter-Clockwise"
 msgstr "Otočit o 90° proti směru hodin"
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:132
-#: ../Pinta.Effects/Effects/TileEffect.cs:222
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:132
+#: ../Bruskel.Effects/Effects/TileEffect.cs:222
 msgid "Rotation"
 msgstr "Rotace"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:143
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:143
 msgid "Roughness"
 msgstr "Tvrdost"
 
 #. Translators: 'Round Join' refers to the Cairo.LineJoin property
-#: ../Pinta.Tools/Tools/TextTool.cs:452
+#: ../Bruskel.Tools/Tools/TextTool.cs:452
 msgid "Round Join"
 msgstr "Kruhové Spojení (Round Join)"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:277
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:277
 msgid "Rounded Line Series"
 msgstr "Zakulacená sada čar"
 
-#: ../Pinta.Tools/Editable/EditEngines/RoundedLineEditEngine.cs:37
+#: ../Bruskel.Tools/Editable/EditEngines/RoundedLineEditEngine.cs:37
 msgid "Rounded Line Shape"
 msgstr "Tvar zakulacené čáry"
 
-#: ../Pinta.Tools/Tools/RoundedRectangleTool.cs:43
+#: ../Bruskel.Tools/Tools/RoundedRectangleTool.cs:43
 msgid "Rounded Rectangle"
 msgstr "Zakulacený obdélník"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:218
+#: ../Bruskel.Core/Actions/ViewActions.cs:218
 msgid "Ruler Units"
 msgstr "Jednotky pravítka"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:141
+#: ../Bruskel.Core/Actions/ViewActions.cs:141
 msgid "Rulers"
 msgstr "Pravítka"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:208
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:208
 msgid "Sampling"
 msgstr "Vzorkování"
 
 #. Translators: this is an abbreviation for "Saturation"
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:366
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:366
 msgid "Sat"
 msgstr "Sytost"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:200
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:200
 msgid "Sat & Value"
 msgstr "Sytost a Hodnota"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:46
-#: ../Pinta.Effects/Adjustments/HueSaturationEffect.cs:64
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:46
+#: ../Bruskel.Effects/Adjustments/HueSaturationEffect.cs:64
 msgid "Saturation"
 msgstr "Sytost"
 
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:57
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:57
 msgid "Saturation Percentage"
 msgstr "Procento sytosti"
 
-#: ../Pinta.Core/Actions/EditActions.cs:555
-#: ../Pinta.Core/Actions/FileActions.cs:88
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:95
+#: ../Bruskel.Core/Actions/EditActions.cs:555
+#: ../Bruskel.Core/Actions/FileActions.cs:88
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:95
 msgid "Save"
 msgstr "Uložit"
 
-#: ../Pinta.Core/Actions/WindowActions.cs:44
+#: ../Bruskel.Core/Actions/WindowActions.cs:44
 msgid "Save All"
 msgstr "Uložit vše"
 
-#: ../Pinta.Core/Actions/EditActions.cs:177
-#: ../Pinta.Core/Actions/FileActions.cs:95
+#: ../Bruskel.Core/Actions/EditActions.cs:177
+#: ../Bruskel.Core/Actions/FileActions.cs:95
 msgid "Save As..."
 msgstr "Uložit jako..."
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:92
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:92
 msgid "Save Image File"
 msgstr "Uložení obrázku"
 
-#: ../Pinta.Core/Actions/EditActions.cs:552
+#: ../Bruskel.Core/Actions/EditActions.cs:552
 msgid "Save Palette File"
 msgstr "Uložit soubor palety"
 
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:72
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:72
 #, csharp-format
 msgid "Save changes to image \"{0}\" before closing?"
 msgstr "Uložit změny do obrázku \"{0}\" před uzavřením?"
 
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:134
-#: ../Pinta.Effects/Effects/DentsEffect.cs:135
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:134
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:135
 msgid "Scale"
 msgstr "Měřítko"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:39
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:39
 msgid "Screen"
 msgstr "Obrazovka"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:19
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:19
 msgid "Secondary"
 msgstr "Vedlejší"
 
-#: ../Pinta.Core/Actions/EditActions.cs:157
-#: ../Pinta.Core/Actions/EditActions.cs:338
+#: ../Bruskel.Core/Actions/EditActions.cs:157
+#: ../Bruskel.Core/Actions/EditActions.cs:338
 msgid "Select All"
 msgstr "Vybrat vše"
 
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:13
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:13
 msgid "Selected Colors"
 msgstr "Vybrané Barvy"
 
 #. Translators: 'Semibold' (600) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:296
+#: ../Bruskel.Tools/Tools/TextTool.cs:296
 msgid "Semibold"
 msgstr "Středně Tučný"
 
 #. Translators: 'Semilight' (350) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:272
+#: ../Bruskel.Tools/Tools/TextTool.cs:272
 msgid "Semilight"
 msgstr "Středně Tenký"
 
-#: ../Pinta.Effects/Adjustments/SepiaEffect.cs:52
+#: ../Bruskel.Effects/Adjustments/SepiaEffect.cs:52
 msgid "Sepia"
 msgstr "Sépie"
 
-#: ../Pinta.Core/Actions/EditActions.cs:189
+#: ../Bruskel.Core/Actions/EditActions.cs:189
 msgid "Set Number of Colors"
 msgstr "Nastavit počet barev"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:265
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:265
 msgid "Shape Type"
 msgstr "Typ tvarování"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:244
+#: ../Bruskel.Effects/Effects/TileEffect.cs:244
 msgid "Sharp Edges"
 msgstr "Ostré Hrany"
 
-#: ../Pinta.Effects/Effects/SharpenEffect.cs:23
+#: ../Bruskel.Effects/Effects/SharpenEffect.cs:23
 msgid "Sharpen"
 msgstr "Zaostřit"
 
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:106
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:368
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:352
-#: ../Pinta.Gui.Widgets/Widgets/ToolBoxWidget.cs:49
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:106
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:368
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:352
+#: ../Bruskel.Gui.Widgets/Widgets/ToolBoxWidget.cs:49
 msgid "Shortcut key"
 msgstr "Klávesová zkratka"
 
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:107
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:107
 msgid "Shortcut keys"
 msgstr "Klávesové zkratky"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:371
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:48
-#: ../Pinta.Tools/Tools/TextTool.cs:239
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:371
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:48
+#: ../Bruskel.Tools/Tools/TextTool.cs:239
 msgid "Shortcut keys:"
 msgstr "Klávesové zkratky:"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:75
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:75
 msgid "Show Axonometric Grid"
 msgstr "Zobrazit Axonometrickou Mřížku"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:54
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:54
 msgid "Show Grid"
 msgstr "Zobrazit Mřížku"
 
-#: ../Pinta.Gui.Widgets/Widgets/Layers/LayersListViewItemWidget.cs:99
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:113
+#: ../Bruskel.Gui.Widgets/Widgets/Layers/LayersListViewItemWidget.cs:99
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:113
 msgid "Show Layer"
 msgstr "Zobrazit Vrstvu"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:11
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:11
 msgid "Show Menu Bar"
 msgstr "Ukázat Lištu Nastavení"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:162
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:208
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:162
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:208
 msgid "Show Points"
 msgstr "Zobrazit Body"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:193
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:193
 msgid "Show Value"
 msgstr "Zobrazit Hodnoty"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:229
+#: ../Bruskel.Core/Actions/ViewActions.cs:229
 msgid "Show/Hide"
 msgstr "Zobrazit/Skrýt"
 
 #. Translators: Image dithering matrix named after Frankie Sierra
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:12
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:12
 msgid "Sierra"
 msgstr "Dithering dle Sierra"
 
 #. Translators: Image dithering matrix named after Frankie Sierra
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:20
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:20
 msgid "Sierra Lite"
 msgstr "Dithering dle Sierra Lite"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:235
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:235
 msgid "Single Pixel"
 msgstr "Jeden Pixel"
 
-#: ../Pinta.Tools/Editable/EditEngines/ArrowedEditEngine.cs:289
+#: ../Bruskel.Tools/Editable/EditEngines/ArrowedEditEngine.cs:289
 msgid "Size"
 msgstr "Velikost"
 
-#: ../Pinta.Tools/Brushes/SlashBrush.cs:36
+#: ../Bruskel.Tools/Brushes/SlashBrush.cs:36
 msgid "Slash"
 msgstr "Řez"
 
 #. Translators: 'Small Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:188
+#: ../Bruskel.Tools/Tools/TextTool.cs:188
 msgid "Small Caps"
 msgstr "Malá písmena"
 
-#: ../Pinta.Tools/Tools/EraserTool.cs:336
+#: ../Bruskel.Tools/Tools/EraserTool.cs:336
 msgid "Smooth"
 msgstr "Plynulé"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:134
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:134
 msgid "Smoothness"
 msgstr "Hladkost"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:42
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:42
 msgid "Soft Light"
 msgstr "Měkké světlo"
 
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:54
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:54
 msgid "Soften Portrait"
 msgstr "Zjemnit portrét"
 
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:125
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:125
 msgid "Softness"
 msgstr "Jemnost"
 
-#: ../Pinta.Tools/Brushes/SplatterBrush.cs:37
+#: ../Bruskel.Tools/Brushes/SplatterBrush.cs:37
 msgid "Splatter"
 msgstr "Cákance"
 
-#: ../Pinta.Tools/Brushes/SquaresBrush.cs:35
+#: ../Bruskel.Tools/Brushes/SquaresBrush.cs:35
 msgid "Squares"
 msgstr "Čtverce"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:16
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:16
 msgid "Startup Image"
 msgstr ""
 
-#: ../Pinta.Core/Actions/ViewActions.cs:129
+#: ../Bruskel.Core/Actions/ViewActions.cs:129
 msgid "Status Bar"
 msgstr "Stavový řádek"
 
-#: ../Pinta.Effects/Effects/ReduceNoiseEffect.cs:88
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:142
+#: ../Bruskel.Effects/Effects/ReduceNoiseEffect.cs:88
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:142
 msgid "Strength"
 msgstr "Síla"
 
 #. Translators: Image dithering matrix named after Peter Stucki
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:32
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:32
 msgid "Stucki"
 msgstr "Dithering dle Stucki"
 
-#: ../Pinta.Effects/Effects/EdgeDetectEffect.cs:32
-#: ../Pinta.Effects/Effects/EmbossEffect.cs:32
-#: ../Pinta.Effects/Effects/OutlineEdgeEffect.cs:27
-#: ../Pinta.Effects/Effects/ReliefEffect.cs:33
+#: ../Bruskel.Effects/Effects/EdgeDetectEffect.cs:32
+#: ../Bruskel.Effects/Effects/EmbossEffect.cs:32
+#: ../Bruskel.Effects/Effects/OutlineEdgeEffect.cs:27
+#: ../Bruskel.Effects/Effects/ReliefEffect.cs:33
 msgid "Stylize"
 msgstr "Stylizování"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:218
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:218
 msgid "Switch to Pencil tool"
 msgstr "Přepnout na tužku"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:217
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:217
 msgid "Switch to previous tool"
 msgstr "Přepnout na předchozí nástroj"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:80
+#: ../Bruskel.Tools/Tools/TextTool.cs:80
 msgid "Text"
 msgstr "Text"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:83
+#: ../Bruskel.Tools/Tools/TextTool.cs:83
 msgid "Text - Finalize"
 msgstr "Text - Dokončení"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:395
+#: ../Bruskel.Tools/Tools/TextTool.cs:395
 msgid "Text Style"
 msgstr "Styl textu"
 
 #. Translators: {0} is the name of an add-in.
-#: ../Pinta/MainWindow.cs:320
+#: ../Bruskel/MainWindow.cs:320
 #, csharp-format
-msgid "The '{0}' add-in may not be compatible with this version of Pinta"
+msgid "The '{0}' add-in may not be compatible with this version of Bruskel"
 msgstr "Plugin \"{0}\" nemusí být kompatibilní s touto verzí Pinty"
 
-#: ../Pinta/Actions/Edit/PasteAction.cs:237
+#: ../Bruskel/Actions/Edit/PasteAction.cs:237
 msgid "The clipboard does not contain an image."
 msgstr "Schránka neobsahuje žádný obrázek."
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:216
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:216
 msgid "The file may be an invalid or corrupt extension package"
 msgstr "Soubor může být neplatný nebo poškozený balíček rozšíření"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:89
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:89
 msgid "The following dependencies could not be resolved:"
 msgstr "Následující závislosti nemohou být vyřešeny:"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:82
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:82
 msgid "The following packages need to be uninstalled:"
 msgstr "Následující balíčky musí být odebrány:"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:76
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:76
 msgid "The following packages will be installed:"
 msgstr "Následující balíčky budou nainstalovány:"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:245
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:245
 msgid "The following packages will be uninstalled:"
 msgstr "Následující balíčky budou odebrány:"
 
-#: ../Pinta/Actions/Edit/PasteAction.cs:244
+#: ../Bruskel/Actions/Edit/PasteAction.cs:244
 msgid ""
 "The image being pasted is larger than the canvas. What would you like to do "
 "to the canvas size?"
 msgstr ""
 "Vkládaný Obrázek je větší než plátno. Co se má stát s velikostí plátna?"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:368
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:368
 msgid "The installation failed!"
 msgstr "Instalace selhala!"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:369
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:369
 msgid "The installation has completed with warnings."
 msgstr "Instalace byla dokončena s varováními."
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:62
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:62
 msgid ""
 "The selected extension packages can't be installed because there are "
 "dependency conflicts."
@@ -2665,15 +2665,15 @@ msgstr ""
 "Vybrané balíčky rozšíření nelze nainstalovat, protože dochází ke konfliktům "
 "závislostí."
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:375
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:375
 msgid "The uninstallation failed!"
 msgstr "Odebrání selhalo!"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:376
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:376
 msgid "The uninstallation has completed with warnings."
 msgstr "Odebrání bylo dokončeno s varováními."
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:257
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:257
 msgid ""
 "There are other extension packages that depend on the previous ones which "
 "will also be uninstalled:"
@@ -2681,186 +2681,186 @@ msgstr ""
 "Existují další balíčky rozšíření, které závisí na předchozích, které budou "
 "také odinstalovány:"
 
-#: ../Pinta.Effects/Effects/OutlineEdgeEffect.cs:133
+#: ../Bruskel.Effects/Effects/OutlineEdgeEffect.cs:133
 msgid "Thickness"
 msgstr "Tloušťka"
 
 #. Translators: 'Thin' (100) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:254
+#: ../Bruskel.Tools/Tools/TextTool.cs:254
 msgid "Thin"
 msgstr "Tenký"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:274
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:274
 msgid "This format does not support layers. Flatten image?"
 msgstr "Tento formát nepodporuje vrstvy. Zarovnat obrázek?"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:28
+#: ../Bruskel.Effects/Effects/TileEffect.cs:28
 msgid "Tile Reflection"
 msgstr "Dlaždicový odraz"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:226
+#: ../Bruskel.Effects/Effects/TileEffect.cs:226
 msgid "Tile Size"
 msgstr "Velikost dlaždic"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:234
+#: ../Bruskel.Effects/Effects/TileEffect.cs:234
 msgid "Tile Type"
 msgstr "Typ Dlaždic"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:95
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:95
 msgid "Tip: Right-click to remove control points."
 msgstr "Tip: Pravým kliknutím odstraníte ovládací body."
 
 #. Translators: 'Title Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:218
+#: ../Bruskel.Tools/Tools/TextTool.cs:218
 msgid "Title Caps"
 msgstr "Titulární písmena"
 
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:171
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:208
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:53
-#: ../Pinta.Tools/Tools/FloodTool.cs:122
-#: ../Pinta.Tools/Tools/RecolorTool.cs:196
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:171
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:208
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:53
+#: ../Bruskel.Tools/Tools/FloodTool.cs:122
+#: ../Bruskel.Tools/Tools/RecolorTool.cs:196
 msgid "Tolerance"
 msgstr "Tolerance"
 
-#: ../Pinta.Core/Managers/ToolManager.cs:351
+#: ../Bruskel.Core/Managers/ToolManager.cs:351
 msgid "Tool"
 msgstr "Nástroj"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:135
+#: ../Bruskel.Core/Actions/ViewActions.cs:135
 msgid "Tool Box"
 msgstr "Nástrojový box"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:116
+#: ../Bruskel.Core/Actions/ViewActions.cs:116
 msgid "Tool Windows"
 msgstr "Okna Nástrojů"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:104
+#: ../Bruskel.Core/Actions/ViewActions.cs:104
 msgid "Toolbar"
 msgstr "Panel nástrojů"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:81
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:81
 msgid "Tools"
 msgstr "Nástroje"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:34
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:34
 msgid "Top Center"
 msgstr "Nahoře Uprostřed"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:33
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:33
 msgid "Top Left"
 msgstr "Nahoře Vlevo"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:35
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:35
 msgid "Top Right"
 msgstr "Nahoře Vpravo"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:105
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:105
 msgid "Transfer Map"
 msgstr "Přenosová mapa"
 
-#: ../Pinta.Core/Actions/HelpActions.cs:65
+#: ../Bruskel.Core/Actions/HelpActions.cs:65
 msgid "Translate This Application"
 msgstr "Přeložit tuto aplikaci"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:329
+#: ../Bruskel.Tools/Tools/GradientTool.cs:329
 msgid "Transparency Mode"
 msgstr "Režim průhlednosti"
 
 #. Translators: Background option for the image created at startup.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:23
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:22
-#: ../Pinta/Dialogs/NewImageDialog.cs:128
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:23
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:22
+#: ../Bruskel/Dialogs/NewImageDialog.cs:128
 msgid "Transparent"
 msgstr "Průhledné"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:147
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:147
 msgid "Turbulence"
 msgstr "Turbulence"
 
-#: ../Pinta.Effects/Effects/TwistEffect.cs:27
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:27
 msgid "Twist"
 msgstr "Zkroutit"
 
 #. Translators: Image dithering matrix named after Frankie Sierra
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:16
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:16
 msgid "Two-Row Sierra"
 msgstr "Dithering dle dvou řad Sierra"
 
-#: ../Pinta.Tools/Tools/EraserTool.cs:332
-#: ../Pinta.Tools/Tools/PaintBrushTool.cs:242
+#: ../Bruskel.Tools/Tools/EraserTool.cs:332
+#: ../Bruskel.Tools/Tools/PaintBrushTool.cs:242
 msgid "Type"
 msgstr "Typ"
 
 #. Translators: 'Ultrabold' (800) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:308
+#: ../Bruskel.Tools/Tools/TextTool.cs:308
 msgid "Ultrabold"
 msgstr "Ultra Tučný"
 
 #. Translators: 'Ultraheavy' (1000) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:320
+#: ../Bruskel.Tools/Tools/TextTool.cs:320
 msgid "Ultraheavy"
 msgstr "Ultra Těžký"
 
 #. Translators: 'Ultralight' (200) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:260
+#: ../Bruskel.Tools/Tools/TextTool.cs:260
 msgid "Ultralight"
 msgstr "Ultra Tenký"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:345
+#: ../Bruskel.Tools/Tools/TextTool.cs:345
 msgid "Underline"
 msgstr "Podtržené"
 
-#: ../Pinta.Core/Actions/EditActions.cs:72
+#: ../Bruskel.Core/Actions/EditActions.cs:72
 msgid "Undo"
 msgstr "Vrátit změny"
 
-#: ../Pinta.Effects/Effects/UnfocusEffect.cs:23
+#: ../Bruskel.Effects/Effects/UnfocusEffect.cs:23
 msgid "Unfocus"
 msgstr "Rozostření"
 
 #. Translators: 'Unicase' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:212
+#: ../Bruskel.Tools/Tools/TextTool.cs:212
 msgid "Unicase"
 msgstr "Velká i malá písmena"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:232
-#: ../Pinta.Gui.Addins/InstallDialog.cs:233
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:232
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:233
 msgid "Uninstall"
 msgstr "Odebrat"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:9
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:9
 msgid "Uninstall..."
 msgstr "Odinstalovat..."
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:45
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:45
 #, csharp-format
 msgid "Union (+) ({0} + Left Click)"
 msgstr "Propojení (+) ({0} + Levé Kliknutí)"
 
-#: ../Pinta.Core/Classes/Document.cs:102
+#: ../Bruskel.Core/Classes/Document.cs:102
 #, csharp-format
 msgid "Unsaved Image {0}"
 msgstr "Neuložený obrázek {0}"
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:346
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:346
 msgid "Unsupported file format"
 msgstr "Nepodporovaný typ souboru"
 
-#: ../Pinta.Core/Actions/EditActions.cs:544
+#: ../Bruskel.Core/Actions/EditActions.cs:544
 msgid "Unsupported palette format"
 msgstr "Nepodporovaný formát palety"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:7
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:7
 msgid "Update..."
 msgstr "Aktualizace..."
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:105
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:105
 msgid "Updates"
 msgstr "Aktualizace"
 
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:143
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:143
 msgid ""
 "Use low quality for previews, small images, and small angles.  Use high "
 "quality for final quality, large images, and large angles."
@@ -2868,208 +2868,208 @@ msgstr ""
 "Použivejte nízkou kvalitu pro náhledy, malé obrázky a nízké úhly. Vysokou "
 "kvalitu pro finální kvalitu, velké obrázky a úhly."
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:2
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:2
 msgid "User Interface"
 msgstr "Uživatelské Rozhraní"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:98
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:98
 msgid "Using some icons from:"
 msgstr "Použity některé ikonky z:"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:367
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:367
 msgid "Value"
 msgstr "Hodnota"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:2
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:2
 msgid "Version"
 msgstr "Verze"
 
 #. Translators: Vertical color sorting with blue (B) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:247
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:247
 msgid "Vertical blue (B)"
 msgstr "Vertikální Modrá (B)"
 
 #. Translators: Vertical color sorting with green (G) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:250
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:250
 msgid "Vertical green (G)"
 msgstr "Vertikální Zelená (G)"
 
 #. Translators: Vertical color sorting with red (R) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:253
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:253
 msgid "Vertical red (R)"
 msgstr "Vertikální červená (R)"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:102
-#: ../Pinta/MainWindow.cs:470
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:102
+#: ../Bruskel/MainWindow.cs:470
 msgid "View"
 msgstr "Pohled"
 
 #. Translators: The vignette effect darkens the outer edges of an image, which fade into an unchanged circular area in the center (or at some other point chosen by the user), similar to what is seen during the closing scene in old cartoons
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:49
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:49
 msgid "Vignette"
 msgstr "Vigneta"
 
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:70
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:70
 msgid "Visible"
 msgstr "Viditelná"
 
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:21
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:21
 msgid "Voronoi Diagram"
 msgstr "Voroného Diagram"
 
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:133
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:133
 msgid "Warmth"
 msgstr "Teplota"
 
 #. Translators: Background option for the image created at startup.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:21
-#: ../Pinta/Dialogs/NewImageDialog.cs:109
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:21
+#: ../Bruskel/Dialogs/NewImageDialog.cs:109
 msgid "White"
 msgstr "Bílá"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:17
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:17
 msgid "Width"
 msgstr ""
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:95
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:105
-#: ../Pinta/Dialogs/NewImageDialog.cs:340
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:80
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:123
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:95
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:105
+#: ../Bruskel/Dialogs/NewImageDialog.cs:340
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:80
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:123
 msgid "Width:"
 msgstr "Šířka:"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:195
-#: ../Pinta.Core/Actions/ViewActions.cs:368
-#: ../Pinta.Core/Classes/DocumentWorkspace.cs:357
-#: ../Pinta.Core/Classes/DocumentWorkspace.cs:366
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:106
+#: ../Bruskel.Core/Actions/ViewActions.cs:195
+#: ../Bruskel.Core/Actions/ViewActions.cs:368
+#: ../Bruskel.Core/Classes/DocumentWorkspace.cs:357
+#: ../Bruskel.Core/Classes/DocumentWorkspace.cs:366
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:106
 msgid "Window"
 msgstr "Okno"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:10
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:10
 msgid "Wrap"
 msgstr "Obal"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:40
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:40
 msgid "Xor"
 msgstr "Xor"
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:48
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:48
 #, csharp-format
 msgid "Xor ({0} + Right Click)"
 msgstr "Xor ({0} + Pravé Kliknutí)"
 
 #. Translators: {0} is the name of a file that the user does not have permission to open.
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:463
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:463
 #, csharp-format
 msgid "You do not have access to '{0}'."
 msgstr "Nemáte přístup do '{0}'."
 
 #. Translators: {0} is the name of a file that the user does not have write permission for.
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:242
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:242
 #, csharp-format
 msgid ""
 "You do not have access to modify '{0}'. The file or folder may be read-only."
 msgstr ""
 "Nemáte přístup k úpravě '{0}'. Soubor nebo složka může být pouze pro čtení."
 
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:151
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:164
-#: ../Pinta.Tools/Tools/ZoomTool.cs:56
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:151
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:151
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:164
+#: ../Bruskel.Tools/Tools/ZoomTool.cs:56
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:151
 msgid "Zoom"
 msgstr "Lupa"
 
-#: ../Pinta.Effects/Effects/ZoomBlurEffect.cs:26
+#: ../Bruskel.Effects/Effects/ZoomBlurEffect.cs:26
 msgid "Zoom Blur"
 msgstr "Rozmazání přiblížením"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:70
+#: ../Bruskel.Core/Actions/ViewActions.cs:70
 msgid "Zoom In"
 msgstr "Přiblížit"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:77
+#: ../Bruskel.Core/Actions/ViewActions.cs:77
 msgid "Zoom Out"
 msgstr "Oddálit"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:91
+#: ../Bruskel.Core/Actions/ViewActions.cs:91
 msgid "Zoom to Selection"
 msgstr "Přiblížit na výběr"
 
-#: ../Pinta/MainWindow.cs:394
+#: ../Bruskel/MainWindow.cs:394
 msgid "_Adjustments"
 msgstr "_Přizpůsobení"
 
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:214
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:216
-#: ../Pinta/Actions/Edit/PasteAction.cs:252
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:83
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:278
-#: ../Pinta/Dialogs/ProgressDialog.cs:71
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:214
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:216
+#: ../Bruskel/Actions/Edit/PasteAction.cs:252
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:83
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:278
+#: ../Bruskel/Dialogs/ProgressDialog.cs:71
 msgid "_Cancel"
 msgstr "_Zrušit"
 
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:84
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:84
 msgid "_Discard"
 msgstr "_Zahodit"
 
-#: ../Pinta/MainWindow.cs:390
+#: ../Bruskel/MainWindow.cs:390
 msgid "_Edit"
 msgstr "_Upravit"
 
-#: ../Pinta/MainWindow.cs:389
+#: ../Bruskel/MainWindow.cs:389
 msgid "_File"
 msgstr "_Soubor"
 
-#: ../Pinta/MainWindow.cs:399
+#: ../Bruskel/MainWindow.cs:399
 msgid "_Help"
 msgstr "_Nápověda"
 
-#: ../Pinta/MainWindow.cs:393
+#: ../Bruskel/MainWindow.cs:393
 msgid "_Image"
 msgstr "_Obrázek"
 
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:213
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:217
-#: ../Pinta.Gui.Addins/InstallDialog.cs:220 ../Pinta/Dialogs/ErrorDialog.cs:44
-#: ../Pinta/Dialogs/ErrorDialog.cs:73
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:213
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:217
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:220 ../Bruskel/Dialogs/ErrorDialog.cs:44
+#: ../Bruskel/Dialogs/ErrorDialog.cs:73
 msgid "_OK"
 msgstr "_OK"
 
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:85
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:85
 msgid "_Save"
 msgstr "_Uložit"
 
-#: ../Pinta/MainWindow.cs:392
+#: ../Bruskel/MainWindow.cs:392
 msgid "_View"
 msgstr "_Zobrazit"
 
-#: ../Pinta/MainWindow.cs:398
+#: ../Bruskel/MainWindow.cs:398
 msgid "_Window"
 msgstr "_Okno"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:82
-msgid "by Pinta contributors"
-msgstr "Od přispěvatelů Pinta"
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:82
+msgid "by Bruskel contributors"
+msgstr "Od přispěvatelů Bruskel"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:5
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:5
 msgid "draw;drawing;paint;painting;graphics;raster;2d;"
 msgstr "kreslení;kreslení;malování;malování;grafika;rastr;2d;"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:97
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:101
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:107
-#: ../Pinta/Dialogs/NewImageDialog.cs:288
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:106
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:110
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:135
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:139
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:97
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:101
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:107
+#: ../Bruskel/Dialogs/NewImageDialog.cs:288
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:106
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:110
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:135
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:139
 msgid "pixels"
 msgstr "pixely"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:73
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:73
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -3087,32 +3087,32 @@ msgstr ""
 "  xXx https://launchpad.net/~michalhusar-it"
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Tools/Tools/CloneStampTool.cs:63
+#: ../Bruskel.Tools/Tools/CloneStampTool.cs:63
 #, csharp-format
 msgid "{0} + left click to set origin, left click to paint."
 msgstr "{0} + levé kliknutí na nastavení původu, pravé kliknutí na kreslení."
 
 #. Translators: this is the auto-generated name for a duplicated layer.
 #. {0} is the name of the source layer. Example: "Layer 3 copy".
-#: ../Pinta.Core/Classes/DocumentLayers.cs:205
+#: ../Bruskel.Core/Classes/DocumentLayers.cs:205
 #, csharp-format
 msgid "{0} copy"
 msgstr "{0} kopie"
 
-#: ../Pinta.Core/ImageFormats/FormatDescriptor.cs:122
+#: ../Bruskel.Core/ImageFormats/FormatDescriptor.cs:122
 #, csharp-format
 msgid "{0} image ({1})"
 msgstr "{0} obrázek ({1})"
 
 #. Translators: {0} is the palette format (e.g. "GIMP") and {1} is a list of file extensions.
-#: ../Pinta.Core/PaletteFormats/PaletteDescriptor.cs:63
+#: ../Bruskel.Core/PaletteFormats/PaletteDescriptor.cs:63
 #, csharp-format
 msgid "{0} palette ({1})"
 msgstr "{0} paleta ({1})"
 
 #. Translators: This specifies the format of the zoom percentage choices
 #. in the toolbar.
-#: ../Pinta.Core/Actions/ViewActions.cs:349
+#: ../Bruskel.Core/Actions/ViewActions.cs:349
 #, csharp-format
 msgid "{0}%"
 msgstr "{0}%"
@@ -3132,7 +3132,7 @@ msgstr "{0}%"
 #~ msgid "Menu Bar"
 #~ msgstr "Menu Výběru"
 
-#~ msgid "Restart Pinta"
+#~ msgid "Restart Bruskel"
 #~ msgstr "Restartovat Pintu"
 
 #~ msgid "ICO files can not be larger than 255 x 255 pixels."
@@ -3479,8 +3479,8 @@ msgstr "{0}%"
 #~ "Kliknutím a tažením nakreslíte obdélníkový výběr. Držte shift k "
 #~ "nakreslení čtverce."
 
-#~ msgid "Usage: pinta [files]"
-#~ msgstr "Použití: pinta [soubory]"
+#~ msgid "Usage: bruskel [files]"
+#~ msgstr "Použití: bruskel [soubory]"
 
 #~ msgid "Display the application version."
 #~ msgstr "Zobrazit verzi aplikace."

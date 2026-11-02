@@ -1,18 +1,18 @@
 ---
 layout: default
-title: Pintora
+title: Bruskel
 description: A cross-platform raster editor inspired by Paint.NET.
 ---
 
-# Pintora
+# Bruskel
 
-Pintora is a cross-platform raster editor focused on a familiar Paint.NET-style
+Bruskel is a cross-platform raster editor focused on a familiar Paint.NET-style
 workflow: a canvas in the center, dockable tool windows, document tabs, layers,
 and direct keyboard shortcuts.
 
-![Pintora first alpha screenshot](assets/pintora-first-screenshot.png)
+![Bruskel first alpha screenshot](assets/bruskel-first-screenshot.png)
 
-Pintora 0.0.3-alpha with a document open in the Avalonia interface. This
+Bruskel 0.0.3-alpha with a document open in the Avalonia interface. This
 first screenshot shows the full-window canvas, document thumbnail tab, tool
 palette, color controls, and layers panel in the Paint.NET-inspired layout.
 
@@ -45,7 +45,7 @@ still pending.
 From the published application directory:
 
 ```sh
-./Pintora
+./Bruskel
 ```
 
 The application opens directly into a clean 800 × 600 canvas. Use **File → New**
@@ -54,8 +54,8 @@ or **Image → Resize canvas** when a different size is needed.
 ## Build from source
 
 ```sh
-dotnet build src/platform/avalonia/Pintora.Avalonia/Pintora.Avalonia.csproj -c Release
-dotnet test tests/Pintora.Avalonia.Tests/Pintora.Avalonia.Tests.csproj --no-restore -m:1
+dotnet build src/platform/avalonia/Bruskel.Avalonia/Bruskel.Avalonia.csproj -c Release
+dotnet test tests/Bruskel.Avalonia.Tests/Bruskel.Avalonia.Tests.csproj --no-restore -m:1
 ```
 
 See the [Paint.NET workflow notes](paint-net/README.md), [tool reference](tools/README.md),
@@ -63,5 +63,5 @@ and [algorithm migration inventory](algorithm-migration-inventory.md) for more d
 
 ## Project status
 
-Pintora is an alpha project. UI behavior and platform boundaries are changing
+Bruskel is an alpha project. UI behavior and platform boundaries are changing
 as the GTK and Avalonia implementations are aligned around shared core logic.

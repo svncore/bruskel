@@ -10,7 +10,7 @@ Replaces matching colors under the brush with Primary (left) or Secondary (right
 
 `R` activates Recolor. The button shows a recoloring icon; the toolbar has brush controls and a tolerance slider; the cursor is shaped like the active brush.
 
-## Pintora implementation
+## Bruskel implementation
 
 `RecolorTool.cs` compares `ColorBgra` values within tolerance, writes through a stencil/ROI, and persists `RECOLOR_TOLERANCE`. Avalonia has no separate tool entry.
 

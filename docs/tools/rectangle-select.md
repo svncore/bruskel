@@ -10,9 +10,9 @@ Click and drag from one corner to the opposite corner. `Shift` constrains the re
 
 `S` cycles selection tools; `Shift+S` cycles them in the opposite direction. The toolbar exposes selection-combine mode and size/ratio controls. The button shows a rectangular marquee and the cursor is a selection cursor.
 
-## Pintora implementation
+## Bruskel implementation
 
-Core: `src/core/Pinta.Tools/Tools/RectangleSelectTool.cs`; GTK builds the neutral selection toolbar through `IToolUiService`. Avalonia currently exposes one `SelectionTool` (`Canvas/SelectionTool.cs`) rather than a separate Rectangle Select button and does not expose all three Paint.NET sizing modes.
+Core: `src/core/Bruskel.Tools/Tools/RectangleSelectTool.cs`; GTK builds the neutral selection toolbar through `IToolUiService`. Avalonia currently exposes one `SelectionTool` (`Canvas/SelectionTool.cs`) rather than a separate Rectangle Select button and does not expose all three Paint.NET sizing modes.
 
 ## Improvements
 

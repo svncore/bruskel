@@ -10,7 +10,7 @@ Drag a line from the start to the end of the gradient. Paint.NET supports seven 
 
 `G` activates Gradient. The canvas shows a line handle and control points; the toolbar shows gradient shape, color/transparency mode, and repeat options.
 
-## Pintora implementation
+## Bruskel implementation
 
 `GradientTool.cs` and `GradientRenderers/*` are in Core; GTK only adapts the controls. Avalonia `Canvas/GradientTool.cs` renders a preview, but shape count, repeat, and alpha behavior must match Core.
 

@@ -10,7 +10,7 @@
 
 Save configuration is format-specific (quality, transparency, dithering, bit depth, compression). Paint.NET's current format list includes PDN, PNG, JPEG, JPEG XL/XR, BMP, GIF, TGA, DDS, TIFF, HEIC, WebP, and AVIF.
 
-## Pintora implementation
+## Bruskel implementation
 
 Core has `FileActions`, `RecentFileManager`, format catalogs/providers, and document save events. GTK has separate New/Open/Save/Save As/Save All/Close/Exit/Print actions and platform file dialogs. Avalonia wires New/Open/Save/Save All/Close/Exit through `MainWindow`, `DocumentTabManager`, and `AvaloniaFileDialogService`; recent files and format providers are present.
 

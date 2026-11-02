@@ -10,7 +10,7 @@ The window owns two color slots: Primary (foreground) and Secondary (background)
 
 The expanded view exposes RGB, HSV, opacity, editable hexadecimal text, and a 96-color palette. Left-clicking the wheel writes to the active slot; right-clicking writes to the inactive slot. `Ctrl`, `Alt`, `Shift`, and `Ctrl+Shift` constrain hue/saturation selection. Palette left-click targets the active slot; right-click targets the inactive slot.
 
-## Pintora implementation
+## Bruskel implementation
 
 Core stores colors in `ColorBgra`, `HsvColor`, palette services, and `PaletteManager`. GTK provides `ColorPanelWidget`, `ColorGradientWidget`, `PaletteWidget`, and `ColorPickerDialog`. Avalonia implements the color/palette panel in `MainWindow.cs`, persists Primary/Secondary and recent colors, and exposes `ColorDialogWindow`.
 

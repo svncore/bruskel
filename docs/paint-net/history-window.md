@@ -8,7 +8,7 @@
 
 Every action in the current document session appears in the list, including selection edits. `F6` toggles the window; `Ctrl+Shift+F6` resets its dock position. Undo/Redo are `Ctrl+Z`/`Ctrl+Y`, and clicking a history entry rewinds the document to that point. Undone entries are grey. Starting a new action while viewing an older entry discards the remaining redo branch. Closing the document clears its history permanently.
 
-## Pintora implementation
+## Bruskel implementation
 
 Core has `DocumentHistory` and history item classes for pixels, layers, selections, and tools. GTK has a History pad. Avalonia maintains `EditorHistory` plus a separate layer snapshot history in `CanvasHost`.
 

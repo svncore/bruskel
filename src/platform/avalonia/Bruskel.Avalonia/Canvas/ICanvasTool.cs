@@ -1,0 +1,25 @@
+using Avalonia;
+using Bruskel.Core;
+
+namespace Bruskel.Avalonia.Canvas;
+
+internal interface ICanvasTool
+{
+	CanvasHost.CanvasTool Kind { get; }
+	bool PointerPressed (CanvasToolPointerContext context) => false;
+	bool PointerMoved (CanvasToolPointerContext context) => false;
+	bool PointerReleased (CanvasToolPointerContext context) => false;
+	void CancelPointerAction () { }
+}
+
+internal readonly record struct CanvasToolPointerContext (
+	CanvasHost Host,
+	Point ViewPoint,
+	PointD Point,
+	PointD PreviousPoint,
+	ColorBgra Color,
+	bool IsRightButton,
+	bool ShiftPressed,
+	bool ControlPressed = false,
+	bool AltPressed = false,
+	double Pressure = 1.0);

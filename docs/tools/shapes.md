@@ -10,7 +10,7 @@ Drag to create a predefined shape. The toolbar chooses shape, fill/outline, widt
 
 `O` cycles shape tools in Core (including Freeform Shape). The button shows the active shape and the toolbar shows the shape picker, fill mode, width, dash, radius, and edit handles.
 
-## Pintora implementation
+## Bruskel implementation
 
 Core uses `ShapeTool.cs`, `RectangleTool.cs`, `EllipseTool.cs`, `RoundedRectangleTool.cs`, and `FreeformShapeTool.cs`. Avalonia `ShapeTool.cs` and `ShapeRasterizer.cs` currently support Line, Rectangle, Ellipse, Rounded Rectangle, fill, width, dash, radius, and antialiasing.
 

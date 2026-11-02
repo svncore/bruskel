@@ -1,0 +1,31 @@
+using Bruskel.Core;
+
+namespace Bruskel.Actions;
+
+internal sealed class ToolWindowsToggledAction : IActionHandler
+{
+	private readonly ViewActions view;
+	private readonly ChromeManager chrome;
+	internal ToolWindowsToggledAction (
+		ViewActions view,
+		ChromeManager chrome)
+	{
+		this.view = view;
+		this.chrome = chrome;
+	}
+
+	void IActionHandler.Initialize ()
+	{
+		view.ToolWindows.Toggled += Activated;
+	}
+
+	void IActionHandler.Uninitialize ()
+	{
+		view.ToolWindows.Toggled -= Activated;
+	}
+
+	private void Activated (bool value, bool interactive)
+	{
+		chrome.SetToolWindowsVisible (value);
+	}
+}

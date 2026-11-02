@@ -1,16 +1,16 @@
-# Irish translation for pinta
+# Irish translation for bruskel
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
-# This file is distributed under the same license as the pinta package.
+# This file is distributed under the same license as the bruskel package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: pinta\n"
+"Project-Id-Version: bruskel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-15 00:27+0000\n"
 "PO-Revision-Date: 2026-10-08 13:57+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@gmail.com>\n"
-"Language-Team: Irish <https://hosted.weblate.org/projects/pinta/pinta/ga/>\n"
+"Language-Team: Irish <https://hosted.weblate.org/projects/bruskel/bruskel/ga/>\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,429 +19,429 @@ msgstr ""
 "X-Generator: Weblate 2026.10.1.dev0\n"
 "X-Launchpad-Export-Date: 2023-12-18 03:00+0000\n"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:284
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:284
 msgid " (in user directory)"
 msgstr " (i gcomhadlann an úsáideora)"
 
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:56
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:56
 msgid " Selection Mode: "
 msgstr " Modh Roghnúcháin: "
 
-#: ../Pinta.Core/Managers/EffectsManager.cs:78
-#: ../Pinta.Core/Managers/EffectsManager.cs:116
+#: ../Bruskel.Core/Managers/EffectsManager.cs:78
+#: ../Bruskel.Core/Managers/EffectsManager.cs:116
 msgid "..."
 msgstr "..."
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:236
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:236
 msgid "3 x 3 Region"
 msgstr "Críoch 3 x 3"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:237
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:237
 msgid "5 x 5 Region"
 msgstr "Réigiún 5 x 5"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:238
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:238
 msgid "7 x 7 Region"
 msgstr "Réigiún 7 x 7"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:239
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:239
 msgid "9 x 9 Region"
 msgstr "Réigiún 9 x 9"
 
-#: ../Pinta/MainWindow.cs:397
+#: ../Bruskel/MainWindow.cs:397
 msgid "A_dd-ins"
 msgstr "B_reiseáin"
 
-#: ../Pinta.Core/Actions/AppActions.cs:44
+#: ../Bruskel.Core/Actions/AppActions.cs:44
 msgid "About"
 msgstr "Maidir Leis"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:64
-msgid "About Pinta"
-msgstr "Maidir le Pinta"
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:64
+msgid "About Bruskel"
+msgstr "Maidir le Bruskel"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:61
-#: ../Pinta.Core/Actions/LayerActions.cs:400
-#: ../Pinta/Actions/Edit/PasteAction.cs:187
+#: ../Bruskel.Core/Actions/LayerActions.cs:61
+#: ../Bruskel.Core/Actions/LayerActions.cs:400
+#: ../Bruskel/Actions/Edit/PasteAction.cs:187
 msgid "Add New Layer"
 msgstr "Cuir Ciseal Nua Leis"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:24
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:24
 msgid "Add Noise"
 msgstr "Cuir torann leis"
 
-#: ../Pinta.Core/Actions/AddinActions.cs:40
+#: ../Bruskel.Core/Actions/AddinActions.cs:40
 msgid "Add-in Manager..."
 msgstr "Bainisteoir na mBreiseán..."
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:852
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:852
 msgid "Added"
 msgstr "Curtha leis"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:104
-#: ../Pinta/MainWindow.cs:460
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:104
+#: ../Bruskel/MainWindow.cs:460
 msgid "Adjustments"
 msgstr "Mionathruithe"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:207
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:207
 msgid "After select"
 msgstr "Tar éis an roghnú"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:76
-#: ../Pinta.Effects/Effects/AlignObjectEffect.cs:12
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:76
+#: ../Bruskel.Effects/Effects/AlignObjectEffect.cs:12
 msgid "Align Object"
 msgstr "Ailínigh an réad"
 
 #. Translators: 'All Petite Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:206
+#: ../Bruskel.Tools/Tools/TextTool.cs:206
 msgid "All Petite Caps"
 msgstr "Gach Caipín Beag"
 
 #. Translators: 'All Small Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:194
+#: ../Bruskel.Tools/Tools/TextTool.cs:194
 msgid "All Small Caps"
 msgstr "Gach Litir Bheag"
 
-#: ../Pinta.Core/Actions/EditActions.cs:619
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:302
-#: ../Pinta/Actions/File/OpenDocumentAction.cs:102
+#: ../Bruskel.Core/Actions/EditActions.cs:619
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:302
+#: ../Bruskel/Actions/File/OpenDocumentAction.cs:102
 msgid "All files"
 msgstr "Gach comhad"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:371
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:371
 msgid "Alpha"
 msgstr "Alfa"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:212
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:212
 msgid "Alpha Gradient"
 msgstr "Grádán Alfa"
 
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:116
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:88
-#: ../Pinta.Effects/Effects/SharpenEffect.cs:57
-#: ../Pinta.Effects/Effects/TwistEffect.cs:217
-#: ../Pinta.Effects/Effects/ZoomBlurEffect.cs:136
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:116
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:88
+#: ../Bruskel.Effects/Effects/SharpenEffect.cs:57
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:217
+#: ../Bruskel.Effects/Effects/ZoomBlurEffect.cs:136
 msgid "Amount"
 msgstr "Méid"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:154
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:154
 msgid "Anchor:"
 msgstr "Ancaire:"
 
-#: ../Pinta.Effects/Effects/EdgeDetectEffect.cs:81
-#: ../Pinta.Effects/Effects/EmbossEffect.cs:120
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:169
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:168
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:147
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:136
-#: ../Pinta.Effects/Effects/ReliefEffect.cs:77
-#: ../Pinta.Tools/Brushes/SlashBrush.cs:53
-#: ../Pinta.Tools/Editable/EditEngines/ArrowedEditEngine.cs:310
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:145
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:72
+#: ../Bruskel.Effects/Effects/EdgeDetectEffect.cs:81
+#: ../Bruskel.Effects/Effects/EmbossEffect.cs:120
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:169
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:168
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:147
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:136
+#: ../Bruskel.Effects/Effects/ReliefEffect.cs:77
+#: ../Bruskel.Tools/Brushes/SlashBrush.cs:53
+#: ../Bruskel.Tools/Editable/EditEngines/ArrowedEditEngine.cs:310
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:145
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:72
 msgid "Angle"
 msgstr "Uillinn"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:14
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:14
 msgid "Animate Selection Outline"
 msgstr "Beochan Imlíne Roghnúcháin"
 
-#: ../Pinta.Effects/Effects/TwistEffect.cs:225
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:225
 msgid "Antialias"
 msgstr "Frith-ailias"
 
-#: ../Pinta.Core/Classes/BaseTool.cs:359
+#: ../Bruskel.Core/Classes/BaseTool.cs:359
 msgid "Antialiasing Off"
 msgstr "Frith-ailiasáil Múchta"
 
-#: ../Pinta.Core/Classes/BaseTool.cs:358
+#: ../Bruskel.Core/Classes/BaseTool.cs:358
 msgid "Antialiasing On"
 msgstr "Frith-ailísiú Ar Siúl"
 
-#: ../Pinta.Tools/Editable/EditEngines/ArrowedEditEngine.cs:262
+#: ../Bruskel.Tools/Editable/EditEngines/ArrowedEditEngine.cs:262
 msgid "Arrow"
 msgstr "Saighead"
 
-#: ../Pinta.Effects/Effects/InkSketchEffect.cs:41
-#: ../Pinta.Effects/Effects/OilPaintingEffect.cs:32
-#: ../Pinta.Effects/Effects/PencilSketchEffect.cs:33
+#: ../Bruskel.Effects/Effects/InkSketchEffect.cs:41
+#: ../Bruskel.Effects/Effects/OilPaintingEffect.cs:32
+#: ../Bruskel.Effects/Effects/PencilSketchEffect.cs:33
 msgid "Artistic"
 msgstr "Ealaíonta"
 
 #. Translators: Image dithering matrix named after Bill Atkinson
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:28
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:28
 msgid "Atkinson"
 msgstr "Atkinson"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:3
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:3
 msgid "Author"
 msgstr "Údar"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:271
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:271
 msgid "Auto"
 msgstr "Uathoibríoch"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:63
+#: ../Bruskel.Core/Actions/ImageActions.cs:63
 msgid "Auto Crop"
 msgstr "Bearradh Uathoibríoch"
 
-#: ../Pinta.Effects/Adjustments/AutoLevelEffect.cs:24
+#: ../Bruskel.Effects/Adjustments/AutoLevelEffect.cs:24
 msgid "Auto Level"
 msgstr "Leibhéal Uathoibríoch"
 
-#: ../Pinta.Tools/Tools/SelectTool.cs:264
+#: ../Bruskel.Tools/Tools/SelectTool.cs:264
 msgid "Autoscroll Off"
 msgstr "Scrollaigh Uathoibríoch Múchta"
 
-#: ../Pinta.Tools/Tools/SelectTool.cs:263
+#: ../Bruskel.Tools/Tools/SelectTool.cs:263
 msgid "Autoscroll On"
 msgstr "Scrollaigh Uathoibríoch Ar Siúl"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:19
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:131
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:19
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:131
 msgid "Background"
 msgstr "Cúlra"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:118
+#: ../Bruskel/Dialogs/NewImageDialog.cs:118
 msgid "Background Color"
 msgstr "Dath an Chúlra"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:322
+#: ../Bruskel/Dialogs/NewImageDialog.cs:322
 msgid "Background:"
 msgstr "Cúlra:"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:94
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:94
 msgid "Based on the work of Paint.NET:"
 msgstr "Bunaithe ar shaothar Paint.NET:"
 
 #. Translators: Gradient with the colors of the flag of Italy: red, white, and green
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:23
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:23
 msgid "Beautiful Italy"
 msgstr "An Iodáil álainn"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:84
+#: ../Bruskel.Core/Actions/ViewActions.cs:84
 msgid "Best Fit"
 msgstr "Is Oiriúnaí"
 
 #. Translators: 'Bevel Join' refers to the Cairo.LineJoin property
-#: ../Pinta.Tools/Tools/TextTool.cs:458
+#: ../Bruskel.Tools/Tools/TextTool.cs:458
 msgid "Bevel Join"
 msgstr "Ceangal Bevel"
 
-#: ../Pinta.Core/Enumerations/ResamplingMode.cs:22
+#: ../Bruskel.Core/Enumerations/ResamplingMode.cs:22
 msgid "Bilinear"
 msgstr "Délíneach"
 
 #. Translators: Simple gradient that goes from black to white
-#: ../Pinta.Effects/Adjustments/BlackAndWhiteEffect.cs:29
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:27
+#: ../Bruskel.Effects/Adjustments/BlackAndWhiteEffect.cs:29
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:27
 msgid "Black and White"
 msgstr "Dubh agus Bán"
 
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:73
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:73
 msgid "Blend Mode"
 msgstr "Mód Cumaisc"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:121
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:64
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:370
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:121
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:64
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:370
 msgid "Blue"
 msgstr "Gorm"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:91
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:91
 msgid "Blue "
 msgstr "Gorm "
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:33
-#: ../Pinta.Effects/Effects/GaussianBlurEffect.cs:28
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:33
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:27
-#: ../Pinta.Effects/Effects/UnfocusEffect.cs:27
-#: ../Pinta.Effects/Effects/ZoomBlurEffect.cs:32
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:33
+#: ../Bruskel.Effects/Effects/GaussianBlurEffect.cs:28
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:33
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:27
+#: ../Bruskel.Effects/Effects/UnfocusEffect.cs:27
+#: ../Bruskel.Effects/Effects/ZoomBlurEffect.cs:32
 msgid "Blurs"
 msgstr "Geamhú"
 
 #. Translators: 'Bold' (700) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:302
+#: ../Bruskel.Tools/Tools/TextTool.cs:302
 msgid "Bold"
 msgstr "Cló Trom"
 
 #. Translators: Gradient that starts out white, like the core of a raging fire, and then goes through yellow, red, and black (like visible black smoke), and finally transparent, blending with the background
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:31
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:31
 msgid "Bonfire"
 msgstr "Tine cnámh"
 
 #. Translators: 'Book' (380) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:278
+#: ../Bruskel.Tools/Tools/TextTool.cs:278
 msgid "Book"
 msgstr "Leabhar"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:40
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:40
 msgid "Bottom Center"
 msgstr "Lár an Bhun"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:39
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:39
 msgid "Bottom Left"
 msgstr "Bun ar Chlé"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:41
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:41
 msgid "Bottom Right"
 msgstr "Bun ar Dheis"
 
-#: ../Pinta.Effects/Adjustments/BrightnessContrastEffect.cs:87
-#: ../Pinta.Effects/Effects/GlowEffect.cs:79
+#: ../Bruskel.Effects/Adjustments/BrightnessContrastEffect.cs:87
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:79
 msgid "Brightness"
 msgstr "Gile"
 
-#: ../Pinta.Effects/Adjustments/BrightnessContrastEffect.cs:40
+#: ../Bruskel.Effects/Adjustments/BrightnessContrastEffect.cs:40
 msgid "Brightness / Contrast"
 msgstr "Gile / Codarsnacht"
 
-#: ../Pinta.Effects/Effects/OilPaintingEffect.cs:147
+#: ../Bruskel.Effects/Effects/OilPaintingEffect.cs:147
 msgid "Brush Size"
 msgstr "Méid na Scuaibe"
 
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:129
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:129
 msgid "Brush width"
 msgstr "Leithead na scuaibe"
 
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:23
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:23
 msgid "Bulge"
 msgstr "Boilscigh"
 
 #. Translators: Image dithering matrix named after Daniel Burkes
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:24
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:24
 msgid "Burkes"
 msgstr "Búrcaigh"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:121
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:90
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:121
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:90
 msgid "By absolute size:"
 msgstr "De réir méid:"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:114
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:83
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:114
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:83
 msgid "By percentage:"
 msgstr "De réir céatadán:"
 
-#: ../Pinta.Core/Actions/EditActions.cs:556
-#: ../Pinta.Gui.Addins/InstallDialog.cs:126
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:498
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:96
+#: ../Bruskel.Core/Actions/EditActions.cs:556
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:126
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:498
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:96
 msgid "Cancel"
 msgstr "Cealaigh"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:13 ../Pinta/Pads/CanvasPad.cs:41
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:13 ../Bruskel/Pads/CanvasPad.cs:41
 msgid "Canvas"
 msgstr "Canbhás"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:122
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:122
 msgid "Canvas Grid Settings"
 msgstr "Socruithe Eangach Canbháis"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:123
+#: ../Bruskel.Core/Actions/ViewActions.cs:123
 msgid "Canvas Grid..."
 msgstr "Eangach Canbháis..."
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:1
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:1
 msgid "Category"
 msgstr "Catagóir"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:176
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:176
 msgid "Cell Radius"
 msgstr "Ga na Cille"
 
-#: ../Pinta.Effects/Effects/PixelateEffect.cs:121
+#: ../Bruskel.Effects/Effects/PixelateEffect.cs:121
 msgid "Cell Size"
 msgstr "Méid na Cille"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:19
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:19
 msgid "Cells"
 msgstr "Cealla"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:37
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:37
 msgid "Center"
 msgstr "Lárnaigh"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:371
+#: ../Bruskel.Tools/Tools/TextTool.cs:371
 msgid "Center Align"
 msgstr "Ailínigh sa lár"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:36
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:36
 msgid "Center Left"
 msgstr "Lár Chlé"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:159
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:96
-#: ../Pinta.Effects/Effects/TwistEffect.cs:229
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:159
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:96
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:229
 msgid "Center Offset"
 msgstr "Fritháireamh Lárnach"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:38
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:38
 msgid "Center Right"
 msgstr "Lár ar Dheis"
 
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:154
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:154
 msgid "Centered"
 msgstr "Láraithe"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:215
+#: ../Bruskel.Core/Actions/ViewActions.cs:215
 msgid "Centimeters"
 msgstr "Ceintiméadar"
 
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:47
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:47
 msgid "Change brush width."
 msgstr "Athraigh leithead an scuaibe."
 
-#: ../Pinta.Tools/Tools/TextTool.cs:238
+#: ../Bruskel.Tools/Tools/TextTool.cs:238
 msgid "Change font size."
 msgstr "Athraigh méid an chló."
 
-#: ../Pinta.Tools/Tools/TextTool.cs:237
+#: ../Bruskel.Tools/Tools/TextTool.cs:237
 msgid "Change font size. Shortcut keys: [ ]"
 msgstr "Athraigh méid an chló. Eochracha aicearra: [ ]"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:370
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:370
 msgid "Change outline width."
 msgstr "Athraigh leithead an imlíne."
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:300
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:300
 msgid "Changed Shape Type"
 msgstr "Cineál Cruth Athraithe"
 
 #. Translators: Gradient that starts out off-white, like cherry blossoms against sunlight, then goes through pink, then light blue (like the sky) and finally transparent, blending with the background
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:35
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:35
 msgid "Cherry Blossom"
 msgstr "Bláth Silíní"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:666
-#: ../Pinta.Gui.Widgets/Dialogs/SimpleEffectDialog.cs:359
-#: ../Pinta/Dialogs/PreferencesDialog.cs:183
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:666
+#: ../Bruskel.Gui.Widgets/Dialogs/SimpleEffectDialog.cs:359
+#: ../Bruskel/Dialogs/PreferencesDialog.cs:183
 msgid "Choose Color"
 msgstr "Roghnaigh Dath"
 
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:380
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:380
 msgid "Choose Colors"
 msgstr "Roghnaigh Dathanna"
 
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:164
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:164
 msgid "Choose Palette Color"
 msgstr "Roghnaigh Dath Pailéid"
 
-#: ../Pinta.Tools/Brushes/CircleBrush.cs:36
+#: ../Bruskel.Tools/Brushes/CircleBrush.cs:36
 msgid "Circles"
 msgstr "Ciorcail"
 
 #. Translators: Arrangement of points along a circular path
-#: ../Pinta.Core/Algorithms/SpatialPartition.cs:170
+#: ../Bruskel.Core/Algorithms/SpatialPartition.cs:170
 msgid "Circular"
 msgstr "Ciorclach"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:7
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:7
 msgid "Clamp"
 msgstr "Fáisc"
 
-#: ../Pinta.Tools/Tools/RectangleSelectTool.cs:42
+#: ../Bruskel.Tools/Tools/RectangleSelectTool.cs:42
 msgid ""
 "Click and drag to draw a rectangular selection.\n"
 "Hold Shift to constrain to a square."
@@ -449,7 +449,7 @@ msgstr ""
 "Cliceáil agus tarraing chun rogha dronuilleogach a tharraingt.\n"
 "Coinnigh Shift síos chun é a choinneáil i gcearnóg."
 
-#: ../Pinta.Tools/Tools/EllipseSelectTool.cs:41
+#: ../Bruskel.Tools/Tools/EllipseSelectTool.cs:41
 msgid ""
 "Click and drag to draw an elliptical selection.\n"
 "Hold Shift to constrain to a circle."
@@ -457,7 +457,7 @@ msgstr ""
 "Cliceáil agus tarraing chun roghnú éilipseach a tharraingt.\n"
 "Coinnigh Shift síos chun é a choinneáil i gciorcal."
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:62
+#: ../Bruskel.Tools/Tools/GradientTool.cs:62
 msgid ""
 "Click and drag to draw gradient from primary to secondary color.\n"
 "Right click to reverse.\n"
@@ -468,20 +468,20 @@ msgstr ""
 "Cliceáil ar dheis chun é a aisiompú.\n"
 "Cliceáil ar phointe rialaithe agus tarraing chun é a bhogadh."
 
-#: ../Pinta.Tools/Tools/PanTool.cs:42
+#: ../Bruskel.Tools/Tools/PanTool.cs:42
 msgid "Click and drag to navigate image."
 msgstr "Brúigh agus tarraing chun an íomhá a ghluaiseacht."
 
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:356
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:356
 msgid "Click to reset primary and secondary color."
 msgstr "Brúigh anseo chun an príomhdhath agus an dath tánaisteach a athshocrú."
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:602
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:344
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:602
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:344
 msgid "Click to select primary color."
 msgstr "Brúigh anseo chun an príomhdhath a roghnú."
 
-#: ../Pinta.Tools/Tools/MagicWandTool.cs:57
+#: ../Bruskel.Tools/Tools/MagicWandTool.cs:57
 msgid ""
 "Click to select region of similar color.\n"
 "Hold shift to use Global mode."
@@ -489,340 +489,340 @@ msgstr ""
 "Cliceáil chun réigiún den dath céanna a roghnú.\n"
 "Coinnigh síos an cnaipe Shift chun an mód Domhanda a úsáid."
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:607
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:348
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:607
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:348
 msgid "Click to select secondary color."
 msgstr "Brúigh anseo chun an dath tánaisteach a roghnú."
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:367
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:351
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:367
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:351
 msgid "Click to switch between primary and secondary color."
 msgstr "Cliceáil chun aistriú idir an dath príomhúil agus an dath tánaisteach."
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:373
-#: ../Pinta/Dialogs/NewImageDialog.cs:430
-#: ../Pinta/Dialogs/NewImageDialog.cs:449
-#: ../Pinta/Dialogs/NewImageDialog.cs:545
+#: ../Bruskel/Dialogs/NewImageDialog.cs:373
+#: ../Bruskel/Dialogs/NewImageDialog.cs:430
+#: ../Bruskel/Dialogs/NewImageDialog.cs:449
+#: ../Bruskel/Dialogs/NewImageDialog.cs:545
 msgid "Clipboard"
 msgstr "Gearrthaisce"
 
-#: ../Pinta.Tools/Tools/CloneStampTool.cs:60
+#: ../Bruskel.Tools/Tools/CloneStampTool.cs:60
 msgid "Clone Stamp"
 msgstr "Stampa Clónála"
 
-#: ../Pinta.Core/Actions/FileActions.cs:81
-#: ../Pinta.Gui.Addins/InstallDialog.cs:343
+#: ../Bruskel.Core/Actions/FileActions.cs:81
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:343
 msgid "Close"
 msgstr "Dún"
 
-#: ../Pinta.Core/Actions/WindowActions.cs:51
+#: ../Bruskel.Core/Actions/WindowActions.cs:51
 msgid "Close All"
 msgstr "Dún Uile"
 
-#: ../Pinta.Tools/Editable/EditEngines/RectangleEditEngine.cs:37
+#: ../Bruskel.Tools/Editable/EditEngines/RectangleEditEngine.cs:37
 msgid "Closed Curve Shape"
 msgstr "Cruth Cuar Dúnta"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:275
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:275
 msgid "Closed Line/Curve Series"
 msgstr "Sraith Líne/Cuar Dúnta"
 
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:26
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:26
 msgid "Clouds"
 msgstr "Scamaill"
 
-#: ../Pinta.Effects/Effects/OilPaintingEffect.cs:151
+#: ../Bruskel.Effects/Effects/OilPaintingEffect.cs:151
 msgid "Coarseness"
 msgstr "Gairbhe"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:26
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:43
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:23
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:323
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:26
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:43
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:23
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:323
 msgid "Color"
 msgstr "Dath"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:33
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:33
 msgid "Color Burn"
 msgstr "Dóigh Dath"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:34
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:34
 msgid "Color Dodge"
 msgstr "Dodge Dath"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:215
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:215
 msgid "Color Gradient"
 msgstr "Grádán Dath"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:328
+#: ../Bruskel.Tools/Tools/GradientTool.cs:328
 msgid "Color Mode"
 msgstr "Mód Dathanna"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:57
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:57
 msgid "Color Picker"
 msgstr "Roghnóir Dathanna"
 
-#: ../Pinta.Effects/Effects/PencilSketchEffect.cs:90
+#: ../Bruskel.Effects/Effects/PencilSketchEffect.cs:90
 msgid "Color Range"
 msgstr "Raon na nDathanna"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:171
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:171
 msgid "Color Saturation"
 msgstr "Sáithiú na nDathanna"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:6
-#: ../Pinta.Effects/Effects/CellsEffect.cs:183
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:148
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:158
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:174
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:6
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:183
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:148
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:158
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:174
 msgid "Color Scheme"
 msgstr "Scéim Dathanna"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:194
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:194
 msgid "Color Scheme Edge Behavior"
 msgstr "Iompar Imeall Scéim Dathanna"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:180
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:145
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:155
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:171
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:180
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:145
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:155
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:171
 msgid "Color Scheme Source"
 msgstr "Foinse Scéim Dathanna"
 
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:191
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:191
 msgid "Color Sorting"
 msgstr "Sórtáil Dathanna"
 
-#: ../Pinta.Effects/Effects/InkSketchEffect.cs:150
+#: ../Bruskel.Effects/Effects/InkSketchEffect.cs:150
 msgid "Coloring"
 msgstr "Dathú"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:298
+#: ../Bruskel.Tools/Tools/GradientTool.cs:298
 msgid "Conical Gradient"
 msgstr "Grádán Cónúil"
 
-#: ../Pinta.Core/Actions/HelpActions.cs:46
+#: ../Bruskel.Core/Actions/HelpActions.cs:46
 msgid "Contents"
 msgstr "Ábhar"
 
-#: ../Pinta.Tools/Tools/FloodTool.cs:131
+#: ../Bruskel.Tools/Tools/FloodTool.cs:131
 msgid "Contiguous"
 msgstr "Comhtheagmhálach"
 
-#: ../Pinta.Effects/Adjustments/BrightnessContrastEffect.cs:90
-#: ../Pinta.Effects/Effects/GlowEffect.cs:83
+#: ../Bruskel.Effects/Adjustments/BrightnessContrastEffect.cs:90
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:83
 msgid "Contrast"
 msgstr "Codarsnacht"
 
-#: ../Pinta.Core/Actions/EditActions.cs:93
+#: ../Bruskel.Core/Actions/EditActions.cs:93
 msgid "Copy"
 msgstr "Macasamhlaigh"
 
-#: ../Pinta.Core/Actions/EditActions.cs:100
+#: ../Bruskel.Core/Actions/EditActions.cs:100
 msgid "Copy Merged"
 msgstr "Cóip Chomhcheangailte"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:81
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:81
 msgid "Copyright"
 msgstr "Cóipcheart"
 
 #. Translators: Gradient with the colors of blue and pink cotton candy
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:39
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:39
 msgid "Cotton Candy"
 msgstr "Candy Cadáis"
 
 #. Translators: {0} is the name of a layer, and {1} is the path to a .ora file.
-#: ../Pinta.Core/ImageFormats/OraFormat.cs:125
+#: ../Bruskel.Core/ImageFormats/OraFormat.cs:125
 #, csharp-format
 msgid "Could not import layer \"{0}\" from {1}"
 msgstr "Níorbh fhéidir an ciseal \"{0}\" a allmhairiú ó {1}"
 
-#: ../Pinta.Core/Extensions/OtherExtensions.cs:166
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:428
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:440
+#: ../Bruskel.Core/Extensions/OtherExtensions.cs:166
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:428
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:440
 #, csharp-format
 msgid "Could not open file: {0}"
 msgstr "Níorbh fhéidir an comhad a oscailt: {0}"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:175
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:175
 msgid "Coverage"
 msgstr "Clúdú"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:56
-#: ../Pinta.Core/Actions/ImageActions.cs:295
+#: ../Bruskel.Core/Actions/ImageActions.cs:56
+#: ../Bruskel.Core/Actions/ImageActions.cs:295
 msgid "Crop to Selection"
 msgstr "Crap go Roghnúchán"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:159
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:159
 msgid "Current Palette"
 msgstr "Pailéad Reatha"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:247
+#: ../Bruskel.Effects/Effects/TileEffect.cs:247
 msgid "Curved"
 msgstr "Cuartha"
 
-#: ../Pinta.Effects/Adjustments/CurvesEffect.cs:28
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:137
+#: ../Bruskel.Effects/Adjustments/CurvesEffect.cs:28
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:137
 msgid "Curves"
 msgstr "Cuair"
 
 #. Translators: Background option for the image created at startup, using a chosen color.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:25
-#: ../Pinta/Dialogs/NewImageDialog.cs:375
-#: ../Pinta/Dialogs/NewImageDialog.cs:430
-#: ../Pinta/Dialogs/NewImageDialog.cs:451
-#: ../Pinta/Dialogs/NewImageDialog.cs:545
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:25
+#: ../Bruskel/Dialogs/NewImageDialog.cs:375
+#: ../Bruskel/Dialogs/NewImageDialog.cs:430
+#: ../Bruskel/Dialogs/NewImageDialog.cs:451
+#: ../Bruskel/Dialogs/NewImageDialog.cs:545
 msgid "Custom"
 msgstr "Saincheaptha"
 
-#: ../Pinta.Core/Actions/EditActions.cs:86
-#: ../Pinta.Core/Actions/EditActions.cs:369
+#: ../Bruskel.Core/Actions/EditActions.cs:86
+#: ../Bruskel.Core/Actions/EditActions.cs:369
 msgid "Cut"
 msgstr "Gearr"
 
 #. Translators: This refers to using a dark variant of the color scheme.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:10
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:10
 msgid "Dark"
 msgstr "Dorcha"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:38
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:38
 msgid "Darken"
 msgstr "Déan dorcha é"
 
-#: ../Pinta.Tools/Dashes/DashPatternBox.cs:59
+#: ../Bruskel.Tools/Dashes/DashPatternBox.cs:59
 msgid "Dash"
 msgstr "Dais"
 
 #. Translators: This refers to using the system default color scheme.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:5
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:5
 msgid "Default"
 msgstr "Réamhshocrú"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:68
-#: ../Pinta.Core/Actions/LayerActions.cs:382
+#: ../Bruskel.Core/Actions/LayerActions.cs:68
+#: ../Bruskel.Core/Actions/LayerActions.cs:382
 msgid "Delete Layer"
 msgstr "Scrios Sraith"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:690
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:690
 msgid "Deleted"
 msgstr "Scriosta"
 
 #. Translators: This refers to an image distortion that creates small, random warps or distortions in the image, like tiny dents, bumps, or waves
-#: ../Pinta.Effects/Effects/DentsEffect.cs:49
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:49
 msgid "Dents"
 msgstr "Cnapáin"
 
-#: ../Pinta.Core/Actions/EditActions.cs:384
+#: ../Bruskel.Core/Actions/EditActions.cs:384
 msgid "Deselect"
 msgstr "Díroghnaigh"
 
-#: ../Pinta.Core/Actions/EditActions.cs:164
+#: ../Bruskel.Core/Actions/EditActions.cs:164
 msgid "Deselect All"
 msgstr "Díroghnaigh uile"
 
-#: ../Pinta/Dialogs/ErrorDialog.cs:66
+#: ../Bruskel/Dialogs/ErrorDialog.cs:66
 msgid "Details"
 msgstr "Mionsonraí"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:36
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:36
 msgid "Difference"
 msgstr "Éagsúlacht"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:130
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:130
 msgid "Diffusion"
 msgstr "Idirleathadh"
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:128
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:150
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:128
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:150
 msgid "Distance"
 msgstr "Fad"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:153
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:184
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:153
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:184
 msgid "Distance Metric"
 msgstr "Méadrach Fad"
 
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:27
-#: ../Pinta.Effects/Effects/DentsEffect.cs:52
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:27
-#: ../Pinta.Effects/Effects/PixelateEffect.cs:29
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:32
-#: ../Pinta.Effects/Effects/TileEffect.cs:34
-#: ../Pinta.Effects/Effects/TwistEffect.cs:33
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:27
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:52
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:27
+#: ../Bruskel.Effects/Effects/PixelateEffect.cs:29
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:32
+#: ../Bruskel.Effects/Effects/TileEffect.cs:34
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:33
 msgid "Distort"
 msgstr "Saobh"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:14
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:14
 msgid "Dithering"
 msgstr "Díthráil"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:216
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:216
 msgid "Do not switch tool"
 msgstr "Ná athraigh an uirlis"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:4
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:4
 msgid "Download size"
 msgstr "Méid an íoslódála"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:75
-#: ../Pinta.Core/Actions/LayerActions.cs:369
+#: ../Bruskel.Core/Actions/LayerActions.cs:75
+#: ../Bruskel.Core/Actions/LayerActions.cs:369
 msgid "Duplicate Layer"
 msgstr "Dúblaigh Sraith"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:2
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:69
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:2
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:69
 msgid "Easily create and edit images"
 msgstr "Cruthaigh agus cuir in eagar íomhánna go héasca"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:162
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:99
-#: ../Pinta.Effects/Effects/TileEffect.cs:237
-#: ../Pinta.Effects/Effects/TwistEffect.cs:232 Polar Inversion dialog
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:162
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:99
+#: ../Bruskel.Effects/Effects/TileEffect.cs:237
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:232 Polar Inversion dialog
 msgid "Edge Behavior"
 msgstr "Iompar Imeall"
 
-#: ../Pinta.Effects/Effects/EdgeDetectEffect.cs:26
+#: ../Bruskel.Effects/Effects/EdgeDetectEffect.cs:26
 msgid "Edge Detect"
 msgstr "Brath Imeall"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:101
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:101
 msgid "Edit"
 msgstr "Cuir in Eagar"
 
-#: ../Pinta/MainWindow.cs:395
+#: ../Bruskel/MainWindow.cs:395
 msgid "Effe_cts"
 msgstr "Tionchair"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:105
-#: ../Pinta/MainWindow.cs:455
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:105
+#: ../Bruskel/MainWindow.cs:455
 msgid "Effects"
 msgstr "Éifeachtaí"
 
 #. Translators: Gradient that starts out white, like the the inner part of a spark, and goes through progressively dark shades of blue until it reaches black, and finally transparent, blending with the background
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:43
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:43
 msgid "Electric"
 msgstr "Leictreach"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:276
-#: ../Pinta.Tools/Editable/EditEngines/EllipseEditEngine.cs:36
-#: ../Pinta.Tools/Tools/EllipseTool.cs:43
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:276
+#: ../Bruskel.Tools/Editable/EditEngines/EllipseEditEngine.cs:36
+#: ../Bruskel.Tools/Tools/EllipseTool.cs:43
 msgid "Ellipse"
 msgstr "Éilips"
 
-#: ../Pinta.Tools/Tools/EllipseSelectTool.cs:39
+#: ../Bruskel.Tools/Tools/EllipseSelectTool.cs:39
 msgid "Ellipse Select"
 msgstr "Roghnaigh Éilips"
 
-#: ../Pinta.Effects/Effects/EmbossEffect.cs:26
+#: ../Bruskel.Effects/Effects/EmbossEffect.cs:26
 msgid "Emboss"
 msgstr "Cabhraíocht"
 
-#: ../Pinta/Main.cs:71
+#: ../Bruskel/Main.cs:71
 msgid "Enable additional logging or behavior changes for debugging"
 msgstr ""
 "Cumasaigh logáil bhreise nó athruithe iompraíochta le haghaidh dífhabhtaithe"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:15
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:15
 msgid ""
 "Enables a \"marching ants\" effect to improve the selection's visibility. "
 "Disable to reduce CPU usage."
@@ -830,374 +830,374 @@ msgstr ""
 "Cumasaíonn sé éifeacht \"seangáin mháirseála\" chun infheictheacht an "
 "roghnúcháin a fheabhsú. Díchumasaigh chun úsáid LAP a laghdú."
 
-#: ../Pinta.Core/Actions/EditActions.cs:129
-#: ../Pinta.Core/Actions/EditActions.cs:370
+#: ../Bruskel.Core/Actions/EditActions.cs:129
+#: ../Bruskel.Core/Actions/EditActions.cs:370
 msgid "Erase Selection"
 msgstr "Scrios an Roghnúchán"
 
-#: ../Pinta.Tools/Tools/EraserTool.cs:62
+#: ../Bruskel.Tools/Tools/EraserTool.cs:62
 msgid "Eraser"
 msgstr "Scriosán"
 
-#: ../Pinta.Core/ImageFormats/OraFormat.cs:126
+#: ../Bruskel.Core/ImageFormats/OraFormat.cs:126
 msgid "Error"
 msgstr "Botún"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:168
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:168
 msgid "Error Diffusion Method"
 msgstr "Modh Scaipthe Earráide"
 
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:46
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:46
 msgid "Exclude (-) (Right Click)"
 msgstr "Eisiamh (-) (Cliceáil ar Dheis)"
 
 #. Translators: This refers to expanding the canvas size when pasting a larger image.
-#: ../Pinta/Actions/Edit/PasteAction.cs:256
+#: ../Bruskel/Actions/Edit/PasteAction.cs:256
 msgid "Expand"
 msgstr "Leathnaigh"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:294
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:294
 msgid "Extension packages"
 msgstr "Pacáistí síneadh"
 
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:143
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:156
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:143
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:156
 msgid "Factor"
 msgstr "Fachtóir"
 
-#: ../Pinta/Actions/File/NewScreenshotAction.cs:86
+#: ../Bruskel/Actions/File/NewScreenshotAction.cs:86
 msgid "Failed to access XDG Desktop Portals"
 msgstr "Theip ar rochtain a fháil ar Thairseacha Deisce XDG"
 
-#: ../Pinta/MainWindow.cs:323
+#: ../Bruskel/MainWindow.cs:323
 msgid "Failed to initialize add-in"
 msgstr "Theip ar an mbreiseán a thosú"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:215
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:215
 msgid "Failed to load extension package"
 msgstr "Theip ar an bpacáiste síneadh a luchtú"
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:460
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:460
 msgid "Failed to open image"
 msgstr "Theip ar an íomhá a oscailt"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:236
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:236
 msgid "Failed to save image"
 msgstr "Theip ar an íomhá a shábháil"
 
-#: ../Pinta/Actions/File/NewScreenshotAction.cs:85
-#: ../Pinta/Actions/File/NewScreenshotAction.cs:110
+#: ../Bruskel/Actions/File/NewScreenshotAction.cs:85
+#: ../Bruskel/Actions/File/NewScreenshotAction.cs:110
 msgid "Failed to take screenshot"
 msgstr "Theip ar an scáileán a thógáil"
 
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:175
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:175
 msgid "Feather Canvas Edge"
 msgstr "Imeall Canbhás Cleite"
 
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:18
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:18
 msgid "Feather Object"
 msgstr "Réad Cleite"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:100
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:100
 msgid "File"
 msgstr "Comhad"
 
-#: ../Pinta.Core/Actions/HelpActions.cs:59
+#: ../Bruskel.Core/Actions/HelpActions.cs:59
 msgid "File a Bug"
 msgstr "Fógraigh Fabht"
 
-#: ../Pinta/Main.cs:66
+#: ../Bruskel/Main.cs:66
 msgid "Files to open"
 msgstr "Comhaid le hoscailt"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:407
+#: ../Bruskel.Tools/Tools/TextTool.cs:407
 msgid "Fill Background"
 msgstr "Líon an Cúlra"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:221
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:221
 msgid "Fill Object Background"
 msgstr "Líon Cúlra an Réada"
 
-#: ../Pinta.Core/Actions/EditActions.cs:136
-#: ../Pinta.Core/Actions/EditActions.cs:322
+#: ../Bruskel.Core/Actions/EditActions.cs:136
+#: ../Bruskel.Core/Actions/EditActions.cs:322
 msgid "Fill Selection"
 msgstr "Líon an Roghnúchán"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:337
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:226
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:337
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:226
 msgid "Fill Shape"
 msgstr "Líon an Cruth"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:327
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:219
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:327
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:219
 msgid "Fill Style"
 msgstr "Stíl Líonadh"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:338
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:227
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:338
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:227
 msgid "Fill and Outline Shape"
 msgstr "Líon agus Imlínigh Cruth"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:1117
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:1403
-#: ../Pinta.Tools/Tools/GradientTool.cs:186
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:1117
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:1403
+#: ../Bruskel.Tools/Tools/GradientTool.cs:186
 msgid "Finalized"
 msgstr "Críochnaithe"
 
-#: ../Pinta.Core/HistoryItems/FinishPixelsHistoryItem.cs:41
+#: ../Bruskel.Core/HistoryItems/FinishPixelsHistoryItem.cs:41
 msgid "Finish Pixels"
 msgstr "Picteilíní Críochnaithe"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:117
-#: ../Pinta.Core/Actions/ImageActions.cs:221
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:279
+#: ../Bruskel.Core/Actions/ImageActions.cs:117
+#: ../Bruskel.Core/Actions/ImageActions.cs:221
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:279
 msgid "Flatten"
 msgstr "Leacaigh"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:275
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:275
 msgid "Flattening the image will merge all layers into a single layer."
 msgstr ""
 "Trí an íomhá a chothromú, cumascfar na sraitheanna go léir in aon tsraith "
 "amháin."
 
-#: ../Pinta.Core/Actions/ImageActions.cs:84
-#: ../Pinta.Core/Actions/LayerActions.cs:95
+#: ../Bruskel.Core/Actions/ImageActions.cs:84
+#: ../Bruskel.Core/Actions/LayerActions.cs:95
 msgid "Flip Horizontal"
 msgstr "Cas go Cothrománach"
 
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:51
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:51
 msgid "Flip Image Horizontal"
 msgstr "Cas an Íomhá go Cothrománach"
 
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:55
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:55
 msgid "Flip Image Vertical"
 msgstr "Cas an Íomhá go hIngearach"
 
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:76
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:76
 msgid "Flip Layer Horizontal"
 msgstr "Cas an Sraith go Cothrománach"
 
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:80
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:80
 msgid "Flip Layer Vertical"
 msgstr "Cas an Sraith go hIngearach"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:90
-#: ../Pinta.Core/Actions/LayerActions.cs:102
+#: ../Bruskel.Core/Actions/ImageActions.cs:90
+#: ../Bruskel.Core/Actions/LayerActions.cs:102
 msgid "Flip Vertical"
 msgstr "Cas go hIngearach"
 
-#: ../Pinta.Tools/Tools/FloodTool.cs:121
+#: ../Bruskel.Tools/Tools/FloodTool.cs:121
 msgid "Flood Mode"
 msgstr "Mód Tuilte"
 
 #. Translators: Image dithering matrix named after Robert W. Floyd and Louis Steinberg
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:40
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:40
 msgid "Floyd-Steinberg"
 msgstr "Floyd-Steinberg"
 
 #. Translators: Image dithering matrix named after Robert W. Floyd and Louis Steinberg. Some software may use it and call it Floyd-Steinberg, but it's not the actual Floyd-Steinberg matrix
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:44
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:44
 msgid "Floyd-Steinberg Lite"
 msgstr "Floyd-Steinberg Éadrom"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:149
+#: ../Bruskel.Tools/Tools/TextTool.cs:149
 msgid "Font"
 msgstr "Clófhoireann"
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:27
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:27
 msgid "Fragment"
 msgstr "Scoilt"
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:124
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:124
 msgid "Fragments"
 msgstr "Bloghanna"
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:220
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:220
 msgid "Freeform"
 msgstr "Saorfhoirm"
 
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:48
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:48
 msgid "Freeform Shape"
 msgstr "Cruth Saor"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:23
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:23
 msgid "Frosted Glass"
 msgstr "Gloine Shioctha"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:152
+#: ../Bruskel.Core/Actions/ViewActions.cs:152
 msgid "Fullscreen"
 msgstr "Lánscáileán"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:103
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:103
 msgid "Gallery"
 msgstr "Gailearaí"
 
-#: ../Pinta.Effects/Effects/GaussianBlurEffect.cs:24
+#: ../Bruskel.Effects/Effects/GaussianBlurEffect.cs:24
 msgid "Gaussian Blur"
 msgstr "Geamhú Gaussach"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:1
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:1
 msgid "General"
 msgstr "Ginearálta"
 
-#: ../Pinta.Tools/Tools/FloodTool.cs:132
+#: ../Bruskel.Tools/Tools/FloodTool.cs:132
 msgid "Global"
 msgstr "Comhchoiteann"
 
-#: ../Pinta.Effects/Effects/GlowEffect.cs:26
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:26
 msgid "Glow"
 msgstr "Breo"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:60
-#: ../Pinta.Tools/Tools/GradientTool.cs:288
+#: ../Bruskel.Tools/Tools/GradientTool.cs:60
+#: ../Bruskel.Tools/Tools/GradientTool.cs:288
 msgid "Gradient"
 msgstr "Grádán"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:127
+#: ../Bruskel.Tools/Tools/GradientTool.cs:127
 msgid "Gradient Created"
 msgstr "Cruthaíodh Grádán"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:128
+#: ../Bruskel.Tools/Tools/GradientTool.cs:128
 msgid "Gradient Modified"
 msgstr "Grádán Modhnaithe"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:90
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:117
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:63
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:369
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:90
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:117
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:63
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:369
 msgid "Green"
 msgstr "Uaine"
 
-#: ../Pinta.Tools/Brushes/GridBrush.cs:36
+#: ../Bruskel.Tools/Brushes/GridBrush.cs:36
 msgid "Grid"
 msgstr "Eangach"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:41
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:41
 msgid "Hard Light"
 msgstr "Solas Crua"
 
 #. Translators: 'Heavy' (900) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:314
+#: ../Bruskel.Tools/Tools/TextTool.cs:314
 msgid "Heavy"
 msgstr "Trom"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:18
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:18
 msgid "Height"
 msgstr ""
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:99
-#: ../Pinta/Dialogs/NewImageDialog.cs:348
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:87
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:126
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:99
+#: ../Bruskel/Dialogs/NewImageDialog.cs:348
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:87
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:126
 msgid "Height:"
 msgstr "Airde:"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:107
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:107
 msgid "Help"
 msgstr "Cabhair"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:304
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:304
 msgid "Hex"
 msgstr "Heicseagán"
 
-#: ../Pinta.Gui.Widgets/Widgets/Layers/LayersListViewItemWidget.cs:99
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:113
+#: ../Bruskel.Gui.Widgets/Widgets/Layers/LayersListViewItemWidget.cs:99
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:113
 msgid "Hide Layer"
 msgstr "Folaigh Sraith"
 
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:58
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:58
 msgid "Hint: For best results, first use selection tools to select each eye."
 msgstr ""
 "Leid: Chun na torthaí is fearr a fháil, bain úsáid as uirlisí roghnúcháin ar "
 "dtús chun gach súil a roghnú."
 
-#: ../Pinta/Pads/HistoryPad.cs:49
+#: ../Bruskel/Pads/HistoryPad.cs:49
 msgid "History"
 msgstr "Oireas"
 
 #. Translators: Horizontal color sorting with blue (B) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:237
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:237
 msgid "Horizontal blue (B)"
 msgstr "Gorm cothrománach (B)"
 
 #. Translators: Horizontal color sorting with green (G) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:240
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:240
 msgid "Horizontal green (G)"
 msgstr "Glas cothrománach (G)"
 
 #. Translators: Horizontal color sorting with red (R) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:243
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:243
 msgid "Horizontal red (R)"
 msgstr "Dearg cothrománach (D)"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:45
-#: ../Pinta.Effects/Adjustments/HueSaturationEffect.cs:61
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:364
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:45
+#: ../Bruskel.Effects/Adjustments/HueSaturationEffect.cs:61
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:364
 msgid "Hue"
 msgstr "Lí"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:210
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:210
 msgid "Hue & Sat"
 msgstr "Lí & Sáithiú"
 
-#: ../Pinta.Effects/Adjustments/HueSaturationEffect.cs:23
+#: ../Bruskel.Effects/Adjustments/HueSaturationEffect.cs:23
 msgid "Hue / Saturation"
 msgstr "Lí / Sáithiú"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:228
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:228
 msgid "ICO files can not be larger than 256 x 256 pixels."
 msgstr "Ní féidir comhaid ICO a bheith níos mó ná 256 x 256 picteilín."
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:195
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:195
 msgid "If enabled, the Value component is applied to the color wheel."
 msgstr ""
 "Má tá sé cumasaithe, cuirtear an chomhpháirt Luach i bhfeidhm ar an roth "
 "datha."
 
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:75
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:75
 msgid "If you don't save, all changes will be permanently lost."
 msgstr "Mura sábhálann tú, caillfear na hathruithe go léir go buan."
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:254
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:103
-#: ../Pinta/MainWindow.cs:465
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:254
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:103
+#: ../Bruskel/MainWindow.cs:465
 msgid "Image"
 msgstr "Íomhá"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:3
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:3
 msgid "Image Editor"
 msgstr "Eagarthóir Íomhá"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:110
+#: ../Bruskel.Core/Actions/ViewActions.cs:110
 msgid "Image Tabs"
 msgstr "Cluaisíní Íomhá"
 
-#: ../Pinta/Actions/Edit/PasteAction.cs:236
+#: ../Bruskel/Actions/Edit/PasteAction.cs:236
 msgid "Image cannot be pasted"
 msgstr "Ní féidir an íomhá a ghreamú"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:213
-#: ../Pinta/Actions/File/OpenDocumentAction.cs:111
+#: ../Bruskel.Core/Actions/LayerActions.cs:213
+#: ../Bruskel/Actions/File/OpenDocumentAction.cs:111
 msgid "Image files"
 msgstr "Comhaid íomhánna"
 
-#: ../Pinta/Actions/Edit/PasteAction.cs:243
+#: ../Bruskel/Actions/Edit/PasteAction.cs:243
 msgid "Image larger than canvas"
 msgstr "Íomhá níos mó ná an chanbhás"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:227
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:227
 msgid "Image too large"
 msgstr "Íomhá ró-mhór"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:260
+#: ../Bruskel.Core/Actions/LayerActions.cs:260
 msgid "Import From File"
 msgstr "Tabhair isteach ó chomhad"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:89
+#: ../Bruskel.Core/Actions/LayerActions.cs:89
 msgid "Import from File..."
 msgstr "Tabhair isteach ó chomhad..."
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:57
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:57
 msgid ""
 "In Freeform mode, click and drag to draw the outline for a selection area.\n"
 "\n"
@@ -1213,139 +1213,139 @@ msgstr ""
 "Brúigh Iontráil chun an roghnú a chríochnú.\n"
 "Brúigh Cúlspás chun an pointe deireanach a scriosadh."
 
-#: ../Pinta.Core/Actions/ViewActions.cs:214
+#: ../Bruskel.Core/Actions/ViewActions.cs:214
 msgid "Inches"
 msgstr "Orlach"
 
-#: ../Pinta.Effects/Effects/InkSketchEffect.cs:146
+#: ../Bruskel.Effects/Effects/InkSketchEffect.cs:146
 msgid "Ink Outline"
 msgstr "Imlíne Dhúigh"
 
-#: ../Pinta.Effects/Effects/InkSketchEffect.cs:35
+#: ../Bruskel.Effects/Effects/InkSketchEffect.cs:35
 msgid "Ink Sketch"
 msgstr "Dúchléaráid"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:286
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:286
 msgid "Input"
 msgstr "Ionchur"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:285
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:285
 msgid "Input Histogram"
 msgstr "Histogram Ionchuir"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:129
-#: ../Pinta.Gui.Addins/InstallDialog.cs:263
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:129
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:263
 msgid "Install"
 msgstr "Suiteáil"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:268
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:268
 msgid "Install Extension Package"
 msgstr "Suiteáil Pacáiste Síneadh"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:127
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:127
 msgid "Install from file..."
 msgstr "Suiteáil ó chomhad é..."
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:6
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:6
 msgid "Install..."
 msgstr "Suiteáil..."
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:104
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:104
 msgid "Installed"
 msgstr "Suiteáilte"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:167
-#: ../Pinta.Effects/Effects/OutlineEdgeEffect.cs:137
-#: ../Pinta.Effects/Effects/TileEffect.cs:230
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:167
+#: ../Bruskel.Effects/Effects/OutlineEdgeEffect.cs:137
+#: ../Bruskel.Effects/Effects/TileEffect.cs:230
 msgid "Intensity"
 msgstr "Déine"
 
 #. Translators: {0} is 'Alt', or a platform-specific key such as 'Option' on macOS.
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:50
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:50
 #, csharp-format
 msgid "Intersect ({0} + Left Click)"
 msgstr "Trasnaigh ({0} + Cliceáil ar Chlé)"
 
-#: ../Pinta.Effects/Adjustments/InvertColorsEffect.cs:29
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:185
+#: ../Bruskel.Effects/Adjustments/InvertColorsEffect.cs:29
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:185
 msgid "Invert Colors"
 msgstr "Aisiompaigh na Dathanna"
 
-#: ../Pinta.Core/Actions/EditActions.cs:143
-#: ../Pinta.Core/Actions/EditActions.cs:641
+#: ../Bruskel.Core/Actions/EditActions.cs:143
+#: ../Bruskel.Core/Actions/EditActions.cs:641
 msgid "Invert Selection"
 msgstr "Aisiompaigh an Roghnúchán"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:334
+#: ../Bruskel.Tools/Tools/TextTool.cs:334
 msgid "Italic"
 msgstr "Iodálach"
 
-#: ../Pinta/Dialogs/JpegCompressionDialog.cs:48
+#: ../Bruskel/Dialogs/JpegCompressionDialog.cs:48
 msgid "JPEG Quality"
 msgstr "Cáilíocht JPEG"
 
 #. Translators: Image dithering matrix named after J. F. Jarvis, C. N. Judice, and W. H. Ninke
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:36
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:36
 msgid "Jarvis-Judice-Ninke"
 msgstr "Jarvis-Judice-Ninke"
 
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:26
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:26
 msgid "Julia Fractal"
 msgstr "Frachtal Julia"
 
-#: ../Pinta.Core/Actions/AppActions.cs:55
+#: ../Bruskel.Core/Actions/AppActions.cs:55
 msgid "Keyboard Shortcuts"
 msgstr "Aicearraí Méarchláir"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:315
+#: ../Bruskel/Dialogs/NewImageDialog.cs:315
 msgid "Landscape"
 msgstr "Tírdhreach"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:3
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:3
 msgid "Language"
 msgstr "Teanga"
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:213
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:213
 msgid "Lasso Mode"
 msgstr "Mód Lasso"
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:55
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:55
 msgid "Lasso Select"
 msgstr "Roghnaigh Lasso"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:253
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:253
 msgid "Layer"
 msgstr "Sraith"
 
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:101
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:101
 msgid "Layer Opacity"
 msgstr "Teimhneacht na Sraithe"
 
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:119
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:119
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:119
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:119
 msgid "Layer Properties"
 msgstr "Airíonna na Sraithe"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:127
+#: ../Bruskel.Core/Actions/LayerActions.cs:127
 msgid "Layer Properties..."
 msgstr "Airíonna na Sraithe..."
 
 #. Translators: {0} is a unique id for new layers, e.g. "Layer 2".
-#: ../Pinta.Core/Classes/DocumentLayers.cs:131
+#: ../Bruskel.Core/Classes/DocumentLayers.cs:131
 #, csharp-format
 msgid "Layer {0}"
 msgstr "Sraith {0}"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:97
-#: ../Pinta/Pads/LayersPad.cs:49
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:97
+#: ../Bruskel/Pads/LayersPad.cs:49
 msgid "Layers"
 msgstr "Sraitheanna"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:360
+#: ../Bruskel.Tools/Tools/TextTool.cs:360
 msgid "Left Align"
 msgstr "Ailínigh Ar Chlé"
 
-#: ../Pinta.Tools/Tools/MoveSelectedTool.cs:49
+#: ../Bruskel.Tools/Tools/MoveSelectedTool.cs:49
 #, csharp-format
 msgid ""
 "Left click and drag the selection to move selected content.\n"
@@ -1363,7 +1363,7 @@ msgstr ""
 "Úsáid na heochracha saigheada chun an t-ábhar roghnaithe a bhogadh picteilín "
 "amháin."
 
-#: ../Pinta.Tools/Tools/MoveSelectionTool.cs:50
+#: ../Bruskel.Tools/Tools/MoveSelectionTool.cs:50
 #, csharp-format
 msgid ""
 "Left click and drag the selection to move selection outline.\n"
@@ -1382,7 +1382,7 @@ msgstr ""
 "amháin."
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Tools/Tools/ShapeTool.cs:50
+#: ../Bruskel.Tools/Tools/ShapeTool.cs:50
 #, csharp-format
 msgid ""
 "Left click to draw a shape with the primary color.\n"
@@ -1418,7 +1418,7 @@ msgstr ""
 "cruth nua a chruthú ag an suíomh céanna.\n"
 "Brúigh Iontráil chun an cruth a chríochnú."
 
-#: ../Pinta.Tools/Tools/PencilTool.cs:51
+#: ../Bruskel.Tools/Tools/PencilTool.cs:51
 msgid ""
 "Left click to draw freeform one-pixel wide lines with the primary color.\n"
 "Right click to use the secondary color."
@@ -1427,8 +1427,8 @@ msgstr ""
 "tharraingt leis an bpríomh-dath. \n"
 "Cliceáil ar dheis chun an tánaisteach-dath a úsáid."
 
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:50
-#: ../Pinta.Tools/Tools/PaintBrushTool.cs:82
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:50
+#: ../Bruskel.Tools/Tools/PaintBrushTool.cs:82
 msgid ""
 "Left click to draw with primary color, right click to draw with secondary "
 "color."
@@ -1436,14 +1436,14 @@ msgstr ""
 "Cliceáil ar chlé chun tarraingt leis an bpríomhdath, cliceáil ar dheis chun "
 "tarraingt leis an tánaisteach-dath."
 
-#: ../Pinta.Tools/Tools/EraserTool.cs:68
+#: ../Bruskel.Tools/Tools/EraserTool.cs:68
 msgid ""
 "Left click to erase to transparent, right click to erase to secondary color. "
 msgstr ""
 "Cliceáil ar chlé chun scriosadh go trédhearcach, cliceáil ar dheis chun "
 "scriosadh go dath tánaisteach. "
 
-#: ../Pinta.Tools/Tools/PaintBucketTool.cs:47
+#: ../Bruskel.Tools/Tools/PaintBucketTool.cs:47
 msgid ""
 "Left click to fill a region with the primary color, right click to fill with "
 "the secondary color.\n"
@@ -1453,7 +1453,7 @@ msgstr ""
 "dheis chun é a líonadh leis an dath tánaisteach.\n"
 "Coinnigh síos Shift chun an mód domhanda a úsáid."
 
-#: ../Pinta.Tools/Tools/TextTool.cs:95
+#: ../Bruskel.Tools/Tools/TextTool.cs:95
 msgid ""
 "Left click to place cursor, then type desired text. Text color is primary "
 "color."
@@ -1461,7 +1461,7 @@ msgstr ""
 "Cliceáil ar chlé chun an cúrsóir a chur, ansin clóscríobh an téacs atá uait. "
 "Is é dath an téacs an príomhdhath."
 
-#: ../Pinta.Tools/Tools/RecolorTool.cs:58
+#: ../Bruskel.Tools/Tools/RecolorTool.cs:58
 msgid ""
 "Left click to replace the secondary color with the primary color.\n"
 "Right click to reverse."
@@ -1470,7 +1470,7 @@ msgstr ""
 "bpríomhdhath. \n"
 "Cliceáil ar dheis chun é a aisiompú."
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:59
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:59
 msgid ""
 "Left click to set primary color.\n"
 "Right click to set secondary color."
@@ -1478,14 +1478,14 @@ msgstr ""
 "Cliceáil ar chlé chun an dath príomhúil a shocrú. \n"
 "Cliceáil ar dheis chun an dath tánaisteach a shocrú."
 
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:339
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:339
 msgid "Left click to set primary color. Right click to set secondary color."
 msgstr ""
 "Cliceáil ar chlé chun an príomhdath a shocrú. Cliceáil ar dheis chun an "
 "tánaisteach dath a shocrú."
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:331
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:331
 #, csharp-format
 msgid ""
 "Left click to set primary color. Right click to set secondary color. Middle "
@@ -1495,7 +1495,7 @@ msgstr ""
 "tánaisteach a shocrú. Cliceáil sa lár nó brúigh {0} agus cliceáil ar chlé "
 "chun dath an phailléid a roghnú."
 
-#: ../Pinta.Tools/Tools/ZoomTool.cs:59
+#: ../Bruskel.Tools/Tools/ZoomTool.cs:59
 msgid ""
 "Left click to zoom in.\n"
 "Right click to zoom out.\n"
@@ -1505,1171 +1505,1171 @@ msgstr ""
 "Cliceáil ar dheis chun zúmáil amach.\n"
 "Cliceáil agus tarraing chun zúmáil isteach sa rogha."
 
-#: ../Pinta.Tools/Editable/EditEngines/ArrowedEditEngine.cs:331
+#: ../Bruskel.Tools/Editable/EditEngines/ArrowedEditEngine.cs:331
 msgid "Length"
 msgstr "Fad"
 
-#: ../Pinta.Effects/Adjustments/LevelsEffect.cs:23
+#: ../Bruskel.Effects/Adjustments/LevelsEffect.cs:23
 msgid "Levels"
 msgstr "Airde"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:263
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:263
 msgid "Levels Adjustment"
 msgstr "Coigeartú Leibhéil"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:90
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:90
 msgid "License"
 msgstr "Ceadúnas"
 
 #. Translators: This refers to using a light variant of the color scheme.
 #. Translators: 'Light' (300) refers to the font-weight text property
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:8
-#: ../Pinta.Tools/Tools/TextTool.cs:266
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:8
+#: ../Bruskel.Tools/Tools/TextTool.cs:266
 msgid "Light"
 msgstr "Geal"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:37
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:37
 msgid "Lighten"
 msgstr "Éadromaigh"
 
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:129
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:129
 msgid "Lighting"
 msgstr "Soilsiú"
 
-#: ../Pinta.Effects/Adjustments/HueSaturationEffect.cs:67
+#: ../Bruskel.Effects/Adjustments/HueSaturationEffect.cs:67
 msgid "Lightness"
 msgstr "Éadromacht"
 
 #. Translators: Gradient with a citrusy vibe that starts out white, goes through light yellow, several shades of green, and then transparent, blending with the background
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:47
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:47
 msgid "Lime Lemon"
 msgstr "Líomóid Aoil"
 
-#: ../Pinta.Tools/Tools/LineCurveTool.cs:42
+#: ../Bruskel.Tools/Tools/LineCurveTool.cs:42
 msgid "Line/Curve"
 msgstr "Líne/Cuar"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:296
+#: ../Bruskel.Tools/Tools/GradientTool.cs:296
 msgid "Linear Diamond Gradient"
 msgstr "Grádán Diamant Líneach"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:294
+#: ../Bruskel.Tools/Tools/GradientTool.cs:294
 msgid "Linear Gradient"
 msgstr "Grádán Líneach"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:295
+#: ../Bruskel.Tools/Tools/GradientTool.cs:295
 msgid "Linear Reflected Gradient"
 msgstr "Grádán Frithchaite Líneach"
 
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:92
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:92
 msgid "Linked"
 msgstr "Nasctha"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:44
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:174
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:44
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:174
 msgid "Luminosity"
 msgstr "Lonrachas"
 
-#: ../Pinta.Tools/Tools/MagicWandTool.cs:54
+#: ../Bruskel.Tools/Tools/MagicWandTool.cs:54
 msgid "Magic Wand Select"
 msgstr "Roghnú Fleasc Dhraíochta"
 
-#: ../Pinta/MainWindow.cs:450
+#: ../Bruskel/MainWindow.cs:450
 msgid "Main Menu"
 msgstr "An príomhroghchlár"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:112
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:75
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:112
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:75
 msgid "Maintain aspect ratio"
 msgstr "Coimeád an cóimheas treoíochta"
 
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:26
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:26
 msgid "Mandelbrot Fractal"
 msgstr "Fractal Mandelbrot"
 
 #. Translators: Gradient with bright, high-energy, and otherworldly tones of blue, purple, and yellow, along with a dark red that gives off the appearance of burning
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:51
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:51
 msgid "Martian Lava"
 msgstr "Laibhe Marsach"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:122
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:122
 msgid "Maximum Scatter Radius"
 msgstr "Ga Scaipthe Uasta"
 
-#: ../Pinta.Tools/Brushes/SplatterBrush.cs:65
+#: ../Bruskel.Tools/Brushes/SplatterBrush.cs:65
 msgid "Maximum Size"
 msgstr "Uasmhéid Méid"
 
-#: ../Pinta.Effects/Effects/MedianEffect.cs:23
+#: ../Bruskel.Effects/Effects/MedianEffect.cs:23
 msgid "Median"
 msgstr "Airmheán"
 
 #. Translators: 'Medium' (500) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:290
+#: ../Bruskel.Tools/Tools/TextTool.cs:290
 msgid "Medium"
 msgstr "Meánach"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:82
-#: ../Pinta.Core/Actions/LayerActions.cs:335
+#: ../Bruskel.Core/Actions/LayerActions.cs:82
+#: ../Bruskel.Core/Actions/LayerActions.cs:335
 msgid "Merge Layer Down"
 msgstr "Cumasc Sraith Síos"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:126
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:126
 msgid "Minimum Scatter Radius"
 msgstr "Ga Scaipthe Íosta"
 
-#: ../Pinta.Tools/Brushes/SplatterBrush.cs:56
+#: ../Bruskel.Tools/Brushes/SplatterBrush.cs:56
 msgid "Minimum Size"
 msgstr "Íosmhéid"
 
 #. Translators: 'Miter Join' refers to the Cairo.LineJoin property
-#: ../Pinta.Tools/Tools/TextTool.cs:446
+#: ../Bruskel.Tools/Tools/TextTool.cs:446
 msgid "Miter Join"
 msgstr "Miter Join"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:322
+#: ../Bruskel.Tools/Tools/GradientTool.cs:322
 msgid "Mode"
 msgstr "Mód"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:934
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:934
 msgid "Modified"
 msgstr "Athraithe"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:8
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:8
 msgid "More Information..."
 msgstr "Tuilleadh Eolais..."
 
-#: ../Pinta.Effects/Effects/MotionBlurEffect.cs:27
+#: ../Bruskel.Effects/Effects/MotionBlurEffect.cs:27
 msgid "Motion Blur"
 msgstr "Doiléiriú Gluaiseachta"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:121
-#: ../Pinta.Core/Actions/LayerActions.cs:316
+#: ../Bruskel.Core/Actions/LayerActions.cs:121
+#: ../Bruskel.Core/Actions/LayerActions.cs:316
 msgid "Move Layer Down"
 msgstr "Bog Sraith Síos"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:115
-#: ../Pinta.Core/Actions/LayerActions.cs:300
+#: ../Bruskel.Core/Actions/LayerActions.cs:115
+#: ../Bruskel.Core/Actions/LayerActions.cs:300
 msgid "Move Layer Up"
 msgstr "Bog Sraith Suas"
 
-#: ../Pinta.Tools/Tools/MoveSelectedTool.cs:45
+#: ../Bruskel.Tools/Tools/MoveSelectedTool.cs:45
 msgid "Move Selected Pixels"
 msgstr "Bog na Picteilíní Roghnaithe"
 
-#: ../Pinta.Tools/Tools/MoveSelectionTool.cs:46
+#: ../Bruskel.Tools/Tools/MoveSelectionTool.cs:46
 msgid "Move Selection"
 msgstr "Bog Roghnúchán"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:32
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:32
 msgid "Multiply"
 msgstr "Méadaigh"
 
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:61
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:61
 msgid "Name:"
 msgstr "Ainm:"
 
-#: ../Pinta.Core/Enumerations/ResamplingMode.cs:23
+#: ../Bruskel.Core/Enumerations/ResamplingMode.cs:23
 msgid "Nearest Neighbor"
 msgstr "An Comharsan Is Neasa"
 
-#: ../Pinta.Core/Actions/FileActions.cs:63
+#: ../Bruskel.Core/Actions/FileActions.cs:63
 msgid "New"
 msgstr "Nua"
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:139
-#: ../Pinta/Dialogs/NewImageDialog.cs:194
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:139
+#: ../Bruskel/Dialogs/NewImageDialog.cs:194
 msgid "New Image"
 msgstr "Íomhá Nua"
 
-#: ../Pinta.Core/Actions/FileActions.cs:67
+#: ../Bruskel.Core/Actions/FileActions.cs:67
 msgid "New Screenshot..."
 msgstr "Roghbhlúire Nua..."
 
-#: ../Pinta/Actions/Edit/ResizePaletteAction.cs:71
+#: ../Bruskel/Actions/Edit/ResizePaletteAction.cs:71
 msgid "New palette size:"
 msgstr "Méid pháiléid nua:"
 
-#: ../Pinta.Core/Actions/FileActions.cs:59
+#: ../Bruskel.Core/Actions/FileActions.cs:59
 msgid "New..."
 msgstr "Nua..."
 
-#: ../Pinta.Gui.Addins/AddinListView.cs:60
+#: ../Bruskel.Gui.Addins/AddinListView.cs:60
 msgid "No Items Found"
 msgstr "Níor Aimsíodh Aon Réad"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:28
-#: ../Pinta.Effects/Effects/MedianEffect.cs:27
-#: ../Pinta.Effects/Effects/ReduceNoiseEffect.cs:32
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:28
+#: ../Bruskel.Effects/Effects/MedianEffect.cs:27
+#: ../Bruskel.Effects/Effects/ReduceNoiseEffect.cs:32
 msgid "Noise"
 msgstr "Torann"
 
 #. Translators: 'Normal' refers to the font-variant text property
 #. Translators: 'Normal' (400) refers to the font-weight text property
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:31
-#: ../Pinta.Tools/Brushes/PlainBrush.cs:41
-#: ../Pinta.Tools/Tools/EraserTool.cs:336 ../Pinta.Tools/Tools/TextTool.cs:182
-#: ../Pinta.Tools/Tools/TextTool.cs:284 ../Pinta.Tools/Tools/TextTool.cs:404
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:31
+#: ../Bruskel.Tools/Brushes/PlainBrush.cs:41
+#: ../Bruskel.Tools/Tools/EraserTool.cs:336 ../Bruskel.Tools/Tools/TextTool.cs:182
+#: ../Bruskel.Tools/Tools/TextTool.cs:284 ../Bruskel.Tools/Tools/TextTool.cs:404
 msgid "Normal"
 msgstr "Gnáth"
 
-#: ../Pinta.Core/Classes/BaseTool.cs:341
+#: ../Bruskel.Core/Classes/BaseTool.cs:341
 msgid "Normal Blending"
 msgstr "Gnáthchumasc"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:97
+#: ../Bruskel.Core/Actions/ViewActions.cs:97
 msgid "Normal Size"
 msgstr "Gnáthmhéid"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:405
+#: ../Bruskel.Tools/Tools/TextTool.cs:405
 msgid "Normal and Outline"
 msgstr "Gnáth agus Imlíne"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:172
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:187
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:172
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:187
 msgid "Number of Cells"
 msgstr "Líon na gCealla"
 
-#: ../Pinta/Main.cs:60
+#: ../Bruskel/Main.cs:60
 msgid "Number of threads to use for rendering"
 msgstr "Líon na snáitheanna le húsáid le haghaidh rindreála"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:493
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:493
 msgid "OK"
 msgstr "Tá go maith"
 
-#: ../Pinta.Effects/Effects/AlignObjectEffect.cs:14
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:22
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:22
+#: ../Bruskel.Effects/Effects/AlignObjectEffect.cs:14
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:22
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:22
 msgid "Object"
 msgstr "Réad"
 
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:120
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:139
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:133
-#: ../Pinta.Effects/Effects/ZoomBlurEffect.cs:140
-#: ../Pinta/Dialogs/OffsetSelectionDialog.cs:60
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:120
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:139
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:133
+#: ../Bruskel.Effects/Effects/ZoomBlurEffect.cs:140
+#: ../Bruskel/Dialogs/OffsetSelectionDialog.cs:60
 msgid "Offset"
 msgstr "Seach-chur"
 
-#: ../Pinta.Core/Actions/EditActions.cs:150
-#: ../Pinta/Actions/Edit/OffsetSelectionAction.cs:79
-#: ../Pinta/Dialogs/OffsetSelectionDialog.cs:52
+#: ../Bruskel.Core/Actions/EditActions.cs:150
+#: ../Bruskel/Actions/Edit/OffsetSelectionAction.cs:79
+#: ../Bruskel/Dialogs/OffsetSelectionDialog.cs:52
 msgid "Offset Selection"
 msgstr "Roghnú Fritháireamh"
 
-#: ../Pinta.Effects/Effects/OilPaintingEffect.cs:26
+#: ../Bruskel.Effects/Effects/OilPaintingEffect.cs:26
 msgid "Oil Painting"
 msgstr "Olaphictiúr"
 
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:85
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:85
 msgid "Opacity:"
 msgstr "Teimhneacht:"
 
-#: ../Pinta.Core/Actions/FileActions.cs:77
+#: ../Bruskel.Core/Actions/FileActions.cs:77
 msgid "Open"
 msgstr "Oscail"
 
-#: ../Pinta.Tools/Editable/EditEngines/LineCurveEditEngine.cs:37
+#: ../Bruskel.Tools/Editable/EditEngines/LineCurveEditEngine.cs:37
 msgid "Open Curve Shape"
 msgstr "Cruth Cuar Oscailte"
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:351
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:351
 msgid "Open Image"
 msgstr "Oscail Íomhá"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:231
-#: ../Pinta/Actions/File/OpenDocumentAction.cs:73
+#: ../Bruskel.Core/Actions/LayerActions.cs:231
+#: ../Bruskel/Actions/File/OpenDocumentAction.cs:73
 msgid "Open Image File"
 msgstr "Oscail Comhad Íomhá"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:274
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:274
 msgid "Open Line/Curve Series"
 msgstr "Sraith Líne/Cuar Oscailte"
 
-#: ../Pinta.Core/Actions/EditActions.cs:521
+#: ../Bruskel.Core/Actions/EditActions.cs:521
 msgid "Open Palette File"
 msgstr "Oscail Comhad Páiléid"
 
-#: ../Pinta.Core/Actions/EditActions.cs:171
-#: ../Pinta.Core/Actions/FileActions.cs:73
+#: ../Bruskel.Core/Actions/EditActions.cs:171
+#: ../Bruskel.Core/Actions/FileActions.cs:73
 msgid "Open..."
 msgstr "Oscail..."
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:331
+#: ../Bruskel/Dialogs/NewImageDialog.cs:331
 msgid "Orientation:"
 msgstr "Treoshuíomh:"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:25
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:25
 msgid "Original"
 msgstr "Bunaidh"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:406
+#: ../Bruskel.Tools/Tools/TextTool.cs:406
 msgid "Outline"
 msgstr "Imlínigh"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:218
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:218
 msgid "Outline Border"
 msgstr "Imlíne Teorann"
 
-#: ../Pinta.Effects/Effects/OutlineEdgeEffect.cs:23
+#: ../Bruskel.Effects/Effects/OutlineEdgeEffect.cs:23
 msgid "Outline Edge"
 msgstr "Imlíníocht Imeall"
 
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:18
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:18
 msgid "Outline Object"
 msgstr "Réada Imlíne"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:336
-#: ../Pinta.Tools/Tools/FreeformShapeTool.cs:225
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:336
+#: ../Bruskel.Tools/Tools/FreeformShapeTool.cs:225
 msgid "Outline Shape"
 msgstr "Imlínigh an Cruth"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:353
-#: ../Pinta.Tools/Tools/TextTool.cs:420
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:353
+#: ../Bruskel.Tools/Tools/TextTool.cs:420
 msgid "Outline width"
 msgstr "Leithead imlíne"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:287
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:287
 msgid "Output"
 msgstr "Aschur"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:288
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:288
 msgid "Output Histogram"
 msgstr "Histogram Aschuir"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:35
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:35
 msgid "Overlay"
 msgstr "Forleagan"
 
-#: ../Pinta.Core/Classes/BaseTool.cs:342
+#: ../Bruskel.Core/Classes/BaseTool.cs:342
 msgid "Overwrite"
 msgstr "Forscríobh"
 
-#: ../Pinta.Tools/Tools/PaintBucketTool.cs:44
+#: ../Bruskel.Tools/Tools/PaintBucketTool.cs:44
 msgid "Paint Bucket"
 msgstr "Buicéad Péinte"
 
-#: ../Pinta.Tools/Tools/PaintBrushTool.cs:80
+#: ../Bruskel.Tools/Tools/PaintBrushTool.cs:80
 msgid "Paintbrush"
 msgstr "scuab phéinte"
 
-#: ../Pinta.Core/Actions/EditActions.cs:237
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:174
+#: ../Bruskel.Core/Actions/EditActions.cs:237
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:174
 msgid "Palette"
 msgstr "Pailéad"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:171
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:171
 msgid "Palette Source"
 msgstr "Foinse Pailéid"
 
-#: ../Pinta.Core/Actions/EditActions.cs:602
+#: ../Bruskel.Core/Actions/EditActions.cs:602
 msgid "Palette files"
 msgstr "Comhaid pailéid"
 
-#: ../Pinta.Tools/Tools/PanTool.cs:40
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:148
+#: ../Bruskel.Tools/Tools/PanTool.cs:40
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:148
 msgid "Pan"
 msgstr "Panna"
 
-#: ../Pinta.Core/Actions/EditActions.cs:107
-#: ../Pinta.Core/HistoryItems/PasteHistoryItem.cs:38
-#: ../Pinta/Actions/Edit/PasteAction.cs:118
+#: ../Bruskel.Core/Actions/EditActions.cs:107
+#: ../Bruskel.Core/HistoryItems/PasteHistoryItem.cs:38
+#: ../Bruskel/Actions/Edit/PasteAction.cs:118
 msgid "Paste"
 msgstr "Greamaigh"
 
-#: ../Pinta.Core/Actions/EditActions.cs:122
+#: ../Bruskel.Core/Actions/EditActions.cs:122
 msgid "Paste Into New Image"
 msgstr "Greamaigh i Sraith Nua"
 
-#: ../Pinta.Core/Actions/EditActions.cs:114
-#: ../Pinta/Actions/Edit/PasteAction.cs:118
+#: ../Bruskel.Core/Actions/EditActions.cs:114
+#: ../Bruskel/Actions/Edit/PasteAction.cs:118
 msgid "Paste Into New Layer"
 msgstr "Greamaigh Sa Sraith Nua"
 
-#: ../Pinta.Tools/Tools/PencilTool.cs:48
+#: ../Bruskel.Tools/Tools/PencilTool.cs:48
 msgid "Pencil"
 msgstr "Peann Luaidhe"
 
-#: ../Pinta.Effects/Effects/PencilSketchEffect.cs:29
+#: ../Bruskel.Effects/Effects/PencilSketchEffect.cs:29
 msgid "Pencil Sketch"
 msgstr "Léaráid Phinn Luaidhe"
 
-#: ../Pinta.Effects/Effects/PencilSketchEffect.cs:86
+#: ../Bruskel.Effects/Effects/PencilSketchEffect.cs:86
 msgid "Pencil Tip Size"
 msgstr "Méid Leid an Pheann luaidhe"
 
-#: ../Pinta.Effects/Effects/MedianEffect.cs:63
+#: ../Bruskel.Effects/Effects/MedianEffect.cs:63
 msgid "Percentile"
 msgstr "Ceintíl"
 
 #. Translators: 'Petite Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:200
+#: ../Bruskel.Tools/Tools/TextTool.cs:200
 msgid "Petite Caps"
 msgstr "Caipíní Beaga"
 
-#: ../Pinta.Effects/Effects/GlowEffect.cs:30
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:27
-#: ../Pinta.Effects/Effects/SharpenEffect.cs:27
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:58
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:52
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:30
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:27
+#: ../Bruskel.Effects/Effects/SharpenEffect.cs:27
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:58
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:52
 msgid "Photo"
 msgstr "Grianghraf"
 
 #. Translators: Arrangement of points similar to how sunflower seeds are arranged
-#: ../Pinta.Core/Algorithms/SpatialPartition.cs:174
+#: ../Bruskel.Core/Algorithms/SpatialPartition.cs:174
 msgid "Phyllotaxis"
 msgstr "Fíllotaxis"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:1
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:65 ../Pinta/Main.cs:75
-#: ../Pinta/MainWindow.cs:57
-msgid "Pinta"
-msgstr "Pinta"
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:1
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:65 ../Bruskel/Main.cs:75
+#: ../Bruskel/MainWindow.cs:57
+msgid "Bruskel"
+msgstr "Bruskel"
 
-#: ../Pinta/AddinSetupService.cs:66
-msgid "Pinta Community Addins - Cross-Platform"
-msgstr "Breiseáin Phobail Pinta - Tras-Ardán"
+#: ../Bruskel/AddinSetupService.cs:66
+msgid "Bruskel Community Addins - Cross-Platform"
+msgstr "Breiseáin Phobail Bruskel - Tras-Ardán"
 
-#: ../Pinta/AddinSetupService.cs:62
-msgid "Pinta Community Addins - Platform-Specific"
-msgstr "Breiseáin Phobail Pinta - Sonrach don Ardán"
+#: ../Bruskel/AddinSetupService.cs:62
+msgid "Bruskel Community Addins - Platform-Specific"
+msgstr "Breiseáin Phobail Bruskel - Sonrach don Ardán"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:4
-msgid "Pinta Image Editor"
-msgstr "Eagarthóir Íomhá Pinta"
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:4
+msgid "Bruskel Image Editor"
+msgstr "Eagarthóir Íomhá Bruskel"
 
-#: ../Pinta.Core/Actions/HelpActions.cs:53
-msgid "Pinta Website"
-msgstr "Suíomh Idirlín Pinta"
+#: ../Bruskel.Core/Actions/HelpActions.cs:53
+msgid "Bruskel Website"
+msgstr "Suíomh Idirlín Bruskel"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:207
-msgid "Pinta does not support saving images in this file format."
-msgstr "Ní thacaíonn Pinta le híomhánna a shábháil sa fhormáid comhaid seo."
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:207
+msgid "Bruskel does not support saving images in this file format."
+msgstr "Ní thacaíonn Bruskel le híomhánna a shábháil sa fhormáid comhaid seo."
 
-#: ../xdg/com.github.PintaProject.Pinta.metainfo.xml.in.h:1
+#: ../xdg/com.github.BruskelProject.Bruskel.metainfo.xml.in.h:1
 msgid ""
-"Pinta is a image editing, drawing and painting application with a simple yet "
-"powerful interface. Pinta has a wide range of drawing tools, including: "
+"Bruskel is a image editing, drawing and painting application with a simple yet "
+"powerful interface. Bruskel has a wide range of drawing tools, including: "
 "freehand, rectangles, circles and lines. It also has over 35 effects to "
 "apply to your images, and also has the ability to create unlimited layers to "
 "help organize your creativity."
 msgstr ""
 "Is feidhmchlár eagarthóireachta íomhánna, líníochta agus péintéireachta é "
-"Pinta le comhéadan simplí ach cumhachtach. Tá réimse leathan uirlisí "
-"líníochta ag Pinta, lena n-áirítear: saorláimhe, dronuilleoga, ciorcail agus "
+"Bruskel le comhéadan simplí ach cumhachtach. Tá réimse leathan uirlisí "
+"líníochta ag Bruskel, lena n-áirítear: saorláimhe, dronuilleoga, ciorcail agus "
 "línte. Tá breis is 35 éifeacht aige le cur i bhfeidhm ar d’íomhánna, agus tá "
 "an cumas aige sraitheanna gan teorainn a chruthú chun cabhrú le do "
 "chruthaitheacht a eagrú."
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:441
-msgid "Pinta supports the following file formats:"
-msgstr "Tacaíonn Pinta leis na formáidí comhaid seo a leanas:"
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:441
+msgid "Bruskel supports the following file formats:"
+msgstr "Tacaíonn Bruskel leis na formáidí comhaid seo a leanas:"
 
-#: ../Pinta.Core/Extensions/OtherExtensions.cs:167
-msgid "Pinta supports the following palette formats:"
-msgstr "Tacaíonn Pinta leis na formáidí pailéid seo a leanas:"
+#: ../Bruskel.Core/Extensions/OtherExtensions.cs:167
+msgid "Bruskel supports the following palette formats:"
+msgstr "Tacaíonn Bruskel leis na formáidí pailéid seo a leanas:"
 
-#: ../Pinta.Effects/Effects/PixelateEffect.cs:23
+#: ../Bruskel.Effects/Effects/PixelateEffect.cs:23
 msgid "Pixelate"
 msgstr "Picteilín"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:213
+#: ../Bruskel.Core/Actions/ViewActions.cs:213
 msgid "Pixels"
 msgstr "Picteilíní"
 
 #. Translators: Gradient with different shades of brownish yellow
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:55
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:55
 msgid "Piña Colada"
 msgstr "Piña Colada"
 
-#: ../Pinta/Dialogs/PreferencesDialog.cs:204
-msgid "Please restart Pinta for the changes to take effect."
-msgstr "Atosaigh Pinta le go dtiocfaidh na hathruithe i bhfeidhm."
+#: ../Bruskel/Dialogs/PreferencesDialog.cs:204
+msgid "Please restart Bruskel for the changes to take effect."
+msgstr "Atosaigh Bruskel le go dtiocfaidh na hathruithe i bhfeidhm."
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:620
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:823
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:620
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:823
 msgid "Point Added"
 msgstr "Pointe Curtha Leis"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:156
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:201
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:156
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:201
 msgid "Point Arrangement"
 msgstr "Socrú Pointe"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:169
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:216
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:169
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:216
 msgid "Point Color"
 msgstr "Dath Pointe"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:671
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:671
 msgid "Point Deleted"
 msgstr "Pointe Scriosta"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:165
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:211
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:165
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:211
 msgid "Point Size"
 msgstr "Méid Pointe"
 
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:26
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:26
 msgid "Polar Inversion"
 msgstr "Aisiompú Polach"
 
-#: ../Pinta.Tools/Tools/LassoSelectTool.cs:221
+#: ../Bruskel.Tools/Tools/LassoSelectTool.cs:221
 msgid "Polygon"
 msgstr "Polagán"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:311
+#: ../Bruskel/Dialogs/NewImageDialog.cs:311
 msgid "Portrait"
 msgstr "Portráid"
 
-#: ../Pinta.Effects/Effects/AlignObjectEffect.cs:129
+#: ../Bruskel.Effects/Effects/AlignObjectEffect.cs:129
 msgid "Position"
 msgstr "Seasamh"
 
-#: ../Pinta.Effects/Adjustments/PosterizeEffect.cs:25
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:54
+#: ../Bruskel.Effects/Adjustments/PosterizeEffect.cs:25
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:54
 msgid "Posterize"
 msgstr "Déan póstaer de"
 
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:138
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:138
 msgid "Power"
 msgstr "Cumhacht"
 
-#: ../Pinta.Core/Actions/AppActions.cs:49
+#: ../Bruskel.Core/Actions/AppActions.cs:49
 msgid "Preferences..."
 msgstr "Roghanna..."
 
 #. Translators: This refers to preserving the current canvas size when pasting a larger image.
-#: ../Pinta/Actions/Edit/PasteAction.cs:254
+#: ../Bruskel/Actions/Edit/PasteAction.cs:254
 msgid "Preserve"
 msgstr "Caomhnaigh"
 
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:10
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:10
 msgid "Preset Gradient"
 msgstr "Grádán Réamhshocraithe"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:156
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:156
 msgid "Preset Palettes"
 msgstr "Pailéid Réamhshocraithe"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:356
+#: ../Bruskel/Dialogs/NewImageDialog.cs:356
 msgid "Preset:"
 msgstr "Réamhshocrú:"
 
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:49
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:49
 #, csharp-format
 msgid "Press {0} to decrease brush width"
 msgstr "Brúigh {0} chun leithead na scuaibe a laghdú"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:240
+#: ../Bruskel.Tools/Tools/TextTool.cs:240
 #, csharp-format
 msgid "Press {0} to decrease font size"
 msgstr "Brúigh {0} chun méid an chló a laghdú"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:372
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:372
 #, csharp-format
 msgid "Press {0} to decrease outline width"
 msgstr "Brúigh {0} chun leithead an imlíne a laghdú"
 
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:50
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:50
 #, csharp-format
 msgid "Press {0} to increase brush width"
 msgstr "Brúigh {0} chun leithead na scuaibe a mhéadú"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:241
+#: ../Bruskel.Tools/Tools/TextTool.cs:241
 #, csharp-format
 msgid "Press {0} to increase font size"
 msgstr "Brúigh {0} chun méid an chló a mhéadú"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:373
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:373
 #, csharp-format
 msgid "Press {0} to increase outline width"
 msgstr "Brúigh {0} chun leithead an imlíne a mhéadú"
 
-#: ../Pinta/Dialogs/NewImageDialog.cs:169
+#: ../Bruskel/Dialogs/NewImageDialog.cs:169
 msgid "Preview"
 msgstr "Réamhamharc"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:16
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:16
 msgid "Primary"
 msgstr "Príomh"
 
-#: ../Pinta.Core/Actions/FileActions.cs:102
+#: ../Bruskel.Core/Actions/FileActions.cs:102
 msgid "Print"
 msgstr "Clóbhuail"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:197
-#: ../Pinta.Effects/Effects/DentsEffect.cs:155
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:147
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:160
-#: ../Pinta.Effects/Effects/PolarInversionEffect.cs:92
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:142
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:220
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:197
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:155
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:147
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:160
+#: ../Bruskel.Effects/Effects/PolarInversionEffect.cs:92
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:142
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:220
 msgid "Quality"
 msgstr "Cáilíocht"
 
-#: ../Pinta/Dialogs/JpegCompressionDialog.cs:40
+#: ../Bruskel/Dialogs/JpegCompressionDialog.cs:40
 msgid "Quality: "
 msgstr "Cáilíocht: "
 
-#: ../Pinta.Core/Actions/AppActions.cs:60
+#: ../Bruskel.Core/Actions/AppActions.cs:60
 msgid "Quit"
 msgstr "Scoir"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:173
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:173
 msgid "RGB"
 msgstr "DGlGo"
 
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:23
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:23
 msgid "Radial Blur"
 msgstr "Doiléiriú Gathach"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:297
+#: ../Bruskel.Tools/Tools/GradientTool.cs:297
 msgid "Radial Gradient"
 msgstr "Grádán Gathach"
 
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:167
-#: ../Pinta.Effects/Effects/GaussianBlurEffect.cs:247
-#: ../Pinta.Effects/Effects/GlowEffect.cs:75
-#: ../Pinta.Effects/Effects/MedianEffect.cs:59
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:204
-#: ../Pinta.Effects/Effects/ReduceNoiseEffect.cs:84
-#: ../Pinta.Effects/Effects/UnfocusEffect.cs:88
-#: ../Pinta.Tools/Editable/EditEngines/RoundedLineEditEngine.cs:85
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:167
+#: ../Bruskel.Effects/Effects/GaussianBlurEffect.cs:247
+#: ../Bruskel.Effects/Effects/GlowEffect.cs:75
+#: ../Bruskel.Effects/Effects/MedianEffect.cs:59
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:204
+#: ../Bruskel.Effects/Effects/ReduceNoiseEffect.cs:84
+#: ../Bruskel.Effects/Effects/UnfocusEffect.cs:88
+#: ../Bruskel.Tools/Editable/EditEngines/RoundedLineEditEngine.cs:85
 msgid "Radius"
 msgstr "Ga"
 
 #. Translators: This refers to how big the radius is as a percentage of the image's dimensions
-#: ../Pinta.Effects/Effects/BulgeEffect.cs:124
-#: ../Pinta.Effects/Effects/TwistEffect.cs:221
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:137
+#: ../Bruskel.Effects/Effects/BulgeEffect.cs:124
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:221
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:137
 msgid "Radius Percentage"
 msgstr "Céatadán Ga"
 
-#: ../Pinta.Core/Algorithms/SpatialPartition.cs:166
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:233
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:16
+#: ../Bruskel.Core/Algorithms/SpatialPartition.cs:166
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:233
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:16
 msgid "Random"
 msgstr "Fánach"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:187
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:152
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:162
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:178
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:187
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:152
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:162
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:178
 msgid "Random Color Scheme Seed"
 msgstr "Síol Scéim Dathanna Randamach"
 
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:198
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:198
 msgid "Random Colors"
 msgstr "Dathanna Randamacha"
 
-#: ../Pinta.Effects/Effects/AddNoiseEffect.cs:179
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:142
-#: ../Pinta.Effects/Effects/DentsEffect.cs:151
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:138
+#: ../Bruskel.Effects/Effects/AddNoiseEffect.cs:179
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:142
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:151
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:138
 msgid "Random Noise Seed"
 msgstr "Síol Torainn Randamach"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:159
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:204
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:159
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:204
 msgid "Random Point Locations"
 msgstr "Suíomhanna Pointe Randamacha"
 
-#: ../Pinta.Effects/Effects/DitheringEffect.cs:162
+#: ../Bruskel.Effects/Effects/DitheringEffect.cs:162
 msgid "Recently Used Colors"
 msgstr "Dathanna Le Déanaí"
 
-#: ../Pinta.Tools/Tools/RecolorTool.cs:55
+#: ../Bruskel.Tools/Tools/RecolorTool.cs:55
 msgid "Recolor"
 msgstr "Athdhathaigh"
 
-#: ../Pinta.Tools/Tools/RectangleTool.cs:42
+#: ../Bruskel.Tools/Tools/RectangleTool.cs:42
 msgid "Rectangle"
 msgstr "Dronuilleog"
 
-#: ../Pinta.Tools/Tools/RectangleSelectTool.cs:39
+#: ../Bruskel.Tools/Tools/RectangleSelectTool.cs:39
 msgid "Rectangle Select"
 msgstr "Roghnú Dronuilleog"
 
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:113
-#: ../Pinta.Effects/Dialogs/Effects.PosterizeDialog.cs:62
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:368
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:113
+#: ../Bruskel.Effects/Dialogs/Effects.PosterizeDialog.cs:62
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:368
 msgid "Red"
 msgstr "Dearg"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:89
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:89
 msgid "Red  "
 msgstr "Dearg  "
 
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:23
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:23
 msgid "Red Eye Removal"
 msgstr "Baint Súile Dhearga"
 
-#: ../Pinta.Core/Actions/EditActions.cs:79
+#: ../Bruskel.Core/Actions/EditActions.cs:79
 msgid "Redo"
 msgstr "Déan Árís É"
 
-#: ../Pinta.Effects/Effects/ReduceNoiseEffect.cs:26
+#: ../Bruskel.Effects/Effects/ReduceNoiseEffect.cs:26
 msgid "Reduce Noise"
 msgstr "Maolaigh an torann"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:13
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:13
 msgid "Reflect"
 msgstr "Frithchaith"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:139
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:139
 msgid "Refraction"
 msgstr "Athraonadh"
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:119
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:119
 msgid "Refresh"
 msgstr "Athnuaigh"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:91
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:91
 msgid "Released under the MIT X11 License."
 msgstr "Scaoilte faoin gCeadúnas MIT X11."
 
-#: ../Pinta.Effects/Effects/ReliefEffect.cs:40
+#: ../Bruskel.Effects/Effects/ReliefEffect.cs:40
 msgid "Relief"
 msgstr "Rilíf"
 
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:107
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:107
 msgid "Rename Layer"
 msgstr "Athainmnigh Sraith"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:25
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:32
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:32
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:32
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:27
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:25
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:32
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:32
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:32
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:27
 msgid "Render"
 msgstr "Cruth"
 
-#: ../Pinta.Core/Managers/LivePreviewManager.cs:120
+#: ../Bruskel.Core/Managers/LivePreviewManager.cs:120
 msgid "Rendering Effect"
 msgstr "Éifeacht Rindreála"
 
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:43
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:43
 msgid "Replace"
 msgstr "Ionadaigh"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:12
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:12
 msgid "Replaces the header bar with a separate menu bar and tool bar."
 msgstr ""
 "Cuireann sé barra roghchláir agus barra uirlisí ar leithligh in ionad an "
 "bharra ceanntásca."
 
-#: ../Pinta/Dialogs/ErrorDialog.cs:71
+#: ../Bruskel/Dialogs/ErrorDialog.cs:71
 msgid "Report Bug..."
 msgstr "Tuairiscigh Fabht..."
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:5
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:5
 msgid "Repository"
 msgstr "Stórlann"
 
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:141
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:141
 msgid "Resampling:"
 msgstr "Athshampláil:"
 
-#: ../Pinta.Gui.Widgets/Dialogs/SimpleEffectDialog.cs:645
+#: ../Bruskel.Gui.Widgets/Dialogs/SimpleEffectDialog.cs:645
 msgid "Reseed"
 msgstr "Athshíolaigh"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:205
-#: ../Pinta.Effects/Dialogs/Effects.LevelsDialog.cs:274
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:481
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:205
+#: ../Bruskel.Effects/Dialogs/Effects.LevelsDialog.cs:274
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:481
 msgid "Reset"
 msgstr "Athshocraigh"
 
-#: ../Pinta.Core/Actions/EditActions.cs:183
+#: ../Bruskel.Core/Actions/EditActions.cs:183
 msgid "Reset to Default"
 msgstr "Fill ar Réamhshocruithe"
 
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:97
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:80
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:97
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:80
 msgid "Reset to image size"
 msgstr "Athshocraigh go méid íomhá"
 
-#: ../Pinta.Core/Classes/Document.cs:327
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:213
+#: ../Bruskel.Core/Classes/Document.cs:327
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:213
 msgid "Resize Canvas"
 msgstr "Athmhéadaigh an Canbhás"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:77
+#: ../Bruskel.Core/Actions/ImageActions.cs:77
 msgid "Resize Canvas..."
 msgstr "Athraigh Méid an Chanbháis..."
 
-#: ../Pinta.Core/HistoryItems/ResizeHistoryItem.cs:39
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:154
+#: ../Bruskel.Core/HistoryItems/ResizeHistoryItem.cs:39
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:154
 msgid "Resize Image"
 msgstr "Athraigh Méid na hÍomhá"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:70
+#: ../Bruskel.Core/Actions/ImageActions.cs:70
 msgid "Resize Image..."
 msgstr "Athraigh méid na hÍomhá..."
 
-#: ../Pinta/Actions/Edit/ResizePaletteAction.cs:69
+#: ../Bruskel/Actions/Edit/ResizePaletteAction.cs:69
 msgid "Resize Palette"
 msgstr "Athraigh Méid an Phailléid"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:191
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:156
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:166
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:182
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:191
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:156
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:166
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:182
 msgid "Reverse Color Scheme"
 msgstr "Scéim Dathanna Droim ar Ais"
 
 #. Translators: In this context, "reverse" is a verb, and the user can choose whether or not they want to reverse the color sorting
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:195
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:195
 msgid "Reverse Color Sorting"
 msgstr "Sórtáil Dathanna Droim ar Ais"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:382
+#: ../Bruskel.Tools/Tools/TextTool.cs:382
 msgid "Right Align"
 msgstr "Ailínigh Ar Dheis"
 
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:70
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:136
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:70
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:136
 msgid "Rotate / Zoom Layer"
 msgstr "Rothlaigh / Súmáil an tSraith"
 
-#: ../Pinta.Core/Actions/LayerActions.cs:109
+#: ../Bruskel.Core/Actions/LayerActions.cs:109
 msgid "Rotate / Zoom Layer..."
 msgstr "Rothlaigh / Súmáil an tsraith..."
 
-#: ../Pinta.Core/Actions/ImageActions.cs:110
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:47
+#: ../Bruskel.Core/Actions/ImageActions.cs:110
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:47
 msgid "Rotate 180°"
 msgstr "Rothlaigh 180°"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:96
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:59
+#: ../Bruskel.Core/Actions/ImageActions.cs:96
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:59
 msgid "Rotate 90° Clockwise"
 msgstr "Rothlaigh 90° Deiseal"
 
-#: ../Pinta.Core/Actions/ImageActions.cs:103
-#: ../Pinta.Core/HistoryItems/InvertHistoryItem.cs:63
+#: ../Bruskel.Core/Actions/ImageActions.cs:103
+#: ../Bruskel.Core/HistoryItems/InvertHistoryItem.cs:63
 msgid "Rotate 90° Counter-Clockwise"
 msgstr "Rothlaigh 90° Tuathalach"
 
-#: ../Pinta.Effects/Effects/FragmentEffect.cs:132
-#: ../Pinta.Effects/Effects/TileEffect.cs:222
+#: ../Bruskel.Effects/Effects/FragmentEffect.cs:132
+#: ../Bruskel.Effects/Effects/TileEffect.cs:222
 msgid "Rotation"
 msgstr "Rothlú"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:143
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:143
 msgid "Roughness"
 msgstr "Garbhacht"
 
 #. Translators: 'Round Join' refers to the Cairo.LineJoin property
-#: ../Pinta.Tools/Tools/TextTool.cs:452
+#: ../Bruskel.Tools/Tools/TextTool.cs:452
 msgid "Round Join"
 msgstr "Babhta Ceangal"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:277
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:277
 msgid "Rounded Line Series"
 msgstr "Sraith Líne Babhta"
 
-#: ../Pinta.Tools/Editable/EditEngines/RoundedLineEditEngine.cs:37
+#: ../Bruskel.Tools/Editable/EditEngines/RoundedLineEditEngine.cs:37
 msgid "Rounded Line Shape"
 msgstr "Cruth Líne Babhta"
 
-#: ../Pinta.Tools/Tools/RoundedRectangleTool.cs:43
+#: ../Bruskel.Tools/Tools/RoundedRectangleTool.cs:43
 msgid "Rounded Rectangle"
 msgstr "Dronuilleog Cruinn"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:218
+#: ../Bruskel.Core/Actions/ViewActions.cs:218
 msgid "Ruler Units"
 msgstr "Aonaid an Rialóra"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:141
+#: ../Bruskel.Core/Actions/ViewActions.cs:141
 msgid "Rulers"
 msgstr "Rialtóirí"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:208
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:208
 msgid "Sampling"
 msgstr "Sampláil"
 
 #. Translators: this is an abbreviation for "Saturation"
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:366
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:366
 msgid "Sat"
 msgstr "Satharn"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:200
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:200
 msgid "Sat & Value"
 msgstr "Sáithiú agus Luach"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:46
-#: ../Pinta.Effects/Adjustments/HueSaturationEffect.cs:64
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:46
+#: ../Bruskel.Effects/Adjustments/HueSaturationEffect.cs:64
 msgid "Saturation"
 msgstr "Sáithiú"
 
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:57
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:57
 msgid "Saturation Percentage"
 msgstr "Céatadán Sáithithe"
 
-#: ../Pinta.Core/Actions/EditActions.cs:555
-#: ../Pinta.Core/Actions/FileActions.cs:88
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:95
+#: ../Bruskel.Core/Actions/EditActions.cs:555
+#: ../Bruskel.Core/Actions/FileActions.cs:88
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:95
 msgid "Save"
 msgstr "Cuir i dtaisce"
 
-#: ../Pinta.Core/Actions/WindowActions.cs:44
+#: ../Bruskel.Core/Actions/WindowActions.cs:44
 msgid "Save All"
 msgstr "Cuir i dtaisce uile"
 
-#: ../Pinta.Core/Actions/EditActions.cs:177
-#: ../Pinta.Core/Actions/FileActions.cs:95
+#: ../Bruskel.Core/Actions/EditActions.cs:177
+#: ../Bruskel.Core/Actions/FileActions.cs:95
 msgid "Save As..."
 msgstr "Cuir i dTaisce Mar..."
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:92
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:92
 msgid "Save Image File"
 msgstr "Sábháil Comhad Íomhá"
 
-#: ../Pinta.Core/Actions/EditActions.cs:552
+#: ../Bruskel.Core/Actions/EditActions.cs:552
 msgid "Save Palette File"
 msgstr "Sábháil Comhad Pailéid"
 
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:72
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:72
 #, csharp-format
 msgid "Save changes to image \"{0}\" before closing?"
 msgstr "Sábháil athruithe ar íomhá \"{0}\" roimh dhúnadh?"
 
-#: ../Pinta.Effects/Effects/CloudsEffect.cs:134
-#: ../Pinta.Effects/Effects/DentsEffect.cs:135
+#: ../Bruskel.Effects/Effects/CloudsEffect.cs:134
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:135
 msgid "Scale"
 msgstr "Scála"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:39
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:39
 msgid "Screen"
 msgstr "Scáileán"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:19
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:19
 msgid "Secondary"
 msgstr "Tánaisteach"
 
-#: ../Pinta.Core/Actions/EditActions.cs:157
-#: ../Pinta.Core/Actions/EditActions.cs:338
+#: ../Bruskel.Core/Actions/EditActions.cs:157
+#: ../Bruskel.Core/Actions/EditActions.cs:338
 msgid "Select All"
 msgstr "Roghnaigh Uile"
 
-#: ../Pinta.Effects/Utilities/GradientHelper.cs:13
+#: ../Bruskel.Effects/Utilities/GradientHelper.cs:13
 msgid "Selected Colors"
 msgstr "Dathanna Roghnaithe"
 
 #. Translators: 'Semibold' (600) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:296
+#: ../Bruskel.Tools/Tools/TextTool.cs:296
 msgid "Semibold"
 msgstr "Leathchló trom"
 
 #. Translators: 'Semilight' (350) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:272
+#: ../Bruskel.Tools/Tools/TextTool.cs:272
 msgid "Semilight"
 msgstr "Leathéadrom"
 
-#: ../Pinta.Effects/Adjustments/SepiaEffect.cs:52
+#: ../Bruskel.Effects/Adjustments/SepiaEffect.cs:52
 msgid "Sepia"
 msgstr "Sepia"
 
-#: ../Pinta.Core/Actions/EditActions.cs:189
+#: ../Bruskel.Core/Actions/EditActions.cs:189
 msgid "Set Number of Colors"
 msgstr "Socraigh Líon na nDathanna"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:265
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:265
 msgid "Shape Type"
 msgstr "Cineál Cruth"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:244
+#: ../Bruskel.Effects/Effects/TileEffect.cs:244
 msgid "Sharp Edges"
 msgstr "Imill Ghéara"
 
-#: ../Pinta.Effects/Effects/SharpenEffect.cs:23
+#: ../Bruskel.Effects/Effects/SharpenEffect.cs:23
 msgid "Sharpen"
 msgstr "Géaraigh"
 
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:106
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:368
-#: ../Pinta.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:352
-#: ../Pinta.Gui.Widgets/Widgets/ToolBoxWidget.cs:49
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:106
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:368
+#: ../Bruskel.Gui.Widgets/Widgets/StatusBarColorPaletteWidget.cs:352
+#: ../Bruskel.Gui.Widgets/Widgets/ToolBoxWidget.cs:49
 msgid "Shortcut key"
 msgstr "Aicearra"
 
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:107
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:107
 msgid "Shortcut keys"
 msgstr "Eochracha aicearra"
 
-#: ../Pinta.Tools/Editable/EditEngines/BaseEditEngine.cs:371
-#: ../Pinta.Tools/Tools/BaseBrushTool.cs:48
-#: ../Pinta.Tools/Tools/TextTool.cs:239
+#: ../Bruskel.Tools/Editable/EditEngines/BaseEditEngine.cs:371
+#: ../Bruskel.Tools/Tools/BaseBrushTool.cs:48
+#: ../Bruskel.Tools/Tools/TextTool.cs:239
 msgid "Shortcut keys:"
 msgstr "Eochracha aicearra:"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:75
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:75
 msgid "Show Axonometric Grid"
 msgstr "Taispeáin Greille Aicsinmhéadrach"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:54
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:54
 msgid "Show Grid"
 msgstr "Taispeáin an Eangach"
 
-#: ../Pinta.Gui.Widgets/Widgets/Layers/LayersListViewItemWidget.cs:99
-#: ../Pinta/Actions/Layers/LayerPropertiesAction.cs:113
+#: ../Bruskel.Gui.Widgets/Widgets/Layers/LayersListViewItemWidget.cs:99
+#: ../Bruskel/Actions/Layers/LayerPropertiesAction.cs:113
 msgid "Show Layer"
 msgstr "Taispeáin Sraith"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:11
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:11
 msgid "Show Menu Bar"
 msgstr "Taispeáin Barra Roghchláir"
 
-#: ../Pinta.Effects/Effects/CellsEffect.cs:162
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:208
+#: ../Bruskel.Effects/Effects/CellsEffect.cs:162
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:208
 msgid "Show Points"
 msgstr "Taispeáin Pointí"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerDialog.cs:193
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerDialog.cs:193
 msgid "Show Value"
 msgstr "Taispeáin an Luach"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:229
+#: ../Bruskel.Core/Actions/ViewActions.cs:229
 msgid "Show/Hide"
 msgstr "Taispeáin/Folaigh"
 
 #. Translators: Image dithering matrix named after Frankie Sierra
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:12
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:12
 msgid "Sierra"
 msgstr "Sierra"
 
 #. Translators: Image dithering matrix named after Frankie Sierra
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:20
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:20
 msgid "Sierra Lite"
 msgstr "Sierra Éadrom"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:235
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:235
 msgid "Single Pixel"
 msgstr "Picteilín Aonair"
 
-#: ../Pinta.Tools/Editable/EditEngines/ArrowedEditEngine.cs:289
+#: ../Bruskel.Tools/Editable/EditEngines/ArrowedEditEngine.cs:289
 msgid "Size"
 msgstr "Méid"
 
-#: ../Pinta.Tools/Brushes/SlashBrush.cs:36
+#: ../Bruskel.Tools/Brushes/SlashBrush.cs:36
 msgid "Slash"
 msgstr "Slais"
 
 #. Translators: 'Small Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:188
+#: ../Bruskel.Tools/Tools/TextTool.cs:188
 msgid "Small Caps"
 msgstr "Caipitil Bheaga"
 
-#: ../Pinta.Tools/Tools/EraserTool.cs:336
+#: ../Bruskel.Tools/Tools/EraserTool.cs:336
 msgid "Smooth"
 msgstr "Mín"
 
-#: ../Pinta.Effects/Effects/FrostedGlassEffect.cs:134
+#: ../Bruskel.Effects/Effects/FrostedGlassEffect.cs:134
 msgid "Smoothness"
 msgstr "Míníocht"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:42
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:42
 msgid "Soft Light"
 msgstr "Solas Bog"
 
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:54
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:54
 msgid "Soften Portrait"
 msgstr "Bogaigh Portráid"
 
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:125
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:125
 msgid "Softness"
 msgstr "Bog"
 
-#: ../Pinta.Tools/Brushes/SplatterBrush.cs:37
+#: ../Bruskel.Tools/Brushes/SplatterBrush.cs:37
 msgid "Splatter"
 msgstr "Doirt"
 
-#: ../Pinta.Tools/Brushes/SquaresBrush.cs:35
+#: ../Bruskel.Tools/Brushes/SquaresBrush.cs:35
 msgid "Squares"
 msgstr "Cearnóga"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:16
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:16
 msgid "Startup Image"
 msgstr ""
 
-#: ../Pinta.Core/Actions/ViewActions.cs:129
+#: ../Bruskel.Core/Actions/ViewActions.cs:129
 msgid "Status Bar"
 msgstr "Barra Stádais"
 
-#: ../Pinta.Effects/Effects/ReduceNoiseEffect.cs:88
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:142
+#: ../Bruskel.Effects/Effects/ReduceNoiseEffect.cs:88
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:142
 msgid "Strength"
 msgstr "Neart"
 
 #. Translators: Image dithering matrix named after Peter Stucki
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:32
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:32
 msgid "Stucki"
 msgstr "Stucki"
 
-#: ../Pinta.Effects/Effects/EdgeDetectEffect.cs:32
-#: ../Pinta.Effects/Effects/EmbossEffect.cs:32
-#: ../Pinta.Effects/Effects/OutlineEdgeEffect.cs:27
-#: ../Pinta.Effects/Effects/ReliefEffect.cs:33
+#: ../Bruskel.Effects/Effects/EdgeDetectEffect.cs:32
+#: ../Bruskel.Effects/Effects/EmbossEffect.cs:32
+#: ../Bruskel.Effects/Effects/OutlineEdgeEffect.cs:27
+#: ../Bruskel.Effects/Effects/ReliefEffect.cs:33
 msgid "Stylize"
 msgstr "Stíligh"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:218
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:218
 msgid "Switch to Pencil tool"
 msgstr "Athraigh chuig uirlis an phinn luaidhe"
 
-#: ../Pinta.Tools/Tools/ColorPickerTool.cs:217
+#: ../Bruskel.Tools/Tools/ColorPickerTool.cs:217
 msgid "Switch to previous tool"
 msgstr "Fill ar an n-uirlis roimhe seo"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:80
+#: ../Bruskel.Tools/Tools/TextTool.cs:80
 msgid "Text"
 msgstr "Téacs"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:83
+#: ../Bruskel.Tools/Tools/TextTool.cs:83
 msgid "Text - Finalize"
 msgstr "Téacs - Críochnaigh"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:395
+#: ../Bruskel.Tools/Tools/TextTool.cs:395
 msgid "Text Style"
 msgstr "Stíl Téacs"
 
 #. Translators: {0} is the name of an add-in.
-#: ../Pinta/MainWindow.cs:320
+#: ../Bruskel/MainWindow.cs:320
 #, csharp-format
-msgid "The '{0}' add-in may not be compatible with this version of Pinta"
+msgid "The '{0}' add-in may not be compatible with this version of Bruskel"
 msgstr ""
 "B’fhéidir nach bhfuil an breiseán '{0}' comhoiriúnach leis an leagan seo de "
-"Pinta"
+"Bruskel"
 
-#: ../Pinta/Actions/Edit/PasteAction.cs:237
+#: ../Bruskel/Actions/Edit/PasteAction.cs:237
 msgid "The clipboard does not contain an image."
 msgstr "Níl íomhá ar an ngearrthaisce."
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:216
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:216
 msgid "The file may be an invalid or corrupt extension package"
 msgstr ""
 "B’fhéidir gur pacáiste síneadh neamhbhailí nó truaillithe atá sa chomhad"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:89
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:89
 msgid "The following dependencies could not be resolved:"
 msgstr "Níorbh fhéidir na spleáchais seo a leanas a réiteach:"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:82
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:82
 msgid "The following packages need to be uninstalled:"
 msgstr "Ní mór na pacáistí seo a leanas a dhíshuiteáil:"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:76
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:76
 msgid "The following packages will be installed:"
 msgstr "Suiteálfar na pacáistí seo a leanas:"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:245
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:245
 msgid "The following packages will be uninstalled:"
 msgstr "Díshuiteálfar na pacáistí seo a leanas:"
 
-#: ../Pinta/Actions/Edit/PasteAction.cs:244
+#: ../Bruskel/Actions/Edit/PasteAction.cs:244
 msgid ""
 "The image being pasted is larger than the canvas. What would you like to do "
 "to the canvas size?"
@@ -2677,15 +2677,15 @@ msgstr ""
 "Tá an íomhá atá á greamú níos mó ná an chanbhás. Cad ba mhaith leat a "
 "dhéanamh le méid an chanbháis?"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:368
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:368
 msgid "The installation failed!"
 msgstr "Theip ar an suiteáil!"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:369
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:369
 msgid "The installation has completed with warnings."
 msgstr "Tá an suiteáil críochnaithe le rabhaidh."
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:62
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:62
 msgid ""
 "The selected extension packages can't be installed because there are "
 "dependency conflicts."
@@ -2693,15 +2693,15 @@ msgstr ""
 "Ní féidir na pacáistí síneadh roghnaithe a shuiteáil mar gheall ar "
 "choinbhleachtaí spleáchais."
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:375
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:375
 msgid "The uninstallation failed!"
 msgstr "Theip ar an díshuiteáil!"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:376
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:376
 msgid "The uninstallation has completed with warnings."
 msgstr "Tá an díshuiteáil críochnaithe le rabhaidh."
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:257
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:257
 msgid ""
 "There are other extension packages that depend on the previous ones which "
 "will also be uninstalled:"
@@ -2709,187 +2709,187 @@ msgstr ""
 "Tá pacáistí síneadh eile ann a bhraitheann ar na cinn roimhe seo a "
 "dhíshuiteálfar freisin:"
 
-#: ../Pinta.Effects/Effects/OutlineEdgeEffect.cs:133
+#: ../Bruskel.Effects/Effects/OutlineEdgeEffect.cs:133
 msgid "Thickness"
 msgstr "Tiús"
 
 #. Translators: 'Thin' (100) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:254
+#: ../Bruskel.Tools/Tools/TextTool.cs:254
 msgid "Thin"
 msgstr "Tanaí"
 
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:274
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:274
 msgid "This format does not support layers. Flatten image?"
 msgstr ""
 "Ní thacaíonn an fhormáid seo le sraitheanna. An bhfuil an íomhá leacaithe?"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:28
+#: ../Bruskel.Effects/Effects/TileEffect.cs:28
 msgid "Tile Reflection"
 msgstr "Frithchaith Tíleanna"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:226
+#: ../Bruskel.Effects/Effects/TileEffect.cs:226
 msgid "Tile Size"
 msgstr "Méid na Tíleanna"
 
-#: ../Pinta.Effects/Effects/TileEffect.cs:234
+#: ../Bruskel.Effects/Effects/TileEffect.cs:234
 msgid "Tile Type"
 msgstr "Cineál Tíleanna"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:95
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:95
 msgid "Tip: Right-click to remove control points."
 msgstr "Leid: Cliceáil ar dheis chun pointí rialaithe a bhaint."
 
 #. Translators: 'Title Caps' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:218
+#: ../Bruskel.Tools/Tools/TextTool.cs:218
 msgid "Title Caps"
 msgstr "Caipíní Teidil"
 
-#: ../Pinta.Effects/Effects/FeatherEffect.cs:171
-#: ../Pinta.Effects/Effects/OutlineObjectEffect.cs:208
-#: ../Pinta.Effects/Effects/RedEyeRemoveEffect.cs:53
-#: ../Pinta.Tools/Tools/FloodTool.cs:122
-#: ../Pinta.Tools/Tools/RecolorTool.cs:196
+#: ../Bruskel.Effects/Effects/FeatherEffect.cs:171
+#: ../Bruskel.Effects/Effects/OutlineObjectEffect.cs:208
+#: ../Bruskel.Effects/Effects/RedEyeRemoveEffect.cs:53
+#: ../Bruskel.Tools/Tools/FloodTool.cs:122
+#: ../Bruskel.Tools/Tools/RecolorTool.cs:196
 msgid "Tolerance"
 msgstr "Lamháltas"
 
-#: ../Pinta.Core/Managers/ToolManager.cs:351
+#: ../Bruskel.Core/Managers/ToolManager.cs:351
 msgid "Tool"
 msgstr "Uirlis"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:135
+#: ../Bruskel.Core/Actions/ViewActions.cs:135
 msgid "Tool Box"
 msgstr "Bosca Uirlisí"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:116
+#: ../Bruskel.Core/Actions/ViewActions.cs:116
 msgid "Tool Windows"
 msgstr "Fuinneoga na nUirlisí"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:104
+#: ../Bruskel.Core/Actions/ViewActions.cs:104
 msgid "Toolbar"
 msgstr "Barra Uirlisí"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:81
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:81
 msgid "Tools"
 msgstr "Uirlisí"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:34
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:34
 msgid "Top Center"
 msgstr "Lár Barr"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:33
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:33
 msgid "Top Left"
 msgstr "Barr ar Chlé"
 
-#: ../Pinta.Effects/Dialogs/Effects.AlignmentDialog.cs:35
+#: ../Bruskel.Effects/Dialogs/Effects.AlignmentDialog.cs:35
 msgid "Top Right"
 msgstr "Barr ar Dheis"
 
-#: ../Pinta.Effects/Dialogs/Effects.CurvesDialog.cs:105
+#: ../Bruskel.Effects/Dialogs/Effects.CurvesDialog.cs:105
 msgid "Transfer Map"
 msgstr "Léarscáil Aistrithe"
 
-#: ../Pinta.Core/Actions/HelpActions.cs:65
+#: ../Bruskel.Core/Actions/HelpActions.cs:65
 msgid "Translate This Application"
 msgstr "Aistrigh an Feidhmchlár seo"
 
-#: ../Pinta.Tools/Tools/GradientTool.cs:329
+#: ../Bruskel.Tools/Tools/GradientTool.cs:329
 msgid "Transparency Mode"
 msgstr "Mód Trédhearcachta"
 
 #. Translators: Background option for the image created at startup.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:23
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:22
-#: ../Pinta/Dialogs/NewImageDialog.cs:128
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:23
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:22
+#: ../Bruskel/Dialogs/NewImageDialog.cs:128
 msgid "Transparent"
 msgstr "Trédhearcach"
 
-#: ../Pinta.Effects/Effects/DentsEffect.cs:147
+#: ../Bruskel.Effects/Effects/DentsEffect.cs:147
 msgid "Turbulence"
 msgstr "Suaitheadh"
 
-#: ../Pinta.Effects/Effects/TwistEffect.cs:27
+#: ../Bruskel.Effects/Effects/TwistEffect.cs:27
 msgid "Twist"
 msgstr "Cas"
 
 #. Translators: Image dithering matrix named after Frankie Sierra
-#: ../Pinta.Effects/Classes/ErrorDiffusionMatrix.cs:16
+#: ../Bruskel.Effects/Classes/ErrorDiffusionMatrix.cs:16
 msgid "Two-Row Sierra"
 msgstr "Sierra Dhá Shraith"
 
-#: ../Pinta.Tools/Tools/EraserTool.cs:332
-#: ../Pinta.Tools/Tools/PaintBrushTool.cs:242
+#: ../Bruskel.Tools/Tools/EraserTool.cs:332
+#: ../Bruskel.Tools/Tools/PaintBrushTool.cs:242
 msgid "Type"
 msgstr "Cineál"
 
 #. Translators: 'Ultrabold' (800) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:308
+#: ../Bruskel.Tools/Tools/TextTool.cs:308
 msgid "Ultrabold"
 msgstr "An-dána"
 
 #. Translators: 'Ultraheavy' (1000) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:320
+#: ../Bruskel.Tools/Tools/TextTool.cs:320
 msgid "Ultraheavy"
 msgstr "An-trom"
 
 #. Translators: 'Ultralight' (200) refers to the font-weight text property
-#: ../Pinta.Tools/Tools/TextTool.cs:260
+#: ../Bruskel.Tools/Tools/TextTool.cs:260
 msgid "Ultralight"
 msgstr "Ultraéadrom"
 
-#: ../Pinta.Tools/Tools/TextTool.cs:345
+#: ../Bruskel.Tools/Tools/TextTool.cs:345
 msgid "Underline"
 msgstr "Cuir líne faoi"
 
-#: ../Pinta.Core/Actions/EditActions.cs:72
+#: ../Bruskel.Core/Actions/EditActions.cs:72
 msgid "Undo"
 msgstr "Cealaigh"
 
-#: ../Pinta.Effects/Effects/UnfocusEffect.cs:23
+#: ../Bruskel.Effects/Effects/UnfocusEffect.cs:23
 msgid "Unfocus"
 msgstr "Dífhócas"
 
 #. Translators: 'Unicase' refers to the font-variant text property
-#: ../Pinta.Tools/Tools/TextTool.cs:212
+#: ../Bruskel.Tools/Tools/TextTool.cs:212
 msgid "Unicase"
 msgstr "Aonchás"
 
-#: ../Pinta.Gui.Addins/InstallDialog.cs:232
-#: ../Pinta.Gui.Addins/InstallDialog.cs:233
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:232
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:233
 msgid "Uninstall"
 msgstr "Díshuiteáil"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:9
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:9
 msgid "Uninstall..."
 msgstr "Díshuiteáil..."
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:45
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:45
 #, csharp-format
 msgid "Union (+) ({0} + Left Click)"
 msgstr "Aontas (+) ({0} + Cliceáil ar Chlé)"
 
-#: ../Pinta.Core/Classes/Document.cs:102
+#: ../Bruskel.Core/Classes/Document.cs:102
 #, csharp-format
 msgid "Unsaved Image {0}"
 msgstr "Íomhá nár chuireadh i dtaisce {0}"
 
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:346
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:346
 msgid "Unsupported file format"
 msgstr "Formáid comhaid nach dtacaítear léi"
 
-#: ../Pinta.Core/Actions/EditActions.cs:544
+#: ../Bruskel.Core/Actions/EditActions.cs:544
 msgid "Unsupported palette format"
 msgstr "Formáid pailéid nach dtacaítear léi"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:7
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:7
 msgid "Update..."
 msgstr "Nuashonrú..."
 
-#: ../Pinta.Gui.Addins/AddinManagerDialog.cs:105
+#: ../Bruskel.Gui.Addins/AddinManagerDialog.cs:105
 msgid "Updates"
 msgstr "Nuashonruithe"
 
-#: ../Pinta.Effects/Effects/RadialBlurEffect.cs:143
+#: ../Bruskel.Effects/Effects/RadialBlurEffect.cs:143
 msgid ""
 "Use low quality for previews, small images, and small angles.  Use high "
 "quality for final quality, large images, and large angles."
@@ -2898,107 +2898,107 @@ msgstr ""
 "uillinneacha beaga. Bain úsáid as caighdeán ard le haghaidh caighdeán "
 "deiridh, íomhánna móra, agus uillinneacha móra."
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:2
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:2
 msgid "User Interface"
 msgstr "Comhéadan Úsáideora"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:98
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:98
 msgid "Using some icons from:"
 msgstr "Ag baineadh feidhm as deilbhíní as:"
 
-#: ../Pinta.Gui.Widgets/Widgets/ColorPickerSlider.cs:367
+#: ../Bruskel.Gui.Widgets/Widgets/ColorPickerSlider.cs:367
 msgid "Value"
 msgstr "Luach"
 
-#: .././Pinta.Gui.Addins/AddinInfoView.ui.h:2
+#: .././Bruskel.Gui.Addins/AddinInfoView.ui.h:2
 msgid "Version"
 msgstr "Leagan"
 
 #. Translators: Vertical color sorting with blue (B) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:247
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:247
 msgid "Vertical blue (B)"
 msgstr "Gorm ingearach (G)"
 
 #. Translators: Vertical color sorting with green (G) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:250
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:250
 msgid "Vertical green (G)"
 msgstr "Uaine ingearach (U)"
 
 #. Translators: Vertical color sorting with red (R) as the leading term
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:253
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:253
 msgid "Vertical red (R)"
 msgstr "Dearg ingearach (D)"
 
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:102
-#: ../Pinta/MainWindow.cs:470
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:102
+#: ../Bruskel/MainWindow.cs:470
 msgid "View"
 msgstr "Amharc"
 
 #. Translators: The vignette effect darkens the outer edges of an image, which fade into an unchanged circular area in the center (or at some other point chosen by the user), similar to what is seen during the closing scene in old cartoons
-#: ../Pinta.Effects/Effects/VignetteEffect.cs:49
+#: ../Bruskel.Effects/Effects/VignetteEffect.cs:49
 msgid "Vignette"
 msgstr "Vignette"
 
-#: ../Pinta/Dialogs/LayerPropertiesDialog.cs:70
+#: ../Bruskel/Dialogs/LayerPropertiesDialog.cs:70
 msgid "Visible"
 msgstr "Infheicthe"
 
-#: ../Pinta.Effects/Effects/VoronoiDiagramEffect.cs:21
+#: ../Bruskel.Effects/Effects/VoronoiDiagramEffect.cs:21
 msgid "Voronoi Diagram"
 msgstr "Léaráid Voronoi"
 
-#: ../Pinta.Effects/Effects/SoftenPortraitEffect.cs:133
+#: ../Bruskel.Effects/Effects/SoftenPortraitEffect.cs:133
 msgid "Warmth"
 msgstr "Teas"
 
 #. Translators: Background option for the image created at startup.
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:21
-#: ../Pinta/Dialogs/NewImageDialog.cs:109
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:21
+#: ../Bruskel/Dialogs/NewImageDialog.cs:109
 msgid "White"
 msgstr "Bán"
 
-#: .././Pinta/Dialogs/PreferencesDialog.ui.h:17
+#: .././Bruskel/Dialogs/PreferencesDialog.ui.h:17
 msgid "Width"
 msgstr ""
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:95
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:105
-#: ../Pinta/Dialogs/NewImageDialog.cs:340
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:80
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:123
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:95
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:105
+#: ../Bruskel/Dialogs/NewImageDialog.cs:340
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:80
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:123
 msgid "Width:"
 msgstr "Leithead:"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:195
-#: ../Pinta.Core/Actions/ViewActions.cs:368
-#: ../Pinta.Core/Classes/DocumentWorkspace.cs:357
-#: ../Pinta.Core/Classes/DocumentWorkspace.cs:366
-#: ../Pinta/Actions/Help/KeyboardShortcutsDialogAction.cs:106
+#: ../Bruskel.Core/Actions/ViewActions.cs:195
+#: ../Bruskel.Core/Actions/ViewActions.cs:368
+#: ../Bruskel.Core/Classes/DocumentWorkspace.cs:357
+#: ../Bruskel.Core/Classes/DocumentWorkspace.cs:366
+#: ../Bruskel/Actions/Help/KeyboardShortcutsDialogAction.cs:106
 msgid "Window"
 msgstr "Fuinneog"
 
-#: ../Pinta.Effects/Classes/EdgeBehavior.cs:10
+#: ../Bruskel.Effects/Classes/EdgeBehavior.cs:10
 msgid "Wrap"
 msgstr "Fillte"
 
-#: ../Pinta.Core/Algorithms/PixelOps/UserBlendOps.cs:40
+#: ../Bruskel.Core/Algorithms/PixelOps/UserBlendOps.cs:40
 msgid "Xor"
 msgstr "Xor"
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Core/Classes/SelectionModeHandler.cs:48
+#: ../Bruskel.Core/Classes/SelectionModeHandler.cs:48
 #, csharp-format
 msgid "Xor ({0} + Right Click)"
 msgstr "Xor ({0} + Cliceáil ar Dheis)"
 
 #. Translators: {0} is the name of a file that the user does not have permission to open.
-#: ../Pinta.Core/Managers/WorkspaceManager.cs:463
+#: ../Bruskel.Core/Managers/WorkspaceManager.cs:463
 #, csharp-format
 msgid "You do not have access to '{0}'."
 msgstr "Níl rochtain agat ar '{0}'."
 
 #. Translators: {0} is the name of a file that the user does not have write permission for.
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:242
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:242
 #, csharp-format
 msgid ""
 "You do not have access to modify '{0}'. The file or folder may be read-only."
@@ -3006,106 +3006,106 @@ msgstr ""
 "Níl rochtain agat chun '{0}' a mhodhnú. Seans nach bhfuil an comhad nó an "
 "fillteán inléite amháin."
 
-#: ../Pinta.Effects/Effects/JuliaFractalEffect.cs:151
-#: ../Pinta.Effects/Effects/MandelbrotFractalEffect.cs:164
-#: ../Pinta.Tools/Tools/ZoomTool.cs:56
-#: ../Pinta/Actions/Layers/RotateZoomLayerAction.cs:151
+#: ../Bruskel.Effects/Effects/JuliaFractalEffect.cs:151
+#: ../Bruskel.Effects/Effects/MandelbrotFractalEffect.cs:164
+#: ../Bruskel.Tools/Tools/ZoomTool.cs:56
+#: ../Bruskel/Actions/Layers/RotateZoomLayerAction.cs:151
 msgid "Zoom"
 msgstr "Formhéadaigh"
 
-#: ../Pinta.Effects/Effects/ZoomBlurEffect.cs:26
+#: ../Bruskel.Effects/Effects/ZoomBlurEffect.cs:26
 msgid "Zoom Blur"
 msgstr "Doiléiriú Súmáil"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:70
+#: ../Bruskel.Core/Actions/ViewActions.cs:70
 msgid "Zoom In"
 msgstr "Formhéadaigh Isteach"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:77
+#: ../Bruskel.Core/Actions/ViewActions.cs:77
 msgid "Zoom Out"
 msgstr "Formhéadaigh Amach"
 
-#: ../Pinta.Core/Actions/ViewActions.cs:91
+#: ../Bruskel.Core/Actions/ViewActions.cs:91
 msgid "Zoom to Selection"
 msgstr "Formhéadaigh go dtí an Roghnúchán"
 
-#: ../Pinta/MainWindow.cs:394
+#: ../Bruskel/MainWindow.cs:394
 msgid "_Adjustments"
 msgstr "_Mionathruithe"
 
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:214
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:216
-#: ../Pinta/Actions/Edit/PasteAction.cs:252
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:83
-#: ../Pinta/Actions/File/SaveDocumentImplementationAction.cs:278
-#: ../Pinta/Dialogs/ProgressDialog.cs:71
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:214
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:216
+#: ../Bruskel/Actions/Edit/PasteAction.cs:252
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:83
+#: ../Bruskel/Actions/File/SaveDocumentImplementationAction.cs:278
+#: ../Bruskel/Dialogs/ProgressDialog.cs:71
 msgid "_Cancel"
 msgstr "_Cealaigh"
 
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:84
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:84
 msgid "_Discard"
 msgstr "_Cuileáil é"
 
-#: ../Pinta/MainWindow.cs:390
+#: ../Bruskel/MainWindow.cs:390
 msgid "_Edit"
 msgstr "Cuir in _Eagar"
 
-#: ../Pinta/MainWindow.cs:389
+#: ../Bruskel/MainWindow.cs:389
 msgid "_File"
 msgstr "_Comhad"
 
-#: ../Pinta/MainWindow.cs:399
+#: ../Bruskel/MainWindow.cs:399
 msgid "_Help"
 msgstr "_Cabhair"
 
-#: ../Pinta/MainWindow.cs:393
+#: ../Bruskel/MainWindow.cs:393
 msgid "_Image"
 msgstr "_Íomhá"
 
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:213
-#: ../Pinta.Core/Extensions/Gtk/GtkExtensions.Widget.cs:217
-#: ../Pinta.Gui.Addins/InstallDialog.cs:220 ../Pinta/Dialogs/ErrorDialog.cs:44
-#: ../Pinta/Dialogs/ErrorDialog.cs:73
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:213
+#: ../Bruskel.Core/Extensions/Gtk/GtkExtensions.Widget.cs:217
+#: ../Bruskel.Gui.Addins/InstallDialog.cs:220 ../Bruskel/Dialogs/ErrorDialog.cs:44
+#: ../Bruskel/Dialogs/ErrorDialog.cs:73
 msgid "_OK"
 msgstr "_Tá go maith"
 
-#: ../Pinta/Actions/File/CloseDocumentAction.cs:85
+#: ../Bruskel/Actions/File/CloseDocumentAction.cs:85
 msgid "_Save"
 msgstr "_Taisc"
 
-#: ../Pinta/MainWindow.cs:392
+#: ../Bruskel/MainWindow.cs:392
 msgid "_View"
 msgstr "_Amharc"
 
-#: ../Pinta/MainWindow.cs:398
+#: ../Bruskel/MainWindow.cs:398
 msgid "_Window"
 msgstr "_Fuinneog"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:82
-msgid "by Pinta contributors"
-msgstr "le rannpháirtithe Pinta"
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:82
+msgid "by Bruskel contributors"
+msgstr "le rannpháirtithe Bruskel"
 
-#: ../xdg/com.github.PintaProject.Pinta.desktop.in.h:5
+#: ../xdg/com.github.BruskelProject.Bruskel.desktop.in.h:5
 msgid "draw;drawing;paint;painting;graphics;raster;2d;"
 msgstr "tarraing; líníocht; péinteáil; péintéireacht; grafaicí; rastar; 2d;"
 
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:97
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:101
-#: ../Pinta/Dialogs/CanvasGridSettingsDialog.cs:107
-#: ../Pinta/Dialogs/NewImageDialog.cs:288
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:106
-#: ../Pinta/Dialogs/ResizeCanvasDialog.cs:110
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:135
-#: ../Pinta/Dialogs/ResizeImageDialog.cs:139
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:97
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:101
+#: ../Bruskel/Dialogs/CanvasGridSettingsDialog.cs:107
+#: ../Bruskel/Dialogs/NewImageDialog.cs:288
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:106
+#: ../Bruskel/Dialogs/ResizeCanvasDialog.cs:110
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:135
+#: ../Bruskel/Dialogs/ResizeImageDialog.cs:139
 msgid "pixels"
 msgstr "picteilíní"
 
-#: ../Pinta/Actions/Help/AboutDialogAction.cs:73
+#: ../Bruskel/Actions/Help/AboutDialogAction.cs:73
 msgid "translator-credits"
 msgstr "creidmheasanna-aistritheora"
 
 #. Translators: {0} is 'Ctrl', or a platform-specific key such as 'Command' on macOS.
-#: ../Pinta.Tools/Tools/CloneStampTool.cs:63
+#: ../Bruskel.Tools/Tools/CloneStampTool.cs:63
 #, csharp-format
 msgid "{0} + left click to set origin, left click to paint."
 msgstr ""
@@ -3114,25 +3114,25 @@ msgstr ""
 
 #. Translators: this is the auto-generated name for a duplicated layer.
 #. {0} is the name of the source layer. Example: "Layer 3 copy".
-#: ../Pinta.Core/Classes/DocumentLayers.cs:205
+#: ../Bruskel.Core/Classes/DocumentLayers.cs:205
 #, csharp-format
 msgid "{0} copy"
 msgstr "Cóip de {0}"
 
-#: ../Pinta.Core/ImageFormats/FormatDescriptor.cs:122
+#: ../Bruskel.Core/ImageFormats/FormatDescriptor.cs:122
 #, csharp-format
 msgid "{0} image ({1})"
 msgstr "{0} íomhá ({1})"
 
 #. Translators: {0} is the palette format (e.g. "GIMP") and {1} is a list of file extensions.
-#: ../Pinta.Core/PaletteFormats/PaletteDescriptor.cs:63
+#: ../Bruskel.Core/PaletteFormats/PaletteDescriptor.cs:63
 #, csharp-format
 msgid "{0} palette ({1})"
 msgstr "pailéad {0} ({1})"
 
 #. Translators: This specifies the format of the zoom percentage choices
 #. in the toolbar.
-#: ../Pinta.Core/Actions/ViewActions.cs:349
+#: ../Bruskel.Core/Actions/ViewActions.cs:349
 #, csharp-format
 msgid "{0}%"
 msgstr "{0}%"
@@ -3152,8 +3152,8 @@ msgstr "{0}%"
 #~ msgid "Menu Bar"
 #~ msgstr "Barra an roghchláir"
 
-#~ msgid "Restart Pinta"
-#~ msgstr "Atosaigh Pinta"
+#~ msgid "Restart Bruskel"
+#~ msgstr "Atosaigh Bruskel"
 
 #~ msgid "ICO files can not be larger than 255 x 255 pixels."
 #~ msgstr "Ní féidir comhaid ICO a bheith níos mó ná 255 x 255 picteilín."
