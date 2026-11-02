@@ -10,21 +10,19 @@ internal sealed class FillTool : ICanvasTool
 		=> context.Host.FillAt (context.Point, context.Color, context.ShiftPressed);
 
 	public bool Fill (IImageSurface? surface, PointD point, ColorBgra color, int tolerance, bool global,
-		Action beginStroke, Action commitStroke)
+		Action beginStroke, Action commitStroke, bool[]? allowed = null)
 	{
 		if (!RasterAlgorithms.TrySampleNearest (surface, point, out ColorBgra target) || target == color)
 			return false;
+		int x = (int) Math.Round (point.X), y = (int) Math.Round (point.Y);
+		if (allowed is not null && !allowed[y * surface!.Width + x]) return false;
+		bool[]? mask = global ? FloodStencil.ByColor (surface!, x, y, tolerance, allowed)
+			: FloodStencil.FromPoint (surface!, x, y, tolerance, allowed);
+		if (mask is null) return false;
 		beginStroke ();
-		if (global) {
-			// Global fill: paint every pixel within tolerance of the sampled
-			// color across the whole layer (Paint.NET Shift-mode).
-			Span<ColorBgra> pixels = surface!.GetPixelData ();
-			for (int i = 0; i < pixels.Length; i++)
-				if (ColorBgra.ColorsWithinTolerance (target, pixels[i], tolerance))
-					pixels[i] = color;
-		} else {
-			RasterAlgorithms.FloodFill (surface, point, color, tolerance);
-		}
+		Span<ColorBgra> pixels = surface!.GetPixelData ();
+		for (int i = 0; i < pixels.Length; i++)
+			if (mask[i]) pixels[i] = color;
 		commitStroke ();
 		return true;
 	}

@@ -18,7 +18,7 @@ internal sealed class CanvasPaintingTests
 		string? version = typeof (CanvasHost).Assembly
 			.GetCustomAttribute<AssemblyInformationalVersionAttribute> ()?.InformationalVersion;
 
-		Assert.That (version, Does.StartWith ("0.0.3-alpha"));
+		Assert.That (version, Does.StartWith ("0.0.4-alpha"));
 	}
 
 	[Test]
@@ -524,6 +524,35 @@ internal sealed class CanvasPaintingTests
 		canvas.PaintCanvasPoint (new PointD (-1, 1), ColorBgra.Red);
 
 		Assert.That (surface.GetReadOnlyPixelData ().ToArray (), Is.All.EqualTo (ColorBgra.Zero));
+	}
+
+	[TestCase (CanvasHost.CanvasTool.Brush)]
+	[TestCase (CanvasHost.CanvasTool.Pencil)]
+	[TestCase (CanvasHost.CanvasTool.Eraser)]
+	public void RasterBrushesRespectRectangleAndMaskSelection (CanvasHost.CanvasTool kind)
+	{
+		using MemoryImageSurface surface = new (8, 8);
+		CanvasToolSet tools = CanvasToolFactory.CreateTools ();
+		SelectionTool selection = tools.Get<SelectionTool> (CanvasHost.CanvasTool.Selection);
+		BrushTool brush = tools.Brush (kind);
+		selection.SelectRectangle (new PointI (2, 2), new PointI (5, 5), new Pinta.Core.Size (8, 8));
+		foreach (bool useMask in new[] { false, true }) {
+			surface.Fill (ColorBgra.White);
+			if (useMask) {
+				bool[] mask = new bool[64];
+				mask[3 * 8 + 3] = true;
+				selection.ApplyMask (mask, 8, 8, SelectionCombineMode.Replace);
+			}
+			if (kind == CanvasHost.CanvasTool.Pencil)
+				brush.DrawPencilLine (surface, new PointD (0, 3), new PointD (7, 3), ColorBgra.Red, 1);
+			else
+				brush.DrawLine (surface, new PointD (0, 3), new PointD (7, 3), ColorBgra.Red, 3, 1, 1, kind == CanvasHost.CanvasTool.Eraser);
+			Assert.That (surface.GetReadOnlyPixelData ()[3 * 8], Is.EqualTo (ColorBgra.White));
+			Assert.That (surface.GetReadOnlyPixelData ()[3 * 8 + 7], Is.EqualTo (ColorBgra.White));
+			Assert.That (surface.GetReadOnlyPixelData ()[3 * 8 + 3], Is.Not.EqualTo (ColorBgra.White));
+			if (useMask)
+				Assert.That (surface.GetReadOnlyPixelData ()[3 * 8 + 2], Is.EqualTo (ColorBgra.White));
+		}
 	}
 
 	[Test]

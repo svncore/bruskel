@@ -702,12 +702,11 @@ public sealed class MainWindow : Window
 
 	private static NumericUpDown CreateBrushSizeInput (CanvasHost canvas)
 	{
-		var input = new NumericUpDown { Minimum = 1, Maximum = 256, Value = canvas.BrushSize, Width = 70 };
-		input.ValueChanged += (_, args) => canvas.BrushSize = (int) (args.NewValue ?? 1);
+		var input = CreateToolbarNumber (0.25m, 256, (decimal) canvas.BrushSizePrecise, value => canvas.BrushSizePrecise = (double) value, "0.##", 0.25m);
 		// Paint.NET-style wheel adjustment: hover the width control and scroll.
 		input.PointerWheelChanged += (_, args) => {
 			canvas.AdjustBrushSize (args.Delta.Y > 0 ? 1 : -1);
-			input.Value = canvas.BrushSize;
+			input.Value = (decimal) canvas.BrushSizePrecise;
 			args.Handled = true;
 		};
 		return input;
@@ -715,6 +714,80 @@ public sealed class MainWindow : Window
 
 	private static TextBlock CreateToolbarLabel (string text)
 		=> new () { Text = text, VerticalAlignment = VerticalAlignment.Center };
+
+	private static NumericUpDown CreateToolbarNumber (decimal minimum, decimal maximum, decimal value,
+		Action<decimal> changed, string format = "0", decimal increment = 1)
+	{
+		var input = new NumericUpDown {
+			Minimum = minimum, Maximum = maximum, Value = value, Increment = increment,
+			FormatString = format, Width = 92, Height = 32, MinHeight = 32,
+			VerticalAlignment = VerticalAlignment.Center, VerticalContentAlignment = VerticalAlignment.Center
+		};
+		input.ValueChanged += (_, args) => { if (args.NewValue is decimal next) changed (next); };
+		return input;
+	}
+
+	private static StackPanel ToolOptionGroup (string label, Control control)
+	{
+		global::Avalonia.Automation.AutomationProperties.SetName (control, label.TrimEnd (':'));
+		return new StackPanel { Orientation = Orientation.Horizontal, Spacing = 6,
+			VerticalAlignment = VerticalAlignment.Center, Classes = { "toolbar-options" },
+			Children = { CreateToolbarLabel (label), control } };
+	}
+
+	private static Control CreatePercentSlider (double minimum, double maximum, double value, Action<double> changed)
+	{
+		var amount = new TextBlock { Text = $"{value:0}%", Width = 40,
+			TextAlignment = global::Avalonia.Media.TextAlignment.Right, VerticalAlignment = VerticalAlignment.Center };
+		var slider = new Slider { Minimum = minimum, Maximum = maximum, Value = value,
+			Width = 90, VerticalAlignment = VerticalAlignment.Center };
+		slider.ValueChanged += (_, args) => {
+			amount.Text = $"{args.NewValue:0}%";
+			changed (args.NewValue);
+		};
+		return new StackPanel { Orientation = Orientation.Horizontal, Spacing = 6,
+			VerticalAlignment = VerticalAlignment.Center, Children = { slider, amount } };
+	}
+
+	private Control CreateBrushOptions (CanvasHost canvas)
+	{
+		var preset = new ComboBox { ItemsSource = Enum.GetNames<BrushPreset> (), SelectedIndex = (int) canvas.BrushPreset, MinWidth = 112 };
+		var tip = new ComboBox { ItemsSource = new[] { "Round", "Square" }, SelectedIndex = (int) canvas.BrushTipShape, MinWidth = 100 };
+		tip.SelectionChanged += (_, _) => { if (tip.SelectedIndex >= 0) canvas.BrushTipShape = (BrushTipShape) tip.SelectedIndex; };
+		var advanced = new StackPanel { Spacing = 12, Margin = new global::Avalonia.Thickness (4), Classes = { "toolbar-options" } };
+		advanced.Children.Add (ToolOptionGroup ("Spacing:", CreatePercentSlider (2, 400, canvas.BrushSpacing * 100, value => canvas.BrushSpacing = value / 100)));
+		advanced.Children.Add (ToolOptionGroup ("Smoothing:", CreatePercentSlider (0, 100, canvas.BrushSmoothing * 100, value => canvas.BrushSmoothing = value / 100)));
+		var pressure = new CheckBox { Content = "Use pen pressure", IsChecked = canvas.BrushPressureEnabled };
+		pressure.IsCheckedChanged += (_, _) => canvas.BrushPressureEnabled = pressure.IsChecked == true;
+		advanced.Children.Add (pressure);
+		var splatter = new StackPanel { Spacing = 8, Children = {
+			ToolOptionGroup ("Minimum size (px):", CreateToolbarNumber (1, 10000, canvas.BrushSplatterMinSize, value => canvas.BrushSplatterMinSize = (int) value)),
+			ToolOptionGroup ("Maximum size (px):", CreateToolbarNumber (1, 10000, canvas.BrushSplatterMaxSize, value => canvas.BrushSplatterMaxSize = (int) value))
+		} };
+		var slash = ToolOptionGroup ("Angle (°):", CreateToolbarNumber (0, 180, canvas.BrushSlashAngle, value => canvas.BrushSlashAngle = (int) value));
+		advanced.Children.Add (splatter);
+		advanced.Children.Add (slash);
+		void UpdatePreset () {
+			splatter.IsVisible = canvas.BrushPreset == BrushPreset.Splatter;
+			slash.IsVisible = canvas.BrushPreset == BrushPreset.Slash;
+		}
+		preset.SelectionChanged += (_, _) => {
+			if (preset.SelectedIndex >= 0) canvas.BrushPreset = (BrushPreset) preset.SelectedIndex;
+			UpdatePreset ();
+		};
+		UpdatePreset ();
+		var settings = new Button { Content = "Stroke settings ▾", Height = 32, VerticalAlignment = VerticalAlignment.Center };
+		var strokeFlyout = new Flyout { Content = advanced };
+		settings.Click += (_, _) => strokeFlyout.ShowAt (settings);
+		return new StackPanel { Orientation = Orientation.Horizontal, Spacing = 14,
+			VerticalAlignment = VerticalAlignment.Center, Classes = { "toolbar-options" }, Children = {
+			ToolOptionGroup ("Brush:", preset),
+			ToolOptionGroup ("Size (px):", CreateBrushSizeInput (canvas)),
+			ToolOptionGroup ("Hardness:", CreatePercentSlider (0, 100, canvas.BrushHardness * 100, value => canvas.BrushHardness = value / 100)),
+			ToolOptionGroup ("Opacity:", CreatePercentSlider (0, 100, canvas.BrushOpacity * 100, value => canvas.BrushOpacity = value / 100)),
+			ToolOptionGroup ("Tip:", tip), settings
+		} };
+	}
 
 	private Control CreatePanelHeader (string title, Action hide)
 	{
@@ -1293,10 +1366,10 @@ public sealed class MainWindow : Window
 		Button move_selection = CreateToolButton (canvas, "Move Selection", CanvasHost.CanvasTool.MoveSelection,
 			"M4 4h7v2H6v3H4V4zm9 0h7v5h-2V6h-5V4zM4 13h2v3h3v2H4v-5zm14 0h2v5h-7v-2h5v-3zM11 9h2v3h3v2h-3v3h-2v-3H8v-2h3V9z");
 		Button text = CreateToolButton (canvas, "Text", CanvasHost.CanvasTool.Text, "M5 4h14v3h-5v13h-4V7H5V4z");
-		Button blur = CreateToolButton (canvas, "Blur", CanvasHost.CanvasTool.Blur, "M4 4h16v16H4V4zm3 3h10v10H7V7z");
+		Button blur = CreateToolButton (canvas, "Blur", CanvasHost.CanvasTool.Blur, "M12 2C10 5 5 10 5 14a7 7 0 0014 0c0-4-5-9-7-12zm0 4c2 3 5 6 5 8a5 5 0 01-10 0c0-2 3-5 5-8zM9 14h2a2 2 0 002 2v2a4 4 0 01-4-4z");
 		Button pixelate = CreateToolButton (canvas, "Pixelate", CanvasHost.CanvasTool.Pixelate, "M4 4h6v6H4V4zm10 0h6v6h-6V4zM4 14h6v6H4v-6zm10 0h6v6h-6v-6z");
-		Button highlight = CreateToolButton (canvas, "Highlight", CanvasHost.CanvasTool.Highlight, "M4 4h16v16H4V4z");
-		Button magnify = CreateToolButton (canvas, "Magnify", CanvasHost.CanvasTool.Magnify, "M9 3a6 6 0 1 0 4 10.5L19 19l-1 1-6-5.5A6 6 0 0 0 9 3z");
+		Button highlight = CreateToolButton (canvas, "Highlight", CanvasHost.CanvasTool.Highlight, "M14 2l8 8-9 9-3-3-3-3 7-11zm0 3l-4 7 3 4 6-6-5-5zM6 14l4 4-3 3H2v-2l4-5zM2 22h20v2H2z");
+		Button magnify = CreateToolButton (canvas, "Magnify", CanvasHost.CanvasTool.Magnify, "M10 2a8 8 0 105 14l6 6 2-2-6-6A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12zM9 6h2v3h3v2h-3v3H9v-3H6V9h3z");
 		Button spotlight = CreateToolButton (canvas, "Spotlight", CanvasHost.CanvasTool.Spotlight, "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 3a6 6 0 1 1 0 12 6 6 0 0 1 0-12z");
 		buttons.Add ((selection, CanvasHost.CanvasTool.Selection));
 		buttons.Add ((ellipse_select, CanvasHost.CanvasTool.EllipseSelect));
@@ -1612,55 +1685,7 @@ public sealed class MainWindow : Window
 				tool_options.Children.Add (underline);
 				break;
 			case CanvasHost.CanvasTool.Brush:
-				tool_options.Children.Add (CreateToolbarLabel ("Tool:"));
-				tool_options.Children.Add (new TextBlock { Text = "✎", FontSize = 18, VerticalAlignment = VerticalAlignment.Center });
-				tool_options.Children.Add (CreateToolbarLabel ("Brush width:"));
-				tool_options.Children.Add (CreateBrushSizeInput (canvas));
-				tool_options.Children.Add (CreateToolbarLabel ("Type:"));
-				var brush_type = new ComboBox {
-					ItemsSource = new[] { "Normal", "Soft" },
-					SelectedIndex = canvas.BrushHardness < 1 ? 1 : 0,
-					MinWidth = 92
-				};
-				brush_type.SelectionChanged += (_, _) => {
-					if (brush_type.SelectedIndex >= 0)
-						canvas.BrushHardness = brush_type.SelectedIndex == 0 ? 1 : 0.45;
-				};
-				tool_options.Children.Add (brush_type);
-				tool_options.Children.Add (CreateToolbarLabel ("Opacity:"));
-				tool_options.Children.Add (CreateBrushSlider (0, 1, canvas.BrushOpacity, value => canvas.BrushOpacity = value, 90));
-				tool_options.Children.Add (CreateToolbarLabel ("Spacing:"));
-				tool_options.Children.Add (CreateBrushSlider (2, 300, canvas.BrushSpacing * 100, value => canvas.BrushSpacing = value / 100, 90));
-				tool_options.Children.Add (CreateToolbarLabel ("Smoothing:"));
-				tool_options.Children.Add (CreateBrushSlider (0, 1, canvas.BrushSmoothing, value => canvas.BrushSmoothing = value, 90));
-				tool_options.Children.Add (CreateToolbarLabel ("Stroke:"));
-				var stroke = new ComboBox { ItemsSource = new[] { "Round", "Hard" }, SelectedIndex = canvas.BrushHardness < 1 ? 0 : 1, MinWidth = 92 };
-				stroke.SelectionChanged += (_, _) => { if (stroke.SelectedIndex >= 0) canvas.BrushHardness = stroke.SelectedIndex == 0 ? 0.45 : 1; };
-				tool_options.Children.Add (stroke);
-				var tip = new ComboBox { ItemsSource = new[] { "Round tip", "Square tip" }, SelectedIndex = canvas.BrushTipShape == BrushTipShape.Round ? 0 : 1, MinWidth = 105 };
-				tip.SelectionChanged += (_, _) => { if (tip.SelectedIndex >= 0) canvas.BrushTipShape = tip.SelectedIndex == 0 ? BrushTipShape.Round : BrushTipShape.Square; };
-				tool_options.Children.Add (tip);
-				var preset = new ComboBox { ItemsSource = new[] { "Normal", "Circles", "Grid", "Splatter", "Slash", "Squares" }, SelectedIndex = (int) canvas.BrushPreset, MinWidth = 105 };
-				preset.SelectionChanged += (_, _) => { if (preset.SelectedIndex >= 0) canvas.BrushPreset = (BrushPreset) preset.SelectedIndex; };
-				tool_options.Children.Add (preset);
-				var splatter_min = new NumericUpDown { Minimum = 1, Maximum = 10000, Value = canvas.BrushSplatterMinSize, Width = 64, IsVisible = canvas.BrushPreset == BrushPreset.Splatter };
-				var splatter_max = new NumericUpDown { Minimum = 1, Maximum = 10000, Value = canvas.BrushSplatterMaxSize, Width = 64, IsVisible = canvas.BrushPreset == BrushPreset.Splatter };
-				var slash_angle = new NumericUpDown { Minimum = 0, Maximum = 180, Value = canvas.BrushSlashAngle, Width = 64, IsVisible = canvas.BrushPreset == BrushPreset.Slash };
-				splatter_min.ValueChanged += (_, args) => canvas.BrushSplatterMinSize = (int) (args.NewValue ?? 5);
-				splatter_max.ValueChanged += (_, args) => canvas.BrushSplatterMaxSize = (int) (args.NewValue ?? 10);
-				slash_angle.ValueChanged += (_, args) => canvas.BrushSlashAngle = (int) (args.NewValue ?? 45);
-				tool_options.Children.Add (splatter_min);
-				tool_options.Children.Add (splatter_max);
-				tool_options.Children.Add (slash_angle);
-				preset.SelectionChanged += (_, _) => {
-					BrushPreset selected = canvas.BrushPreset;
-					splatter_min.IsVisible = selected == BrushPreset.Splatter;
-					splatter_max.IsVisible = selected == BrushPreset.Splatter;
-					slash_angle.IsVisible = selected == BrushPreset.Slash;
-				};
-				var pressure = new CheckBox { Content = "Pressure", IsChecked = canvas.BrushPressureEnabled, VerticalAlignment = VerticalAlignment.Center };
-				pressure.IsCheckedChanged += (_, _) => canvas.BrushPressureEnabled = pressure.IsChecked == true;
-				tool_options.Children.Add (pressure);
+				tool_options.Children.Add (CreateBrushOptions (canvas));
 				break;
 			case CanvasHost.CanvasTool.Pencil:
 				break;
@@ -1788,13 +1813,18 @@ public sealed class MainWindow : Window
 	private static Button CreateToolButton (CanvasHost canvas, string label, CanvasHost.CanvasTool tool, string path)
 	{
 		var button = new Button {
-			Content = new PathIcon { Data = StreamGeometry.Parse (path), Width = 20, Height = 20 },
 			Width = 34,
 			Height = 34,
 			Padding = new global::Avalonia.Thickness (5),
 			HorizontalContentAlignment = HorizontalAlignment.Center,
+			VerticalContentAlignment = VerticalAlignment.Center,
 			Classes = { "tool-button" }
 		};
+		var icon = new global::Avalonia.Controls.Shapes.Path { Data = StreamGeometry.Parse ("F1 " + ToolIcons.LoadPath (tool, path)) };
+		icon.Bind (global::Avalonia.Controls.Shapes.Shape.FillProperty,
+			new global::Avalonia.Data.Binding ("Foreground") { Source = button });
+		button.Content = new Viewbox { Width = 20, Height = 20,
+			Child = new global::Avalonia.Controls.Canvas { Width = 24, Height = 24, Children = { icon } } };
 		if (tool == canvas.ActiveTool)
 			button.Classes.Add ("active");
 		ToolTip.SetTip (button, label);

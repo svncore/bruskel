@@ -39,6 +39,22 @@ internal sealed class SelectionTool : ICanvasTool
 	/// <summary>Pixel-accurate selection (Magic Wand); when set, <see cref="Selection"/> is its bounding box.</summary>
 	public bool[]? SelectionMask { get; private set; }
 	public bool HasMaskSelection => SelectionMask is not null;
+	internal sealed record State (RectangleI? Rectangle, bool[]? Mask, RectangleI MaskBounds, SelectionAnnotation? Annotation);
+	internal State CaptureState () => new (rectangleSelection, SelectionMask is { } mask ? (bool[]) mask.Clone () : null, maskBounds, Annotation);
+	internal void RestoreState (State state)
+	{
+		rectangleSelection = state.Rectangle;
+		SelectionMask = state.Mask is { } mask ? (bool[]) mask.Clone () : null;
+		maskBounds = state.MaskBounds;
+		Annotation = state.Annotation;
+	}
+	public bool Contains (int x, int y, int width)
+		=> SelectionMask is { } mask ? mask[y * width + x]
+			: Selection is not RectangleI rect || (x >= rect.X && y >= rect.Y && x < rect.X + rect.Width && y < rect.Y + rect.Height);
+
+	public bool[]? CaptureMask (Pinta.Core.Size size)
+		=> SelectionMask is { } mask ? (bool[]) mask.Clone ()
+			: Selection is RectangleI rect ? FloodStencil.FromRectangle (rect, size.Width, size.Height) : null;
 
 	public bool PointerPressed (CanvasToolPointerContext context)
 	{
@@ -285,7 +301,9 @@ internal sealed class SelectionTool : ICanvasTool
 		clipboard = new ColorBgra[area.Width * area.Height];
 		ReadOnlySpan<ColorBgra> source = surface.GetReadOnlyPixelData ();
 		for (int y = 0; y < area.Height; y++)
-			source.Slice ((area.Y + y) * surface.Width + area.X, area.Width).CopyTo (clipboard.AsSpan (y * area.Width, area.Width));
+			for (int x = 0; x < area.Width; x++)
+				if (Contains (area.X + x, area.Y + y, surface.Width))
+					clipboard[y * area.Width + x] = source[(area.Y + y) * surface.Width + area.X + x];
 		return true;
 	}
 
@@ -312,19 +330,29 @@ internal sealed class SelectionTool : ICanvasTool
 		if (surface is null || Selection is not RectangleI area || (delta.X == 0 && delta.Y == 0) || !Copy (surface))
 			return false;
 		PointI destination = new (area.X + delta.X, area.Y + delta.Y);
-		var clipped = new RectangleI (Math.Max (0, destination.X), Math.Max (0, destination.Y),
-			Math.Min (area.Width, surface.Width - Math.Max (0, destination.X)),
-			Math.Min (area.Height, surface.Height - Math.Max (0, destination.Y)));
+		int left = Math.Max (0, destination.X), top = Math.Max (0, destination.Y);
+		var clipped = new RectangleI (left, top,
+			Math.Min (destination.X + area.Width, surface.Width) - left,
+			Math.Min (destination.Y + area.Height, surface.Height) - top);
 		if (clipped.Width <= 0 || clipped.Height <= 0)
 			return false;
 		beginStroke ();
 		Span<ColorBgra> pixels = surface.GetPixelData ();
+		bool[]? oldMask = SelectionMask;
 		for (int y = 0; y < area.Height; y++)
-			pixels.Slice ((area.Y + y) * surface.Width + area.X, area.Width).Fill (ColorBgra.Zero);
+			for (int x = 0; x < area.Width; x++)
+				if (Contains (area.X + x, area.Y + y, surface.Width))
+					pixels[(area.Y + y) * surface.Width + area.X + x] = ColorBgra.Zero;
 		for (int y = 0; y < clipped.Height; y++)
-			for (int x = 0; x < clipped.Width; x++)
-				pixels[(clipped.Y + y) * surface.Width + clipped.X + x] = clipboard![y * area.Width + (clipped.X - destination.X) + x];
-		rectangleSelection = clipped;
+			for (int x = 0; x < clipped.Width; x++) {
+				int sourceX = clipped.X + x - destination.X, sourceY = clipped.Y + y - destination.Y;
+				if (oldMask is not null && !oldMask[(area.Y + sourceY) * surface.Width + area.X + sourceX]) continue;
+				pixels[(clipped.Y + y) * surface.Width + clipped.X + x] = clipboard![sourceY * area.Width + sourceX];
+			}
+		if (oldMask is not null)
+			Translate (delta, new Pinta.Core.Size (surface.Width, surface.Height));
+		else
+			rectangleSelection = clipped;
 		if (Annotation is not null)
 			Annotation = Annotation with { Bounds = new Rect (clipped.X, clipped.Y, clipped.Width, clipped.Height) };
 		commitStroke ();
@@ -333,6 +361,8 @@ internal sealed class SelectionTool : ICanvasTool
 
 	public bool FlipHorizontal (IImageSurface? surface, Action beginStroke, Action commitStroke)
 	{
+		if (SelectionMask is not null && surface is not null && Selection is RectangleI bounds)
+			return TransformMask (surface, (x, y) => (bounds.Width - 1 - x, y), beginStroke, commitStroke);
 		if (surface is null || Selection is not RectangleI area || area.Width < 2) return false;
 		beginStroke ();
 		Span<ColorBgra> pixels = surface.GetPixelData ();
@@ -348,6 +378,8 @@ internal sealed class SelectionTool : ICanvasTool
 
 	public bool FlipVertical (IImageSurface? surface, Action beginStroke, Action commitStroke)
 	{
+		if (SelectionMask is not null && surface is not null && Selection is RectangleI bounds)
+			return TransformMask (surface, (x, y) => (x, bounds.Height - 1 - y), beginStroke, commitStroke);
 		if (surface is null || Selection is not RectangleI area || area.Height < 2) return false;
 		beginStroke ();
 		Span<ColorBgra> pixels = surface.GetPixelData ();
@@ -363,6 +395,8 @@ internal sealed class SelectionTool : ICanvasTool
 
 	public bool RotateClockwise (IImageSurface? surface, Action beginStroke, Action commitStroke)
 	{
+		if (SelectionMask is not null && surface is not null && Selection is RectangleI bounds && bounds.Width == bounds.Height)
+			return TransformMask (surface, (x, y) => (bounds.Height - 1 - y, x), beginStroke, commitStroke);
 		if (surface is null || Selection is not RectangleI area || area.Width != area.Height || area.Width < 2) return false;
 		int size = area.Width;
 		ColorBgra[] source = new ColorBgra[size * size];
@@ -374,6 +408,28 @@ internal sealed class SelectionTool : ICanvasTool
 		for (int y = 0; y < size; y++)
 			for (int x = 0; x < size; x++)
 				pixels[(area.Y + y) * surface.Width + area.X + x] = source[(size - 1 - x) * size + y];
+		commitStroke ();
+		return true;
+	}
+
+	private bool TransformMask (IImageSurface surface, Func<int, int, (int X, int Y)> transform, Action beginStroke, Action commitStroke)
+	{
+		if (Selection is not RectangleI area || SelectionMask is not { } mask) return false;
+		ColorBgra[] source = surface.GetReadOnlyPixelData ().ToArray ();
+		bool[] next = new bool[mask.Length];
+		beginStroke ();
+		Span<ColorBgra> pixels = surface.GetPixelData ();
+		for (int i = 0; i < mask.Length; i++) if (mask[i]) pixels[i] = ColorBgra.Zero;
+		for (int y = 0; y < area.Height; y++)
+			for (int x = 0; x < area.Width; x++) {
+				int sourceIndex = (area.Y + y) * surface.Width + area.X + x;
+				if (!mask[sourceIndex]) continue;
+				(int tx, int ty) = transform (x, y);
+				int targetIndex = (area.Y + ty) * surface.Width + area.X + tx;
+				pixels[targetIndex] = source[sourceIndex];
+				next[targetIndex] = true;
+			}
+		ApplyMask (next, surface.Width, surface.Height, SelectionCombineMode.Replace);
 		commitStroke ();
 		return true;
 	}

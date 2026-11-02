@@ -7,6 +7,30 @@ baseline; later entries track Pintora-specific work.
 
 No changes yet.
 
+## 0.0.4-alpha
+
+### Added
+
+- Ellipse and lasso selections, move selection and move selected pixels tools, and Clone Stamp.
+- A dedicated Pan tool and temporary canvas navigation using Space/H and the middle mouse button.
+- Brush presets, tip selection, spacing, smoothing, and optional pen-pressure size scaling.
+- Compact brush options with percentage sliders and additional stroke settings.
+
+### Fixed
+
+- Selection clipping for painting, fill, gradients, recoloring, cloning, shapes, text, and region effects.
+- Mask-aware copying, movement, flipping, and rotation; selection restoration during cancellation and raster undo.
+- Persistent clipping masks for editable text and effects in ORA annotation metadata.
+- Zoom anchoring after panning and rectangle zoom gestures.
+- Active shape colors now follow the palette until the shape is finished.
+- Paint.NET-style Magic Wand modifiers, shape rotation units, footer alignment, and tool icons.
+
+### Known limitations
+
+- This is an alpha preview. Keep backups of important artwork and project files.
+- Brush presets are not yet exact GTK equivalents, and pen pressure requires real-device verification.
+- Packages retain the legacy Pintora executable and package names. macOS packages are unsigned and not notarized.
+
 ## 0.0.2-alpha
 
 ### Added

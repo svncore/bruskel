@@ -37,12 +37,14 @@ internal sealed class GradientTool : ICanvasTool
 	private PointD move_start;
 	private PointD move_end;
 	private ColorBgra[]? drag_snapshot;
+	private bool[]? selection_mask;
 
 	public bool PointerPressed (CanvasToolPointerContext context)
 	{
 		CanvasHost host = context.Host;
 		if (host.IsActiveLayerLocked || host.Surface is null)
 			return false;
+		selection_mask = host.CaptureSelectionMask ();
 		if (HasCommitted && !IsActive) {
 			double nubTolerance = Math.Max (4, 6 / Math.Max (host.Scale, 0.01));
 			NubDrag mode;
@@ -97,7 +99,7 @@ internal sealed class GradientTool : ICanvasTool
 				break;
 		}
 		host.RestoreActiveLayerPixels (drag_snapshot);
-		Apply (host.Surface, newStart, newEnd, primary, secondary, reversed);
+		ApplyClipped (host.Surface, newStart, newEnd);
 		CommittedStart = newStart;
 		CommittedEnd = newEnd;
 		host.MarkCanvasChanged (true);
@@ -190,7 +192,7 @@ internal sealed class GradientTool : ICanvasTool
 		if (!IsActive || surface is null)
 			return false;
 		beginStroke ();
-		Apply (surface, start, end, primary, secondary, reversed);
+		ApplyClipped (surface, start, end);
 		IsActive = false;
 		CommittedStart = start;
 		CommittedEnd = end;
@@ -208,6 +210,16 @@ internal sealed class GradientTool : ICanvasTool
 		IsActive = false;
 		nub_drag = NubDrag.None;
 		drag_snapshot = null;
+	}
+
+	private void ApplyClipped (IImageSurface surface, PointD from, PointD to)
+	{
+		ColorBgra[]? before = selection_mask is null ? null : surface.GetReadOnlyPixelData ().ToArray ();
+		Apply (surface, from, to, primary, secondary, reversed);
+		if (before is null) return;
+		Span<ColorBgra> pixels = surface.GetPixelData ();
+		for (int i = 0; i < pixels.Length; i++)
+			if (!selection_mask![i]) pixels[i] = before[i];
 	}
 
 	public static void Apply (IImageSurface surface, PointD from, PointD to,

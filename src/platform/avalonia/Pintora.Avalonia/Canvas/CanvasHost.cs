@@ -124,14 +124,15 @@ public sealed class CanvasHost : Control, IDisposable
 	private enum HistoryKind { Raster, Layer }
 	private readonly EditorHistory<HistoryKind> history_kinds = new ();
 	private readonly EditorHistory<HistoryKind> redo_history_kinds = new ();
-	private sealed record RasterSnapshot (AvaloniaLayer Layer, ColorBgra[] Pixels, ShapeTool.ShapeSnapshot? Shape, List<Annotation> Annotations);
+	private sealed record RasterSnapshot (AvaloniaLayer Layer, ColorBgra[] Pixels, ShapeTool.ShapeSnapshot? Shape, List<Annotation> Annotations, SelectionTool.State Selection);
 	private sealed record LayerSnapshot (AvaloniaLayer Layer, string Name, bool IsVisible, bool IsLocked, double Opacity, ColorBgra[] Pixels, List<Annotation> Annotations);
 	private sealed record LayerStackSnapshot (List<LayerSnapshot> Layers, int ActiveIndex, Pinta.Core.Size ImageSize);
-	private static RasterSnapshot CaptureRasterSnapshot (AvaloniaLayer layer, ShapeTool.ShapeSnapshot? shape)
-		=> new (layer, layer.Surface.GetReadOnlyPixelData ().ToArray (), shape, layer.Annotations.Items.ToList ());
+	private RasterSnapshot CaptureRasterSnapshot (AvaloniaLayer layer, ShapeTool.ShapeSnapshot? shape)
+		=> new (layer, layer.Surface.GetReadOnlyPixelData ().ToArray (), shape, layer.Annotations.Items.ToList (), selection_tool.CaptureState ());
 
-	private static void RestoreRasterSnapshot (RasterSnapshot snapshot)
+	private void RestoreRasterSnapshot (RasterSnapshot snapshot)
 	{
+		selection_tool.RestoreState (snapshot.Selection);
 		snapshot.Pixels.AsSpan ().CopyTo (snapshot.Layer.Surface.GetPixelData ());
 		snapshot.Layer.Annotations.Clear ();
 		snapshot.Layer.Annotations.AddRange (snapshot.Annotations);
@@ -628,6 +629,7 @@ public sealed class CanvasHost : Control, IDisposable
 		RecordLayerUndo ();
 		global::Avalonia.Size textSize = AnnotationRenderer.MeasureText (text, fontSize, fontFamily, fontWeight);
 		var annotation = new TextAnnotation {
+			Clip = CaptureSelectionClip (),
 			Bounds = new Rect (position.X, position.Y, textSize.Width, textSize.Height),
 			Text = text,
 			FontFamily = string.IsNullOrWhiteSpace (fontFamily) ? "Inter" : fontFamily,
@@ -776,8 +778,24 @@ public sealed class CanvasHost : Control, IDisposable
 			ToolOptionsChanged?.Invoke (this, EventArgs.Empty);
 		}
 	}
-	public ColorBgra BrushColor { get; set; } = ColorBgra.Black;
-	public ColorBgra SecondaryBrushColor { get; set; } = ColorBgra.White;
+	private ColorBgra brush_color = ColorBgra.Black;
+	private ColorBgra secondary_brush_color = ColorBgra.White;
+	public ColorBgra BrushColor {
+		get => brush_color;
+		set { if (brush_color == value) return; brush_color = value; OnBrushColorsChanged (); }
+	}
+	public ColorBgra SecondaryBrushColor {
+		get => secondary_brush_color;
+		set { if (secondary_brush_color == value) return; secondary_brush_color = value; OnBrushColorsChanged (); }
+	}
+	private void OnBrushColorsChanged ()
+	{
+		if (ActiveTool == CanvasTool.Shapes && shape_tool.UpdateColors (ActiveLayer, Surface as MemoryImageSurface,
+			brush_color, secondary_brush_color, BeginStroke, CommitStroke))
+			MarkCanvasChanged (true);
+		InvalidateVisual ();
+		ColorsChanged?.Invoke (this, EventArgs.Empty);
+	}
 	private readonly FillToolOptions fill_options = new ();
 	public int FillTolerance {
 		get => fill_options.Tolerance;
@@ -792,6 +810,9 @@ public sealed class CanvasHost : Control, IDisposable
 
 	public bool RecolorAt (PointD point, bool reverse)
 	{
+		int selectedX = (int) Math.Round (point.X), selectedY = (int) Math.Round (point.Y);
+		if ((uint) selectedX >= (uint) ImageSize.Width || (uint) selectedY >= (uint) ImageSize.Height ||
+			!IsPixelSelected (selectedX, selectedY)) return false;
 		IImageSurface? surface = Surface;
 		if (IsActiveLayerLocked || !RasterAlgorithms.TrySampleNearest (surface, point, out ColorBgra basis))
 			return false;
@@ -966,6 +987,12 @@ public sealed class CanvasHost : Control, IDisposable
 	public int ActiveLayerIndex => session.ActiveLayerIndex;
 	public event EventHandler? ActiveLayerChanged;
 	public RectangleI? Selection => selection_tool.Selection;
+	internal bool[]? CaptureSelectionMask () => selection_tool.CaptureMask (ImageSize);
+	internal SelectionTool.State CaptureSelectionState () => selection_tool.CaptureState ();
+	internal void RestoreSelectionState (SelectionTool.State state) { selection_tool.RestoreState (state); InvalidateVisual (); }
+	internal SelectionClip? CaptureSelectionClip () => CaptureSelectionMask () is { } mask
+		? new SelectionClip (mask, ImageSize.Width, ImageSize.Height) : null;
+	internal bool IsPixelSelected (int x, int y) => selection_tool.Contains (x, y, ImageSize.Width);
 
 	public bool SelectRectangle (PointI start, PointI end)
 	{
@@ -1031,6 +1058,10 @@ public sealed class CanvasHost : Control, IDisposable
 			return false;
 		using var selection = new MemoryImageSurface (area.Width, area.Height);
 		RasterBlitter.CopyRegion (Surface, area, selection);
+		Span<ColorBgra> copied = selection.GetPixelData ();
+		for (int y = 0; y < area.Height; y++)
+			for (int x = 0; x < area.Width; x++)
+				if (!IsPixelSelected (area.X + x, area.Y + y)) copied[y * area.Width + x] = ColorBgra.Zero;
 		using WriteableBitmap image = CreateBitmap (selection);
 		await clipboard.SetImageAsync (image, cancellationToken);
 		return true;
@@ -1105,15 +1136,15 @@ public sealed class CanvasHost : Control, IDisposable
 
 	public void SwapColors ()
 	{
-		(BrushColor, SecondaryBrushColor) = (SecondaryBrushColor, BrushColor);
-		ColorsChanged?.Invoke (this, EventArgs.Empty);
+		(brush_color, secondary_brush_color) = (secondary_brush_color, brush_color);
+		OnBrushColorsChanged ();
 	}
 
 	public void ResetColors ()
 	{
-		BrushColor = ColorBgra.Black;
-		SecondaryBrushColor = ColorBgra.White;
-		ColorsChanged?.Invoke (this, EventArgs.Empty);
+		brush_color = ColorBgra.Black;
+		secondary_brush_color = ColorBgra.White;
+		OnBrushColorsChanged ();
 	}
 
 	public void SetActiveLayerVisibility (bool isVisible)
@@ -1740,6 +1771,7 @@ public sealed class CanvasHost : Control, IDisposable
 				int.TryParse (node.Attribute ("pixel-size")?.Value, out int pixelSize);
 				double.TryParse (node.Attribute ("rotation")?.Value, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out double rotation);
 				Layers[layerIndex].Annotations.Add (new RegionEffectAnnotation {
+					Clip = ReadSelectionClip (node),
 					Bounds = effectBounds,
 					Rotation = rotation,
 					Effect = effectKind,
@@ -1752,6 +1784,7 @@ public sealed class CanvasHost : Control, IDisposable
 				double.TryParse (node.Attribute ("font-size")?.Value, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out double fontSize);
 				double.TryParse (node.Attribute ("rotation")?.Value, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out double rotation);
 				Layers[layerIndex].Annotations.Add (new TextAnnotation {
+					Clip = ReadSelectionClip (node),
 					Bounds = textBounds,
 					Rotation = rotation,
 					Text = node.Attribute ("text")?.Value ?? string.Empty,
@@ -2005,13 +2038,13 @@ public sealed class CanvasHost : Control, IDisposable
 				if (annotation is RegionEffectAnnotation effectAnnotation) {
 					hasMetadata = true;
 					string effectAttributes = $"type=\"effect\" layer=\"{layerIndex}\" effect=\"{effectAnnotation.Effect}\" x=\"{effectAnnotation.Bounds.X.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" y=\"{effectAnnotation.Bounds.Y.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" width=\"{effectAnnotation.Bounds.Width.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" height=\"{effectAnnotation.Bounds.Height.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" rotation=\"{effectAnnotation.Rotation.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" strength=\"{effectAnnotation.Strength.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" pixel-size=\"{effectAnnotation.PixelSize}\"";
-					xml.Append ($"<annotation {effectAttributes} />");
+					xml.Append ($"<annotation {effectAttributes}{WriteSelectionClip (annotation)} />");
 					continue;
 				}
 				if (annotation is TextAnnotation textAnnotation) {
 					hasMetadata = true;
 					string textAttributes = $"type=\"text\" layer=\"{layerIndex}\" text=\"{System.Security.SecurityElement.Escape (textAnnotation.Text)}\" font=\"{System.Security.SecurityElement.Escape (textAnnotation.FontFamily)}\" font-size=\"{textAnnotation.FontSize.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" color=\"{textAnnotation.Color.R:X2}{textAnnotation.Color.G:X2}{textAnnotation.Color.B:X2}{textAnnotation.Color.A:X2}\" bold=\"{(textAnnotation.FontWeight == FontWeight.Bold || textAnnotation.FontWeight == FontWeight.SemiBold ? "true" : "false")}\" underline=\"{textAnnotation.Underline.ToString ().ToLowerInvariant ()}\" x=\"{textAnnotation.Bounds.X.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" y=\"{textAnnotation.Bounds.Y.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" width=\"{textAnnotation.Bounds.Width.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" height=\"{textAnnotation.Bounds.Height.ToString (System.Globalization.CultureInfo.InvariantCulture)}\" rotation=\"{textAnnotation.Rotation.ToString (System.Globalization.CultureInfo.InvariantCulture)}\"";
-					xml.Append ($"<annotation {textAttributes} />");
+					xml.Append ($"<annotation {textAttributes}{WriteSelectionClip (annotation)} />");
 					continue;
 				}
 				string sourceId = annotation is ImageAnnotation image ? image.SourceId : ((CursorAnnotation) annotation).CursorId;
@@ -2038,6 +2071,19 @@ public sealed class CanvasHost : Control, IDisposable
 		using Stream stream = archive.CreateEntry (name).Open ();
 		using var writer = new StreamWriter (stream, Encoding.UTF8);
 		writer.Write (text);
+	}
+
+	private static string WriteSelectionClip (Annotation annotation)
+		=> annotation.Clip is { } clip ? $" clip-width=\"{clip.Width}\" clip-height=\"{clip.Height}\" clip=\"{clip.Encode ()}\"" : string.Empty;
+
+	private SelectionClip? ReadSelectionClip (XElement node)
+	{
+		if (node.Attribute ("clip") is not { } encoded) return null;
+		if (!int.TryParse (node.Attribute ("clip-width")?.Value, out int width) ||
+			!int.TryParse (node.Attribute ("clip-height")?.Value, out int height) ||
+			width <= 0 || height <= 0 || (long) width * height > Math.Max (100_000_000L, (long) ImageSize.Width * ImageSize.Height))
+			throw new InvalidDataException ("Invalid annotation selection clip dimensions.");
+		return SelectionClip.Decode (encoded.Value, width, height);
 	}
 
 	private static void WritePngEntry (ZipArchive archive, string name, IImageSurface surface)
@@ -2616,7 +2662,7 @@ public sealed class CanvasHost : Control, IDisposable
 
 	public bool FillAt (PointD point, ColorBgra color, bool global = false)
 	{
-		if (IsActiveLayerLocked || !fill_tool.Fill (Surface, point, color, FillTolerance, global, BeginStroke, CommitStroke))
+		if (IsActiveLayerLocked || !fill_tool.Fill (Surface, point, color, FillTolerance, global, BeginStroke, CommitStroke, CaptureSelectionMask ()))
 			return false;
 		MarkCanvasChanged (true);
 		return true;
@@ -2862,7 +2908,10 @@ public sealed class CanvasHost : Control, IDisposable
 		ColorBgra[] basePixels = surface.GetReadOnlyPixelData ().ToArray ();
 		ShapeRasterizer.Draw (surface, shape, from, to, outline, fill, style, width, dash, cornerRadius, antialias);
 		shape_tool.RegisterPaintedShape (ActiveLayer, basePixels, shape, from, to, outline, fill,
-			style, width, dash, cornerRadius, antialias);
+			style, width, dash, cornerRadius, antialias, CaptureSelectionClip ());
+		if (shape_tool.SelectedShape is { } state) {
+			state.Clip?.RestoreOutside (surface, basePixels);
+		}
 		MarkCanvasChanged (true);
 	}
 
@@ -2878,6 +2927,7 @@ public sealed class CanvasHost : Control, IDisposable
 			return;
 		BeginStroke ();
 		GradientTool.Apply (Surface, from, to, BrushColor, SecondaryBrushColor, GradientReversed);
+		CaptureSelectionClip ()?.RestoreOutside (Surface, undo_stack.Peek ().Pixels);
 		MarkCanvasChanged (true);
 	}
 

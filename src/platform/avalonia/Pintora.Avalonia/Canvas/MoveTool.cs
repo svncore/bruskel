@@ -16,6 +16,8 @@ internal sealed class MoveTool : ICanvasTool
 	private PointD start;
 	private bool active;
 	private PointI applied;
+	private SelectionTool.State? original;
+	private CanvasHost? host;
 
 	public MoveTool (CanvasHost.CanvasTool kind) => Kind = kind;
 
@@ -27,6 +29,8 @@ internal sealed class MoveTool : ICanvasTool
 		if (host.Selection is null || (MovesPixels && host.IsActiveLayerLocked))
 			return false;
 		start = context.Point;
+		original = host.CaptureSelectionState ();
+		this.host = host;
 		applied = new PointI (0, 0);
 		active = true;
 		return true;
@@ -39,7 +43,8 @@ internal sealed class MoveTool : ICanvasTool
 		var total = new PointI ((int) Math.Round (context.Point.X - start.X), (int) Math.Round (context.Point.Y - start.Y));
 		var step = new PointI (total.X - applied.X, total.Y - applied.Y);
 		if (step.X != 0 || step.Y != 0) {
-			context.Host.TranslateSelection (step);
+			context.Host.RestoreSelectionState (original!);
+			context.Host.TranslateSelection (total);
 			applied = total;
 		}
 		return true;
@@ -53,7 +58,7 @@ internal sealed class MoveTool : ICanvasTool
 		if (MovesPixels && applied is { X: not 0 } or { Y: not 0 }) {
 			// The outline already moved live; put it back and commit the pixel
 			// move from the original position in one stroke.
-			context.Host.TranslateSelection (new PointI (-applied.X, -applied.Y));
+			context.Host.RestoreSelectionState (original!);
 			context.Host.MoveSelection (applied);
 		}
 		return true;
@@ -64,6 +69,7 @@ internal sealed class MoveTool : ICanvasTool
 		if (!active)
 			return;
 		active = false;
+		if (original is not null) host?.RestoreSelectionState (original);
 		// A cancel with a live outline move restores the outline only; pixels
 		// are untouched because the commit happens on release.
 	}

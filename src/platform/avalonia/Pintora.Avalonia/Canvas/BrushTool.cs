@@ -10,6 +10,13 @@ internal sealed class BrushTool : ICanvasTool
 	public bool IsPencil => Kind == CanvasHost.CanvasTool.Pencil;
 	public bool IsEraser => Kind == CanvasHost.CanvasTool.Eraser;
 	private bool pointer_active;
+	private SelectionTool? selection;
+	internal void SetSelection (SelectionTool value) => selection = value;
+	private bool CanPaint (int x, int y, int width)
+		=> selection?.SelectionMask is { } mask ? mask[y * width + x]
+			: selection?.Selection is RectangleI rect
+				? x >= rect.X && y >= rect.Y && x < rect.X + rect.Width && y < rect.Y + rect.Height
+				: true;
 	private PointD previous_point;
 	private double spacing_accum;
 	private PointD? smooth_point;
@@ -152,7 +159,7 @@ internal sealed class BrushTool : ICanvasTool
 		int minY = (int) Math.Floor (centerY - radius), maxY = (int) Math.Ceiling (centerY + radius);
 		for (int y = minY; y <= maxY; y++)
 			for (int x = minX; x <= maxX; x++)
-				if ((uint) x < surface.Width && (uint) y < surface.Height) {
+				if ((uint) x < surface.Width && (uint) y < surface.Height && CanPaint (x, y, surface.Width)) {
 					ColorBgra painted = erase ? ColorBgra.Zero : color;
 					double radians = -tipAngle * Math.PI / 180;
 					double rotatedX = (x - centerX) * Math.Cos (radians) - (y - centerY) * Math.Sin (radians);
@@ -220,7 +227,7 @@ internal sealed class BrushTool : ICanvasTool
 		Span<ColorBgra> pixels = surface.GetPixelData ();
 		if (from == to) {
 			int x = (int) Math.Round (from.X), y = (int) Math.Round (from.Y);
-			if ((uint) x < surface.Width && (uint) y < surface.Height) {
+			if ((uint) x < surface.Width && (uint) y < surface.Height && CanPaint (x, y, surface.Width)) {
 				int index = y * surface.Width + x;
 				pixels[index] = RasterAlgorithms.CompositeOver (pixels[index], color);
 			}
@@ -229,7 +236,7 @@ internal sealed class BrushTool : ICanvasTool
 		foreach (PointD point in BrushAlgorithms.InterpolateLine (from, to)) {
 			int x = (int) Math.Round (point.X);
 			int y = (int) Math.Round (point.Y);
-			if ((uint) x < surface.Width && (uint) y < surface.Height) {
+			if ((uint) x < surface.Width && (uint) y < surface.Height && CanPaint (x, y, surface.Width)) {
 				int index = y * surface.Width + x;
 				pixels[index] = RasterAlgorithms.CompositeOver (pixels[index], color);
 			}

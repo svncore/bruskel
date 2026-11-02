@@ -20,6 +20,7 @@ internal sealed class CloneStampTool : ICanvasTool
 	private PointD anchor;
 	private PointD stroke_source;
 	private ColorBgra[]? stroke_snapshot;
+	private bool[]? selection_mask;
 
 	public bool HasSource => source is not null;
 
@@ -35,6 +36,7 @@ internal sealed class CloneStampTool : ICanvasTool
 		if (source is null || host.IsActiveLayerLocked || host.Surface is null)
 			return false;
 		host.BeginStroke ();
+		selection_mask = host.CaptureSelectionMask ();
 		pointer_active = true;
 		anchor = context.Point;
 		stroke_source = source.Value;
@@ -107,6 +109,7 @@ internal sealed class CloneStampTool : ICanvasTool
 						sampled = ColorBgra.FromBgra (sampled.B, sampled.G, sampled.R,
 							(byte) Math.Round (sampled.A * Math.Clamp (opacity, 0, 1)));
 					int index = ty * surface.Width + tx;
+					if (selection_mask is not null && !selection_mask[index]) continue;
 					pixels[index] = RasterAlgorithms.CompositeOver (pixels[index], sampled);
 				}
 			}

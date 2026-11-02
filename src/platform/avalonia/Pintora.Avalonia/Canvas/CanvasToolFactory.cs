@@ -66,6 +66,9 @@ internal sealed class CanvasToolSet
 	public CanvasToolSet (ICanvasTool[] toolInstances)
 	{
 		tools = toolInstances.ToDictionary (tool => tool.Kind);
+		if (tools[CanvasHost.CanvasTool.Selection] is SelectionTool brushSelection)
+			foreach (BrushTool brush in toolInstances.OfType<BrushTool> ())
+				brush.SetSelection (brushSelection);
 		if (tools.TryGetValue (CanvasHost.CanvasTool.Selection, out ICanvasTool? selection)) {
 			tools[CanvasHost.CanvasTool.EllipseSelect] = selection;
 			tools[CanvasHost.CanvasTool.LassoSelect] = selection;

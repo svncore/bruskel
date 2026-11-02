@@ -49,6 +49,7 @@ internal sealed class EffectTool : ICanvasTool
 			return false;
 		}
 		var annotation = new RegionEffectAnnotation {
+			Clip = context.Host.CaptureSelectionClip (),
 			Bounds = bounds,
 			Effect = Kind switch {
 				CanvasHost.CanvasTool.Blur => RegionEffectKind.Blur,
