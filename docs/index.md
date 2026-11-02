@@ -12,7 +12,7 @@ and direct keyboard shortcuts.
 
 ## Current alpha
 
-The current Avalonia alpha is **0.0.4-alpha**. It includes:
+The current Avalonia alpha is **0.0.5-alpha**. It includes:
 
 - document tabs with thumbnails and drag-to-reorder;
 - a compact save/discard dialog for unsaved documents;

@@ -7,6 +7,18 @@ baseline; later entries track Bruskel-specific work.
 
 No changes yet.
 
+## 0.0.5-alpha
+
+### Added
+
+- Bruskel project and namespace rename across the solution, platform projects, tests, installers, and release assets.
+- Initial Mac App Store sandbox entitlements and documentation for the future signed `.pkg` pipeline.
+
+### Fixed
+
+- macOS bundle metadata now launches the `Bruskel` executable and uses the Bruskel icon.
+- Public documentation no longer ships migration plans, obsolete screenshots, or external reference-workflow material.
+
 ## 0.0.4-alpha
 
 ### Added

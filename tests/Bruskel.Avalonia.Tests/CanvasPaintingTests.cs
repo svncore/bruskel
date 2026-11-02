@@ -18,7 +18,7 @@ internal sealed class CanvasPaintingTests
 		string? version = typeof (CanvasHost).Assembly
 			.GetCustomAttribute<AssemblyInformationalVersionAttribute> ()?.InformationalVersion;
 
-		Assert.That (version, Does.StartWith ("0.0.4-alpha"));
+		Assert.That (version, Does.StartWith ("0.0.5-alpha"));
 	}
 
 	[Test]

@@ -3,10 +3,10 @@
     <OutputType>WinExe</OutputType>
     <AssemblyName>Bruskel</AssemblyName>
     <RootNamespace>Bruskel.Avalonia</RootNamespace>
-    <Version>0.0.4-alpha</Version>
-    <AssemblyVersion>0.0.4.0</AssemblyVersion>
-    <FileVersion>0.0.4.0</FileVersion>
-    <InformationalVersion>0.0.4-alpha</InformationalVersion>
+    <Version>0.0.5-alpha</Version>
+    <AssemblyVersion>0.0.5.0</AssemblyVersion>
+    <FileVersion>0.0.5.0</FileVersion>
+    <InformationalVersion>0.0.5-alpha</InformationalVersion>
     <Authors>Bruskel contributors</Authors>
     <Product>Bruskel Raster Editor</Product>
     <ApplicationIcon>Bruskel.ico</ApplicationIcon>
