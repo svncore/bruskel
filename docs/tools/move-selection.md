@@ -1,6 +1,5 @@
 # Move Selection
 
-**Paint.NET:** [Move Tools](https://mail.getpaint.net/doc/latest/MoveTools.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

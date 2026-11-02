@@ -1,6 +1,5 @@
 # Line/Curve
 
-**Paint.NET:** [Line/Curve Tool](https://mail.getpaint.net/doc/latest/LineCurveTool.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

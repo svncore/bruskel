@@ -1,6 +1,5 @@
 # Ellipse Select
 
-**Paint.NET:** [Ellipse Selection Tool](https://mail.getpaint.net/doc/latest/EllipseSelectionTool.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

@@ -1,6 +1,5 @@
 # Clone Stamp
 
-**Paint.NET:** [Clone Stamp Tool](https://mail.getpaint.net/doc/latest/CloneStampTool.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

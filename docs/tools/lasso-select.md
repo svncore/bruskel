@@ -1,6 +1,5 @@
 # Lasso Select
 
-**Paint.NET:** [Lasso Selection Tool](https://mail.getpaint.net/doc/latest/LassoSelectionTool.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

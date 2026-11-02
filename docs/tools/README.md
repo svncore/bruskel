@@ -1,10 +1,9 @@
-# Bruskel tools: Paint.NET reference
+# Bruskel tools
 
-These pages document every tool listed in the official [Paint.NET Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html), then compare it with current Core, GTK, and Avalonia implementations in Bruskel.
+These pages document the Bruskel tools, then compare it with current Core, GTK, and Avalonia implementations in Bruskel.
 
 Each page covers the shortcut, appearance, options, interaction details, current Bruskel behavior, known gaps, and practical improvements. Implementation paths are included as an engineering reference.
 
-![Paint.NET Tools Window](https://mail.getpaint.net/doc/latest/images/tools/toolswindow.png)
 
 ## Selection
 
@@ -39,7 +38,7 @@ Each page covers the shortcut, appearance, options, interaction details, current
 
 ## Shared UI behavior
 
-Paint.NET uses `F5` to show or hide Tools and `Ctrl+Shift+F5` to reset its position and size. Tooltips expose shortcuts. `Space` + drag temporarily pans from any tool. GTK and Avalonia should expose the same behavior.
+reference editor uses `F5` to show or hide Tools and `Ctrl+Shift+F5` to reset its position and size. Tooltips expose shortcuts. `Space` + drag temporarily pans from any tool. GTK and Avalonia should expose the same behavior.
 
 ## Main Bruskel gaps
 

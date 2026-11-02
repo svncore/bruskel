@@ -1,6 +1,5 @@
 # Color Picker
 
-**Paint.NET:** [Color Picker Tool](https://mail.getpaint.net/doc/latest/ColorPickerTool.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

@@ -23,7 +23,7 @@ No changes yet.
 - Persistent clipping masks for editable text and effects in ORA annotation metadata.
 - Zoom anchoring after panning and rectangle zoom gestures.
 - Active shape colors now follow the palette until the shape is finished.
-- Paint.NET-style Magic Wand modifiers, shape rotation units, footer alignment, and tool icons.
+- reference-style Magic Wand modifiers, shape rotation units, footer alignment, and tool icons.
 
 ### Known limitations
 
@@ -70,4 +70,4 @@ First alpha preview of the Bruskel desktop editor.
 ## 0.0.0 — Fork baseline
 
 - Started from the Bruskel raster graphics editor codebase as the foundation for Bruskel.
-- Preserved the original Bruskel and Paint.NET license notices and icon attributions.
+- Preserved the original Bruskel and reference editor license notices and icon attributions.

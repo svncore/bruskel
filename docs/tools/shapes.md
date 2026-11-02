@@ -1,6 +1,5 @@
 # Shapes
 
-**Paint.NET:** [Shapes Tool](https://mail.getpaint.net/doc/latest/ShapesTool.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

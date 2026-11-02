@@ -1,10 +1,9 @@
 # Gradient
 
-**Paint.NET:** [Gradient Tool](https://mail.getpaint.net/doc/latest/GradientTool.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 
-Drag a line from the start to the end of the gradient. Paint.NET supports seven shapes, color and transparency modes, and repeat modes. A transparent gradient edits only alpha and can blend two layers. Control nubs remain editable after the drag; right-clicking a nub swaps Primary and Secondary. Commit and undo should be one operation.
+Drag a line from the start to the end of the gradient. reference editor supports seven shapes, color and transparency modes, and repeat modes. A transparent gradient edits only alpha and can blend two layers. Control nubs remain editable after the drag; right-clicking a nub swaps Primary and Secondary. Commit and undo should be one operation.
 
 ## Shortcut and appearance
 

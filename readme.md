@@ -57,7 +57,7 @@ your operating system, steps to reproduce it, and a sample file only if it is sa
 ## License and credits
 
 Bruskel-specific contributions are licensed under MIT; see [`LICENSE.md`](LICENSE.md). Upstream
-Bruskel and Paint.NET code retain their original notices in
+Bruskel and reference editor code retain their original notices in
 [`third-party/bruskel/LICENSE.md`](third-party/bruskel/LICENSE.md) and
-[`third-party/paint.net/LICENSE.md`](third-party/paint.net/LICENSE.md). Icon sources and attributions are listed in
+[`third-party/reference editor/LICENSE.md`](third-party/reference editor/LICENSE.md). Icon sources and attributions are listed in
 [`src/core/Bruskel.Resources/icons/bruskel-icons.md`](src/core/Bruskel.Resources/icons/bruskel-icons.md).

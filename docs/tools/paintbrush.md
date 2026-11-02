@@ -1,6 +1,5 @@
 # Paintbrush
 
-**Paint.NET:** [Paintbrush Tool](https://mail.getpaint.net/doc/latest/PaintbrushTool.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

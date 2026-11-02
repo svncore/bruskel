@@ -1,6 +1,5 @@
 # Zoom
 
-**Paint.NET:** [View Tools](https://mail.getpaint.net/doc/latest/ViewTools.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

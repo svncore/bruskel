@@ -1,6 +1,5 @@
 # Pencil
 
-**Paint.NET:** [Pencil Tool](https://mail.getpaint.net/doc/latest/PencilTool.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

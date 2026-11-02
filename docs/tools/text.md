@@ -1,6 +1,5 @@
 # Text
 
-**Paint.NET:** [Text Tool](https://mail.getpaint.net/doc/latest/TextTool.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

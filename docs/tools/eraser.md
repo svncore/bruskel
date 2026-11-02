@@ -1,6 +1,5 @@
 # Eraser
 
-**Paint.NET:** [Eraser Tool](https://mail.getpaint.net/doc/latest/EraserTool.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

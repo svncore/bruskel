@@ -1,6 +1,5 @@
 # Recolor
 
-**Paint.NET:** [Recolor Tool](https://mail.getpaint.net/doc/latest/RecolorTool.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

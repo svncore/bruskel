@@ -1,6 +1,5 @@
 # Magic Wand
 
-**Paint.NET:** [Magic Wand Tool](https://mail.getpaint.net/doc/latest/MagicWand.html) · [Tools Window](https://mail.getpaint.net/doc/latest/ToolsWindow.html)
 
 ## Behavior
 

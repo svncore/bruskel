@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Bruskel
-description: A cross-platform raster editor inspired by Paint.NET.
+description: A cross-platform raster editor inspired by reference editor.
 ---
 
 # Bruskel
 
-Bruskel is a cross-platform raster editor focused on a familiar Paint.NET-style
+Bruskel is a cross-platform raster editor focused on a familiar reference-style
 workflow: a canvas in the center, dockable tool windows, document tabs, layers,
 and direct keyboard shortcuts.
 
@@ -14,7 +14,7 @@ and direct keyboard shortcuts.
 
 Bruskel 0.0.3-alpha with a document open in the Avalonia interface. This
 first screenshot shows the full-window canvas, document thumbnail tab, tool
-palette, color controls, and layers panel in the Paint.NET-inspired layout.
+palette, color controls, and layers panel in the reference-inspired layout.
 
 ## Current alpha
 
@@ -28,11 +28,11 @@ The current Avalonia alpha is **0.0.4-alpha**. It includes:
 
 ### Tool architecture decisions
 
-The `Shapes` tool intentionally follows the established Paint.NET layout: one
+The `Shapes` tool intentionally follows the established reference editor layout: one
 Shapes tool exposes the supported shape kinds and their shared options. This is
 a fixed product decision; do not split it into separate toolbox buttons.
 
-Avalonia now also exposes a dedicated **Pan** tool with Paint.NET-style viewport
+Avalonia now also exposes a dedicated **Pan** tool with reference-style viewport
 dragging. Middle-button dragging and temporary Space/H dragging remain available.
 
 Brush parity is being completed incrementally. Precise (subpixel) size, optional
@@ -58,8 +58,7 @@ dotnet build src/platform/avalonia/Bruskel.Avalonia/Bruskel.Avalonia.csproj -c R
 dotnet test tests/Bruskel.Avalonia.Tests/Bruskel.Avalonia.Tests.csproj --no-restore -m:1
 ```
 
-See the [Paint.NET workflow notes](paint-net/README.md), [tool reference](tools/README.md),
-and [algorithm migration inventory](algorithm-migration-inventory.md) for more detail.
+See the [tool reference](tools/README.md) for more detail.
 
 ## Project status
 
