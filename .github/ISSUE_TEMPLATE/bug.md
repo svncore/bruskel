@@ -17,4 +17,4 @@ Steps to reproduce the issue.
 If applicable, add a screenshot or attach an example file that demonstrates the issue.
 
 **Version**
-Please include your operating system (e.g. Ubuntu 22.04) and which version of Pinta (e.g. 2.1) you are using.
+Please include your operating system (e.g. Ubuntu 22.04) and which version of Bruskel you are using.
