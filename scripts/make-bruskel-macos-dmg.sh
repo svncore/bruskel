@@ -12,7 +12,7 @@ ditto "$APP" "$STAGE/Bruskel/Bruskel.app"
 ln -s /Applications "$STAGE/Bruskel/Applications"
 cp LICENSE.md CHANGELOG.md \
     src/core/Bruskel.Resources/icons/bruskel-icons.md "$STAGE/Bruskel/"
-cp third-party/bruskel/LICENSE.md "$STAGE/Bruskel/LICENSE-BRUSKEL.md"
+cp third-party/pinta/LICENSE.md "$STAGE/Bruskel/LICENSE-BRUSKEL-LEGACY.md"
 cp third-party/paint.net/LICENSE.md "$STAGE/Bruskel/LICENSE-PAINT.NET.md"
 hdiutil create -quiet -volname "Bruskel" -srcfolder "$STAGE/Bruskel" -fs HFS+ -format UDZO "$OUTPUT"
 hdiutil verify -quiet "$OUTPUT"

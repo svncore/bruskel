@@ -1,4 +1,4 @@
-name: Pintora Avalonia
+name: Bruskel Avalonia
 
 on:
   push:
@@ -38,18 +38,18 @@ jobs:
           restore-keys: nuget-${{ runner.os }}-
 
       - name: Restore
-        run: dotnet restore tests/Pintora.Avalonia.Tests/Pintora.Avalonia.Tests.csproj
+        run: dotnet restore tests/Bruskel.Avalonia.Tests/Bruskel.Avalonia.Tests.csproj
 
       - name: Build
-        run: dotnet build src/platform/avalonia/Pintora.Avalonia/Pintora.Avalonia.csproj --configuration Release --no-restore -warnaserror
+        run: dotnet build src/platform/avalonia/Bruskel.Avalonia/Bruskel.Avalonia.csproj --configuration Release --no-restore -warnaserror
 
       - name: Build dependency boundary targets
         run: |
-          dotnet build src/graphics/Pinta.Graphics.Skia/Pinta.Graphics.Skia.csproj --configuration Release --no-restore -warnaserror
-          dotnet build src/codecs/Pinta.Codecs/Pinta.Codecs.csproj --configuration Release --no-restore -warnaserror
+          dotnet build src/graphics/Bruskel.Graphics.Skia/Bruskel.Graphics.Skia.csproj --configuration Release --no-restore -warnaserror
+          dotnet build src/codecs/Bruskel.Codecs/Bruskel.Codecs.csproj --configuration Release --no-restore -warnaserror
 
       - name: Test
-        run: dotnet test tests/Pintora.Avalonia.Tests/Pintora.Avalonia.Tests.csproj --configuration Release --no-restore -p:BuildInParallel=false -m:1
+        run: dotnet test tests/Bruskel.Avalonia.Tests/Bruskel.Avalonia.Tests.csproj --configuration Release --no-restore -p:BuildInParallel=false -m:1
 
   package:
     name: Package (${{ matrix.rid }})
@@ -81,33 +81,33 @@ jobs:
         id: version
         shell: bash
         run: |
-          app_version="$(sed -n 's/^[[:space:]]*<Version>\(.*\)<\/Version>[[:space:]]*$/\1/p' src/platform/avalonia/Pintora.Avalonia/Pintora.Avalonia.csproj | head -n 1)"
+          app_version="$(sed -n 's/^[[:space:]]*<Version>\(.*\)<\/Version>[[:space:]]*$/\1/p' src/platform/avalonia/Bruskel.Avalonia/Bruskel.Avalonia.csproj | head -n 1)"
           echo "app-version=$app_version" >> "$GITHUB_OUTPUT"
           echo "msi-version=${app_version%%-*}" >> "$GITHUB_OUTPUT"
           deb_version="$(printf '%s' "$app_version" | sed 's/-/~/')"
           echo "deb-version=$deb_version" >> "$GITHUB_OUTPUT"
 
       - name: Publish self-contained app
-        run: dotnet publish src/platform/avalonia/Pintora.Avalonia/Pintora.Avalonia.csproj --configuration Release --runtime ${{ matrix.rid }} --self-contained true --output publish/${{ matrix.rid }}
+        run: dotnet publish src/platform/avalonia/Bruskel.Avalonia/Bruskel.Avalonia.csproj --configuration Release --runtime ${{ matrix.rid }} --self-contained true --output publish/${{ matrix.rid }}
 
       - name: Include licenses and release documentation
         shell: bash
         run: |
-          cp LICENSE.md src/platform/avalonia/Pintora.Avalonia/README.md CHANGELOG.md publish/${{ matrix.rid }}/
-          cp third-party/pinta/LICENSE.md publish/${{ matrix.rid }}/LICENSE-PINTA.md
+          cp LICENSE.md src/platform/avalonia/Bruskel.Avalonia/README.md CHANGELOG.md publish/${{ matrix.rid }}/
+          cp third-party/pinta/LICENSE.md publish/${{ matrix.rid }}/LICENSE-BRUSKEL-LEGACY.md
           cp third-party/paint.net/LICENSE.md publish/${{ matrix.rid }}/LICENSE-PAINT.NET.md
-          cp src/core/Pinta.Resources/icons/pinta-icons.md publish/${{ matrix.rid }}/THIRD-PARTY-NOTICES-icons.md
+          cp src/core/Bruskel.Resources/icons/bruskel-icons.md publish/${{ matrix.rid }}/THIRD-PARTY-NOTICES-icons.md
 
       - name: Archive portable app
         if: startsWith(matrix.rid, 'win-')
         shell: pwsh
-        run: Compress-Archive -Path publish/${{ matrix.rid }}/* -DestinationPath Pintora-${{ matrix.rid }}.zip
+        run: Compress-Archive -Path publish/${{ matrix.rid }}/* -DestinationPath Bruskel-${{ matrix.rid }}.zip
 
       - name: Archive portable app
         if: startsWith(matrix.rid, 'linux-') || startsWith(matrix.rid, 'osx-')
         shell: bash
         run: |
-          tar -czf Pintora-${{ matrix.rid }}.tar.gz -C publish/${{ matrix.rid }} .
+          tar -czf Bruskel-${{ matrix.rid }}.tar.gz -C publish/${{ matrix.rid }} .
 
       - name: Install WiX Toolset
         if: matrix.rid == 'win-x64'
@@ -121,8 +121,8 @@ jobs:
         shell: pwsh
         run: >
           wix build installer/avalonia/Package.wxs
-          -d PintoraVersion=${{ steps.version.outputs.msi-version }}
-          -arch x64 -out Pintora-win-x64.msi
+          -d BruskelVersion=${{ steps.version.outputs.msi-version }}
+          -arch x64 -out Bruskel-win-x64.msi
 
       - name: Download appimagetool
         if: matrix.rid == 'linux-x64'
@@ -137,45 +137,45 @@ jobs:
         if: matrix.rid == 'linux-x64'
         env:
           APPIMAGETOOL: ${{ runner.temp }}/appimagetool
-        run: bash scripts/make-pintora-appimage.sh publish/linux-x64 dist
+        run: bash scripts/make-bruskel-appimage.sh publish/linux-x64 dist
 
       - name: Build Linux deb package
         if: matrix.rid == 'linux-x64'
-        run: bash scripts/make-pintora-linux-deb.sh publish/linux-x64 '${{ steps.version.outputs.deb-version }}' dist
+        run: bash scripts/make-bruskel-linux-deb.sh publish/linux-x64 '${{ steps.version.outputs.deb-version }}' dist
 
       - name: Bundle macOS app and DMG
         if: startsWith(matrix.rid, 'osx-')
         shell: bash
         run: |
-          app_dir="Pintora-${{ matrix.rid }}/Pintora.app/Contents"
+          app_dir="Bruskel-${{ matrix.rid }}/Bruskel.app/Contents"
           mkdir -p "$app_dir/MacOS" "$app_dir/Resources"
           cp -R "publish/${{ matrix.rid }}/." "$app_dir/MacOS/"
-          cp installer/macos/pinta.icns "$app_dir/Resources/Pintora.icns"
+          cp installer/macos/bruskel.icns "$app_dir/Resources/Bruskel.icns"
           cat > "$app_dir/Info.plist" <<PLIST
           <?xml version="1.0" encoding="UTF-8"?>
           <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
           <plist version="1.0"><dict>
-            <key>CFBundleName</key><string>Pintora</string>
-            <key>CFBundleDisplayName</key><string>Pintora</string>
-            <key>CFBundleIdentifier</key><string>org.pintora.editor</string>
+            <key>CFBundleName</key><string>Bruskel</string>
+            <key>CFBundleDisplayName</key><string>Bruskel</string>
+            <key>CFBundleIdentifier</key><string>org.bruskel.editor</string>
             <key>CFBundleVersion</key><string>${{ steps.version.outputs.msi-version }}</string>
             <key>CFBundleShortVersionString</key><string>${{ steps.version.outputs.app-version }}</string>
             <key>CFBundlePackageType</key><string>APPL</string>
-            <key>CFBundleExecutable</key><string>Pintora</string>
-            <key>CFBundleIconFile</key><string>Pintora.icns</string>
+            <key>CFBundleExecutable</key><string>Bruskel</string>
+            <key>CFBundleIconFile</key><string>Bruskel.icns</string>
           </dict></plist>
           PLIST
-          chmod +x "$app_dir/MacOS/Pintora"
-          bash scripts/make-pintora-macos-dmg.sh "Pintora-${{ matrix.rid }}/Pintora.app" "Pintora-${{ matrix.rid }}.dmg"
+          chmod +x "$app_dir/MacOS/Bruskel"
+          bash scripts/make-bruskel-macos-dmg.sh "Bruskel-${{ matrix.rid }}/Bruskel.app" "Bruskel-${{ matrix.rid }}.dmg"
 
       - name: Upload package artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Pintora-${{ matrix.rid }}
+          name: Bruskel-${{ matrix.rid }}
           path: |
-            Pintora-${{ matrix.rid }}.*
-            dist/Pintora-*.AppImage
-            dist/pintora_*.deb
+            Bruskel-${{ matrix.rid }}.*
+            dist/Bruskel-*.AppImage
+            dist/bruskel_*.deb
           if-no-files-found: error
           retention-days: 7
 
@@ -194,7 +194,7 @@ jobs:
         id: version
         shell: bash
         run: |
-          version="$(sed -n 's/^[[:space:]]*<Version>\(.*\)<\/Version>[[:space:]]*$/\1/p' src/platform/avalonia/Pintora.Avalonia/Pintora.Avalonia.csproj | head -n 1)"
+          version="$(sed -n 's/^[[:space:]]*<Version>\(.*\)<\/Version>[[:space:]]*$/\1/p' src/platform/avalonia/Bruskel.Avalonia/Bruskel.Avalonia.csproj | head -n 1)"
           echo "app-version=$version" >> "$GITHUB_OUTPUT"
 
       - name: Extract release notes for this version
@@ -212,7 +212,7 @@ jobs:
       - name: Download platform packages
         uses: actions/download-artifact@v4
         with:
-          pattern: Pintora-*
+          pattern: Bruskel-*
           path: release-assets
           merge-multiple: true
 
